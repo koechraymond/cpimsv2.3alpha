@@ -189,28 +189,30 @@ def get_ovc_hiv_status(request,org_ids):
     hiv_status['suppresed'] = supression[0]
     hiv_status['not_suppresed'] = supression[1]
 
-    #rates %
-    x = float(hiv_status['on_art'])/float(hiv_status['ovc_HSTP']) * 100
-    hiv_status['on_art_rate'] ="%.2f" % x
+    # rates %
+    ovc_pos = hiv_status['ovc_HSTP'] if hiv_status['ovc_HSTP'] else 0
+    ovc_art = hiv_status['on_art'] if hiv_status['on_art'] else 0
+    x = float(ovc_art) / float(ovc_pos) * 100  if ovc_pos > 1 else 0
+    hiv_status['on_art_rate'] = "%.2f" % x
 
-    x = float(hiv_status['not_on_art']) / float(hiv_status['ovc_HSTP']) * 100
+    x = float(hiv_status['not_on_art']) / float(ovc_pos) * 100 if ovc_pos > 1 else 0
     hiv_status['not_on_art_rate'] = "%.2f" % x
 
-    x = float(supression[0]) / float(hiv_status['on_art']) * 100
+    x = float(supression[0]) / float(ovc_art) * 100 if ovc_art > 1 else 0
     hiv_status['suppresed_rate'] = "%.2f" % x
 
-    x = float(supression[1]) / float(hiv_status['on_art']) * 100
+    x = float(supression[1]) / float(ovc_art) * 100 if ovc_art > 1 else 0
     hiv_status['not_suppresed_rate'] = "%.2f" % x
 
-    ovc_total = hiv_status['ovc_HSTP']+ hiv_status['ovc_HSTN'] + hiv_status['ovc_unknown_count']
+    ovc_total = ovc_pos + hiv_status['ovc_HSTN'] + hiv_status['ovc_unknown_count']
 
-    x = float(hiv_status['ovc_HSTP']) / float(ovc_total) * 100
+    x = float(hiv_status['ovc_HSTP']) / float(ovc_total) * 100 if ovc_total > 1 else 0
     hiv_status['ovc_HSTP_rate'] = "%.2f" % x
 
-    x = float(hiv_status['ovc_HSTN']) / float(ovc_total) * 100
+    x = float(hiv_status['ovc_HSTN']) / float(ovc_total) * 100 if ovc_total > 1 else 0
     hiv_status['ovc_HSTN_rate'] = "%.2f" % x
 
-    x = float(hiv_status['ovc_unknown_count']) / float(ovc_total) * 100
+    x = float(hiv_status['ovc_unknown_count']) / float(ovc_total) * 100 if ovc_total > 1 else 0
     hiv_status['ovc_unknown_count_rate'] = "%.2f" % x
 
     hiv_status_list_envelop.append(hiv_status)
