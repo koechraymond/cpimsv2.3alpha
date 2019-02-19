@@ -225,13 +225,16 @@ def get_ovc_domain_hiv_status(request,org_ids):
 
     hiv_domain_status = {}
     hiv_domain_status_list_envelop = []
-    cbos=""
+    cbos = ""
+    print 'ORG IDS', org_ids
     try:
-        datas=[]
+        datas = []
         # HIVSTAT
-        if len(org_ids)==1:
-            if org_ids[0]==0:
-                cbos="(select child_cbo_id from ovc_registration)"
+        if len(org_ids) == 1:
+            if org_ids[0] == 0:
+                cbos = "(select child_cbo_id from ovc_registration)"
+            else:
+                cbos = "(%s)" % (org_ids[0])
         else:
             cbos = ','.join(str(v) for v in org_ids)
             cbos= '{}{}{}'.format('(',cbos,')')
