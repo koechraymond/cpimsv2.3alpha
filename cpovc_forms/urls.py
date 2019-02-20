@@ -227,4 +227,7 @@ urlpatterns = patterns(
         'edit_bursary', name='edit_bursary'),
     url(r'^bursary/form/(?P<id>[0-9A-Za-z_\-{32}\Z]+)/$',
         'form_bursary', name='form_bursary'),
+    # OVC Care - CPARA Form
+    url(r'^cpara/new/(?P<id>\d+)/$',
+        'new_cpara', name='new_cpara'),
 )
