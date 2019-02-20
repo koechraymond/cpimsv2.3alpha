@@ -2288,6 +2288,38 @@ class OVCCsiForm(forms.Form):
                }))
 
 
+class Wellbeing(forms.Form):
+    ## Demographics
+    olmis_assessment_domain = forms.ChoiceField(choices=olmis_assessment_domain_list,
+                                                initial='0',
+                                                widget=forms.Select(
+                                                    attrs={'class': 'form-control',
+                                                           'id': 'olmis_assessment_domain'})
+                                                )
+
+    ##Domain Stable
+
+    ##Domain Safe
+
+    ##Schooled
+
+    ##Safe
+
+    ##Goals
+
+    ##Well-being for Adolescents aged 10-17
+
+    ##DOMAIN:SCHOOLED
+
+    ##DOMAIN: STABLE
+
+    ##DOMAIN:HEALTH
+
+    ##DOMAIN: SAFE
+
+    ##GOALS
+
+
 class OVCF1AForm(forms.Form):
     olmis_assessment_domain = forms.ChoiceField(choices=olmis_assessment_domain_list,
                                                 initial='0',
