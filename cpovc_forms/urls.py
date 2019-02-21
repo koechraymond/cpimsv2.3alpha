@@ -227,8 +227,11 @@ urlpatterns = patterns(
         'edit_bursary', name='edit_bursary'),
     url(r'^bursary/form/(?P<id>[0-9A-Za-z_\-{32}\Z]+)/$',
         'form_bursary', name='form_bursary'),
-    #wellbeing
+    #wellbeing Adult and Child
     url(r'^wellbeing/new/(?P<id>\d+)/$',
-        'new_wellbeing', name='new_wellbeing')
+        'new_wellbeing', name='new_wellbeing'),
+    #wellbeing Adolescent
+    url(r'^wellbeingadolescent/new/(?P<id>\d+)/$',
+        'new_wellbeingadolescent', name='new_wellbeingadolescent')
 
 )
