@@ -28,6 +28,78 @@
   color: #0057e7;
 }
 
+
+
+
+
+
+
+
+
+/*  bhoechie tab */
+div.bhoechie-tab-menu{
+  padding-right: 0;
+  padding-left: 0;
+  padding-bottom: 0;
+}
+div.bhoechie-tab-menu div.list-group{
+  margin-bottom: 0;
+}
+div.bhoechie-tab-menu div.list-group>a{
+  margin-bottom: 0;
+}
+div.bhoechie-tab-menu div.list-group>a .glyphicon,
+div.bhoechie-tab-menu div.list-group>a .fa {
+  color: #00acac;
+}
+div.bhoechie-tab-menu div.list-group>a:first-child{
+  border-top-right-radius: 0;
+  -moz-border-top-right-radius: 0;
+}
+div.bhoechie-tab-menu div.list-group>a:last-child{
+  border-bottom-right-radius: 0;
+  -moz-border-bottom-right-radius: 0;
+}
+div.bhoechie-tab-menu div.list-group>a.active,
+div.bhoechie-tab-menu div.list-group>a.active .glyphicon,
+div.bhoechie-tab-menu div.list-group>a.active .fa{
+  background-color: #00acac;
+  background-image: #00acac;
+  color: #ffffff;
+}
+div.bhoechie-tab-menu div.list-group>a.active:after{
+  content: '';
+  position: absolute;
+  left: 100%;
+  top: 50%;
+  margin-top: -13px;
+  border-left: 0;
+  border-bottom: 13px solid transparent;
+  border-top: 13px solid transparent;
+  border-left: 10px solid #00acac;
+}
+
+div.bhoechie-tab-content{
+  background-color: #ffffff;
+  /* border: 1px solid #eeeeee; */
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+div.bhoechie-tab div.bhoechie-tab-content:not(.active){
+  display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
 </style>
 {% endblock %}
 
@@ -117,18 +189,49 @@
 
                         <!-- begin wizard step-1 -->
                         <div class="wizard-step-1">
-                            <div class="panel-body">
-                                <div class="form-group">
+
+
+
+
+
+
+
+
+
+
+
+
+                            <div class="row">
+        <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab-container">
+            <div class="col-lg-3 col-md-3 col-sm-3 col-xs-3 bhoechie-tab-menu">
+              <div class="list-group">
+                <a href="#" class="list-group-item active text-center">
+                  <h4 class="glyphicon glyphicon-file"></h4><br/>Demographics (Static)
+                </a>
+                <a href="#" class="list-group-item text-center">
+                  <h4 class="glyphicon glyphicon-file"></h4><br/>Demographics (Provide)
+                </a>
+
+              </div>
+            </div>
+            <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9 bhoechie-tab">
+                <!-- flight section -->
+                <div class="bhoechie-tab-content active">
+                    <center>
+                      <h3 style="margin-top: 0;color:#55518a" >Demographic(Static)</h3>
+
+
+                        <div class="form-group">
                                         <table class="table table-bordered">
                                                 <thead>
-    
+
                                                 </thead>
                                                 <tbody>
                                                 <tr>
                                                     <td>
                                                         Basic Information
                                                     </td>
-    
+
                                                     <td>
                                                         Name:<label style="display: block" for="care-name">Florence  Omusi</label>
                                                         Phone:<label style="display: block" for="care-name">0713489990</label>
@@ -145,7 +248,7 @@
                                                     <td>
                                                         Location
                                                     </td>
-    
+
                                                     <td colspan="2">
                                                         <table class="table table-bordered">
                                                             <th>County</th>
@@ -160,9 +263,9 @@
                                                             </tbody>
                                                         </table>
                                                     </td>
-    
+
                                                 </tr>
-    
+
                                                 </tbody>
                                             </table>
                                     <div>
@@ -214,21 +317,41 @@
                                               </tr>
                                             </tbody>
                                           </table>
-                                          
+
                                     </div>
-                                    <div class="card">
+
+
+
+
+
+
+
+
+
+
+
+                                </div>
+
+
+                    </center>
+                </div>
+                <!-- train section -->
+                <div class="bhoechie-tab-content">
+                      <h3 style="margin-top: 0;color:#55518a">Demographics(To Provide)</h3>
+
+                        <div class="card">
                                             <div class="card-body">
                                               <div id="table" class="table-editable">
-                                              
+
                                                 <table class="table table-bordered table-responsive-md  text-left">
                                                   <tr>
                                                     <th class="text-left">How many people currently live in your household?</th>
-                                                   
+
                                                   </tr>
                                                   <tr>
                                                     <td class="pt-3-half" contenteditable="true">Are there any adults who live in this household other than you?_________
                                                             If yes, how many adult Males and Females (other than you) live in your household?  Females_______  Males________</td>
-                                        
+
                                                     <td class="pt-3-half">
                                                       <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
                                                       <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down"
@@ -239,8 +362,8 @@
                                                   </tr>
                                                   <!-- This is our clonable table line -->
                                                   <tr>
-                                                    <td class="pt-3-half" contenteditable="true">Number of persons living with disability  in the household above 18 years   Females_______  Males__</td>
-    
+                                                    <td class="pt-3-half" contenteditable="true">Number of persons living with disability  in the household <b>above 18 years</b>   Females_______  Males__</td>
+
                                                     <td class="pt-3-half">
                                                       <span class="table-up"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-up" aria-hidden="true"></i></a></span>
                                                       <span class="table-down"><a href="#!" class="indigo-text"><i class="fas fa-long-arrow-alt-down"
@@ -264,8 +387,17 @@
                                             </div>
                                           </div>
 
-                                </div>
-                            </div>
+
+                </div>
+
+            </div>
+        </div>
+  </div>
+
+
+
+
+
                         </div>
                         <!-- end wizard step-1 -->
 
@@ -324,6 +456,20 @@ jQuery(document).ready(function()
 	FormWizardValidation.init();
 });
 
+</script>
+
+
+<script>
+    $(document).ready(function() {
+    $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
+        e.preventDefault();
+        $(this).siblings('a.active').removeClass("active");
+        $(this).addClass("active");
+        var index = $(this).index();
+        $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
+        $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
+    });
+});
 </script>
 
 {% endblock %}
