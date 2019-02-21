@@ -8708,3 +8708,15 @@ def new_wellbeing(request, id):
                       'osiblings': osiblings,
                       'oguardians': oguardians
                   })
+
+@login_required
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def new_wellbeingadolescent(request, id):
+    init_data = RegPerson.objects.filter(pk=id)
+    check_fields = ['sex_id']
+    vals = get_dict(field_name=check_fields)
+    form = OVCF1AForm(initial={'person': id})
+    return render(request,
+                  'forms/new_wellbeingadolescent.html',
+                  {'form': form, 'init_data': init_data,
+                   'vals': vals})
