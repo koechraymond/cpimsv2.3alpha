@@ -1021,5 +1021,32 @@ class OVCExplanations(models.Model):
     event_id = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
     timestamp_created = models.DateTimeField(default=timezone.now)
 
+    class Meta:
+        db_table = 'ovc_explanations'
 
+
+class OVCGoals(models.Model):
+    goal_id = models.AutoField(primary_key=True)
+    person_id = models.ForeignKey(RegPerson)
+    goal = models.CharField(max_length=255)
+    action = models.CharField(max_length=255)
+    event_id = models.ForeignKey(OVCCareEvents)
+
+    class Meta:
+        db_table = 'ovc_goals'
+
+
+class OVCReferrals(models.Model):
+    referral_id = models.AutoField(primary_key=True)
+    person_id = models.ForeignKey(RegPerson)
+    referral_date = models.DateField(default=timezone.now)
+    service = models.CharField(max_length=20)
+    institution = models.CharField(max_length=50)
+    contact_person = models.CharField(max_length=50)
+    event_id = models.ForeignKey(OVCCareEvents)
+    completed = models.BooleanField(default=False)
+    outcome = models.CharField(max_length=255)
+
+    class Meta:
+        db_table = 'ovc_referrals'
 
