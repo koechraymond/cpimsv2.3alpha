@@ -8708,3 +8708,16 @@ def new_cpara(request, id):
                       'osiblings': osiblings,
                       'oguardians': oguardians
                   })
+
+
+@login_required
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def case_plan_template(request, id):
+    init_data = RegPerson.objects.filter(pk=id)
+    check_fields = ['sex_id']
+    vals = get_dict(field_name=check_fields)
+    form = OVCF1AForm(initial={'person': id})
+    return render(request,
+                  'forms/case_plan_template.html',
+                  {'form': form, 'init_data': init_data,
+                   'vals': vals})
