@@ -72,7 +72,7 @@
                     <a href="#" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-expand"><i class="fa fa-minus"></i></a>
                     <a href="#" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-collapse"><i class="fa fa-times"></i></a>
                 </div>
-                <h4 class="panel-title"> Household Vulnerability Assessment </h4>
+                <h4 class="panel-title"> Case Plan Achievement Readiness Assessment </h4>
             </div>
             <div class="panel-body">
             	<form class="form-horizontal form-bordered" action="." method="POST" data-parsley-validate="true"
@@ -80,13 +80,12 @@
                 	{% csrf_token %}
 					<div id="wizard-hhva">
 						<ol>
-							<li>
-							    Household Individuals
-							    <small>Household individuals details</small>
+							<li>Details
+							    <small>CPARA base details</small>
 							</li>
 							<li>
-							    Water Sanitation and Hygiene 
-							    <small>WASH details</small>
+							    Healthy
+							    <small>Reduced risk of children with undiagnosed HIV infections</small>
 							</li>
 							<li>
 							    Shelter and Care 
@@ -124,51 +123,136 @@
 						<!-- begin wizard step-1 -->
 						<div class="wizard-step-1">
 							<div class="panel-body">
+                            <div class="form-group">
+                                    <label class="col-md-3 control-label">Date of Assessment :</label>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                <label class="col-md-3 control-label">Date enrolled in the project</label>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                </div>
+                            <div class="form-group">
+                                    <label class="col-md-3 control-label">Name of Organization (LIP) :</label>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                </div>
+
+                            <div class="form-group">
+                                <div class="col-md-2"></div>
+                                    <label class="col-md-1 control-label">County :</label>
+                                    <div class="col-md-1">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                <label class="col-md-1 control-label">Sub County :</label>
+                                    <div class="col-md-1">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                <label class="col-md-1 control-label">Ward :</label>
+                                    <div class="col-md-1">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                <label class="col-md-1 control-label">Village / Estate</label>
+                                    <div class="col-md-1">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                </div>
+
+                            <div class="form-group">
+                                    <label class="col-md-3 control-label">Name of Caregiver :</label>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                <label class="col-md-3 control-label">Household unique number</label>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                </div>
+
+                            <div class="form-group">
+                                    <label class="col-md-3 control-label">Name of Case worker (CHV) conducting assesment :</label>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                <label class="col-md-3 control-label">Name of SDP staff member (Case Manager)</label>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                </div>
+
+                            <div class="form-group">
+                                <div class="col-md-1"></div>
+                                    <label class="col-md-2 control-label">Caregiver ID Number :</label>
+                                    <div class="col-md-1">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                <label class="col-md-1 control-label">Caregiver Gender :</label>
+                                    <div class="col-md-1">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                <label class="col-md-1 control-label">Age of Caregiver :</label>
+                                    <div class="col-md-1">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                <label class="col-md-1 control-label">Caregiver Phone Number :</label>
+                                    <div class="col-md-1">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                </div>
+
+                            <div class="form-group">
+                                    <label class="col-md-3 control-label">Is this the first Case Plan Readiness Assessment?</label>
+                                    <div class="col-md-1">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                    <label class="col-md-3 control-label">If No, date of Previous Case Plan Readiness Assessment :</label>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                </div>
 
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="hhva_qs">Household Member(s) : </label>
+                                    <label class="control-label col-md-3 col-sm-3" for="hhva_qs">Please fill the table below with details of all children below 18 years currently living in the household. <i class="semi-bold">(Note: Please include any other aged above 18 years if still in school)</i> : </label>
 									<div class="col-md-4 col-sm-4">
-										{% if guardians or siblings or osiblings or oguardians %}
-							            <table class="table table-condensed">
+										{% if siblings or osiblings %}
+							            <table class="table table-condensed table-responsive">
 							                <thead>
 							                    <tr>
 							                        <th>Name</th>
-							                        <th>Relation</th>
+                                                    <th>Age</th>
+                                                    <th>Gender</th>
+                                                    <th>Child Unique Number</th>
+                                                    <th>School Level</th>
+                                                    <th>Registered in this OVC Program</th>
 							                        <!--<th>Age</th>-->
 							                    </tr>
 							                </thead>
 							                <tbody>
-							                    {% for guardian in guardians %}
-							                    <tr>
-							                        <td><a href="{% url 'view_person' id=guardian.guardian_person.id %}">{{ guardian.guardian_person.full_name }}</a></td>
-							                        <td>{{ guardian.relationship|gen_value:vals }}</td>
-							                        <!-- <td>{{ guardian.guardian_person.age }}</td> -->
-							                    </tr>
-							                    {% endfor %}
-							                    {% for oguardian in oguardians %}
-							                    <tr>
-							                        <td><a href="{% url 'view_person' id=oguardian.child_person.id %}">{{ oguardian.child_person.full_name }}</a></td>
-							                        <td>
-							                        {% if oguardian.child_person.sex_id == 'SFEM' %}
-							                        Daughter
-							                        {% else %}
-							                        Son
-							                        {% endif %}
-							                        </td>
-							                        <!-- <td>{{ oguardian.child_person.age }}</td> -->
-							                    </tr>
-							                    {% endfor %}
 							                    {% for sibling in siblings %}
 							                    <tr>
 							                        <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
-							                        <td>
-							                        {% if sibling.sibling_person.sex_id == 'SFEM' %}
-							                        Sister
-							                        {% else %}
-							                        Brother
+{#                                                {% if sibling.sibling_person.age < 18 %}#}
+							                        <td>{{ sibling.sibling_person.age }}</td>
+{#                                                {% endif %}#}
+                                                    <td>
+                                                        {% if sibling.sibling_person.sex_id == 'SFEM' %}
+                                                        F
+                                                        {% else %}
+                                                        M
 							                        {% endif %}
 							                        </td>
-							                        <!-- <td>{{ sibling.sibling_person.age }}</td> -->
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
 							                    </tr>
 							                    {% endfor %}
 							                    {% for osibling in osiblings %}
@@ -194,93 +278,462 @@
 							    </div>
 
 							    <!-- add labels like HA1, HA2 .. -->
-							    
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA1: </b>Number of individuals in the house below 18 years : <span class="asteriskField">* </label>
-									<div class="col-md-2 col-sm-2">
-										{{ form.hhva_ha1_male }}
-									</div>
-									<div class="col-md-2 col-sm-2">
-										{{ form.hhva_ha1_female }}
-									</div>
-									<a href="#" data-toggle="tooltip" title="Number of individuals in the house below 18 years"><i class="fa fa-info-circle fa-sm"></i></a>
-								</div>
-
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA2: </b>Number of individuals in the house above 18 years : <span class="asteriskField">* </label>
-									<div class="col-md-2 col-sm-2">
-										{{ form.hhva_ha2_male }}
-									</div>
-									<div class="col-md-2 col-sm-2">
-										{{ form.hhva_ha2_female }}
-									</div>
-									<a href="#" data-toggle="tooltip" title="Number of individuals in the house above 18 years"><i class="fa fa-info-circle fa-sm"></i></a>
-								</div>
-
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA3: </b>Number of disabled individuals in the house below 18 years : <span class="asteriskField">* </label>
-									<div class="col-md-2 col-sm-2">
-										{{ form.hhva_ha3_male }}
-									</div>
-									<div class="col-md-2 col-sm-2">
-										{{ form.hhva_ha3_female }}
-									</div>
-									<a href="#" data-toggle="tooltip" title="Number of disabled individuals in the house below 18 years"><i class="fa fa-info-circle fa-sm"></i></a>
-								</div>
-
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA4: </b>Number of disabled individuals in the house above 18 years : <span class="asteriskField">* </label>
-									<div class="col-md-2 col-sm-2">
-										{{ form.hhva_ha4_male }}
-									</div>
-									<div class="col-md-2 col-sm-2">
-										{{ form.hhva_ha4_female }}
-									</div>
-									<a href="#" data-toggle="tooltip" title="Number of disabled individuals in the house above 18 years"><i class="fa fa-info-circle fa-sm"></i></a>
-								</div>
-
-							</div>                            
-						</div>
+							    <h4>Other Household Characteristics. Please tick either <b>Yes</b> or <b>No</b> on each of the statements below.</h4>
+							<div class="form-group">
+                                    <label class="col-md-3 control-label">Is this Household child headed (i.e Household head age is less than 18 years)?</label>
+                                    <div class="col-md-1">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                            <div class="form-group">
+                                    <label class="col-md-3 control-label">Does this Household currently have a pregnant woman or pregnant adolescent girl?</label>
+                                    <div class="col-md-1">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Does this Household have a child living with disability or has chronic illness? <i class="semi-bold">(Chronic illness includes Asthma, Cancer, Diabetes, Epileplsy)</i></label>
+                                    <div class="col-md-1">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                            <div class="form-group">
+                                    <label class="col-md-3 control-label">Does this Household have an adolescent enrolled in secondary school or vocational training? </label>
+                                    <div class="col-md-1">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 						<!-- end wizard step-1 -->  
 
 						<!-- begin wizard step-2 -->
 						<div class="wizard-step-2">
 							<div class="panel-body">
+                                <div class="form-group">
+                                <label class="col-md-4 control-label">Is there child (including under 5 year) in the household that is at risk or vulnerable to HIV? <i class="semi-bold">(Chronic illness includes Asthma, Cancer, Diabetes, Epileplsy)</i></label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                <label class="col-md-4 col-md-offset-2 control-label">1.1 Have the children at high risk of HIV been identified through the HIV risk assessment (or other means)? </label>
+                                    <div class="col-md-2">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                    <label class="col-md-1 control-label">If other means please specify :</label>
+                                    <div class="col-md-2">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                <label class="col-md-4 col-md-offset-2 control-label">1.2 If yes in 1.1 above, indicate the date when this was done :</label>
+                                    <div class="col-md-2">
+                                        <input type="text" class="form-control" placeholder="Default input">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                <label class="col-md-4 col-md-offset-2 control-label">1.3 Have the child(ren) identified as high risk of HIV been referred for HIV testing services? :</label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                <label class="col-md-4 col-md-offset-2 control-label">1.4 For the child(ren) identified
+                                    at high risk of HIV, has documentation of all children’s completed referrals for HIV
+                                    testing services been documented in their case file?  :</label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group note note-info">
+                                <label class="col-md-4 control-label">Has the household achieved this benchmark? :</label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes (1 point)
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No (0 point)
+                                        </label>
+                                    </div>
+                                </div>
+                                <h4>Information from Case File</h4>
+                                <div class="form-group">
+                                <label class="col-md-4 control-label">2.1 Has the HIV status of all children in the household (positive, negative, or unknown) been documented in their case file? :</label>
+                                    <div class="col-md-4">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                <label class="col-md-4 control-label">2.2 Is the HIV status of the caregiver (positive, negative or unknown) documented in the case file?  :</label>
+                                    <div class="col-md-4">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                                <h4>Questions for Caregiver</h4>
+                                <div class="form-group">
+                                <label class="col-md-4 control-label">2.3 If there is a child or children in the
+                                    household older than the age of five and   living with HIV (as documented in the case file),
+                                    do they know their HIV status?  (Partial/ complete)? :</label>
+                                    <div class="col-md-4">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group note note-info">
+                                <label class="col-md-4 control-label">Has the household achieved this benchmarks? :</label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes (1 point)
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No (0 point)
+                                        </label>
+                                    </div>
+                                </div>
 
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA5: </b>Household main source of water : <span class="asteriskField">* </label>
-									<div class="col-md-4 col-sm-4">
-										{{ form.hhva_ha5 }}
-									</div>
-									<a href="#" data-toggle="tooltip" title="Household main source of water"><i class="fa fa-info-circle fa-sm"></i></a>
-								</div>
+                                <div class="form-group">
+                                <label class="col-md-4 control-label semi-bold">Is child is under ten and/or doesn’t know their status? :</label>
+                                    <div class="col-md-4">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                <label class="col-md-4 col-md-offset-2 control-label">3.1 Do you know how many pills (amount of syrup) your child(ren) should take each day? :</label>
+                                    <div class="col-md-4">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                <label class="col-md-4 col-md-offset-2 control-label">3.2 Can you name/identify the medication that your child(ren) take each day? :</label>
+                                    <div class="col-md-4">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                <label class="col-md-4 col-md-offset-2 control-label">3.3 Do you remember when your child(ren) last visited the health clinic? :</label>
+                                    <div class="col-md-4">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                <label class="col-md-4 col-md-offset-2 control-label">3.4 Do you know when your child(ren) next have an appointment at the health clinic? :</label>
+                                    <div class="col-md-4">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                <label class="col-md-4 col-md-offset-2 control-label">3.5 Do you know if your child or adolescent viral
+                                    load is high or low (from the last viral load test)? Ask and document date of last
+                                    test and probe to ensure the caregiver understands what low or high VL means :</label>
+                                    <div class="col-md-4">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
 
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA6: </b>How do you make your drinking water safe? : <span class="asteriskField">* </label>
-									<div class="col-md-4 col-sm-4">
-										{{ form.hhva_ha6 }}
-										<br>
-										<h6><span id="sel_hhva_ha6"></span></h6>
-									</div>
-									<a href="#" data-toggle="tooltip" title="How you make your drinking water safe"><i class="fa fa-info-circle fa-sm"></i></a>
-								</div>
+                                <div class="form-group">
+                                <label class="col-md-4 control-label semi-bold">Is child(ren) is above ten and know their status? :</label>
+                                    <div class="col-md-4">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                    </div>
+                                </div>
 
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA7: </b>What is the main mode of human waste disposal? : <span class="asteriskField">* </label>
-									<div class="col-md-4 col-sm-4">
-										{{ form.hhva_ha7 }}
-									</div>
-									<a href="#" data-toggle="tooltip" title="Human waste disposal mode"><i class="fa fa-info-circle fa-sm"></i></a>
-								</div>
+                                <div class="form-group">
+                                    {% if siblings or osiblings %}
+							            <table class="table table-condensed table-responsive">
+							                <thead>
+							                    <tr>
+							                        <th>Child Name</th>
+                                                    <th>3.6 Do you know how many pills you should take each day?</th>
+                                                    <th>3.7 Can you name/identify the medication that you take each day?</th>
+                                                    <th>3.8 Do you remember when you last visited the health clinic?</th>
+                                                    <th>3.9 Do you know when you have your next appointment at the health clinic?</th>
+                                                    <th>3.10 Do you know if your viral load is high or low? (if Yes, indicate High or low)</th>
+							                        <!--<th>Age</th>-->
+							                    </tr>
+							                </thead>
+							                <tbody>
+							                    {% for sibling in siblings %}
+							                    <tr>
+							                        <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
+							                        <td>
+                                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                                    </td>
+                                                    <td>
+                                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                                    </td>
+                                                <td>
+                                                    <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                                </td>
+                                                <td>
+                                                    <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                                </td>
+                                                <td>
+                                                    <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                                </td>
+							                    </tr>
+							                    {% endfor %}
+							                    {% for osibling in osiblings %}
+							                    <tr>
+							                        <td><a href="{% url 'view_person' id=osibling.child_person.id %}">{{ osibling.child_person.full_name }}</a></td>
+							                        <td>
+							                        {% if osibling.child_person.sex_id == 'SFEM' %}
+							                        Sister
+							                        {% else %}
+							                        Brother
+							                        {% endif %}
+							                        </td>
+							                        <!-- <td>{{ osibling.child_person.age }}</td> -->
+							                    </tr>
+							                    {% endfor %}
+                                            <tr>
+                                                <td class="semi-bold">
+                                                    Tick <u>Yes</u> if <u>YES</u> for all children
+                                                </td>
+                                                <td>
+                                                    <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                                </td>
+                                                <td>
+                                                    <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                                </td>
+                                                <td>
+                                                    <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                                </td>
+                                                <td>
+                                                    <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                                </td>
+                                                <td>
+                                                    <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No
+                                        </label>
+                                                </td>
+                                            </tr>
+							                </tbody>
+							            </table>
+							            {% else %}
+							                <br>
+							                <p>&nbsp;No relative details provided for this person.</p>
+							            {% endif %}
+                                </div>
 
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA8: </b>Household using utensil rack : <span class="asteriskField">* </label>
-									<div class="col-md-4 col-sm-4">
-										{{ form.hhva_ha8 }}
-									</div>
-									<a href="#" data-toggle="tooltip" title="Household using utensil rack"><i class="fa fa-info-circle fa-sm"></i></a>
-								</div>
+                            <div class="form-group note note-info">
+                                <label class="col-md-4 control-label">Has the household achieved this benchmarks? :</label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes (1 point)
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No (0 point)
+                                        </label>
+                                    </div>
+                                </div>
 
+
+
+
+
+
+
+                        <!-- end of panel group -->
 							</div> 							
 						</div> 
 						<!-- end wizard step-2 -->
@@ -290,7 +743,7 @@
 							<div class="panel-body"> 
 
 								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA9: </b>Condition of house : <span class="asteriskField">* </label>
+                                    <label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA9: </b>Condition of house : <span class="asteriskField">* </span></label>
 									<div class="col-md-4 col-sm-4">
 										{{ form.hhva_ha9 }}
 									</div>
@@ -298,7 +751,7 @@
 								</div>
 
 								<br>
-								<label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA10: </b>Type and number of bedding used by household members : <span class="asteriskField">* </label>
+                                <label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA10: </b>Type and number of bedding used by household members : <span class="asteriskField">* </span>  </label>
 
 								<div class="form-group">
 									<table id="ha10_manager_table" class="table">
@@ -317,24 +770,24 @@
 	                                            <td width="3%">
 	                                            	{{ form.hhva_ha10_type }}
 	                                            	<div id="hhva_ha10_type_errormsg" style="display:none;">
-	                                                    <small><p class="dialog_paragraph">This value is required</p></span></small><span>
+	                                                    <small><p class="dialog_paragraph">This value is required</p></small>
 	                                                </div>
 	                                            </td>
 
 	                                            <td width="2%">
 	                                            	{{ form.hhva_ha10_number }}
 	                                            	<div id="hhva_ha10_number_errormsg_" style="display:none;">
-	                                                    <small><p class="dialog_paragraph">This value must be digits</p></span></small><span>
+	                                                    <small><p class="dialog_paragraph">This value must be digits</p></small>
 	                                                </div>
 	                                            	<div id="hhva_ha10_number_errormsg" style="display:none;">
-	                                                    <small><p class="dialog_paragraph">This value is required</p></span></small><span>
+	                                                    <small><p class="dialog_paragraph">This value is required</p></small>
 	                                                </div>
 	                                            </td>
 
 	                                            <td width="3%">
 	                                            	{{ form.hhva_ha10_condition }}
 	                                            	<div id="hhva_ha10_condition_errormsg" style="display:none;">
-	                                                    <small><p class="dialog_paragraph">This value is required</p></span></small><span>
+	                                                    <small><p class="dialog_paragraph">This value is required</p></small>
 	                                                </div>
 	                                            </td>
 
@@ -359,7 +812,7 @@
 							<div class="panel-body"> 
 
 								<div class="form-group">
-									<label class="control-label col-md-5 col-sm-5" for="hhva_qs"><b>HA11: </b>On average, how many meals do household members eat in a day? : <span class="asteriskField">* </label>
+                                    <label class="control-label col-md-5 col-sm-5" for="hhva_qs"><b>HA11: </b>On average, how many meals do household members eat in a day? : <span class="asteriskField">* </span></label>
 									<div class="col-md-4 col-sm-4">
 										{{ form.hhva_ha11 }}
 									</div>
@@ -367,7 +820,7 @@
 								</div>
 
 								<div class="form-group">
-									<label class="control-label col-md-5 col-sm-5" for="hhva_qs"><b>HA12: </b>What is the main source of food for the household? : <span class="asteriskField">* </label>
+                                    <label class="control-label col-md-5 col-sm-5" for="hhva_qs"><b>HA12: </b>What is the main source of food for the household? : <span class="asteriskField">* </span></label>
 									<div class="col-md-4 col-sm-4">
 										{{ form.hhva_ha12 }}
 									</div>
@@ -421,29 +874,29 @@
                                                 <td width="4%">
                                                     {{ form.hhva_ha15_asset }}
                                                     <div id="hhva_ha15_type_errormsg" style="display:none;">
-                                                        <small><p class="dialog_paragraph">This value is required</p></span></small><span>
+                                                        <small><p class="dialog_paragraph">This value is required</p></small>
                                                     </div>
                                                 </td>
 
                                                 <td width="2%">
                                                     {{ form.hhva_ha15_number }}
                                                     <div id="hhva_ha15_number_errormsg_" style="display:none;">
-                                                        <small><p class="dialog_paragraph">This value is must be digits</p></span></small><span>
+                                                        <small><p class="dialog_paragraph">This value is must be digits</p></small>
                                                     </div>
 
                                                     <div id="hhva_ha15_number_errormsg" style="display:none;">
-                                                        <small><p class="dialog_paragraph">This value is required</p></span></small><span>
+                                                        <small><p class="dialog_paragraph">This value is required</p></small>
                                                     </div>
                                                 </td>
 
                                                 <td width="2%">
                                                     {{ form.hhva_ha15_size }}
                                                     <div id="hhva_ha15_size_errormsg_" style="display:none;">
-                                                        <small><p class="dialog_paragraph">This value is must be digits</p></span></small><span>
+                                                        <small><p class="dialog_paragraph">This value is must be digits</p></small>
                                                     </div>
 
                                                     <div id="hhva_ha15_size_errormsg" style="display:none;">
-                                                        <small><p class="dialog_paragraph">This value is required</p></span></small><span>
+                                                        <small><p class="dialog_paragraph">This value is required</p></small>
                                                     </div>
                                                 </td>
 
@@ -636,9 +1089,8 @@
 					</div>
 
 					<div class="form-group">
-                        <label class="control-label col-md-4 col-sm-4" for="csi_qs">Date of HHVA : <span class="asteriskField">* </label>
+                        <label class="control-label col-md-4 col-sm-4" for="csi_qs">Date of Assessment : <span class="asteriskField">* </label>
 						<div class="col-md-4 col-sm-4">
-							{{ form.date_of_hhva }}
 						</div> 
                     </div>
 
