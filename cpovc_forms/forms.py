@@ -3347,3 +3347,9 @@ class GOKBursaryForm(forms.Form):
             'data-parsley-required': "true",
             'data-parsley-group': 'group1'})
     )
+
+
+
+
+class Wellbeing(forms.Form):
+    pass
