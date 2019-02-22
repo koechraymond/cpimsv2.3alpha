@@ -149,24 +149,7 @@
                 	{% csrf_token %}
                     {{ form.person }}
 					<div id="wizard-f1a">
-						<ol>
-							<li>
-							    Healthy
-							    <small>Case plan template</small>
-							</li>
-                            <li>
-                                Stable
-                                <small>Case plan template</small>
-                            </li>
-                            <li>
-                                Safe
-                                <small>Case plan template</small>
-                            </li>
-							<li>
-							    Schooled
-							    <small>Case plan template</small>
-							</li>
-                        </ol>
+
 
 						<!-- begin wizard step-1 -->
 						<div class="wizard-step-1">
@@ -177,7 +160,7 @@
                                 <table id="assessment_manager_table" class="table">
                                     <thead>
                                         <tr id="id_inputHeaders1">
-                                        	<th><h6><b>Domain</b></h6></th>
+                                            <th><h6><b>Domain</b></h6></th>
                                             <th><h6><b>Needs/Gaps</b></h6></th>
                                             <th><h6><b>House Hold Member</b></h6></th>
                                             <th><h6><b>Priority Actions</b></h6></th>
@@ -191,12 +174,14 @@
                                     </thead>
                                     <tbody>
                                         <tr id="id_inputElements1">
-                                        	<td>
-                                        		{{ form.olmis_assessment_domain }}
-                                        		<div id="olmis_assessment_domain_errormsg" style="display:none;">
+
+                                             <td>
+                                            	{{ form.olmis_assessment_coreservice }}
+                                            	<div id="olmis_assessment_coreservice_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
-                                        	</td>
+                                            </td>
+
                                             <td>
                                             	{{ form.olmis_assessment_coreservice }}
                                             	<div id="olmis_assessment_coreservice_errormsg" style="display:none;">
@@ -243,11 +228,10 @@
                                             </td>
 
                                             <td>
-                                            <h6><b>
+
 	                                            <button type="button" class="btn btn-sm btn-inverse m-r-5" onClick="AddRow(1)">
 	                                                <i class="fa fa-plus"></i>  Add
 	                                            </button>
-                                            	</b></h6>
                                             </td>
                                         </tr>
                                     </tbody>
@@ -280,349 +264,11 @@
 						</div>
 						<!-- end wizard step-1 -->  
 
-                        <!-- begin wizard step-2 -->
-                        	<div class="wizard-step-1">
-                            <fieldset>
-
-                                <div id="error_assessment"></div>
-                                <!-- begin col-6 -->
-                                <table id="assessment_manager_table" class="table">
-                                    <thead>
-                                        <tr id="id_inputHeaders1">
-                                        	<th><h6><b>Domain</b></h6></th>
-                                            <th><h6><b>Needs/Gaps</b></h6></th>
-                                            <th><h6><b>House Hold Member</b></h6></th>
-                                            <th><h6><b>Priority Actions</b></h6></th>
-                                            <th><h6><b>Services</b></h6></th>
-                                            <th><h6><b>Person Responsible</b></h6></th>
-                                            <th><h6><b>Date Completed</b></h6></th>
-                                            <th><h6><b>Results</b></h6></th>
-                                            <th><h6><b>Reasons</b></h6></th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr id="id_inputElements1">
-                                        	<td>
-                                        		{{ form.olmis_assessment_domain }}
-                                        		<div id="olmis_assessment_domain_errormsg" style="display:none;">
-                                                    <small><p class="dialog_paragraph">This value is required</p></small>
-                                                </div>
-                                        	</td>
-                                            <td>
-                                            	{{ form.olmis_assessment_coreservice }}
-                                            	<div id="olmis_assessment_coreservice_errormsg" style="display:none;">
-                                                    <small><p class="dialog_paragraph">This value is required</p></small>
-                                                </div>
-                                            </td>
-                                            <td>
-                                            	{{ form.olmis_assessment_coreservice_status }}
-                                            	<h6><span id="sel_olmis_assessment_coreservice_status"></span></h6>
-                                            	<!-- <input id='holmis_assessment_coreservice_status' type='hidden'> -->
-                                            	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
-                                                    <small><p class="dialog_paragraph">This value is required</p></small>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="needs:">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="code:">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="Internal">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="Date">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="Progress">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="Reason">
-                                                </div>
-                                            </td>
-
-                                            <td>
-                                            <h6><b>
-	                                            <button type="button" class="btn btn-sm btn-inverse m-r-5" onClick="AddRow(1)">
-	                                                <i class="fa fa-plus"></i>  Add
-	                                            </button>
-                                            	</b></h6>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    {{ form.olmis_assessment_provided_list }}
-                                </table>
-							    <!-- end col-6 -->
-							</fieldset>
-
-                            <div class="panel-body panel-form">
-                                <div class="form-group">
-                                    <label class="control-label col-md-4 col-sm-4">Date Assessment Recorded</label>
-                                    <div class="col-md-2 col-sm-2">
-                                        {{ form.date_of_assessment }}
-                                        <div id="date_errormsg0" style="display:none;">
-                                            <small><p class="dialog_paragraph">This value is required</p></small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel-body panel-form">
-                                <div class="form-group">
-                                    <label class="control-label col-md-4 col-sm-4"></label>
-                                    <div class="col-md-6 col-sm-6">
-                                        <button id="mysubmit-f1a-0" class="btn btn-primary" type="button" onClick="saveForm1A(1)">Submit Assessment</button>
-                                        <a href="#" onClick="resetForm1A(1)" class="btn btn-white">Cancel</a>
-                                    </div>
-                                </div>
-                            </div>
-						</div>
-                        <!-- end wizard step-2 --> 						
-
-						<!-- begin wizard step-3 -->
 
 
-                        <div class="wizard-step-1">
-                            <fieldset>
-
-                                <div id="error_assessment"></div>
-                                <!-- begin col-6 -->
-                                <table id="assessment_manager_table" class="table">
-                                    <thead>
-                                        <tr id="id_inputHeaders1">
-                                        	<th><h6><b>Domain</b></h6></th>
-                                            <th><h6><b>Needs/Gaps</b></h6></th>
-                                            <th><h6><b>House Hold Member</b></h6></th>
-                                            <th><h6><b>Priority Actions</b></h6></th>
-                                            <th><h6><b>Services</b></h6></th>
-                                            <th><h6><b>Person Responsible</b></h6></th>
-                                            <th><h6><b>Date Completed</b></h6></th>
-                                            <th><h6><b>Results</b></h6></th>
-                                            <th><h6><b>Reasons</b></h6></th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr id="id_inputElements1">
-                                        	<td>
-                                        		{{ form.olmis_assessment_domain }}
-                                        		<div id="olmis_assessment_domain_errormsg" style="display:none;">
-                                                    <small><p class="dialog_paragraph">This value is required</p></small>
-                                                </div>
-                                        	</td>
-                                            <td>
-                                            	{{ form.olmis_assessment_coreservice }}
-                                            	<div id="olmis_assessment_coreservice_errormsg" style="display:none;">
-                                                    <small><p class="dialog_paragraph">This value is required</p></small>
-                                                </div>
-                                            </td>
-                                            <td>
-                                            	{{ form.olmis_assessment_coreservice_status }}
-                                            	<h6><span id="sel_olmis_assessment_coreservice_status"></span></h6>
-                                            	<!-- <input id='holmis_assessment_coreservice_status' type='hidden'> -->
-                                            	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
-                                                    <small><p class="dialog_paragraph">This value is required</p></small>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="needs:">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="code:">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="Internal">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="Date">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="Progress">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="Reason">
-                                                </div>
-                                            </td>
-
-                                            <td>
-                                            <h6><b>
-	                                            <button type="button" class="btn btn-sm btn-inverse m-r-5" onClick="AddRow(1)">
-	                                                <i class="fa fa-plus"></i>  Add
-	                                            </button>
-                                            	</b></h6>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    {{ form.olmis_assessment_provided_list }}
-                                </table>
-							    <!-- end col-6 -->
-							</fieldset>
-
-                            <div class="panel-body panel-form">
-                                <div class="form-group">
-                                    <label class="control-label col-md-4 col-sm-4">Date Assessment Recorded</label>
-                                    <div class="col-md-2 col-sm-2">
-                                        {{ form.date_of_assessment }}
-                                        <div id="date_errormsg0" style="display:none;">
-                                            <small><p class="dialog_paragraph">This value is required</p></small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel-body panel-form">
-                                <div class="form-group">
-                                    <label class="control-label col-md-4 col-sm-4"></label>
-                                    <div class="col-md-6 col-sm-6">
-                                        <button id="mysubmit-f1a-0" class="btn btn-primary" type="button" onClick="saveForm1A(1)">Submit Assessment</button>
-                                        <a href="#" onClick="resetForm1A(1)" class="btn btn-white">Cancel</a>
-                                    </div>
-                                </div>
-                            </div>
-						</div>
 
 
-						<!-- end wizard step-3 --> 
 
-                        <!-- begin wizard step-4 -->
-
-
-                       <div class="wizard-step-1">
-                            <fieldset>
-
-                                <div id="error_assessment"></div>
-                                <!-- begin col-6 -->
-                                <table id="assessment_manager_table" class="table">
-                                    <thead>
-                                        <tr id="id_inputHeaders1">
-                                        	<th><h6><b>Domain</b></h6></th>
-                                            <th><h6><b>Needs/Gaps</b></h6></th>
-                                            <th><h6><b>House Hold Member</b></h6></th>
-                                            <th><h6><b>Priority Actions</b></h6></th>
-                                            <th><h6><b>Services</b></h6></th>
-                                            <th><h6><b>Person Responsible</b></h6></th>
-                                            <th><h6><b>Date Completed</b></h6></th>
-                                            <th><h6><b>Results</b></h6></th>
-                                            <th><h6><b>Reasons</b></h6></th>
-                                            <th></th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr id="id_inputElements1">
-                                        	<td>
-                                        		{{ form.olmis_assessment_domain }}
-                                        		<div id="olmis_assessment_domain_errormsg" style="display:none;">
-                                                    <small><p class="dialog_paragraph">This value is required</p></small>
-                                                </div>
-                                        	</td>
-                                            <td>
-                                            	{{ form.olmis_assessment_coreservice }}
-                                            	<div id="olmis_assessment_coreservice_errormsg" style="display:none;">
-                                                    <small><p class="dialog_paragraph">This value is required</p></small>
-                                                </div>
-                                            </td>
-                                            <td>
-                                            	{{ form.olmis_assessment_coreservice_status }}
-                                            	<h6><span id="sel_olmis_assessment_coreservice_status"></span></h6>
-                                            	<!-- <input id='holmis_assessment_coreservice_status' type='hidden'> -->
-                                            	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
-                                                    <small><p class="dialog_paragraph">This value is required</p></small>
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="needs:">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="code:">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="Internal">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="Date">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="Progress">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="Reason">
-                                                </div>
-                                            </td>
-
-                                            <td>
-                                            <h6><b>
-	                                            <button type="button" class="btn btn-sm btn-inverse m-r-5" onClick="AddRow(1)">
-	                                                <i class="fa fa-plus"></i>  Add
-	                                            </button>
-                                            	</b></h6>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                    {{ form.olmis_assessment_provided_list }}
-                                </table>
-							    <!-- end col-6 -->
-							</fieldset>
-
-                            <div class="panel-body panel-form">
-                                <div class="form-group">
-                                    <label class="control-label col-md-4 col-sm-4">Date Assessment Recorded</label>
-                                    <div class="col-md-2 col-sm-2">
-                                        {{ form.date_of_assessment }}
-                                        <div id="date_errormsg0" style="display:none;">
-                                            <small><p class="dialog_paragraph">This value is required</p></small>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="panel-body panel-form">
-                                <div class="form-group">
-                                    <label class="control-label col-md-4 col-sm-4"></label>
-                                    <div class="col-md-6 col-sm-6">
-                                        <button id="mysubmit-f1a-0" class="btn btn-primary" type="button" onClick="saveForm1A(1)">Submit Assessment</button>
-                                        <a href="#" onClick="resetForm1A(1)" class="btn btn-white">Cancel</a>
-                                    </div>
-                                </div>
-                            </div>
-						</div>
-
-
-                        <!-- end wizard step-4 -->
 
 						                         
 					</div>
