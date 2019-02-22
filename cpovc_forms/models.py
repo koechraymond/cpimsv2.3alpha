@@ -1048,5 +1048,4 @@ class OVCReferrals(models.Model):
     outcome = models.CharField(max_length=255)
 
     class Meta:
-        db_table = 'ovc_referrals'
-
+        db_table = 'ovc_cp_referrals'
