@@ -299,6 +299,9 @@ Registration details | {{ child.first_name }} {{ child.surname }} | {{ child.age
                             <a href="{% url 'new_caseplan' id=creg.person_id %}">
                         <button type="button" class="btn btn-primary"> <i class="fa fa-folder-open"></i> Case Plan Tempalte</button>
                         </a>
+                            <a href="{% url 'new_rcpa' id=creg.person_id %}">
+                        <button type="button" class="btn btn-primary"> <i class="fa fa-check-circle"></i> CPARA Monitoring</button>
+                        </a>
                         {% endif %}
                     <p></p>
                     </center>
