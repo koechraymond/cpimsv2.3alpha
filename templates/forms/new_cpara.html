@@ -102,9 +102,6 @@ print(blu.sing("'Happy'"))
 							</li>
 						</ol>
 
-						{{ form.person }}
-						{{ form.household_id }}
-
 						<!-- begin wizard step-1 -->
 						<div class="wizard-step-1">
 							<div class="panel-body">
@@ -190,18 +187,11 @@ print(blu.sing("'Happy'"))
                             <div class="form-group">
                                     <label class="col-md-3 control-label" style="text-align: left">Is this the first Case Plan Readiness Assessment?</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{ form.cp1d }}
                                     </div>
                                     <label class="col-md-3 control-label" style="text-align: left">If No, date of Previous Case Plan Readiness Assessment :</label>
                                     <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder=" ">
+                                        {{ form.cp2d }}
                                     </div>
                                 </div>
 
@@ -268,54 +258,26 @@ print(blu.sing("'Happy'"))
 							<div class="form-group">
                                     <label class="col-md-10 control-label" style="text-align: left">Is this Household child headed (i.e Household head age is less than 18 years)?</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{ form.cp3d }}
                                     </div>
                                 </div>
                             <div class="form-group">
                                     <label class="col-md-10 control-label" style="text-align: left">Does this Household currently have a pregnant woman or pregnant adolescent girl?</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{ form.cp4d }}
                                     </div>
                                 </div>
                             <div class="form-group">
                                 <label class="col-md-10 control-label" style="text-align: left">Does this Household have a child living with disability or has chronic illness?
                                     <i class="semi-bold">(Chronic illness includes Asthma, Cancer, Diabetes, Epileplsy)</i></label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{ form.cp5d }}
                                     </div>
                                 </div>
                             <div class="form-group">
                                     <label class="col-md-10 control-label" style="text-align: left">Does this Household have an adolescent enrolled in secondary school or vocational training? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                       {{ form.cp6d  }}
                                     </div>
                                 </div>
                             </div>
@@ -344,14 +306,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-6 control-label" style="text-align: left">1.1 Have the children at high risk of HIV been identified through the HIV risk
                                     assessment? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{ form.cp1q }}
                                     </div>
                                     <label class="col-md-3 control-label" style="text-align: left">If other means please specify :</label>
                                     <div class="col-md-1">
@@ -2145,7 +2100,7 @@ print(blu.sing("'Happy'"))
 						<div class="form-group">
 							<label class="control-label col-md-4 col-sm-4"></label>
 							<div class="col-md-6 col-sm-6">
-								<button id="mysubmit-hhva" type="submit" class="btn btn-primary">Submit</button>
+								<button type="submit" class="btn btn-primary">Submit</button>
 								<a href="javascript:history.go(-1)" class="btn btn-white">Cancel</a>
 							</div>
 						<<!-- begin wizard step-9 -->
@@ -2176,7 +2131,7 @@ print(blu.sing("'Happy'"))
 <script src="{% static 'js/bootstrap-table.min.js' %}"></script>
 <script src="{% static 'js/bootstrap-table-locale-all.min.js' %}"></script>
 <script>
-jQuery(document).ready(function() 
+jQuery(document).ready(function()
 {
 	//multi selects
     $('#hhva_ha6, #hhva_ha21, #hhva_ha22, #hhva_ha28, #hhva_ha29, #hhva_ha30, #hhva_ha31').multiselect({
@@ -2191,376 +2146,6 @@ jQuery(document).ready(function()
 
 	$('html,body').scrollTop(0);
 	FormWizardValidation.init();
-});
-</script>
-<script type="text/javascript">
-function AddRow(x)
-{
-	if(x==1)
-	{
-		var OlmisWASHData = new Array();
-        var type = $("#hhva_ha10_type").val();
-        var number = $("#hhva_ha10_number").val();
-        var condition = $("#hhva_ha10_condition").val();
-        var csrftoken = $.cookie('csrftoken');        
-        var values = {  
-            'csrfmiddlewaretoken': csrftoken
-        };
-
-        // Validation and Ajax
-        if(type)
-		{
-			if(number)
-			{
-				// Validate ifnumber
-				var isnum = /^\d+$/.test(number);
-				if(!isnum){
-					// $(".alert").show();
-			        // $('.invalid-form-message').html('Please use digits only to specify number of bedding.');
-			        $('#hhva_ha10_number_errormsg_').css({'display': 'block'})
-			        return false;
-				}
-				$('#hhva_ha10_number_errormsg_').css({'display': 'none'})
-
-				if(condition)
-				{					
-					// Find a <table> element with id="ha10_manager_table":
-                    var table = $('#ha10_manager_table')[0]; 
-
-                    // Create an empty <tr> element with id and add it to the 1st position of the table:
-                    var rows_length = table.rows.length;
-                    var row = table.insertRow(rows_length);
-                    var index = rows_length - 2;
-                    row_id = 'rowid0_' + index;
-                    row.id = row_id;
-                    var btnRemoveSvcId = 'btnRemoveSvc' + index;
-
-                    // Insert new cells (<td> elements) of the "new" <tr> element:
-                    var cell0 = row.insertCell(0);
-                    var cell1 = row.insertCell(1);
-                    var cell2 = row.insertCell(2);
-                    var cell3 = row.insertCell(3);
-                    var cell4 = row.insertCell(4);
-
-                    var htype= "<input id='htype' type='hidden' value='"+type+"'>"
-                    var hnumber = "<input id='hnumber' type='hidden' value='"+number+"'>"
-                    var hcondition = "<input id='hcondition' type='hidden' value='"+condition+"'>"
-                    var hstatus = "<input id='hstatus' type='hidden' value='new'>"
-
-                    cell0.innerHTML = '<h6 class="td_style">' + hstatus + '</h6>';        
-                    cell1.innerHTML = '<h6 class="td_style">' + displayVals(2, "hhva_ha10_type") + htype + '</h6>';
-                    cell2.innerHTML = '<h6 class="td_style">' + $('#hhva_ha10_number').val() + hnumber + '</h6>';
-                    cell3.innerHTML = '<h6 class="td_style">' + displayVals(2, "hhva_ha10_condition") + hcondition + '</h6>';
-                    cell4.innerHTML  = '<h6 class="dialog_paragraph">' + "<a id=" + btnRemoveSvcId + " class='btn btn-sm btn-link m-r-5 href='#'>Remove</a>" + '</h6>';
-
-                    // AddClick Event To Remove Button
-                    $("#" + btnRemoveSvcId + "").click(function(e)
-                    {
-                        RemoveRow(1, '', row_id);
-                    });
-
-                    // Reset Input Elements/Error Divs
-                    $("#hhva_ha10_type").val('');
-                    $("#hhva_ha10_number").val('');
-                    $("#hhva_ha10_condition").val('');
-                    $(".alert").hide();
-
-                    $('#ha10_manager_table tr').each(function(row, tr)
-                    {                            
-                        var type = $(tr).find('input[id="htype"]').val();
-                        var number = $(tr).find('input[id="hnumber"]').val();
-                        var condition = $(tr).find('input[id="hcondition"]').val();
-
-                        OlmisWASHData[row]= {
-                            "type" : type,
-                            "number" : number,
-                            "condition" : condition
-                            }                                
-                        
-                    });
-                    
-                    OlmisWASHData.shift(); //remove first row(headers stuff)
-                    OlmisWASHData.shift(); //remove second row(controls stuff)
-                    OlmisWASHData = JSON.stringify(OlmisWASHData); 
-
-                    // Set hhva_wash_list
-                    $('#hhva_wash_list').val(OlmisWASHData); 
-				}
-				else
-				{
-					$("#hhva_ha10_condition_errormsg").css({ 'display': "block" });
-				}
-
-			}
-			else
-			{
-				$("#hhva_ha10_number_errormsg").css({ 'display': "block" });
-			}
-		}
-		else
-		{
-			$("#hhva_ha10_type_errormsg").css({ 'display': "block" });
-		}
-	}
-	if(x == 2)
-	{
-		var OlmisAssetData = new Array();
-        var asset = $("#hhva_ha15_asset").val();
-        var number = $("#hhva_ha15_number").val();
-        var size = $("#hhva_ha15_size").val();
-        var csrftoken = $.cookie('csrftoken');        
-        var values = {  
-            'csrfmiddlewaretoken': csrftoken
-        };
-
-         // Validation and Ajax
-        if(asset)
-		{
-			if(number)
-			{
-				// Validate if number
-				var isnum = /^\d+$/.test(number);
-				if(!isnum){
-			        $('#hhva_ha15_number_errormsg_').css({'display': 'block'})
-			        return false;
-				}
-				$('#hhva_ha15_number_errormsg_').css({'display': 'none'})
-
-				if(size)
-				{
-					// Validate if size
-					/**
-					var isnum = /^\d+$/.test(size);
-					if(!isnum){
-				        $('#hhva_ha15_size_errormsg_').css({'display': 'block'})
-				        return false;
-					}
-					$('#hhva_ha15_size_errormsg_').css({'display': 'none'})
-					**/
-
-					// Find a <table> element with id="ha15_manager_table":
-                    var table = $('#ha15_manager_table')[0]; 
-
-                    // Create an empty <tr> element with id and add it to the 1st position of the table:
-                    var rows_length = table.rows.length;
-                    var row = table.insertRow(rows_length);
-                    var index = rows_length - 2;
-                    row_id = 'rowid1_' + index;
-                    row.id = row_id;
-                    var btnRemoveSvcId = 'btnRemoveSvc' + index;
-
-                    // Insert new cells (<td> elements) of the "new" <tr> element:
-                    var cell0 = row.insertCell(0);
-                    var cell1 = row.insertCell(1);
-                    var cell2 = row.insertCell(2);
-                    var cell3 = row.insertCell(3);
-                    var cell4 = row.insertCell(4);
-
-                    var hasset= "<input id='hasset' type='hidden' value='"+asset+"'>"
-                    var hnumber = "<input id='hnumber' type='hidden' value='"+number+"'>"
-                    var hsize = "<input id='hsize' type='hidden' value='"+size+"'>"
-                    var hstatus = "<input id='hstatus' type='hidden' value='new'>"
-
-                    cell0.innerHTML = '<h6 class="td_style">' + hstatus + '</h6>';        
-                    cell1.innerHTML = '<h6 class="td_style">' + displayVals(2, "hhva_ha15_asset") + hasset + '</h6>';
-                    cell2.innerHTML = '<h6 class="td_style">' + $('#hhva_ha15_number').val() + hnumber + '</h6>';
-                    cell3.innerHTML = '<h6 class="td_style">' + $('#hhva_ha15_size').val() + hsize + '</h6>';
-                    cell4.innerHTML  = '<h6 class="dialog_paragraph">' + "<a id=" + btnRemoveSvcId + " class='btn btn-sm btn-link m-r-5 href='#'>Remove</a>" + '</h6>';
-
-                    // AddClick Event To Remove Button
-                    $("#" + btnRemoveSvcId + "").click(function(e)
-                    {
-                        RemoveRow(1, '', row_id);
-                    });
-
-                    // Reset Input Elements/Error Divs
-                    $("#hhva_ha15_asset").val('');
-                    $("#hhva_ha15_number").val('');
-                    $("#hhva_ha15_size").val('');
-                    $(".alert").hide();
-
-                    $('#ha15_manager_table tr').each(function(row, tr)
-                    {                            
-                        var asset = $(tr).find('input[id="hasset"]').val();
-                        var number = $(tr).find('input[id="hnumber"]').val();
-                        var size = $(tr).find('input[id="hsize"]').val();
-
-                        OlmisAssetData[row]= {
-                            "asset" : asset,
-                            "number" : number,
-                            "size" : size
-                            }                                
-                        
-                    });
-                    
-                    OlmisAssetData.shift(); //remove first row(headers stuff)
-                    OlmisAssetData.shift(); //remove second row(controls stuff)
-                    OlmisAssetData = JSON.stringify(OlmisAssetData); 
-
-                    // Set hhva_asset_list
-                    $('#hhva_asset_list').val(OlmisAssetData); 
-				}
-				else
-				{
-					$("#hhva_ha15_size_errormsg").css({ 'display': "block" });
-				}
-			}
-			else
-			{
-				$("#hhva_ha15_number_errormsg").css({ 'display': "block" });
-			}
-		}
-		else
-		{
-			$("#hhva_ha15_asset_errormsg").css({ 'display': "block" });
-		}
-	}
-}
-
-function RemoveRow(index, uuid, tr_id)
-{
-    if(index == 1)
-    {
-        // Delete Table Row
-        $("#" + tr_id).remove();
-
-        var OlmisWASHData = new Array();
-        $('#ha10_manager_table tr').each(function(row, tr)
-        {                            
-            var type = $(tr).find('input[id="htype"]').val();
-            var number = $(tr).find('input[id="hnumber"]').val();
-            var condition = $(tr).find('input[id="hcondition"]').val();
-
-            OlmisWASHData[row]= {
-                "type" : type,
-                "number" : number,
-                "condition" : condition
-                }                                
-            
-        });
-        
-        OlmisWASHData.shift(); //remove first row(headers stuff)
-        OlmisWASHData.shift(); //remove second row(controls stuff)
-        OlmisWASHData = JSON.stringify(OlmisWASHData); 
-
-        // Set hhva_wash_list
-        $('#hhva_wash_list').val(OlmisWASHData);
-    }
-    if(index == 2)
-    {
-    	// Delete Table Row
-        $("#" + tr_id).remove();
-
-        var OlmisAssetData = new Array();
-        $('#ha15_manager_table tr').each(function(row, tr)
-        {                            
-            var asset = $(tr).find('input[id="hasset"]').val();
-            var number = $(tr).find('input[id="hnumber"]').val();
-            var size = $(tr).find('input[id="hsize"]').val();
-
-            OlmisAssetData[row]= {
-                "asset" : asset,
-                "number" : number,
-                "size" : size
-                }                                
-            
-        });
-        
-        OlmisAssetData.shift(); //remove first row(headers stuff)
-        OlmisAssetData.shift(); //remove second row(controls stuff)
-        OlmisAssetData = JSON.stringify(OlmisWASHData); 
-
-        // Set hhva_wash_list
-        $('#hhva_asset_list').val(OlmisAssetData);
-    }
-}
-
-function displayVals(x, value)
-{
-	var selections = [];
-	var hselections = [];
-	if(x == 1)
-	{
-	    $("#" + value + " option:selected").each(function () 
-	    {
-	       var $this = $(this);
-	       if ($this.length)
-	       {
-	            var selText = $this.text();
-	            selections.push(selText);
-	       }
-	    });
-	    $( "#sel_"+value ).html(selections.join( ", " ) );		
-	}
-	if(x==2)
-	{
-	    $("#" + value + " option:selected").each(function () 
-	    {
-	       var $this = $(this);
-	       if ($this.length)
-	       {
-	            var selText = $this.text();
-	            selections.push(selText);
-	            //console.log(selText);
-	       }
-	    });
-	    
-	    return selections.join( ", <br>" );
-	}
-}
-
-$("#hhva_ha6").change(function(event) 
-{
-	displayVals(1, 'hhva_ha6');
-});
-
-$("#hhva_ha10_type").change(function(event) 
-{
-	$('#hhva_ha10_type_errormsg').css({'display': 'none'})
-});
-
-$("#hhva_ha10_number").keyup(function() 
-{
-	if($(this).val())   
-    {
-		$('#hhva_ha10_number_errormsg_').css({'display': 'none'})
-		$('#hhva_ha10_number_errormsg').css({'display': 'none'})
-    }
-});
-
-$("#hhva_ha10_condition").change(function(event) 
-{
-	$('#hhva_ha10_condition_errormsg').css({'display': 'none'})
-});
-
-$("#hhva_ha21").change(function(event) 
-{
-	displayVals(1, 'hhva_ha21');
-});
-
-$("#hhva_ha22").change(function(event) 
-{
-	displayVals(1, 'hhva_ha22');
-});
-
-$("#hhva_ha28").change(function(event) 
-{
-	displayVals(1, 'hhva_ha28');
-});
-
-$("#hhva_ha29").change(function(event) 
-{
-	displayVals(1, 'hhva_ha29');
-});
-
-$("#hhva_ha30").change(function(event) 
-{
-	displayVals(1, 'hhva_ha30');
-});
-
-$("#hhva_ha31").change(function(event) 
-{
-	displayVals(1, 'hhva_ha31');
 });
 </script>
 {% endblock %}
