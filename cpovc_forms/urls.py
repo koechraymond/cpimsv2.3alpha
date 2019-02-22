@@ -233,4 +233,5 @@ urlpatterns = patterns(
     # OVC Care - Case Plan Template
     url(r'^caseplan/new/(?P<id>\d+)/$',
         'case_plan_template', name='new_caseplan'),
+    url(r'^rcpa/new/(?P<id>\d+)/$', 'new_rcpa', name='new_rcpa'),
 )
