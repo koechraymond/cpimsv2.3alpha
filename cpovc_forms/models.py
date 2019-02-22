@@ -1077,7 +1077,7 @@ class OVCMonitoring(models.Model):
     case_closure = models.CharField(max_length=5)
     event_id = models.ForeignKey(OVCCareEvents)
     is_void = models.BooleanField(default=False)
-    event_date = models.DateField(default=timezone.now())
+    event_date = models.DateField(default=timezone.now)
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
 
