@@ -128,31 +128,27 @@
                                             <tbody>
                                                 <tr>
                                                     <td>Date of Assessment</td>
-                                                    <td><input name="dateofassessment" type="date" /></td>
+                                                    <td>{{ form.WB_AD_GEN_4_1 }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Comment</td>
-                                                    <td><textarea name="text area"></textarea></td>
+                                                    <td>{{ form.WB_AD_GEN_4_2 }}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>Who takes care of you?</td>
                                                     <td>
-                                                        <label>Mother/Father</label><input name="Mother_and_father" type="checkbox" value="Mother_and_father" /></label>
-                                                        <label>Sister/Brother<input name="sister_and_brother" type="checkbox" value="sister_and_brother" /></label>
-                                                        <label>Aunt/Uncle<input name="aunt_and_uncle" type="checkbox" value="aunt_and_uncle" /></label>
-                                                        <label>GrandFather/GrandMother<input name="grandmother_grandfather" type="checkbox" value="grandmother_grandfather" /></label>
-                                                        <label>Other Relative<input name="other_relative" type="checkbox" value="other_relative" /></label>
-                                                        <label>Neighbor<input name="neighbor" type="checkbox" value="neighbor" /></label>
-                                                        <label>Friend<input name="friend" type="checkbox" value="friend" /></label>
-                                                        <label>Self/No-one<input name="no_one_or_self" type="checkbox" value="no_one_or_self" /></label>
-                                                        <label>Other:<input name="other" type="text" value="other" /></td></label>
+                                                            {{ form.WB_AD_GEN_5_1 }}
+                                                            <br/>
+                                                            {{ form.WB_AD_GEN_5_2 }}
+                                                    </td>
+            
                                                 </tr>
                                                 <tr>
                                                     <td>
                                                     <p lang="en-GB">What is your role in the family? For example, do you cook, do housework or make items such as clothes or tools? Do you sell in the market or work outside of the household? Do you take care of other family members?</p>
                                                     </td>
                                                     <td colspan="1" rowspan="1">
-                                                        <textarea name="text area"></textarea>
+                                                            {{ form.WB_AD_GEN_6 }}
                                                     </td>
                                                 </tr>
                                             </tbody>
@@ -184,11 +180,7 @@
                                                 <td>7</td>
                                                 <td>Are you currently enrolled in school or a vocation program? If yes, which one? If not enrolled in either, enrol in either school or vocational training.</td>
                                                 <td>
-                                                <p lang="en-GB" style="margin-bottom:0in"><span style="line-height:100%">☐ <font size="2"><font style="font-size: 10pt">School</font></font></span></p>
-                                    
-                                                <p lang="en-GB" style="margin-bottom:0in"><span style="line-height:100%">☐ <font size="2"><font style="font-size: 10pt">Vocational Training</font></font></span></p>
-                                    
-                                                <p lang="en-GB" style="margin-bottom:0in"><span style="line-height:100%">☐ <font size="2"><font style="font-size: 10pt">Not enrolled in either</font></font></span></p>
+                                                        {{ form.WB_AD_SCH_7 }}
                                                 </td>
                                             </tr>
                                             <tr>
@@ -196,49 +188,49 @@
                                                 <td>If neither, have you ever been enrolled in school?<br />
                                                 If no, why?</td>
                                                 <td>
-                                                <p align="center" lang="en-GB" style="margin-bottom:0in"><span style="line-height:100%">☐<font size="2"><font style="font-size: 10pt">Yes </font></font><font face="Segoe UI Symbol, serif"><font size="2"><font style="font-size: 9pt">☐</font></font></font><font size="2"><font style="font-size: 10pt">No</font></font></span></p>
+                                                        {{ form.WB_AD_SCH_8_1 }}
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>Response:</td>
-                                                <td><textarea name="response"></textarea></td>
+                                                <td>{{ form.WB_AD_SCH_8_2 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>9</td>
                                                 <td>If enrolled in school, what grade/ form/ year are you in now?<br />
                                                 What grade/ form/ year were you in last year? If the child is not progressing in school, follow up to understand why not and in the case plan include action steps for addressing this.</td>
                                                 <td>
-                                                <p lang="en-GB" style="margin-bottom:0in"><span style="line-height:100%"><font size="2"><font style="font-size: 10pt">grade/ form/ year now</font></font></span></p>
+                                                <p lang="en-GB" style="margin-bottom:0in">{{ form.WB_AD_SCH_9_1 }}</p>
                                     
-                                                <p lang="en-GB" style="margin-bottom:0in"><span style="line-height:100%"><font size="2"><font style="font-size: 10pt">grade/ form/ year last year</font></font></span></p>
+                                                <p lang="en-GB" style="margin-bottom:0in">{{ form.WB_AD_SCH_9_2 }}</p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>10</td>
                                                 <td>If the child responded they are enrolled in vocational training: what are you being trained in? When will you graduate from the vocational training program?</td>
-                                                <td><textarea name="response"></textarea></td>
+                                                <td>{{ form.WB_AD_SCH_10 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>11</td>
                                                 <td>During the last month, did you miss more than three school or training days for any reason? If yes, why?</td>
                                                 <td>
-                                                <p align="center" lang="en-GB" style="margin-bottom:0in"><span style="line-height:100%">☐<font size="2"><font style="font-size: 10pt">Yes </font></font><font face="Segoe UI Symbol, serif"><font size="2"><font style="font-size: 9pt">☐</font></font></font><font size="2"><font style="font-size: 10pt">No</font></font></span></p>
+                                                <p align="center" lang="en-GB" style="margin-bottom:0in">{{ form.WB_AD_SCH_11 }}</p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1" rowspan="2">12</td>
                                                 <td>Do you like going to school or vocational training?</td>
                                                 <td>
-                                                <p align="center" lang="en-GB" style="margin-bottom:0in"><span style="line-height:100%">☐<font size="2"><font style="font-size: 10pt">Yes </font></font><font face="Segoe UI Symbol, serif"><font size="2"><font style="font-size: 9pt">☐</font></font></font><font size="2"><font style="font-size: 10pt">No</font></font></span></p>
+                                                <p align="center" lang="en-GB" style="margin-bottom:0in">{{ form.WB_AD_SCH_12_1 }}</p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td>If not, why?</td>
-                                                <td>☐ Fear of the teacher<br />
-                                                ☐ Fear of the other children<br />
-                                                ☐ Feeling lonely<br />
-                                                ☐ Bored<br />
-                                                ☐ Other (please specify):_______</td>
+                                                <td>
+                                                    {{ form.WB_AD_SCH_12_2 }}
+                                                    <br/>
+                                                    {{ form.WB_AD_SCH_12_2_1 }}
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -264,15 +256,15 @@
                                         <tr>
                                             <td colspan="1" rowspan="2">13</td>
                                             <td>In the past month have you ever gone a whole day or night without eating anything at all because there was not enough food? If yes, how often would you say this happens?</td>
-                                            <td>☐Yes &nbsp;☐No</td>
+                                            <td>{{ form.WB_AD_STA_13_1}}</td>
                                         </tr>
                                         <tr>
                                             <td>
                                             <p lang="en-GB">If yes, refer for nutritional support.</p>
                                             </td>
-                                            <td>☐ Every night<br />
-                                            ☐ A few nights per week<br />
-                                            ☐ A few nights per month</td>
+                                            <td>
+                                             {{ form.WB_AD_STA_13_2 }}
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -297,147 +289,135 @@
                                             <tr>
                                                 <td colspan="1" rowspan="1">14</td>
                                                 <td>In the last month, have you gone more than three days when you were too sick or too tired to participate in daily activities? If yes, refer for health services</td>
-                                                <td>☐Yes &nbsp;☐No</td>
+                                                <td> {{ form.WB_AD_HEL_14 }} </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1">15</td>
                                                 <td>
                                                 <p lang="en-GB">The last time that you were sick, were you taken to the doctor or the hospital?</p>
                                                 </td>
-                                                <td>☐Yes &nbsp;☐No</td>
+                                                <td>{{ form.WB_AD_HEL_15 }}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1" rowspan="4">16</td>
                                                 <td>Did someone tell you what you had?</td>
-                                                <td>☐Yes &nbsp;☐No</td>
+                                                <td>{{ form.WB_AD_HEL_16_1 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>If yes, what was it?</td>
-                                                <td><textarea name="description"></textarea></td>
+                                                <td>{{ form.WB_AD_HEL_16_2 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Did you receive medication for this illness?</td>
-                                                <td>☐Yes &nbsp;☐No</td>
+                                                <td>{{ form.WB_AD_HEL_16_3 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>If yes, what kind?</td>
-                                                <td><textarea name="description"></textarea></td>
+                                                <td>{{ form.WB_AD_HEL_16_4 }}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1" rowspan="5">17</td>
                                                 <td>Do you have a disability? If the child has a disability or illness and is not receiving treatment, refer for health services.</td>
-                                                <td>☐Yes &nbsp;☐No</td>
+                                                <td>{{ form.WB_AD_HEL_17_1 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Do you have a chronic illness that you would like to share with me?</td>
-                                                <td>☐Yes &nbsp;☐No</td>
+                                                <td>{{ form.WB_AD_HEL_17_2 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>If yes, list response.</td>
-                                                <td><textarea name="description"></textarea></td>
+                                                <td>{{ form.WB_AD_HEL_17_3 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Are you currently receiving treatment for your illness or disability?</td>
-                                                <td>☐Yes &nbsp;☐No</td>
+                                                <td>{{ form.WB_AD_HEL_17_4 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>If yes, from whom?</td>
-                                                <td><textarea name="description"></textarea></td>
+                                                <td>{{ form.WB_AD_HEL_17_5 }}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1" rowspan="2">18</td>
                                                 <td>If you are often sick, have you been tested to know the cause of your illness?</td>
-                                                <td>☐Yes ☐No</td>
+                                                <td>{{ form.WB_AD_HEL_18_1 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>If yes, do you know the name of that test?</td>
-                                                <td><textarea name="description"></textarea></td>
+                                                <td>{{ form.WB_AD_HEL_18_2 }}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1" rowspan="2">19</td>
                                                 <td>Have you ever heard of HIV?</td>
-                                                <td>☐Yes ☐No</td>
+                                                <td>{{ form.WB_AD_HEL_19_1 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>If yes, where did you hear about HIV? For example, school, friends, family, or church?</td>
-                                                <td><textarea name="description"></textarea></td>
+                                                <td>{{ form.WB_AD_HEL_19_2 }}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1" rowspan="4">20</td>
                                                 <td>Have you ever been tested for HIV?</td>
-                                                <td>☐Yes &nbsp;☐No</td>
+                                                <td>{{ form.WB_AD_HEL_20_1 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>If yes, date of test:</td>
-                                                <td><input name="dateoftesting" type="text" /></td>
+                                                <td>{{ form.WB_AD_HEL_20_2 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Do you know the results of your test?</td>
-                                                <td>☐Yes ☐No</td>
+                                                <td>{{ form.WB_AD_HEL_20_3 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>If yes, could you share the results of the test with me</td>
-                                                <td>☐ Positive&nbsp;<br />
-                                                ☐ Negative<br />
-                                                ☐ Don&rsquo;t Know<br />
-                                                ☐ Refuse</td>
+                                                <td>{{ form.WB_AD_HEL_20_4 }}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1" rowspan="2">21</td>
                                                 <td>How did you find out about your HIV status?</td>
-                                                <td>☐ Father<br />
-                                                ☐ Other adult in the family<br />
-                                                ☐ Sibling<br />
-                                                ☐ Friend<br />
-                                                ☐ Teacher<br />
-                                                ☐ Other, please specify: _____________</td>
+                                                <td>{{ form.WB_AD_HEL_21_1 }}
+                                                    <br/>
+                                                    {{ form.WB_AD_HEL_21_2 }}
+                                                    </td>
                                             </tr>
                                             <tr>
                                                 <td>How old were you the first time you heard this news?(Years)</td>
-                                                <td><input name="age_years" type="text" /></td>
+                                                <td>{{ form.WB_AD_HEL_21_3 }}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1" rowspan="3">22</td>
                                                 <td>Do you take medication for HIV?</td>
-                                                <td>☐Yes &nbsp;☐No</td>
+                                                <td>{{ form.WB_AD_HEL_22_1 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>If yes, do you like taking your treatment? If no, refer for HIV services.</td>
-                                                <td>☐Yes &nbsp;☐No</td>
+                                                <td>{{ form.WB_AD_HEL_22_2 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>If no, can you explain why you don&rsquo;t like taking your treatment?</td>
-                                                <td><textarea name="description"></textarea></td>
+                                                <td>{{ form.WB_AD_HEL_22_3 }}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1">23</td>
                                                 <td>Which health facility do you visit?</td>
-                                                <td><input name="facility" type="text" value="facility name" /></td>
+                                                <td>{{ form.WB_AD_HEL_23 }}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1">24</td>
                                                 <td>Who in your household or your life knows about your HIV status?</td>
                                                 <td>
-                                                <p>☐ Mother<br />
-                                                ☐ Father<br />
-                                                ☐ Other caregiver<br />
-                                                ☐ Sibling<br />
-                                                ☐ Teacher<br />
-                                                ☐ Friend<br />
-                                                ☐ Neighbor<br />
-                                                ☐Other, please specify:</p>
+                                                <p>{{ form.WB_AD_HEL_24_1 }}</p>
                                     
-                                                <p>___________</p>
+                                                <p>{{ form.WB_AD_HEL_24_2 }}</p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1" rowspan="2">25</td>
                                                 <td>If at least one person knows, what is their attitude</td>
-                                                <td><textarea name="description"></textarea></td>
+                                                <td>{{ form.WB_AD_HEL_25_1 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Who are the members of your household or community that have an encouraging attitude toward you and help you?</td>
-                                                <td><textarea name="description"></textarea></td>
+                                                <td>{{ form.WB_AD_HEL_25_2 }}</td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -464,103 +444,96 @@
                                             <tr>
                                                 <td colspan="1" rowspan="1">26</td>
                                                 <td>Would you say it is true that your caregiver listens when you talk to him/her?1 If other than all the time or often, refer parent to parenting skills training.*</td>
-                                                <td>☐ All the time<br />
-                                                ☐ Often<br />
-                                                ☐ Sometimes<br />
-                                                ☐ Rarely<br />
-                                                ☐ Never</td>
+                                                <td>
+                                                    {{ form.WB_AD_SAF_26 }}
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1">27</td>
-                                                <td>If a child headed household, are you or any other children in the house receiving any child or social protection support*</td>
-                                                <td>☐ OVC cash transfer<br />
-                                                ☐ NHIF<br />
-                                                ☐Other<br />
-                                                ____________</td>
+                                                <td>If a child headed household, are you or any othr children in the house receiving any child or social protection support</td>
+                                                <td>
+                                                    {{ form.WB_AD_SAF_27_1 }} <br/>
+                                                    {{ form.WB_AD_SAF_27_2 }}
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1">28</td>
                                                 <td>Would you say it is true that you can go to your caregiver for help and advice with problems and he/ she will help to solve them?1 If other than all the time or often, refer parent to parenting skills*</td>
-                                                <td>☐ All the time<br />
-                                                ☐ Often<br />
-                                                ☐ Sometimes<br />
-                                                ☐ Rarely<br />
-                                                ☐ Never</td>
+                                                <td>
+                                                        {{ form.WB_AD_SAF_28 }}
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1">29</td>
                                                 <td>Do you feel like your opinion is heard .</td>
-                                                <td>☐Yes &nbsp;☐No</td>
+                                                <td>{{ form.WB_AD_SAF_29 }}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1" rowspan="2">30</td>
                                                 <td>When things get tough, do you feel that you can cope?</td>
-                                                <td>☐Yes &nbsp;☐No</td>
+                                                <td>{{ form.WB_AD_SAF_30_1 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>If no, why?</td>
-                                                <td><textarea name="description"></textarea></td>
+                                                <td>{{ form.WB_AD_SAF_30_2 }}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1" rowspan="3">31</td>
                                                 <td>Do you have friends that are older than you? If yes, refer child &nbsp;to teen group.</td>
-                                                <td>☐Yes &nbsp;☐No</td>
+                                                <td>{{ form.WB_AD_SAF_31_1 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>If yes, do they ever buy or give you gifts&nbsp;</td>
-                                                <td>☐Yes &nbsp;☐No</td>
+                                                <td>{{ form.WB_AD_SAF_31_2 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>Do you feel pressure to do anything in exchange for the gifts.</td>
-                                                <td>☐Yes &nbsp;☐No</td>
+                                                <td>{{ form.WB_AD_SAF_31_3 }}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1" rowspan="6">32</td>
                                                 <td>In the past six months, has anyone ever beaten</td>
-                                                <td>☐ Yes ☐ No ☐ Refuse</td>
+                                                <td>{{ form.WB_AD_SAF_32_1 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>If yes, how often has someone beaten/slapped/spanked you, or hit you with a belt, a stick or something hard? &nbsp;Would you say?<br />
                                                 If Declined to answer Read alternatives</td>
-                                                <td>☐ Almost every day<br />
-                                                ☐ Once in a while<br />
-                                                ☐ Long time ago<br />
-                                                ☐ Declined to answer</td>
+                                                <td>
+                                                    {{ form.WB_AD_SAF_32_2 }}
+                                                </td>
                                             </tr>
                                             <tr>
                                                 <td>If yes, have you ever told someone about this?</td>
-                                                <td>☐ Yes ☐ No ☐ Refuse</td>
+                                                <td> {{ form.WB_AD_SAF_32_3 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>If yes, have you ever had to miss school because of it?</td>
-                                                <td>☐ Yes ☐ No ☐ Refuse</td>
+                                                <td> {{ form.WB_AD_SAF_32_4 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>If you have had to miss school because of the violence you experienced at home, did you receive or are your currently receiving any services to help with this problem?</td>
-                                                <td>☐ Yes ☐ No ☐ Refuse</td>
+                                                <td> {{ form.WB_AD_SAF_32_5 }} </td>
                                             </tr>
                                             <tr>
                                                 <td>If yes, from whom?</td>
                                                 <td>
-                                                <p>☐ Friend<br />
-                                                ☐ Health facility<br />
-                                                ☐ CHV<br />
-                                                Other_______</p>
+                                                <p> {{ form.WB_AD_SAF_32_6_1 }}</p>
+                                                <p> {{ form.WB_AD_SAF_36_6_2 }}</p>
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1" rowspan="2">33</td>
                                                 <td>Have you ever been touched by anyone on your private parts or in way you did not like or forced to do something against your will?</td>
-                                                <td>☐ Yes ☐ No ☐ Refuse</td>
+                                                <td> {{ form.WB_AD_SAF_33_1 }}</td>
                                             </tr>
                                             <tr>
                                                 <td>If yes, and please ask if the child or adolescent would feel comfortable telling you who it was.</td>
-                                                <td><textarea name="description"></textarea></td>
+                                                <td> {{ form.WB_AD_SAF_33_2 }} </td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1">34</td>
                                                 <td>Has anyone in the household, neighbourhood, or school said things or asked you to do things that made you feel uncomfortable? For example, made inappropriate comments about your body, offered things in exchange, etc</td>
-                                                <td>☐ Yes ☐ No ☐ Refuse</td>
+                                                <td> {{ form.WB_AD_SAF_34 }} </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -586,13 +559,13 @@
                                         <tbody>
                                             <tr>
                                                 <td colspan="1" rowspan="1">1</td>
-                                                <td><textarea name="goal1">Goal 1</textarea></td>
-                                                <td><textarea name="actiongoal1">Action for Goal 1</textarea></td>
+                                                <td> {{ form.WB_AD_GOAL_1 }}</td>
+                                                <td>{{ form.WB_AD_ACTION_1 }}</td>
                                             </tr>
                                             <tr>
                                                 <td colspan="1">2</td>
-                                                <td><textarea name="goal2" required="required">Goal 2 </textarea></td>
-                                                <td><textarea name="actiongoal2" required="required">Action for Goal 2</textarea></td>
+                                                <td>{{ form.WB_AD_GOAL_2}} </td>
+                                                <td>{{ form.WB_AD_ACTION_2 }} </td>
                                             </tr>
                                         </tbody>
                                     </table>

@@ -20,7 +20,7 @@ from cpovc_forms.forms import (
     ResidentialForm, OVC_FT3hForm, SearchForm, OVCCareSearchForm,
     OVC_CaseEventForm, DocumentsManager, OVCSchoolForm, OVCBursaryForm,
     BackgroundDetailsForm, OVC_FTFCForm, OVCCsiForm, OVCF1AForm, OVCHHVAForm,Wellbeing,
-    GOKBursaryForm)
+    GOKBursaryForm, WellbeingAdolescentForm)
 from .models import (
     OVCEconomicStatus, OVCFamilyStatus, OVCReferral, OVCHobbies, OVCFriends,
     OVCDocuments, OVCMedical, OVCCaseRecord, OVCNeeds, OVCCaseCategory,
@@ -8715,7 +8715,7 @@ def new_wellbeingadolescent(request, id):
     init_data = RegPerson.objects.filter(pk=id)
     check_fields = ['sex_id']
     vals = get_dict(field_name=check_fields)
-    form = OVCF1AForm(initial={'person': id})
+    form = WellbeingAdolescentForm()
     return render(request,
                   'forms/new_wellbeingadolescent.html',
                   {'form': form, 'init_data': init_data,
