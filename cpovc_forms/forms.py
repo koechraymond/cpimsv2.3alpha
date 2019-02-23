@@ -132,19 +132,9 @@ olmis_ha30_list = get_list('olmis_ha30_id', 'Please Select')
 olmis_ha31_list = get_list('olmis_ha31_id', 'Please Select')
 
 
-#wellbeing
-YESNO_CHOICES_REFUSE = (('AYES', 'Yes'), ('ANNO', 'No'), ('AREFUSE', 'Refuse'))
 
-FAVORITE_COLORS_CHOICES = (
-        ('blue', 'Provide money'),
-        ('green', 'Look after the children'),
-        ('black1', 'Help with house chores'),
-        ('black2', 'Work on the farms'),
-        ('black3', 'Collect water and/ or wood'),
-        ('black4', 'Take care of animals'),
-        ('black5', 'Bring food'),
-        ('black6', 'Other')
-    )
+
+
 
 class OVCSchoolForm(forms.Form):
     school_name = forms.CharField(widget=forms.TextInput(
@@ -3336,7 +3326,18 @@ class GOKBursaryForm(forms.Form):
 
 
 
-
+#wellbeing
+YESNO_CHOICES_REFUSE = (('AYES', 'Yes'), ('ANNO', 'No'), ('AREFUSE', 'Refuse'))
+FAMILY_HELP_CHOICES = (
+        ('blue', 'Provide money'),
+        ('green', 'Look after the children'),
+        ('black1', 'Help with house chores'),
+        ('black2', 'Work on the farms'),
+        ('black3', 'Collect water and/ or wood'),
+        ('black4', 'Take care of animals'),
+        ('black5', 'Bring food'),
+        ('black6', 'Other')
+    )
 class Wellbeing(forms.Form):
 
     ##Domain Stable
@@ -3347,11 +3348,22 @@ class Wellbeing(forms.Form):
 
 
 
-    WB_STA_1 = forms.MultipleChoiceField(
+    WB_STA_1_1 = forms.MultipleChoiceField(
         required=False,
         widget=forms.CheckboxSelectMultiple,
-        choices=FAVORITE_COLORS_CHOICES,
+        choices=FAMILY_HELP_CHOICES,
     )
+    WB_STA_1_2=forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_STA_1_2',
+               'data-parsley-required': "False"
+               }))
+
+    WB_STA_1_3=forms.CharField(widget=forms.Textarea(
+        attrs={'rows': '3', 'class': 'form-control'}))
+
+    
 
 
     ##Domain Safe
