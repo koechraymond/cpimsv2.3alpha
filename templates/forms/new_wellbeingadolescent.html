@@ -227,9 +227,9 @@
                                             <tr>
                                                 <td>If not, why?</td>
                                                 <td>
-                                                    {{ form.WB_AD_SCH_12_2 }}
+                                                    <p>{{ form.WB_AD_SCH_12_2 }}</p>
                                                     <br/>
-                                                    {{ form.WB_AD_SCH_12_2_1 }}
+                                                    <p>{{ form.WB_AD_SCH_12_2_1 }}</p>
                                                 </td>
                                             </tr>
                                         </tbody>
@@ -582,7 +582,7 @@
                         <div class="form-group">
                             <label class="control-label col-md-4 col-sm-4"></label>
                             <div class="col-md-6 col-sm-6">
-                                <button id="mysubmit-hhva" type="submit" class="btn btn-primary">Submit</button>
+                                <button id="mysubmit-wellbeingadolescent" type="submit" class="btn btn-primary">Submit</button>
                                 <a href="javascript:history.go(-1)" class="btn btn-white">Cancel</a>
                             </div>
                         </div>
@@ -590,7 +590,7 @@
 
                 </form>
             </div>
-            <div class="badge pull-right m-4">Revised: Oct 6th 2016</div>
+            <div class="badge pull-right m-4">Revised: Feb 23rd 2019</div>
         </div>
         <!-- end panel -->
 
@@ -615,7 +615,7 @@
 jQuery(document).ready(function() 
 {
 	//multi selects
-    $('#hhva_ha6, #hhva_ha21, #hhva_ha22, #hhva_ha28, #hhva_ha29, #hhva_ha30, #hhva_ha31').multiselect({
+    $('#WB_AD_SCH_12_2').multiselect({
         selectAllValue: 'multiselect-all',
         includeSelectAllOption: true,
         enableCaseInsensitiveFiltering: true,
@@ -629,22 +629,6 @@ jQuery(document).ready(function()
 	FormWizardValidation.init();
 });
 
-
-
-</script>
-
-
-<script>
-    $(document).ready(function() {
-    $("div.bhoechie-tab-menu>div.list-group>a").click(function(e) {
-        e.preventDefault();
-        $(this).siblings('a.active').removeClass("active");
-        $(this).addClass("active");
-        var index = $(this).index();
-        $("div.bhoechie-tab>div.bhoechie-tab-content").removeClass("active");
-        $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
-    });
-});
 
 
 </script>

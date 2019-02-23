@@ -3498,12 +3498,12 @@ class WellbeingAdolescentForm(forms.Form):
 
     WB_AD_SCH_12_2 = forms.ChoiceField(
         choices = WB_AD_SCH_12_2_CHOICELIST,
-                widget=forms.RadioSelect(
-                renderer=RadioCustomRenderer,
-                attrs={
-                    'data-parsley-required': 'true',
-                    'data-parsley-errors-container': "#errorfield"
-                }))
+        widget=forms.SelectMultiple(
+                    attrs={'class': 'form-control',
+                            'id': 'WB_AD_SCH_12_2',
+                            'data-parsley-required': "true",
+                            'data-parsley-group': 'group2'})
+    )
 
     WB_AD_SCH_12_2_1 = forms.CharField(
         widget=forms.TextInput(
