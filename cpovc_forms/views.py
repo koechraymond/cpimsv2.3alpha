@@ -20,7 +20,7 @@ from cpovc_forms.forms import (
     ResidentialForm, OVC_FT3hForm, SearchForm, OVCCareSearchForm,
     OVC_CaseEventForm, DocumentsManager, OVCSchoolForm, OVCBursaryForm,
     BackgroundDetailsForm, OVC_FTFCForm, OVCCsiForm, OVCF1AForm, OVCHHVAForm,
-    GOKBursaryForm)
+    GOKBursaryForm, CasePlanTemplate)
 from .models import (
     OVCEconomicStatus, OVCFamilyStatus, OVCReferral, OVCHobbies, OVCFriends,
     OVCDocuments, OVCMedical, OVCCaseRecord, OVCNeeds, OVCCaseCategory,
@@ -8716,7 +8716,8 @@ def case_plan_template(request, id):
     init_data = RegPerson.objects.filter(pk=id)
     check_fields = ['sex_id']
     vals = get_dict(field_name=check_fields)
-    form = OVCF1AForm(initial={'person': id})
+    form = CasePlanTemplate()
+
     return render(request,
                   'forms/case_plan_template.html',
                   {'form': form, 'init_data': init_data,

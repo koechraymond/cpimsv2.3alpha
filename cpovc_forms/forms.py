@@ -3315,3 +3315,82 @@ class GOKBursaryForm(forms.Form):
             'data-parsley-required': "true",
             'data-parsley-group': 'group1'})
     )
+
+class CasePlanTemplate(forms.Form):
+
+    CPT_DOMAIN = forms.ChoiceField(
+    choices=(('SCH','schooled'),('STB','Stable'),('SF','Safe'),('HE','healthy')),
+    initial='0',
+    widget=forms.Select(
+            attrs={'class': 'form-control',
+                   'data-parsley-required': "true",
+                   'data-parsley-group': "group1"}))
+
+    CPT_GOAL = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': _('Needs/Gaps.'),
+            'class': 'form-control',
+            'data-parsley-required': "true",
+            'data-parsley-group': 'group1'}))
+
+    CPT_GAPS = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': _('Needs/Gaps.'),
+            'class': 'form-control',
+            'data-parsley-required': "true",
+            'data-parsley-group': 'group1'}))
+
+    CPT_MEMBER= forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': _('House-Hold Member'),
+            'class': 'form-control',
+            'data-parsley-required': "true",
+            'data-parsley-group': 'group1'}))
+
+    CPT_ACTIONS = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': _('Actions'),
+            'class': 'form-control',
+            'data-parsley-required': "true",
+            'data-parsley-group': 'group1'})
+    )
+
+    CPT_SERVICES = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': _('Services'),
+            'class': 'form-control',
+            'data-parsley-required': "true",
+            'data-parsley-group': 'group1'}))
+
+    CPT_RESPOSIBLE = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': _('Person'),
+            'class': 'form-control',
+            'data-parsley-required': "true",
+            'data-parsley-group': 'group1'}))
+
+
+    CPT_DATE = forms.DateField(widget=forms.TextInput(
+        attrs={'placeholder': _('Date of Completed'),
+               'class': 'form-control',
+               'id': 'date_of_certificate_expiry',
+               'data-parsley-required': "true",
+               'data-parsley-group': "group0"
+               }))
+    CPT_RESULTS = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': _('Person'),
+            'class': 'form-control',
+            'data-parsley-required': "true",
+            'data-parsley-group': 'group1'}))
+    CPT_REASONS = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': _('Person'),
+            'class': 'form-control',
+            'data-parsley-required': "true",
+            'data-parsley-group': 'group1'}))
+
+# CPT_RESPONSIBLE
+# CPT_DATE
+# CPT_RESULTS
+# CPT_REASONS

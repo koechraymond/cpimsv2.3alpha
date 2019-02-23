@@ -147,7 +147,7 @@
             	<form class="form-horizontal form-bordered" action="." method="POST" data-parsley-validate="true"
                 name="form-wizard-f1a" id="new_f1a">
                 	{% csrf_token %}
-                    {{ form.person }}
+
 					<div id="wizard-f1a">
 
 
@@ -176,39 +176,53 @@
                                         <tr id="id_inputElements1">
 
                                              <td>
-                                            	{{ form.olmis_assessment_coreservice }}
-                                            	<div id="olmis_assessment_coreservice_errormsg" style="display:none;">
+                                            	{{ form.Lp1d }}
+                                            	<div id="olmis_assessment_coreservice_errormsg" style="display:none;" class="col-md-10 control-label">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
 
                                             <td>
-                                            	{{ form.olmis_assessment_coreservice }}
+                                                {{ form.Lp2d }}
                                             	<div id="olmis_assessment_coreservice_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
                                             <td>
-                                            	{{ form.olmis_assessment_coreservice_status }}
-                                            	<h6><span id="sel_olmis_assessment_coreservice_status"></span></h6>
-                                            	<!-- <input id='holmis_assessment_coreservice_status' type='hidden'> -->
+
+                                            	{{ form.Lp3d }}
                                             	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="needs:">
+
+                                             <td>
+
+                                            	{{ form.Lp4d }}
+                                            	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
+                                                    <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="code:">
+                                          <td>
+
+                                            	{{ form.Lp5d }}
+                                            	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
+                                                    <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
+                                               <td>
+
+                                            	{{ form.Lp6d }}
+                                            	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
+                                                    <small><p class="dialog_paragraph">This value is required</p></small>
+                                                </div>
+                                            </td>
+
                                             <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="Internal">
+
+                                            	{{ form.Lp7d }}
+                                            	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
+                                                    <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
                                             <td>
@@ -235,7 +249,7 @@
                                             </td>
                                         </tr>
                                     </tbody>
-                                    {{ form.olmis_assessment_provided_list }}
+
                                 </table>
 							    <!-- end col-6 -->                                
 							</fieldset>
@@ -244,7 +258,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-4 col-sm-4">Date Assessment Recorded</label>
                                     <div class="col-md-2 col-sm-2">
-                                        {{ form.date_of_assessment }}
+
                                         <div id="date_errormsg0" style="display:none;">
                                             <small><p class="dialog_paragraph">This value is required</p></small>
                                         </div>
@@ -274,7 +288,7 @@
 					</div>
 				</form>
             </div>
-            <a href="{% url 'ovc_view' id=form.person.value %}" class="badge badge-primary m-4"> Back to OVC</a>
+            <a href="#" class="badge badge-primary m-4"> Back to OVC</a>
             <div class="badge pull-right m-4">Revised: Oct 6th 2016</div>
         </div>
         <!-- end panel -->
