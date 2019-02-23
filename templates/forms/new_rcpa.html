@@ -81,139 +81,84 @@
 							<div class="panel-body">
 
 							    <!-- add labels like HA1, HA2 .. -->
-							    <h4>Domain: Healthy</h4>
+							    <h2 class="text-center note note-info">Healthy</h2>
 							<div class="form-group">
                                     <label class="col-md-6 control-label">1.All children, adolescents and caregivers in
                                         the household have known HIV status or test not required based on risk assessment</label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">No
-                                        </label>
+                                        {{ form.cpm1 }}
                                     </div>
                                 </div>
                             <div class="form-group">
                                     <label class="col-md-6 control-label">2.All HIV+ children, adolescents and caregivers in the household are virally suppressed</label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">No
-                                        </label>
+                                        {{ form.cpm2 }}
                                     </div>
                                 </div>
                             <div class="form-group">
                                 <label class="col-md-6 control-label">3.All adolescents 10-17 years of age in the household have knowledge about preventing HIV infection</label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">No
-                                        </label>
+                                        {{ form.cpm3 }}
                                     </div>
                                 </div>
                             <div class="form-group">
                                     <label class="col-md-6 control-label">4.No child under 5 in the household is undernourished </label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">No
-                                        </label>
+                                        {{ form.cpm4 }}
                                     </div>
                                 </div>
                             </div>
-                    <h4>Domain: Stable</h4>
+                    <h2 class="text-center note note-info">Stable</h2>
 							<div class="form-group">
                                     <label class="col-md-6 control-label">1.Caregiver able to access money (without
                                         selling productive assets) to pay for school fees and medical costs for children 0-17 years</label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">No
-                                        </label>
+                                        {{ form.cpm5 }}
                                     </div>
                                 </div>
-                    <h4>Domain: Safe</h4>
+                    <h4 class="text-center">Safe</h4>
 							<div class="form-group">
                                     <label class="col-md-6 control-label">1.No child, adolescent and caregivers in the
                                         household report experience of violence</label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">No
-                                        </label>
+                                        {{ form.cpm6 }}
                                     </div>
                                 </div>
                     <div class="form-group">
                                     <label class="col-md-6 control-label">2.All children and adolescents in the household
                                         are under the care of a stable adult caregiver</label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">No
-                                        </label>
+                                        {{ form.cpm7 }}
                                     </div>
                                 </div>
-                    <h4>Domain: Schooled</h4>
+                    <h2 class="text-center note note-info">Schooled</h2>
 							<div class="form-group">
                                     <label class="col-md-6 control-label">1.All school age children and adolescents in
                                         the household regularly attend school since last visit (have not missed more than
                                         80% of school days per month) </label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">No
-                                        </label>
+                                        {{ form.cpm8 }}
                                     </div>
                                 </div>
                     <div class="form-group">
                                     <label class="col-md-6 control-label">2.All school age children and adolescents progressed
                                         from one grade to the next grade/graduated and progressed since the last visit</label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">No
-                                        </label>
+                                        {{ form.cpm9 }}
                                     </div>
                                 </div>
                     <div class="form-group">
                                     <label class="col-md-6 control-label">Household is still ready to successfully exit
                                         (case plan achievement):</label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">No
-                                        </label>
+                                        {{ form.cpm10 }}
                                     </div>
                                 </div>
                     <div class="form-group">
                                     <label class="col-md-6 control-label">2.All school age children and adolescents progressed
                                         from one grade to the next grade/graduated and progressed since the last visit</label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">No
-                                        </label>
+                                        {{ form.cpm11 }}
                                     </div>
                                 </div>
                     <br/>
@@ -221,12 +166,7 @@
                     <div class="form-group">
                                     <label class="col-md-6 control-label semi-bold">Case determined ready for closure:</label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="radio" value="">No
-                                        </label>
+                                        {{ form.cpm12 }}
                                     </div>
                                 </div>
 
@@ -236,7 +176,7 @@
 						<div class="form-group">
 							<label class="control-label col-md-4 col-sm-4"></label>
 							<div class="col-md-6 col-sm-6">
-								<button id="mysubmit-hhva" type="submit" class="btn btn-primary">Submit</button>
+								<button type="submit" class="btn btn-primary">Submit</button>
 								<a href="javascript:history.go(-1)" class="btn btn-white">Cancel</a>
 							</div>
 						</div>
