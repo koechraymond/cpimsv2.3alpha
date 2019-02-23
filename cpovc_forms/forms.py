@@ -131,6 +131,21 @@ olmis_ha29_list = get_list('olmis_ha29_id', 'Please Select')
 olmis_ha30_list = get_list('olmis_ha30_id', 'Please Select')
 olmis_ha31_list = get_list('olmis_ha31_id', 'Please Select')
 
+
+#wellbeing
+YESNO_CHOICES_REFUSE = (('AYES', 'Yes'), ('ANNO', 'No'), ('AREFUSE', 'Refuse'))
+
+FAVORITE_COLORS_CHOICES = (
+        ('blue', 'Provide money'),
+        ('green', 'Look after the children'),
+        ('black1', 'Help with house chores'),
+        ('black2', 'Work on the farms'),
+        ('black3', 'Collect water and/ or wood'),
+        ('black4', 'Take care of animals'),
+        ('black5', 'Bring food'),
+        ('black6', 'Other')
+    )
+
 class OVCSchoolForm(forms.Form):
     school_name = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Name of School'),
@@ -2288,37 +2303,6 @@ class OVCCsiForm(forms.Form):
                }))
 
 
-class Wellbeing(forms.Form):
-    ## Demographics
-    olmis_assessment_domain = forms.ChoiceField(choices=olmis_assessment_domain_list,
-                                                initial='0',
-                                                widget=forms.Select(
-                                                    attrs={'class': 'form-control',
-                                                           'id': 'olmis_assessment_domain'})
-                                                )
-
-    ##Domain Stable
-
-    ##Domain Safe
-
-    ##Schooled
-
-    ##Safe
-
-    ##Goals
-
-    ##Well-being for Adolescents aged 10-17
-
-    ##DOMAIN:SCHOOLED
-
-    ##DOMAIN: STABLE
-
-    ##DOMAIN:HEALTH
-
-    ##DOMAIN: SAFE
-
-    ##GOALS
-
 
 class OVCF1AForm(forms.Form):
     olmis_assessment_domain = forms.ChoiceField(choices=olmis_assessment_domain_list,
@@ -3351,5 +3335,48 @@ class GOKBursaryForm(forms.Form):
 
 
 
+
+
 class Wellbeing(forms.Form):
-    pass
+
+    ##Domain Stable
+    # WB_STA_1 = forms.CharField(
+    #     choices=YESNO_CHOICES_REFUSE,
+    #     widget=forms.CheckboxInput(
+    #         attrs={'class': 'form-control', 'id': 'WB_STA_1'}))
+
+
+
+    WB_STA_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=FAVORITE_COLORS_CHOICES,
+    )
+
+
+    ##Domain Safe
+    WB_SAF_31 = forms.ChoiceField(
+        choices=YESNO_CHOICES_REFUSE,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#in_school_error"})
+    )
+
+    ##Schooled
+
+    ##Safe
+
+    ##Goals
+
+    ##Well-being for Adolescents aged 10-17
+
+    ##DOMAIN:SCHOOLED
+
+    ##DOMAIN: STABLE
+
+    ##DOMAIN:HEALTH
+
+    ##DOMAIN: SAFE
+
+    ##GOALS
