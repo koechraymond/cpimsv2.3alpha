@@ -8,6 +8,7 @@ Step 2:
 		CPIMS_DB='yourdbname'
 		CPIMS_PORT='5432' #change if not 5432
 		CPIMS_DBUSER='yourdbusername'
+		CPIMS_SECRET_KEY='thekey' #check older commits for the key
 		
 Step 3: 
 	Save and exit;

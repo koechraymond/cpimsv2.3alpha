@@ -8,7 +8,7 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-SECRET_KEY = 'h34yo5l8c8!edb%^b@3j-i^gc$e)fcjnw_9jm4a^%jbq&*41+@'
+SECRET_KEY = os.environ.get('CPIMS_SECRET_KEY') if os.environ.get('CPIMS_SECRET_KEY') else 'xxxx'
 
 
 ALLOWED_HOSTS = ['*']
