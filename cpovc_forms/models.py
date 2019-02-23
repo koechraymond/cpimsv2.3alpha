@@ -703,6 +703,7 @@ class OVCCareEvents(models.Model):
     event_counter = models.IntegerField(default=0)
     event_score = models.IntegerField(null=True, default=0)
     date_of_event = models.DateField(default=timezone.now)
+    date_of_previous_event = models.DateTimeField(default=datetime.now)
     created_by = models.IntegerField(null=True, default=404)
     timestamp_created = models.DateTimeField(default=timezone.now)
     is_void = models.BooleanField(default=False)
@@ -906,7 +907,6 @@ if you find errors, correct and move on.
 Peace!
 '''
 
-
 class OVCCareBenchmarkScore(models.Model):
     bench_mark_score_id = models.AutoField(primary_key=True)
     household_id = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
@@ -961,8 +961,8 @@ class OVCCareWellbeing(models.Model):
     question = models.CharField(max_length=150)
     answer = models.CharField(max_length=5)
     household_id = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
-    question_type = models.CharField(max_length=50)
-    domain = models.CharField(max_length=50)
+    question_type = models.CharField(max_length=5)
+    domain = models.CharField(max_length=10)
     is_void = models.BooleanField(default=False)
     event_id = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
     timestamp_created = models.DateTimeField(default=timezone.now)
@@ -1096,3 +1096,6 @@ class OVCHivStatus(models.Model):
 
     class Meta:
         db_table = 'ovc_hiv_status'
+
+
+        
