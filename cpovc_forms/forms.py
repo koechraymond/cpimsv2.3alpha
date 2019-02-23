@@ -3501,7 +3501,7 @@ class WellbeingAdolescentForm(forms.Form):
         widget=forms.SelectMultiple(
                     attrs={'class': 'form-control',
                             'id': 'WB_AD_SCH_12_2',
-                            'data-parsley-required': "true",
+                            # 'data-parsley-required': "true",
                             'data-parsley-group': 'group2'})
     )
 
@@ -3567,7 +3567,7 @@ class WellbeingAdolescentForm(forms.Form):
         attrs = {'placeholder': _('Response-What was It?'),
                'class': 'form-control',
                'id': 'WB_AD_HEL_16_2',
-               'data-parsley-group': 'group0',
+            #    'data-parsley-group': 'group0',
                'rows': '2'})
         )
     
@@ -3612,7 +3612,7 @@ class WellbeingAdolescentForm(forms.Form):
         attrs = {'placeholder': _('Response-List'),
                'class': 'form-control',
                'id': 'WB_AD_HEL_17_3',
-               'data-parsley-group': 'group0',
+            #    'data-parsley-group': 'group0',
                'rows': '2'})
         )
     
