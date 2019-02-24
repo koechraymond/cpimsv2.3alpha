@@ -3319,7 +3319,7 @@ class GOKBursaryForm(forms.Form):
 class CasePlanTemplate(forms.Form):
 
     CPT_DOMAIN = forms.ChoiceField(
-    choices=(('SCH','schooled'),('STB','Stable'),('SF','Safe'),('HE','healthy')),
+    choices=(('DM','Domain'),('SCH','schooled'),('STB','Stable'),('SF','Safe'),('HE','healthy')),
     initial='0',
     widget=forms.Select(
             attrs={'class': 'form-control',
@@ -3328,28 +3328,28 @@ class CasePlanTemplate(forms.Form):
 
     CPT_GOAL = forms.CharField(widget=forms.TextInput(
         attrs={
-            'placeholder': _('Needs/Gaps.'),
+            'placeholder': _('Goal'),
             'class': 'form-control',
             'data-parsley-required': "true",
             'data-parsley-group': 'group1'}))
 
     CPT_GAPS = forms.CharField(widget=forms.TextInput(
         attrs={
-            'placeholder': _('Needs/Gaps.'),
+            'placeholder': _('IDentified Gaps'),
             'class': 'form-control',
             'data-parsley-required': "true",
             'data-parsley-group': 'group1'}))
 
     CPT_MEMBER= forms.CharField(widget=forms.TextInput(
         attrs={
-            'placeholder': _('House-Hold Member'),
+            'placeholder': _('HH Member'),
             'class': 'form-control',
             'data-parsley-required': "true",
             'data-parsley-group': 'group1'}))
 
     CPT_ACTIONS = forms.CharField(widget=forms.TextInput(
         attrs={
-            'placeholder': _('Actions'),
+            'placeholder': _('Priority Actions'),
             'class': 'form-control',
             'data-parsley-required': "true",
             'data-parsley-group': 'group1'})
@@ -3364,14 +3364,14 @@ class CasePlanTemplate(forms.Form):
 
     CPT_RESPOSIBLE = forms.CharField(widget=forms.TextInput(
         attrs={
-            'placeholder': _('Person'),
+            'placeholder': _('Person Responsible'),
             'class': 'form-control',
             'data-parsley-required': "true",
             'data-parsley-group': 'group1'}))
 
 
     CPT_DATE = forms.DateField(widget=forms.TextInput(
-        attrs={'placeholder': _('Date of Completed'),
+        attrs={'placeholder': _('Completion Date'),
                'class': 'form-control',
                'id': 'date_of_certificate_expiry',
                'data-parsley-required': "true",
@@ -3379,13 +3379,13 @@ class CasePlanTemplate(forms.Form):
                }))
     CPT_RESULTS = forms.CharField(widget=forms.TextInput(
         attrs={
-            'placeholder': _('Person'),
+            'placeholder': _('Results'),
             'class': 'form-control',
             'data-parsley-required': "true",
             'data-parsley-group': 'group1'}))
     CPT_REASONS = forms.CharField(widget=forms.TextInput(
         attrs={
-            'placeholder': _('Person'),
+            'placeholder': _('State Reasons'),
             'class': 'form-control',
             'data-parsley-required': "true",
             'data-parsley-group': 'group1'}))

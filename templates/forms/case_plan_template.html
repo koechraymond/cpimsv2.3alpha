@@ -151,6 +151,10 @@
 					<div id="wizard-f1a">
 
 
+
+
+
+
 						<!-- begin wizard step-1 -->
 						<div class="wizard-step-1">
                             <fieldset> 
@@ -161,9 +165,61 @@
                                     <thead>
                                         <tr id="id_inputHeaders1">
                                             <th><h6><b>Domain</b></h6></th>
+                                            <th><h6><b>Goal</b></h6></th>
                                             <th><h6><b>Needs/Gaps</b></h6></th>
                                             <th><h6><b>House Hold Member</b></h6></th>
                                             <th><h6><b>Priority Actions</b></h6></th>
+
+                                        </tr>
+
+
+
+
+
+                                    </thead>
+                                    <br>
+                                        <tr id="id_inputElements1">
+
+                                             <td>
+                                            	{{ form.CPT_DOMAIN }}
+                                            	<div id="olmis_assessment_coreservice_errormsg" style="display:none;" class="col-md-10 control-label">
+                                                    <small><p class="dialog_paragraph">This value is required</p></small>
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                {{ form.CPT_GOAL }}
+                                            	<div id="olmis_assessment_coreservice_errormsg" style="display:none;">
+                                                    <small><p class="dialog_paragraph">This value is required</p></small>
+                                                </div>
+                                            </td>
+
+                                            <td>
+
+                                            	{{ form.CPT_GAPS }}
+                                            	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
+                                                    <small><p class="dialog_paragraph">This value is required</p></small>
+                                                </div>
+                                            </td>
+
+                                            <td>
+
+                                            	{{ form.CPT_MEMBER }}
+                                            	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
+                                                    <small><p class="dialog_paragraph">This value is required</p></small>
+                                                </div>
+                                            </td>
+
+                                             <td>
+
+                                            	{{ form.CPT_ACTIONS }}
+                                            	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
+                                                    <small><p class="dialog_paragraph">This value is required</p></small>
+                                                </div>
+                                            </td>
+
+
+                                            <tr>
                                             <th><h6><b>Services</b></h6></th>
                                             <th><h6><b>Person Responsible</b></h6></th>
                                             <th><h6><b>Date Completed</b></h6></th>
@@ -171,48 +227,20 @@
                                             <th><h6><b>Reasons</b></h6></th>
                                             <th></th>
                                         </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr id="id_inputElements1">
 
-                                             <td>
-                                            	{{ form.Lp1d }}
-                                            	<div id="olmis_assessment_coreservice_errormsg" style="display:none;" class="col-md-10 control-label">
-                                                    <small><p class="dialog_paragraph">This value is required</p></small>
-                                                </div>
-                                            </td>
 
-                                            <td>
-                                                {{ form.Lp2d }}
-                                            	<div id="olmis_assessment_coreservice_errormsg" style="display:none;">
-                                                    <small><p class="dialog_paragraph">This value is required</p></small>
-                                                </div>
-                                            </td>
-                                            <td>
-
-                                            	{{ form.Lp3d }}
-                                            	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
-                                                    <small><p class="dialog_paragraph">This value is required</p></small>
-                                                </div>
-                                            </td>
-
-                                             <td>
-
-                                            	{{ form.Lp4d }}
-                                            	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
-                                                    <small><p class="dialog_paragraph">This value is required</p></small>
-                                                </div>
-                                            </td>
                                           <td>
 
-                                            	{{ form.Lp5d }}
+                                            	{{ form.CPT_SERVICES }}
                                             	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
+
+
                                                <td>
 
-                                            	{{ form.Lp6d }}
+                                            	{{ form.CPT_RESPOSIBLE }}
                                             	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
@@ -220,32 +248,52 @@
 
                                             <td>
 
-                                            	{{ form.Lp7d }}
+                                            	{{ form.CPT_DATE }}
                                             	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="Date">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="Progress">
-                                                </div>
-                                            </td>
-                                            <td>
-                                                <div>
-                                                    <input type="text" class="form-control" placeholder="Reason">
+                                                <td>
+
+                                            	{{ form.CPT_RESULTS }}
+                                            	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
+                                                    <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
 
+                                                 <td>
+
+                                            	{{ form.CPT_REASONS }}
+                                            	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
+                                                    <small><p class="dialog_paragraph">This value is required</p></small>
+                                                </div>
+                                            </td>
+                                              <br>
+
+
+                                        </tr>
+                                    </br>
+                                        <tr align="center">
                                             <td>
+
+                                            </td>
+                                            <td>
+
+                                            </td>
+
+                                      <td>
 
 	                                            <button type="button" class="btn btn-sm btn-inverse m-r-5" onClick="AddRow(1)">
 	                                                <i class="fa fa-plus"></i>  Add
 	                                            </button>
+                                            </td>
+
+                                            <td>
+
+                                            </td>
+
+                                            <td>
+
                                             </td>
                                         </tr>
                                     </tbody>
@@ -256,12 +304,14 @@
 
                             <div class="panel-body panel-form">
                                 <div class="form-group">
-                                    <label class="control-label col-md-4 col-sm-4">Date Assessment Recorded</label>
-                                    <div class="col-md-2 col-sm-2">
 
-                                        <div id="date_errormsg0" style="display:none;">
-                                            <small><p class="dialog_paragraph">This value is required</p></small>
+                                    <div class="col-md-2 col-sm-2">
+                                        <div>
+
                                         </div>
+
+
+
                                     </div>
                                 </div>
                             </div>
@@ -270,7 +320,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-4 col-sm-4"></label>
                                     <div class="col-md-6 col-sm-6">
-                                        <button id="mysubmit-f1a-0" class="btn btn-primary" type="button" onClick="saveForm1A(1)">Submit Assessment</button>
+                                        <button id="mysubmit-f1a-0" class="btn btn-primary" type="button" onClick="CasePlanTemplate(1)">Submit Assessment</button>
                                         <a href="#" onClick="resetForm1A(1)" class="btn btn-white">Cancel</a>
                                     </div>
                                 </div>
@@ -310,7 +360,7 @@
                     <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
                     <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
                 </div>                          
-                <h4 class="panel-title"><b>Case Plan Events List </b></h4>
+                <h4 class="panel-title"><b>Case Plan Template </b></h4>
             </div>
 
             <div class="panel-body">
