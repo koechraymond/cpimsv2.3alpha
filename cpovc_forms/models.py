@@ -1096,3 +1096,12 @@ class OVCHivStatus(models.Model):
 
     class Meta:
         db_table = 'ovc_hiv_status'
+
+
+class OVCCareQuestions(models.Model):
+    question_id = models.AutoField(primary_key=True)
+    question = models.CharField(max_length=255)
+    form_id = models.ForeignKey(OVCCareForms)
+
+    class Meta:
+        db_table = 'ovc_care_questions'
