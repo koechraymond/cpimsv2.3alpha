@@ -3334,49 +3334,6 @@ class GOKBursaryForm(forms.Form):
 
 
 
-class Wellbeing(forms.Form):
-
-    ##Domain Stable
-    # WB_STA_1 = forms.CharField(
-    #     choices=YESNO_CHOICES_REFUSE,
-    #     widget=forms.CheckboxInput(
-    #         attrs={'class': 'form-control', 'id': 'WB_STA_1'}))
-
-
-
-    WB_STA_1 = forms.MultipleChoiceField(
-        required=False,
-        widget=forms.CheckboxSelectMultiple,
-        choices=FAVORITE_COLORS_CHOICES,
-    )
-
-
-    ##Domain Safe
-    WB_SAF_31 = forms.ChoiceField(
-        choices=YESNO_CHOICES_REFUSE,
-        widget=forms.RadioSelect(
-            renderer=RadioCustomRenderer,
-            attrs={'data-parsley-required': 'true',
-                   'data-parsley-errors-container': "#in_school_error"})
-    )
-
-    ##Schooled
-
-    ##Safe
-
-    ##Goals
-
-    ##Well-being for Adolescents aged 10-17
-
-    ##DOMAIN:SCHOOLED
-
-    ##DOMAIN: STABLE
-
-    ##DOMAIN:HEALTH
-
-    ##DOMAIN: SAFE
-
-    ##GOALS
 
 class WellbeingAdolescentForm(forms.Form):
 
