@@ -363,8 +363,7 @@ class OVCPlacement(models.Model):
 
 
 class OVCCaseEvents(models.Model):
-    case_event_id = models.UUIDField(
-        primary_key=True, default=uuid.uuid1, editable=False)
+    case_event_id = models.UUIDField(primary_key=True, default=uuid.uuid1, editable=False)
     case_event_type_id = models.CharField(max_length=20)
     date_of_event = models.DateField(default=timezone.now)
     case_event_details = models.CharField(max_length=100)
@@ -697,13 +696,15 @@ class OVCFamilyCare(models.Model):
 
 
 ## ---------------------------- OVC Models --------------------------------------#
+
+
 class OVCCareEvents(models.Model):
     event = models.UUIDField(primary_key=True, default=uuid.uuid1, editable=False)
     event_type_id = models.CharField(max_length=4)
     event_counter = models.IntegerField(default=0)
     event_score = models.IntegerField(null=True, default=0)
     date_of_event = models.DateField(default=timezone.now)
-    date_of_previous_event = models.DateTimeField(default=timezone.now, null=True)
+    date_of_previous_event = models.DateTimeField(null=True)
     created_by = models.IntegerField(null=True, default=404)
     timestamp_created = models.DateTimeField(default=timezone.now)
     is_void = models.BooleanField(default=False)
@@ -783,8 +784,7 @@ class OVCCareEAV(models.Model):
 class OVCCareF1B(models.Model):
     """ This table will hold Form 1B data """
 
-    form_id = models.UUIDField(
-        primary_key=True, default=uuid.uuid4, editable=False)
+    form_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     event = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
     domain = models.CharField(max_length=5)
     entity = models.CharField(max_length=5)
@@ -906,6 +906,16 @@ if you find errors, correct and move on.
 Peace!
 '''
 
+
+class OVCCareForms(models.Model):
+    form_id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50)
+    description = models.CharField(max_length=255)
+    is_void = models.BooleanField(default=False)
+    timestamp_created = models.DateTimeField(default=timezone.now)
+    timestamp_updated = models.DateTimeField(auto_now=True)
+
+
 class OVCCareBenchmarkScore(models.Model):
     bench_mark_score_id = models.AutoField(primary_key=True)
     household_id = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
@@ -926,7 +936,7 @@ class OVCCareBenchmarkScore(models.Model):
     bench_mark_15 = models.IntegerField(default=0)
     bench_mark_16 = models.IntegerField(default=0)
     bench_mark_17 = models.IntegerField(default=0)
-    score = models.IntegerField()
+    score = models.IntegerField(default=0)
     event_id = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
     care_giver_id = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
     is_void = models.BooleanField(default=False)
@@ -941,7 +951,7 @@ class OVCCareBenchmarkScore(models.Model):
 class OVCCareCpara(models.Model):
     cpara_id = models.AutoField(primary_key=True)
     person_id = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
-    question = models.CharField(max_length=150)
+    question = models.ForeignKey('OVCCareQuestions')
     answer = models.CharField(max_length=5)
     household_id = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
     question_type = models.CharField(max_length=50)
@@ -969,15 +979,6 @@ class OVCCareWellbeing(models.Model):
 
     class Meta:
         db_table = 'ovc_care_well_being'
-
-
-class OVCCareForms(models.Model):
-    form_id = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=50)
-    description = models.CharField(max_length=255)
-    is_void = models.BooleanField(default=False)
-    timestamp_created = models.DateTimeField(default=timezone.now)
-    timestamp_updated = models.DateTimeField(auto_now=True)
 
 
 class OVCCareCasePlan(models.Model):
@@ -1019,7 +1020,7 @@ class OVCHouseholdDemographics(models.Model):
 
 class OVCExplanations(models.Model):
     explanation_id = models.AutoField(primary_key=True)
-    question = models.CharField(max_length=255)
+    question = models.ForeignKey('OVCCareQuestions')
     comment = models.CharField(max_length=255)
     form_id = models.ForeignKey(OVCCareForms)
     event_id = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
@@ -1097,4 +1098,11 @@ class OVCHivStatus(models.Model):
         db_table = 'ovc_hiv_status'
 
 
-        
+class OVCCareQuestions(models.Model):
+    question_id = models.AutoField(primary_key=True)
+    code = models.CharField(max_length=5)
+    question = models.CharField(max_length=255)
+    form_id = models.ForeignKey(OVCCareForms)
+
+    class Meta:
+        db_table = 'ovc_care_questions'
