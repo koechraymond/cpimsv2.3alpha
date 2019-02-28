@@ -20,7 +20,7 @@ from cpovc_forms.forms import (
     ResidentialForm, OVC_FT3hForm, SearchForm, OVCCareSearchForm,
     OVC_CaseEventForm, DocumentsManager, OVCSchoolForm, OVCBursaryForm,
     BackgroundDetailsForm, OVC_FTFCForm, OVCCsiForm, OVCF1AForm, OVCHHVAForm,
-    GOKBursaryForm)
+    GOKBursaryForm, CparaAssessment, CparaMonitoring, CasePlanTemplate)
 from .models import (
     OVCEconomicStatus, OVCFamilyStatus, OVCReferral, OVCHobbies, OVCFriends,
     OVCDocuments, OVCMedical, OVCCaseRecord, OVCNeeds, OVCCaseCategory,
@@ -8483,3 +8483,53 @@ def form_bursary(request, id):
         raise e
     else:
         pass
+
+
+@login_required
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def new_cpara(request, id):
+        # get relations
+    guardians = RegPersonsGuardians.objects.select_related().filter(
+        child_person=id, is_void=False, date_delinked=None)
+    siblings = RegPersonsSiblings.objects.select_related().filter(
+        child_person=id, is_void=False, date_delinked=None)
+    # Reverse relationship
+    osiblings = RegPersonsSiblings.objects.select_related().filter(
+        sibling_person=id, is_void=False, date_delinked=None)
+    oguardians = RegPersonsGuardians.objects.select_related().filter(
+        guardian_person=id, is_void=False, date_delinked=None)
+    form = CparaAssessment()
+    return render(request,
+                  'forms/new_cpara.html',
+                  {
+                      'form': form,
+                      'person': id,
+                      'siblings': siblings,
+                      'osiblings': osiblings,
+                      'oguardians': oguardians
+                  })
+
+
+@login_required
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def case_plan_template(request, id):
+    init_data = RegPerson.objects.filter(pk=id)
+    check_fields = ['sex_id']
+    vals = get_dict(field_name=check_fields)
+    form = CasePlanTemplate()
+
+    return render(request,
+                  'forms/case_plan_template.html',
+                  {'form': form, 'init_data': init_data,
+                   'vals': vals})
+
+@login_required
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def new_rcpa(request, id):
+    print request.POST
+    form = CparaMonitoring()
+    return render(request,
+                  'forms/new_rcpa.html',
+                  {
+                      'form': form,
+                  })
