@@ -7,7 +7,7 @@ var handleBootstrapWizardsValidation = function() {
     $("#mysubmit-csi").removeClass( "btn-primary" ).attr("disabled", "disabled");
     $("#mysubmit-f1a").removeClass( "btn-primary" ).attr("disabled", "disabled");
     $("#mysubmit-hhva").removeClass( "btn-primary" ).attr("disabled", "disabled");
-    $("#mysubmit-wellbeing").removeClass( "btn-primary" );
+    //$("#mysubmit-wellbeing").removeClass( "btn-primary" );
 
     $("#wizard").bwizard({ validating: function (e, ui) {
         $(".alert").hide();
