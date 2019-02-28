@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+print(blu.sing("'Happy'"))
 {% load app_filters %}
 {% load staticfiles %}
 {% block page_title %} Case Plan Achievement Readiness Assessment {% endblock %}
@@ -81,148 +82,124 @@
 					<div id="wizard-hhva">
 						<ol>
 							<li>Details
-							    <small>CPARA base details</small>
+							    <small>CPARA Base Details</small>
 							</li>
 							<li>
 							    Healthy
-							    <small>Reduced risk of children with undiagnosed HIV infections</small>
+							    <small></small>
 							</li>
 							<li>
-							    Shelter and Care 
-							    <small>Shelter and care details</small>
+                                Stable
+                            <small></small>
 							</li>
 							<li>
-							    Food Security and Nutrition 
-							    <small>Food security and nutrition details</small>
+                                Safe
+							    <small></small>
 							</li>
 							<li>
-							    Household Income and Property 
-							    <small>Household income and property details</small>
-							</li>
-							<li>
-							    Health Services and Health Seeking Behaviours 
-							    <small>Health services/seeking details.</small>
-							</li>
-							<li>
-							    Protection
-							    <small>Protection details.</small>
-							</li>
-							<li>
-							    Other Services
-							    <small>Other service details.</small>
-							</li>
-							<li>
-							    Household Priorities 
-							    <small>Household details.</small>
+                                Schooled
+							    <small></small>
 							</li>
 						</ol>
-
-						{{ form.person }}
-						{{ form.household_id }}
 
 						<!-- begin wizard step-1 -->
 						<div class="wizard-step-1">
 							<div class="panel-body">
                             <div class="form-group">
-                                    <label class="col-md-3 control-label">Date of Assessment :</label>
+                                    <label class="col-md-3 control-label" style="text-align: left">Date of Assessment :</label>
                                     <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder="Default input">
+                                        <input type="text" class="form-control" placeholder=" ">
                                     </div>
-                                <label class="col-md-3 control-label">Date enrolled in the project</label>
+                                <label class="col-md-3 control-label" style="text-align: left">Date enrolled in the project</label>
                                     <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder="Default input">
+                                        <input type="text" class="form-control" placeholder=" ">
                                     </div>
                                 </div>
                             <div class="form-group">
-                                    <label class="col-md-3 control-label">Name of Organization (LIP) :</label>
+                                    <label class="col-md-3 control-label" style="text-align: left">Name of Organization (LIP) :</label>
                                     <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder="Default input">
-                                    </div>
-                                </div>
-
-                            <div class="form-group">
-                                <div class="col-md-2"></div>
-                                    <label class="col-md-1 control-label">County :</label>
-                                    <div class="col-md-1">
-                                        <input type="text" class="form-control" placeholder="Default input">
-                                    </div>
-                                <label class="col-md-1 control-label">Sub County :</label>
-                                    <div class="col-md-1">
-                                        <input type="text" class="form-control" placeholder="Default input">
-                                    </div>
-                                <label class="col-md-1 control-label">Ward :</label>
-                                    <div class="col-md-1">
-                                        <input type="text" class="form-control" placeholder="Default input">
-                                    </div>
-                                <label class="col-md-1 control-label">Village / Estate</label>
-                                    <div class="col-md-1">
-                                        <input type="text" class="form-control" placeholder="Default input">
+                                        <input type="text" class="form-control" placeholder=" ">
                                     </div>
                                 </div>
 
                             <div class="form-group">
-                                    <label class="col-md-3 control-label">Name of Caregiver :</label>
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder="Default input">
+                                <div class="col-md-1 control-label" style="text-align: left"><b>Address</b></div>
+                                    <label class="col-md-2 control-label" style="text-align: left">County :</label>
+                                    <div class="col-md-1">
+                                        <input type="text" class="form-control" placeholder=" ">
                                     </div>
-                                <label class="col-md-3 control-label">Household unique number</label>
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder="Default input">
+                                <label class="col-md-2 control-label" style="text-align: left">Sub County :</label>
+                                    <div class="col-md-1">
+                                        <input type="text" class="form-control" placeholder=" ">
+                                    </div>
+                                <label class="col-md-1 control-label" style="text-align: left">Ward :</label>
+                                    <div class="col-md-1">
+                                        <input type="text" class="form-control" placeholder=" ">
+                                    </div>
+                                <label class="col-md-2 control-label" style="text-align: left">Village / Estate</label>
+                                    <div class="col-md-1">
+                                        <input type="text" class="form-control" placeholder=" ">
                                     </div>
                                 </div>
 
                             <div class="form-group">
-                                    <label class="col-md-3 control-label">Name of Case worker (CHV) conducting assesment :</label>
+                                    <label class="col-md-3 control-label" style="text-align: left">Name of Caregiver :</label>
                                     <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder="Default input">
+                                        <input type="text" class="form-control" placeholder=" ">
                                     </div>
-                                <label class="col-md-3 control-label">Name of SDP staff member (Case Manager)</label>
+                                <label class="col-md-3 control-label" style="text-align: left">Household unique number</label>
                                     <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder="Default input">
+                                        <input type="text" class="form-control" placeholder=" ">
+                                    </div>
+                                </div>
+
+                            <div class="form-group">
+                                    <label class="col-md-3 control-label" style="text-align: left">Name of Case worker (CHV) conducting assesment :</label>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" placeholder=" ">
+                                    </div>
+                                <label class="col-md-3 control-label" style="text-align: left">Name of SDP staff member (Case Manager)</label>
+                                    <div class="col-md-3">
+                                        <input type="text" class="form-control" placeholder=" ">
                                     </div>
                                 </div>
 
                             <div class="form-group">
                                 <div class="col-md-1"></div>
-                                    <label class="col-md-2 control-label">Caregiver ID Number :</label>
+                                    <label class="col-md-2 control-label" style="text-align: left">Caregiver ID Number :</label>
                                     <div class="col-md-1">
-                                        <input type="text" class="form-control" placeholder="Default input">
+                                        <input type="text" class="form-control" placeholder=" ">
                                     </div>
-                                <label class="col-md-1 control-label">Caregiver Gender :</label>
+                                <label class="col-md-1 control-label" style="text-align: left">Caregiver Gender :</label>
                                     <div class="col-md-1">
-                                        <input type="text" class="form-control" placeholder="Default input">
+                                        <input type="text" class="form-control" placeholder=" ">
                                     </div>
-                                <label class="col-md-1 control-label">Age of Caregiver :</label>
+                                <label class="col-md-1 control-label" style="text-align: left">Age of Caregiver :</label>
                                     <div class="col-md-1">
-                                        <input type="text" class="form-control" placeholder="Default input">
+                                        <input type="text" class="form-control" placeholder=" ">
                                     </div>
-                                <label class="col-md-1 control-label">Caregiver Phone Number :</label>
+                                <label class="col-md-1 control-label" style="text-align: left">Caregiver Phone Number :</label>
                                     <div class="col-md-1">
-                                        <input type="text" class="form-control" placeholder="Default input">
+                                        <input type="text" class="form-control" placeholder=" ">
                                     </div>
                                 </div>
 
                             <div class="form-group">
-                                    <label class="col-md-3 control-label">Is this the first Case Plan Readiness Assessment?</label>
-                                    <div class="col-md-1">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
-                                        </label>
+                                    <label class="col-md-3 control-label" style="text-align: left">Is this the first Case Plan Readiness Assessment?</label>
+                                    <div class="col-md-2">
+                                        {{ form.cp1d }}
                                     </div>
-                                    <label class="col-md-3 control-label">If No, date of Previous Case Plan Readiness Assessment :</label>
+                                    <label class="col-md-3 control-label" style="text-align: left">If No, date of Previous Case Plan Readiness Assessment :</label>
                                     <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder="Default input">
+                                        {{ form.cp2d }}
                                     </div>
                                 </div>
 
+                                <h4>Please fill the table below with details of all children below
+                                        18 years currently living in the household. <i class="semi-bold">(Note:
+                                            Please include any other aged above 18 years if still in school)</i> </h4>
+
 								<div class="form-group">
-                                    <label class="control-label col-md-3 col-sm-3" for="hhva_qs">Please fill the table below with details of all children below 18 years currently living in the household. <i class="semi-bold">(Note: Please include any other aged above 18 years if still in school)</i> : </label>
-									<div class="col-md-4 col-sm-4">
 										{% if siblings or osiblings %}
 							            <table class="table table-condensed table-responsive">
 							                <thead>
@@ -274,61 +251,33 @@
 							                <br>
 							                <p>&nbsp;No relative details provided for this person.</p>  
 							            {% endif %}
-							        </div>
 							    </div>
 
 							    <!-- add labels like HA1, HA2 .. -->
 							    <h4>Other Household Characteristics. Please tick either <b>Yes</b> or <b>No</b> on each of the statements below.</h4>
 							<div class="form-group">
-                                    <label class="col-md-3 control-label">Is this Household child headed (i.e Household head age is less than 18 years)?</label>
-                                    <div class="col-md-1">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
-                                        </label>
+                                    <label class="col-md-10 control-label" style="text-align: left">Is this Household child headed (i.e Household head age is less than 18 years)?</label>
+                                    <div class="col-md-2">
+                                        {{ form.cp3d }}
                                     </div>
                                 </div>
                             <div class="form-group">
-                                    <label class="col-md-3 control-label">Does this Household currently have a pregnant woman or pregnant adolescent girl?</label>
-                                    <div class="col-md-1">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
-                                        </label>
+                                    <label class="col-md-10 control-label" style="text-align: left">Does this Household currently have a pregnant woman or pregnant adolescent girl?</label>
+                                    <div class="col-md-2">
+                                        {{ form.cp4d }}
                                     </div>
                                 </div>
                             <div class="form-group">
-                                <label class="col-md-3 control-label">Does this Household have a child living with disability or has chronic illness? <i class="semi-bold">(Chronic illness includes Asthma, Cancer, Diabetes, Epileplsy)</i></label>
-                                    <div class="col-md-1">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
-                                        </label>
+                                <label class="col-md-10 control-label" style="text-align: left">Does this Household have a child living with disability or has chronic illness?
+                                    <i class="semi-bold">(Chronic illness includes Asthma, Cancer, Diabetes, Epileplsy)</i></label>
+                                    <div class="col-md-2">
+                                        {{ form.cp5d }}
                                     </div>
                                 </div>
                             <div class="form-group">
-                                    <label class="col-md-3 control-label">Does this Household have an adolescent enrolled in secondary school or vocational training? </label>
-                                    <div class="col-md-1">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
-                                        </label>
+                                    <label class="col-md-10 control-label" style="text-align: left">Does this Household have an adolescent enrolled in secondary school or vocational training? </label>
+                                    <div class="col-md-2">
+                                       {{ form.cp6d  }}
                                     </div>
                                 </div>
                             </div>
@@ -339,71 +288,69 @@
 						<div class="wizard-step-2">
 							<div class="panel-body">
                                 <div class="form-group">
-                                <label class="col-md-4 control-label">Is there child (including under 5 year) in the household that is at risk or vulnerable to HIV? <i class="semi-bold">(Chronic illness includes Asthma, Cancer, Diabetes, Epileplsy)</i></label>
-                                    <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
+                                <label class="col-md-10 control-label" style="text-align: left">Is there child (including under 5 year) in the household that is at risk or vulnerable to
+                                    HIV? <i class="semi-bold">(Chronic illness: Asthma, Cancer, Diabetes, Epileplsy)</i></label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
                                             Yes
                                         </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
                                         </label>
                                     </div>
                                 </div>
+
                                 <div class="form-group">
-                                <label class="col-md-4 col-md-offset-2 control-label">1.1 Have the children at high risk of HIV been identified through the HIV risk assessment (or other means)? </label>
+                                <label class="col-md-6 control-label" style="text-align: left">1.1 Have the children at high risk of HIV been identified through the HIV risk
+                                    assessment? </label>
                                     <div class="col-md-2">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
+                                        {{ form.cp1q }}
+                                    </div>
+                                    <label class="col-md-3 control-label" style="text-align: left">If other means please specify :</label>
+                                    <div class="col-md-1">
+                                        <input type="text" class="form-control" placeholder=" ">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                <label class="col-md-6 control-label" style="text-align: left">1.2 If yes in 1.1 above, indicate the date when this was done </label>
+                                    <div class="col-md-4">
+                                        <input type="text" class="form-control" placeholder=" ">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">1.3 Have the child(ren) identified as high risk of HIV been referred for HIV
+                                    testing services? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
                                             Yes
                                         </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
-                                        </label>
-                                    </div>
-                                    <label class="col-md-1 control-label">If other means please specify :</label>
-                                    <div class="col-md-2">
-                                        <input type="text" class="form-control" placeholder="Default input">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                <label class="col-md-4 col-md-offset-2 control-label">1.2 If yes in 1.1 above, indicate the date when this was done :</label>
-                                    <div class="col-md-2">
-                                        <input type="text" class="form-control" placeholder="Default input">
-                                    </div>
-                                </div>
-                                <div class="form-group">
-                                <label class="col-md-4 col-md-offset-2 control-label">1.3 Have the child(ren) identified as high risk of HIV been referred for HIV testing services? :</label>
-                                    <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <label class="col-md-4 col-md-offset-2 control-label">1.4 For the child(ren) identified
+                                <label class="col-md-10 control-label" style="text-align: left">1.4 For the child(ren) identified
                                     at high risk of HIV, has documentation of all children’s completed referrals for HIV
-                                    testing services been documented in their case file?  :</label>
-                                    <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
+                                    testing services been documented in their case file?  </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
                                             Yes
                                         </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmark? :</label>
+                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+
                                     <div class="col-md-3">
                                         <label class="checkbox-inline">
                                             <input type="checkbox" value="">
@@ -417,49 +364,50 @@
                                 </div>
                                 <h4>Information from Case File</h4>
                                 <div class="form-group">
-                                <label class="col-md-4 control-label">2.1 Has the HIV status of all children in the household (positive, negative, or unknown) been documented in their case file? :</label>
-                                    <div class="col-md-4">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
+                                <label class="col-md-10 control-label" style="text-align: left">2.1 Has the HIV status of all children in the household (positive, negative, or unknown) been
+                                    documented in their case file? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
                                             Yes
                                         </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <label class="col-md-4 control-label">2.2 Is the HIV status of the caregiver (positive, negative or unknown) documented in the case file?  :</label>
-                                    <div class="col-md-4">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
+                                <label class="col-md-10 control-label" style="text-align: left">2.2 Is the HIV status of the caregiver (positive, negative or unknown) documented in the case file?  </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
                                             Yes
                                         </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
                                         </label>
                                     </div>
                                 </div>
                                 <h4>Questions for Caregiver</h4>
                                 <div class="form-group">
-                                <label class="col-md-4 control-label">2.3 If there is a child or children in the
+                                <label class="col-md-10 control-label" style="text-align: left">2.3 If there is a child or children in the
                                     household older than the age of five and   living with HIV (as documented in the case file),
-                                    do they know their HIV status?  (Partial/ complete)? :</label>
-                                    <div class="col-md-4">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
+                                    do they know their HIV status?  (Partial/ complete)? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
                                             Yes
                                         </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmarks? :</label>
+                                <label class="col-md-4 control-label">Has the household achieved this benchmarks? </label>
                                     <div class="col-md-3">
                                         <label class="checkbox-inline">
                                             <input type="checkbox" value="">
@@ -473,96 +421,96 @@
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-4 control-label semi-bold">Is child is under ten and/or doesn’t know their status? :</label>
-                                    <div class="col-md-4">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">Is child under ten and/or doesn’t know their status? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
                                             Yes
                                         </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <label class="col-md-4 col-md-offset-2 control-label">3.1 Do you know how many pills (amount of syrup) your child(ren) should take each day? :</label>
-                                    <div class="col-md-4">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
+                                <label class="col-md-10 control-label" style="text-align: left">3.1 Do you know how many pills (amount of syrup) your child(ren) should take each day? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
                                             Yes
                                         </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <label class="col-md-4 col-md-offset-2 control-label">3.2 Can you name/identify the medication that your child(ren) take each day? :</label>
-                                    <div class="col-md-4">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
+                                <label class="col-md-10 control-label" style="text-align: left">3.2 Can you name/identify the medication that your child(ren) take each day? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
                                             Yes
                                         </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <label class="col-md-4 col-md-offset-2 control-label">3.3 Do you remember when your child(ren) last visited the health clinic? :</label>
-                                    <div class="col-md-4">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
+                                <label class="col-md-10 control-label" style="text-align: left">3.3 Do you remember when your child(ren) last visited the health clinic? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
                                             Yes
                                         </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
                                         </label>
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <label class="col-md-4 col-md-offset-2 control-label">3.4 Do you know when your child(ren) next have an appointment at the health clinic? :</label>
-                                    <div class="col-md-4">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
+                                <label class="col-md-10 control-label" style="text-align: left">3.4 Do you know when your child(ren) next have an appointment at the health clinic? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
                                             Yes
                                         </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
                                         </label>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                <label class="col-md-4 col-md-offset-2 control-label">3.5 Do you know if your child or adolescent viral
+                                <div class="form-group left">
+                                <label class="col-md-10 control-label" style="text-align: left">3.5 Do you know if your child or adolescent viral
                                     load is high or low (from the last viral load test)? Ask and document date of last
-                                    test and probe to ensure the caregiver understands what low or high VL means :</label>
-                                    <div class="col-md-4">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
+                                    test and probe to ensure the caregiver understands what low or high VL means</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
                                             Yes
                                         </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
                                         </label>
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-4 control-label semi-bold">Is child(ren) is above ten and know their status? :</label>
-                                    <div class="col-md-4">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">Is child(ren) is above ten and know their status? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
                                             Yes
                                         </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
                                         </label>
                                     </div>
                                 </div>
@@ -586,54 +534,56 @@
 							                    <tr>
 							                        <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
 							                        <td>
-                                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
-                                        </label>
+
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
+
                                                     </td>
                                                     <td>
-                                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
-                                        </label>
+                                                        <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
                                                     </td>
                                                 <td>
-                                                    <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
-                                        </label>
+                                                    <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
                                                 </td>
                                                 <td>
-                                                    <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
-                                        </label>
+                                                    <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
                                                 </td>
                                                 <td>
-                                                    <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
-                                        </label>
+                                                    <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
                                                 </td>
 							                    </tr>
 							                    {% endfor %}
@@ -655,54 +605,54 @@
                                                     Tick <u>Yes</u> if <u>YES</u> for all children
                                                 </td>
                                                 <td>
-                                                    <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
-                                        </label>
+                                                    <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
                                                 </td>
                                                 <td>
-                                                    <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
-                                        </label>
+                                                    <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
                                                 </td>
                                                 <td>
-                                                    <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
-                                        </label>
+                                                    <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
                                                 </td>
                                                 <td>
-                                                    <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
-                                        </label>
+                                                    <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
                                                 </td>
                                                 <td>
-                                                    <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No
-                                        </label>
+                                                    <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
                                                 </td>
                                             </tr>
 							                </tbody>
@@ -714,7 +664,1171 @@
                                 </div>
 
                             <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmarks? :</label>
+                                <label class="col-md-4 control-label">Has the household achieved this benchmarks? </label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes (1 point)
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No (0 point)
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">Is there an adolescent or woman in the household who is pregnant or has been tested for HIV?</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">4.1 Is there evidence* that an adolescent or woman in the
+                                    household is pregnant and has been tested for HIV? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-10 control-label semi-bold" style="text-align: left">Did the adolescent or woman test HIV positive? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">4.2 Have you (the pregnant HIV+ adolescent / woman) been enrolled in PMTCT? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">4.3 Have you or are you currently attending ANC services? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-10 control-label semi-bold" style="text-align: left">Has the woman/adolescent already delivered? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">4.4 Have you adhered to ART after delivery? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">4.5 If the infant was exposed to HIV during delivery,
+                                    has the infant been tested for HIV and at what age (circle all that apply)
+                                    <br>
+                                    <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Six weeks
+                                        </label>
+                                    <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Six months
+                                        </label>
+                                    <br>
+                                    <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                           Twelve months
+                                        </label>
+                                    <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Eighteen months
+                                        </label>
+                                    :</label>
+
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group note note-info">
+                                <label class="col-md-4 control-label">Has the household achieved these benchmarks? </label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes (1 point)
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No (0 point)
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-10 control-label semi-bold" style="text-align: left">Are there adolescent girls and boys in the household? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">5.1 Has the caregiver completed Positive parental skills training
+                                    (with HIV/sexual and reproductive health modules)? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">5.2 Has the adolescent completed a life skills course or received (by other means)
+                                    information on positive communication, protection and self-care and sexual and reproductive health? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4>Questions for the primary caregiver</h4>
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">5.3 Please tell me at least two behaviors that increase the risk of HIV? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">5.4 Please tell me at least two behaviors that can help
+                                    keep you safe from HIV or from infecting another person with HIV? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4>Questions for the adolescent</h4>
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">5.5 Please tell me at least two behaviors that increase the risk of HIV? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">5.6 Please tell me at least two behaviors that can help keep you safe from HIV or from infecting
+                                    another person with HIV? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group note note-info">
+                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes (1 point)
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No (0 point)
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="col-md-10 control-label semi-bold" style="text-align: left">Is there a child(ren) with disability in the household? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">6.1 Has the child in the household with long term illness or disability been
+                                    referred for health services and has accessed the service (e.g. returned referral slips?) </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4>Questions to caregiver or child(ren) ten years and over :</h4>
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">6.2 Can you describe the services you are receiving for the illness or disability? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group note note-info">
+                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes (1 point)
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No (0 point)
+                                        </label>
+                                    </div>
+                                </div>
+
+                        <!-- end of panel group -->
+							</div> 							
+						</div> 
+						<!-- end wizard step-2 -->
+
+						<!-- begin wizard step-3 -->
+						<div class="wizard-step-3">
+							<div class="panel-body">
+
+                                <h4>Questions for caregiver</h4>
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">7.1	Have all the children in the household eaten at least two
+                                    cooked meals per day for at least the past six months? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+								<div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">7.2 Are you able to provide your child with a balance diet (a range of nutritious foods)
+                                    on a   regular basis? If yes, please describe [Carbohydrates such as: Ugali, Rice, Bread, potatoes, cassava, etc. [];
+                                    Proteins such as: Beef, Fish, Chicken, Lentils, Beans, Nuts, etc. []; Vegetables such as: Sukuma wiki, cabbage,
+                                    spinach, etc. []; Fruits such as: Orange, pineapple, mangoes, etc []  </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+								<h4>Questions for child(ren) ten years and above</h4>
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">7.3 Have you had at least two cooked meals per day in the past two months? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group note note-info">
+                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes (1 point)
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No (0 point)
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4>Household able to pay for child(ren)’s basic needs.</h4>
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">8.1 Does the household have a regular source of income that meets their basic needs
+                                    (this can include informal and formal income)? Probe if the family feels confident of the improved ability to meet
+                                    basic over the past year. </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">8.2 Does the caregiver demonstrate confidence and capacity to retain children in school
+                                    (by paying school fees, school uniforms, books, medical bills, etc.), where applicable :</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">8.3 Is the house safe and has a place for the child(ren) to sleep?
+                                    (dry, ventilated, lockable) – (based on local standards)</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group note note-info">
+                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes (1 point)
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No (0 point)
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4>Household able to pay for emergency expenses.</h4>
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">9.1 Was the household able to meet basic expenses such as medical treatment, house repair, etc.
+                                    in the last six months?</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">9.2 In reviewing the case file and or other documentation, is there evidence that the caregiver
+                                    is actively participating in an economic activity such as SILC, VSLA, and have productive assets and can demonstrate savings.</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                               <div class="form-group note note-info">
+                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes (1 point)
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No (0 point)
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4>The caregiver has demonstrated knowledge about how and where to access critical services if needed.  </h4>
+                                <h4>Questions for the caregiver</h4>
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">10.1 Do you know the types of critical services that exist in your community? e.g.,
+                                    treatments, psychosocial support, legal assistance, financial services or other protection services?</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+								<div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">10.2 Have you or someone in your family ever accessed any critical service that exists in
+                                    your community when you or someone in your family needed help in the last six months? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+								<h4>Questions for child(ren) ten years and over</h4>
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">10.3 Have you or someone in your family been supported to access services if you or someone
+                                    in your family was sick, hurt or needed help?</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group note note-info">
+                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes (1 point)
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No (0 point)
+                                        </label>
+                                    </div>
+                                </div>
+
+							</div>
+						</div> 
+						<!-- end wizard step-3 -->  
+
+						<!-- begin wizard step-4 -->
+						<div class="wizard-step-4">
+							<div class="panel-body">
+                                <h4>Child-headed households have received child and social protection services provided by appropriate government
+                                    agencies or non-governmental organizations in the past six months. </h4>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">Is the houdehold child-headed? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">11.1 If the household is child-headed, is there documentation in the case file that
+                                    the household was referred for child protection services?</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">11.2 If the household is child-headed, is there documentation in the case file that
+                                    the household received child protection services? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">11.3 If the household is child-headed, is there documentation in the case file that the
+                                    household is linked to government sponsored social protection services e.g. CT-OVC, or from another non-governmental program?</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">11.4 Is the household linked to an adult caregiver nearby who can give support
+                                    when required? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4>Questions for child(ren) ten years and over</h4>
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">11.5 Can you name at least one adult to whom you could go to for help or support? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group note note-info">
+                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes (1 point)
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No (0 point)
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4>All children in the household can participate in daily activities and engage with caregivers, other children and the community. </h4>
+
+                                <h4>Questions for caregiver: </h4>
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">12.1 Are all children in the household able to participate in daily activities such as eating,
+                                    playing or talking with other family members or friends? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">12.2 If there is a child with signs of depression or mental health issues such as being withdrawn,
+                                    not eating, or not playing, have they been referred for services?</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label" style="text-align: left">12.3 If the child has been referred for services, did they receive the service? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4>12.4 Question for all child(ren) five years and over: </h4>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">Is there a child(ren) five years and over in the household? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    {% if siblings or osiblings %}
+							            <table class="table table-condensed table-responsive">
+							                <thead>
+							                    <tr>
+							                        <th>Child Name</th>
+                                                    <th>12.4(a). Do you have an adult whom you share exciting or good news or ask for help if you have a problem?
+                                                        Probe for caregiver, teacher, religious leader, siblings, case worker.</th>
+                                                    <th>12.4(b). Are there times you do activities together with the rest of the family members?</th>
+                                                    <th>12.4(c). Can you identify someone who shows you love and affection and make you feel safe?</th>
+
+							                    </tr>
+							                </thead>
+							                <tbody>
+							                    {% for sibling in siblings %}
+							                    <tr>
+							                        <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
+							                        <td>
+                                                        <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
+                                                    </td>
+                                                    <td>
+                                                        <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
+                                                    </td>
+                                                <td>
+                                                    <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
+                                                </td>
+
+
+							                    </tr>
+							                    {% endfor %}
+							                    {% for osibling in osiblings %}
+							                    <tr>
+							                        <td><a href="{% url 'view_person' id=osibling.child_person.id %}">{{ osibling.child_person.full_name }}</a></td>
+							                        <td>
+							                        {% if osibling.child_person.sex_id == 'SFEM' %}
+							                        Sister
+							                        {% else %}
+							                        Brother
+							                        {% endif %}
+							                        </td>
+							                        <!-- <td>{{ osibling.child_person.age }}</td> -->
+							                    </tr>
+							                    {% endfor %}
+                                            <tr>
+                                                <td class="semi-bold">
+                                                    Tick <u>Yes</u> if <u>YES</u> for all children
+                                                </td>
+                                                <td>
+                                                    <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
+                                                </td>
+                                                <td>
+                                                    <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
+                                                </td>
+                                                <td>
+                                                    <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
+                                                </td>
+                                            </tr>
+							                </tbody>
+							            </table>
+							            {% else %}
+							                <br>
+							                <p>&nbsp;No relative details provided for this person.</p>
+							            {% endif %}
+                                </div>
+
+                            <div class="form-group note note-info">
+                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes (1 point)
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No (0 point)
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4>All children in the household with a demonstrated and documented risk of abuse, violence, sexual violence,
+                                    exploitation or neglect have been referred to and are receiving appropriate services (i.e., statutory or other recognized
+                                    health and child protection services). </h4>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">Are there children in the household are at risk of or experienced abuse, violence,
+                                    exploitation, or neglect? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                               <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">13.1 If a child has been exposed to violence, abuse (sexual, physical or emotional),
+                                    neglect, or exploitation, is there any evidence that the case has been referred for child protection services (DCS)?</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">13.2 If YES to the question above, is there documentation that they received child
+                                    protection services (for example, counseling, psychosocial, legal or health services)?</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4>Question for child(ren) over 10 years:</h4>
+
+                                <div class="form-group">
+                                    {% if siblings or osiblings %}
+							            <table class="table table-condensed table-responsive">
+							                <thead>
+							                    <tr>
+							                        <th>Child Name</th>
+                                                    <th>13.3 Are you able to mention two or three things that are wrong for somebody to do to you? (Tick YES if able
+                                                        to mention and NO for otherwise)</th>
+                                                    <th>13.4 If these things were to be done to you, do you know whom you would tell to get help? If YES, probe for
+                                                        caregiver, teacher, religious leader, siblings, case worker. (Tick YES if able to specify whom to tell someone
+                                                        and NO if otherwise)</th>
+                                                    <th>13.5 Could you please tell me one way that you try to solve problems? (Tick YES if able to mention and NO for
+                                                        otherwise)</th>
+
+							                    </tr>
+							                </thead>
+							                <tbody>
+							                    {% for sibling in siblings %}
+							                    <tr>
+							                        <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
+							                        <td>
+                                                        <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
+                                                    </td>
+                                                    <td>
+                                                        <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
+                                                    </td>
+                                                <td>
+                                                    <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
+                                                </td>
+
+
+							                    </tr>
+							                    {% endfor %}
+							                    {% for osibling in osiblings %}
+							                    <tr>
+							                        <td><a href="{% url 'view_person' id=osibling.child_person.id %}">{{ osibling.child_person.full_name }}</a></td>
+							                        <td>
+							                        {% if osibling.child_person.sex_id == 'SFEM' %}
+							                        Sister
+							                        {% else %}
+							                        Brother
+							                        {% endif %}
+							                        </td>
+							                        <!-- <td>{{ osibling.child_person.age }}</td> -->
+							                    </tr>
+							                    {% endfor %}
+                                            <tr>
+                                                <td class="semi-bold">
+                                                    Tick <u>Yes</u> if <u>YES</u> for all children
+                                                </td>
+                                                <td>
+                                                    <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
+                                                </td>
+                                                <td>
+                                                    <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
+                                                </td>
+                                                <td>
+                                                    <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        Yes
+                                                </label>
+                                                <label class="radio-inline">
+                                                    <input type="radio" value="">
+                                                        No
+                                                </label>
+                                                </td>
+
+
+                                            </tr>
+							                </tbody>
+							            </table>
+							            {% else %}
+							                <br>
+							                <p>&nbsp;No relative details provided for this person.</p>
+							            {% endif %}
+                                </div>
+
+                            <div class="form-group note note-info">
+                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes (1 point)
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No (0 point)
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4>The caregiver can identify an individual or a group recognized as providing social and emotional support.</h4>
+
+                                <h4><b>Question to the caregiver</b></h4>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">14. 1 Is there someone or a group of people that you speak with when you are stressed or
+                                    sad or want to share good news? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4><b>Questions to child(ren) over <u>five</u> years old</b></h4>
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">14.2 Is there at least one person or place besides your family you can go to
+                                    when you need help?</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group note note-info">
+                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes (1 point)
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No (0 point)
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4>Caregivers have participated a parenting skills activity or are able to clearly articulate and give examples of positive parenting. </h4>
+
+                                <h4><b>Question for the caregiver</b></h4>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">15.1 Has the caregiver attended or been engaged in any positive parenting sessions? :</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">15.2 Could you please describe various ways of disciplining children? Probe;
+                                    which ones do you use frequently? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">15.3 Do you feel that you can positively communicate with your child or adolescent and could
+                                    you please give me an example?</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">15.4 Does the caregiver demonstrate positive parenting techniques?
+                                    (e.g. positive communication, positive discipline affectionate behavior and engaging in age and stage appropriate
+                                    activities with their children).</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group note note-info">
+                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
                                         <label class="checkbox-inline">
                                             <input type="checkbox" value="">
@@ -729,103 +1843,6 @@
 
 
 
-
-
-
-
-                        <!-- end of panel group -->
-							</div> 							
-						</div> 
-						<!-- end wizard step-2 -->
-
-						<!-- begin wizard step-3 -->
-						<div class="wizard-step-3">
-							<div class="panel-body"> 
-
-								<div class="form-group">
-                                    <label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA9: </b>Condition of house : <span class="asteriskField">* </span></label>
-									<div class="col-md-4 col-sm-4">
-										{{ form.hhva_ha9 }}
-									</div>
-									<a href="#" data-toggle="tooltip" title="Condition of house"><i class="fa fa-info-circle fa-sm"></i></a>
-								</div>
-
-								<br>
-                                <label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA10: </b>Type and number of bedding used by household members : <span class="asteriskField">* </span>  </label>
-
-								<div class="form-group">
-									<table id="ha10_manager_table" class="table">
-	                                    <thead>
-	                                        <tr id="id_inputHeaders">
-	                                        	<td width="2%"></td>
-	                                        	<th width="3%"><h6><b>Type</b></h6></th>
-	                                        	<th width="2%"><h6><b>Number</b></h6></th>
-	                                            <th width="3%"><h6><b>Condition</b></h6></th>
-	                                            <th width="5%"><h6><b>Actions</b></h6></th>
-	                                        </tr>
-	                                    </thead>
-	                                    <tbody>
-	                                    	<tr id="id_inputElements14">
-	                                    		<td></td>
-	                                            <td width="3%">
-	                                            	{{ form.hhva_ha10_type }}
-	                                            	<div id="hhva_ha10_type_errormsg" style="display:none;">
-	                                                    <small><p class="dialog_paragraph">This value is required</p></small>
-	                                                </div>
-	                                            </td>
-
-	                                            <td width="2%">
-	                                            	{{ form.hhva_ha10_number }}
-	                                            	<div id="hhva_ha10_number_errormsg_" style="display:none;">
-	                                                    <small><p class="dialog_paragraph">This value must be digits</p></small>
-	                                                </div>
-	                                            	<div id="hhva_ha10_number_errormsg" style="display:none;">
-	                                                    <small><p class="dialog_paragraph">This value is required</p></small>
-	                                                </div>
-	                                            </td>
-
-	                                            <td width="3%">
-	                                            	{{ form.hhva_ha10_condition }}
-	                                            	<div id="hhva_ha10_condition_errormsg" style="display:none;">
-	                                                    <small><p class="dialog_paragraph">This value is required</p></small>
-	                                                </div>
-	                                            </td>
-
-	                                            <td width="5%">
-	                                            	<h6><b>
-			                                            <button type="button" class="btn btn-sm btn-inverse m-r-5" onClick="AddRow(1)">
-			                                                <i class="fa fa-plus"></i>  Add
-			                                            </button>
-	                                            	</b></h6>
-	                                            </td>
-                                        </tr>  
-	                                    </tbody>
-                                    </table>                                    	
-                                    {{ form.hhva_wash_list }}
-								</div>
-							</div>
-						</div> 
-						<!-- end wizard step-3 -->  
-
-						<!-- begin wizard step-4 -->
-						<div class="wizard-step-4">
-							<div class="panel-body"> 
-
-								<div class="form-group">
-                                    <label class="control-label col-md-5 col-sm-5" for="hhva_qs"><b>HA11: </b>On average, how many meals do household members eat in a day? : <span class="asteriskField">* </span></label>
-									<div class="col-md-4 col-sm-4">
-										{{ form.hhva_ha11 }}
-									</div>
-									<a href="#" data-toggle="tooltip" title="Number of meals per day per household member"><i class="fa fa-info-circle fa-sm"></i></a>
-								</div>
-
-								<div class="form-group">
-                                    <label class="control-label col-md-5 col-sm-5" for="hhva_qs"><b>HA12: </b>What is the main source of food for the household? : <span class="asteriskField">* </span></label>
-									<div class="col-md-4 col-sm-4">
-										{{ form.hhva_ha12 }}
-									</div>
-									<a href="#" data-toggle="tooltip" title="Main source of food for the household"><i class="fa fa-info-circle fa-sm"></i></a>									
-								</div>
 							</div>
 						</div> 
 						<!-- end wizard step-4 --> 
@@ -833,264 +1850,247 @@
 						<!-- begin wizard step-5 -->
 						<div class="wizard-step-5">
 							<div class="panel-body">
-								<div class="row">
-                                    <div class="col-md-5">
-                                        <div class="form-group block1">
-                                            <label for="hhva_ha13"><b>HA13: </b>What is the household main source of income? <span class="asteriskField">*</span></label>
-                                            {{ form.hhva_ha13 }}
-                                        </div>
-                                    </div>
+                               <h4>All children between ages 6-17 are enrolled in school and attend school regularly in the last academic year.</h4>
 
-                                    <div class="col-md-5">
-                                        <div class="form-group block1">
-                                            <label for="hhva_ha14"><b>HA14: </b>Who owns the house where members stay? <span class="asteriskField">*</span></label>
-                                            {{ form.hhva_ha14 }}
-                                        </div>
+                                <h4>Questions for the caregiver: </h4>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">16.1 Are all children between ages 6 and 17 enrolled in school? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
                                     </div>
                                 </div>
 
-                                <div class="divider pull-left width-full"></div>
-                                <div class="divider pull-left width-full"></div>
-
-                                <div class="row">
-                                	<div class="col-md-8">
-                                        <div class="form-group">
-                                            <label for="surname"><b>HA15: </b>What asset does the household own? <span class="asteriskField">*</span></label>
-                                        </div>
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">16.2 Are the enrolled children attending school regularly? (i.e. have not missed school
+                                    for more than 3 weeks in total in a term). Probe the trend of absence). Verify with the school attendance tracking tool. </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
                                     </div>
-                                    <table id="ha15_manager_table" class="table">
-                                        <thead>
-                                            <tr id="id_inputHeaders">
-                                                <td width="2%"></td>
-                                                <th width="4%"><h6><b>Asset</b></h6></th>
-                                                <th width="2%"><h6><b>Number</b></h6></th>
-                                                <th width="2%"><h6><b>Size</b></h6></th>
-                                                <th width="4%"><h6><b>Actions</b></h6></th>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">16.3 Are all children between ages 6-17 years progressing from one level to the other in
+                                    school? Note: if possible, please ask to see report card. </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">16.4	Is your child attending ECDE?</label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4>Question for the children in the household aged 6- 17: </h4>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">16.5 Could you tell me what you like about school? What is one example of something that
+                                    you learned this week? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group note note-info">
+                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                    <div class="col-md-3">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes (1 point)
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No (0 point)
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4>Adolescents enrolled in vocational training program are demonstrating that they are progressing.  </h4>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">Is there are no adolescents in the household enrolled in vocational training? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4>Questions to caregiver: </h4>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">17.1 Is your adolescent regularly attending or completed vocational training? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                <label class="col-md-10 control-label semi-bold" style="text-align: left">17.2 Does the household have capacity to support the adolescent to complete their
+                                    vocational training? </label>
+                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <h4>Questions to adolescent in vocational training</h4>
+
+                                <div class="form-group">
+                                    {% if siblings or osiblings %}
+							            <table class="table table-condensed table-responsive">
+							                <thead>
+							                    <tr>
+							                        <th>Child Name</th>
+                                                <th>17.3 Do you regularly attend your vocational training? Please tell me something that you liked learning the past month.<th>
+
+
+							                    </tr>
+							                </thead>
+							                <tbody>
+							                    {% for sibling in siblings %}
+							                    <tr>
+							                        <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
+							                        <td>
+
+                                                    <div class="col-md-12">
+                                                        <input type="text" class="form-control" placeholder=" ">
+                                                    </div>
+
+                                                    </td>
+
+							                    </tr>
+							                    {% endfor %}
+							                    {% for osibling in osiblings %}
+							                    <tr>
+							                        <td><a href="{% url 'view_person' id=osibling.child_person.id %}">{{ osibling.child_person.full_name }}</a></td>
+							                        <td>
+							                        {% if osibling.child_person.sex_id == 'SFEM' %}
+							                        Sister
+							                        {% else %}
+							                        Brother
+							                        {% endif %}
+							                        </td>
+							                        <!-- <td>{{ osibling.child_person.age }}</td> -->
+							                    </tr>
+							                    {% endfor %}
+                                            <tr>
+                                                <td class="semi-bold">
+                                                    Tick <u>Yes</u> if <u>YES</u> for all children
+                                                </td>
+                                                <td>
+                                                    <div class="col-md-2">
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
+                                    </div>
+                                                </td>
+
                                             </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr id="id_inputElements14">
-                                                <td width="2%"></td>
-                                                <td width="4%">
-                                                    {{ form.hhva_ha15_asset }}
-                                                    <div id="hhva_ha15_type_errormsg" style="display:none;">
-                                                        <small><p class="dialog_paragraph">This value is required</p></small>
-                                                    </div>
-                                                </td>
-
-                                                <td width="2%">
-                                                    {{ form.hhva_ha15_number }}
-                                                    <div id="hhva_ha15_number_errormsg_" style="display:none;">
-                                                        <small><p class="dialog_paragraph">This value is must be digits</p></small>
-                                                    </div>
-
-                                                    <div id="hhva_ha15_number_errormsg" style="display:none;">
-                                                        <small><p class="dialog_paragraph">This value is required</p></small>
-                                                    </div>
-                                                </td>
-
-                                                <td width="2%">
-                                                    {{ form.hhva_ha15_size }}
-                                                    <div id="hhva_ha15_size_errormsg_" style="display:none;">
-                                                        <small><p class="dialog_paragraph">This value is must be digits</p></small>
-                                                    </div>
-
-                                                    <div id="hhva_ha15_size_errormsg" style="display:none;">
-                                                        <small><p class="dialog_paragraph">This value is required</p></small>
-                                                    </div>
-                                                </td>
-
-                                                <td width="4%">
-                                                    <h6><b>
-                                                        <button type="button" class="btn btn-sm btn-inverse m-r-5" onClick="AddRow(2)">
-                                                            <i class="fa fa-plus"></i>  Add
-                                                        </button>
-                                                    </b></h6>
-                                                </td>
-                                        </tr>  
-                                        </tbody>
-                                    </table>
-                                    {{ form.hhva_asset_list }}
+							                </tbody>
+							            </table>
+							            {% else %}
+							                <br>
+							                <p>&nbsp;No relative details provided for this person.</p>
+							            {% endif %}
                                 </div>
 
-                                <div class="divider pull-left width-full"></div>
-
-                                <div class="row">
-                                	<div class="col-md-5">
-                                        <div class="form-group block1">
-                                            <label for="hhva_ha16"><b>HA16: </b>What is the household's main source of cooking fuel? <span class="asteriskField">*</span></label>
-                                            {{ form.hhva_ha16 }}
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-5">
-                                        <div class="form-group block1">
-                                            <label for="hhva_ha17"><b>HA17: </b>What is the average monthly income before purchase? <span class="asteriskField">*</span></label>
-                                            {{ form.hhva_ha17 }}
-                                        </div>
+                                <div class="form-group note note-info">
+                                <label class="col-md-8 control-label" style="text-align: left">Has the household achieved this benchmark? </label>
+                                    <div class="col-md-4">
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            Yes (1 point)
+                                        </label>
+                                        <label class="checkbox-inline">
+                                            <input type="checkbox" value="">
+                                            No (0 point)
+                                        </label>
                                     </div>
                                 </div>
 
-                                <div class="divider pull-left width-full"></div>
-
-                                <div class="row">
-                                	<div class="col-md-5">
-                                        <div class="form-group block1">
-                                            <label for="hhva_ha18"><b>HA18: </b>What is the average monthly income after purchase? <span class="asteriskField">*</span></label>
-                                            {{ form.hhva_ha18 }}
-                                        </div>
-                                    </div>
-
-                                    <div class="col-md-5">
-                                        <div class="form-group block1">
-                                            <label for="hhva_ha19"><b>HA19: </b>Which of the following take up most of the household income? <span class="asteriskField">*</span></label>
-                                            {{ form.hhva_ha19 }}
-                                        </div>
+                                <div class="form-group">
+                                <label class="col-md-4 control-label">Overall number of points from all DOMAINS:</label>
+                                    <div class="col-md-8">
+                                        <input type="text" class="form-control" placeholder=" ">
                                     </div>
                                 </div>
 
-                                <div class="divider pull-left width-full"></div>
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class="form-group block1">
-                                            <label for="hhva_ha20"><b>HA20: </b>Is any member of the household in any savings group? <span class="asteriskField">*</span></label>
-                                            {{ form.hhva_ha20 }}
-                                        </div>
-                                    </div>
 
-                                    <div class="col-md-5">
-                                        <div>
-                                            <label for="hhva_ha21"><b>HA21: </b>Which of the following documents does the household posses? <span class="asteriskField">*</span></label>
-                                            {{ form.hhva_ha21 }}
-                                            <h6><span id="sel_hhva_ha21"></span></h6>
-                                        </div>
-                                    </div>
-                                </div>
+
 
 							</div>
 						</div> 
-						<!-- end wizard step-5 --> 
+						<!-- end wizard step-5 -->
 
-						<!-- begin wizard step-6 -->
-						<div class="wizard-step-6">
-							<div class="panel-body"> 
 
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA22: </b>Where household members access health services when sick? : <span class="asteriskField">* </label>
-									<div class="col-md-4 col-sm-4">
-										{{ form.hhva_ha22 }}
-										<h6><span id="sel_hhva_ha22"></span></h6>
-									</div>
-									<a href="#" data-toggle="tooltip" title="Where household members access health services"><i class="fa fa-info-circle fa-sm"></i></a>
-								</div>
-
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA23: </b>How far is the nearest health facility? : <span class="asteriskField">* </label>
-									<div class="col-md-4 col-sm-4">
-										{{ form.hhva_ha23 }}
-									</div>
-									<a href="#" data-toggle="tooltip" title="Distance to the nearest health facility"><i class="fa fa-info-circle fa-sm"></i></a>							
-								</div>
-
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA24: </b>Does the household have health insurance? : <span class="asteriskField">* </label>
-									<div class="col-md-4 col-sm-4">
-										{{ form.hhva_ha24 }}
-									</div>
-									<a href="#" data-toggle="tooltip" title="Health insurance for the household"><i class="fa fa-info-circle fa-sm"></i></a>
-								</div>
-
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA25: </b>Household using mosquito nets? : <span class="asteriskField">* </label>
-									<div class="col-md-4 col-sm-4">
-										{{ form.hhva_ha25 }}
-									</div>
-									<a href="#" data-toggle="tooltip" title="Household using mosquito nets"><i class="fa fa-info-circle fa-sm"></i></a>									
-								</div>
-
-								<div class="form-group">
-				                  <label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA26: </b>Number of known HIV+ individuals in the household below 18 years : <span class="asteriskField">* </label>
-				                  <div class="col-md-2 col-sm-2">
-				                    {{ form.hhva_ha26_male }}
-				                  </div>
-				                  <div class="col-md-2 col-sm-2">
-				                    {{ form.hhva_ha26_female }}
-				                  </div>
-				                  <a href="#" data-toggle="tooltip" title="Number of HIV+ individuals in the house below 18 years"><i class="fa fa-info-circle fa-sm"></i></a>
-				                </div>
-
-				                <div class="form-group">
-				                  <label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA27: </b>Number of known HIV+ individuals in the household above 18 years : <span class="asteriskField">* </label>
-				                  <div class="col-md-2 col-sm-2">
-				                    {{ form.hhva_ha27_male }}
-				                  </div>
-				                  <div class="col-md-2 col-sm-2">
-				                    {{ form.hhva_ha27_female }}
-				                  </div>
-				                  <a href="#" data-toggle="tooltip" title="Number of HIV+ individuals in the house above 18 years"><i class="fa fa-info-circle fa-sm"></i></a>
-				                </div>
-							</div>
-						</div> 
-						<!-- end wizard step-6 -->  
-
-						<!-- begin wizard step-7 -->
-						<div class="wizard-step-7">
-							<div class="panel-body"> 
-								<div class="form-group">
-									<label class="control-label col-md-3 col-sm-3" for="hhva_qs"><b>HA28: </b>Where does the household access legal protection services when needed? : <span class="asteriskField">* </label>
-									<div class="col-md-4 col-sm-4">
-										{{ form.hhva_ha28 }}
-										<h6><span id="sel_hhva_ha28"></span></h6>
-									</div>
-									<a href="#" data-toggle="tooltip" title="Where household access legal protection services when needed"><i class="fa fa-info-circle fa-sm"></i></a>
-								</div>
-							</div>
-						</div> 
-						<!-- end wizard step-7 -->
-
-						<!-- begin wizard step-8 -->
-						<div class="wizard-step-8">
-							<div class="panel-body"> 
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA29: </b>Is the household access currently receiving support from any of the following? : <span class="asteriskField">* </label>
-									<div class="col-md-4 col-sm-4">
-										{{ form.hhva_ha29 }}
-										<h6><span id="sel_hhva_ha29"></span></h6>
-									</div>
-									<a href="#" data-toggle="tooltip" title="Support received from who?"><i class="fa fa-info-circle fa-sm"></i></a>
-								</div>
-
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA30: </b>Select services received : <span class="asteriskField">* </label>
-									<div class="col-md-4 col-sm-4">
-										{{ form.hhva_ha30 }}
-										<h6><span id="sel_hhva_ha30"></span></h6>
-									</div>
-									<a href="#" data-toggle="tooltip" title="Services received"><i class="fa fa-info-circle fa-sm"></i></a>
-								</div>
-							</div>
-						</div> 
-						<!-- end wizard step-8 -->
-
-						<!-- begin wizard step-9 -->
-						<div class="wizard-step-9">
-							<div class="panel-body"> 
-								<div class="form-group">
-									<label class="control-label col-md-4 col-sm-4" for="hhva_qs"><b>HA31: </b>Household priorities? : <span class="asteriskField">* </label>
-									<div class="col-md-4 col-sm-4">
-										{{ form.hhva_ha31 }}
-										<h6><span id="sel_hhva_ha31"></span></h6>
-									</div>
-									<a href="#" data-toggle="tooltip" title="Household priorities"><i class="fa fa-info-circle fa-sm"></i></a>
-								</div>
-							</div>
-						</div> 
-						<!-- end wizard step-9 --> 
 					</div>
 
 					<div class="form-group">
-                        <label class="control-label col-md-4 col-sm-4" for="csi_qs">Date of Assessment : <span class="asteriskField">* </label>
+                        <label class="control-label col-md-4 col-sm-4" for="csi_qs">Date of CPARA : <span class="asteriskField">* </label>
 						<div class="col-md-4 col-sm-4">
+							{{ form.date_of_hhva }}
 						</div> 
                     </div>
 
@@ -1100,10 +2100,11 @@
 						<div class="form-group">
 							<label class="control-label col-md-4 col-sm-4"></label>
 							<div class="col-md-6 col-sm-6">
-								<button id="mysubmit-hhva" type="submit" class="btn btn-primary">Submit</button>
+								<button type="submit" class="btn btn-primary">Submit</button>
 								<a href="javascript:history.go(-1)" class="btn btn-white">Cancel</a>
 							</div>
-						</div>
+						<<!-- begin wizard step-9 -->
+                        </div>
                     </div>
 
 				</form>
@@ -1130,7 +2131,7 @@
 <script src="{% static 'js/bootstrap-table.min.js' %}"></script>
 <script src="{% static 'js/bootstrap-table-locale-all.min.js' %}"></script>
 <script>
-jQuery(document).ready(function() 
+jQuery(document).ready(function()
 {
 	//multi selects
     $('#hhva_ha6, #hhva_ha21, #hhva_ha22, #hhva_ha28, #hhva_ha29, #hhva_ha30, #hhva_ha31').multiselect({
@@ -1145,376 +2146,6 @@ jQuery(document).ready(function()
 
 	$('html,body').scrollTop(0);
 	FormWizardValidation.init();
-});
-</script>
-<script type="text/javascript">
-function AddRow(x)
-{
-	if(x==1)
-	{
-		var OlmisWASHData = new Array();
-        var type = $("#hhva_ha10_type").val();
-        var number = $("#hhva_ha10_number").val();
-        var condition = $("#hhva_ha10_condition").val();
-        var csrftoken = $.cookie('csrftoken');        
-        var values = {  
-            'csrfmiddlewaretoken': csrftoken
-        };
-
-        // Validation and Ajax
-        if(type)
-		{
-			if(number)
-			{
-				// Validate ifnumber
-				var isnum = /^\d+$/.test(number);
-				if(!isnum){
-					// $(".alert").show();
-			        // $('.invalid-form-message').html('Please use digits only to specify number of bedding.');
-			        $('#hhva_ha10_number_errormsg_').css({'display': 'block'})
-			        return false;
-				}
-				$('#hhva_ha10_number_errormsg_').css({'display': 'none'})
-
-				if(condition)
-				{					
-					// Find a <table> element with id="ha10_manager_table":
-                    var table = $('#ha10_manager_table')[0]; 
-
-                    // Create an empty <tr> element with id and add it to the 1st position of the table:
-                    var rows_length = table.rows.length;
-                    var row = table.insertRow(rows_length);
-                    var index = rows_length - 2;
-                    row_id = 'rowid0_' + index;
-                    row.id = row_id;
-                    var btnRemoveSvcId = 'btnRemoveSvc' + index;
-
-                    // Insert new cells (<td> elements) of the "new" <tr> element:
-                    var cell0 = row.insertCell(0);
-                    var cell1 = row.insertCell(1);
-                    var cell2 = row.insertCell(2);
-                    var cell3 = row.insertCell(3);
-                    var cell4 = row.insertCell(4);
-
-                    var htype= "<input id='htype' type='hidden' value='"+type+"'>"
-                    var hnumber = "<input id='hnumber' type='hidden' value='"+number+"'>"
-                    var hcondition = "<input id='hcondition' type='hidden' value='"+condition+"'>"
-                    var hstatus = "<input id='hstatus' type='hidden' value='new'>"
-
-                    cell0.innerHTML = '<h6 class="td_style">' + hstatus + '</h6>';        
-                    cell1.innerHTML = '<h6 class="td_style">' + displayVals(2, "hhva_ha10_type") + htype + '</h6>';
-                    cell2.innerHTML = '<h6 class="td_style">' + $('#hhva_ha10_number').val() + hnumber + '</h6>';
-                    cell3.innerHTML = '<h6 class="td_style">' + displayVals(2, "hhva_ha10_condition") + hcondition + '</h6>';
-                    cell4.innerHTML  = '<h6 class="dialog_paragraph">' + "<a id=" + btnRemoveSvcId + " class='btn btn-sm btn-link m-r-5 href='#'>Remove</a>" + '</h6>';
-
-                    // AddClick Event To Remove Button
-                    $("#" + btnRemoveSvcId + "").click(function(e)
-                    {
-                        RemoveRow(1, '', row_id);
-                    });
-
-                    // Reset Input Elements/Error Divs
-                    $("#hhva_ha10_type").val('');
-                    $("#hhva_ha10_number").val('');
-                    $("#hhva_ha10_condition").val('');
-                    $(".alert").hide();
-
-                    $('#ha10_manager_table tr').each(function(row, tr)
-                    {                            
-                        var type = $(tr).find('input[id="htype"]').val();
-                        var number = $(tr).find('input[id="hnumber"]').val();
-                        var condition = $(tr).find('input[id="hcondition"]').val();
-
-                        OlmisWASHData[row]= {
-                            "type" : type,
-                            "number" : number,
-                            "condition" : condition
-                            }                                
-                        
-                    });
-                    
-                    OlmisWASHData.shift(); //remove first row(headers stuff)
-                    OlmisWASHData.shift(); //remove second row(controls stuff)
-                    OlmisWASHData = JSON.stringify(OlmisWASHData); 
-
-                    // Set hhva_wash_list
-                    $('#hhva_wash_list').val(OlmisWASHData); 
-				}
-				else
-				{
-					$("#hhva_ha10_condition_errormsg").css({ 'display': "block" });
-				}
-
-			}
-			else
-			{
-				$("#hhva_ha10_number_errormsg").css({ 'display': "block" });
-			}
-		}
-		else
-		{
-			$("#hhva_ha10_type_errormsg").css({ 'display': "block" });
-		}
-	}
-	if(x == 2)
-	{
-		var OlmisAssetData = new Array();
-        var asset = $("#hhva_ha15_asset").val();
-        var number = $("#hhva_ha15_number").val();
-        var size = $("#hhva_ha15_size").val();
-        var csrftoken = $.cookie('csrftoken');        
-        var values = {  
-            'csrfmiddlewaretoken': csrftoken
-        };
-
-         // Validation and Ajax
-        if(asset)
-		{
-			if(number)
-			{
-				// Validate if number
-				var isnum = /^\d+$/.test(number);
-				if(!isnum){
-			        $('#hhva_ha15_number_errormsg_').css({'display': 'block'})
-			        return false;
-				}
-				$('#hhva_ha15_number_errormsg_').css({'display': 'none'})
-
-				if(size)
-				{
-					// Validate if size
-					/**
-					var isnum = /^\d+$/.test(size);
-					if(!isnum){
-				        $('#hhva_ha15_size_errormsg_').css({'display': 'block'})
-				        return false;
-					}
-					$('#hhva_ha15_size_errormsg_').css({'display': 'none'})
-					**/
-
-					// Find a <table> element with id="ha15_manager_table":
-                    var table = $('#ha15_manager_table')[0]; 
-
-                    // Create an empty <tr> element with id and add it to the 1st position of the table:
-                    var rows_length = table.rows.length;
-                    var row = table.insertRow(rows_length);
-                    var index = rows_length - 2;
-                    row_id = 'rowid1_' + index;
-                    row.id = row_id;
-                    var btnRemoveSvcId = 'btnRemoveSvc' + index;
-
-                    // Insert new cells (<td> elements) of the "new" <tr> element:
-                    var cell0 = row.insertCell(0);
-                    var cell1 = row.insertCell(1);
-                    var cell2 = row.insertCell(2);
-                    var cell3 = row.insertCell(3);
-                    var cell4 = row.insertCell(4);
-
-                    var hasset= "<input id='hasset' type='hidden' value='"+asset+"'>"
-                    var hnumber = "<input id='hnumber' type='hidden' value='"+number+"'>"
-                    var hsize = "<input id='hsize' type='hidden' value='"+size+"'>"
-                    var hstatus = "<input id='hstatus' type='hidden' value='new'>"
-
-                    cell0.innerHTML = '<h6 class="td_style">' + hstatus + '</h6>';        
-                    cell1.innerHTML = '<h6 class="td_style">' + displayVals(2, "hhva_ha15_asset") + hasset + '</h6>';
-                    cell2.innerHTML = '<h6 class="td_style">' + $('#hhva_ha15_number').val() + hnumber + '</h6>';
-                    cell3.innerHTML = '<h6 class="td_style">' + $('#hhva_ha15_size').val() + hsize + '</h6>';
-                    cell4.innerHTML  = '<h6 class="dialog_paragraph">' + "<a id=" + btnRemoveSvcId + " class='btn btn-sm btn-link m-r-5 href='#'>Remove</a>" + '</h6>';
-
-                    // AddClick Event To Remove Button
-                    $("#" + btnRemoveSvcId + "").click(function(e)
-                    {
-                        RemoveRow(1, '', row_id);
-                    });
-
-                    // Reset Input Elements/Error Divs
-                    $("#hhva_ha15_asset").val('');
-                    $("#hhva_ha15_number").val('');
-                    $("#hhva_ha15_size").val('');
-                    $(".alert").hide();
-
-                    $('#ha15_manager_table tr').each(function(row, tr)
-                    {                            
-                        var asset = $(tr).find('input[id="hasset"]').val();
-                        var number = $(tr).find('input[id="hnumber"]').val();
-                        var size = $(tr).find('input[id="hsize"]').val();
-
-                        OlmisAssetData[row]= {
-                            "asset" : asset,
-                            "number" : number,
-                            "size" : size
-                            }                                
-                        
-                    });
-                    
-                    OlmisAssetData.shift(); //remove first row(headers stuff)
-                    OlmisAssetData.shift(); //remove second row(controls stuff)
-                    OlmisAssetData = JSON.stringify(OlmisAssetData); 
-
-                    // Set hhva_asset_list
-                    $('#hhva_asset_list').val(OlmisAssetData); 
-				}
-				else
-				{
-					$("#hhva_ha15_size_errormsg").css({ 'display': "block" });
-				}
-			}
-			else
-			{
-				$("#hhva_ha15_number_errormsg").css({ 'display': "block" });
-			}
-		}
-		else
-		{
-			$("#hhva_ha15_asset_errormsg").css({ 'display': "block" });
-		}
-	}
-}
-
-function RemoveRow(index, uuid, tr_id)
-{
-    if(index == 1)
-    {
-        // Delete Table Row
-        $("#" + tr_id).remove();
-
-        var OlmisWASHData = new Array();
-        $('#ha10_manager_table tr').each(function(row, tr)
-        {                            
-            var type = $(tr).find('input[id="htype"]').val();
-            var number = $(tr).find('input[id="hnumber"]').val();
-            var condition = $(tr).find('input[id="hcondition"]').val();
-
-            OlmisWASHData[row]= {
-                "type" : type,
-                "number" : number,
-                "condition" : condition
-                }                                
-            
-        });
-        
-        OlmisWASHData.shift(); //remove first row(headers stuff)
-        OlmisWASHData.shift(); //remove second row(controls stuff)
-        OlmisWASHData = JSON.stringify(OlmisWASHData); 
-
-        // Set hhva_wash_list
-        $('#hhva_wash_list').val(OlmisWASHData);
-    }
-    if(index == 2)
-    {
-    	// Delete Table Row
-        $("#" + tr_id).remove();
-
-        var OlmisAssetData = new Array();
-        $('#ha15_manager_table tr').each(function(row, tr)
-        {                            
-            var asset = $(tr).find('input[id="hasset"]').val();
-            var number = $(tr).find('input[id="hnumber"]').val();
-            var size = $(tr).find('input[id="hsize"]').val();
-
-            OlmisAssetData[row]= {
-                "asset" : asset,
-                "number" : number,
-                "size" : size
-                }                                
-            
-        });
-        
-        OlmisAssetData.shift(); //remove first row(headers stuff)
-        OlmisAssetData.shift(); //remove second row(controls stuff)
-        OlmisAssetData = JSON.stringify(OlmisWASHData); 
-
-        // Set hhva_wash_list
-        $('#hhva_asset_list').val(OlmisAssetData);
-    }
-}
-
-function displayVals(x, value)
-{
-	var selections = [];
-	var hselections = [];
-	if(x == 1)
-	{
-	    $("#" + value + " option:selected").each(function () 
-	    {
-	       var $this = $(this);
-	       if ($this.length)
-	       {
-	            var selText = $this.text();
-	            selections.push(selText);
-	       }
-	    });
-	    $( "#sel_"+value ).html(selections.join( ", " ) );		
-	}
-	if(x==2)
-	{
-	    $("#" + value + " option:selected").each(function () 
-	    {
-	       var $this = $(this);
-	       if ($this.length)
-	       {
-	            var selText = $this.text();
-	            selections.push(selText);
-	            //console.log(selText);
-	       }
-	    });
-	    
-	    return selections.join( ", <br>" );
-	}
-}
-
-$("#hhva_ha6").change(function(event) 
-{
-	displayVals(1, 'hhva_ha6');
-});
-
-$("#hhva_ha10_type").change(function(event) 
-{
-	$('#hhva_ha10_type_errormsg').css({'display': 'none'})
-});
-
-$("#hhva_ha10_number").keyup(function() 
-{
-	if($(this).val())   
-    {
-		$('#hhva_ha10_number_errormsg_').css({'display': 'none'})
-		$('#hhva_ha10_number_errormsg').css({'display': 'none'})
-    }
-});
-
-$("#hhva_ha10_condition").change(function(event) 
-{
-	$('#hhva_ha10_condition_errormsg').css({'display': 'none'})
-});
-
-$("#hhva_ha21").change(function(event) 
-{
-	displayVals(1, 'hhva_ha21');
-});
-
-$("#hhva_ha22").change(function(event) 
-{
-	displayVals(1, 'hhva_ha22');
-});
-
-$("#hhva_ha28").change(function(event) 
-{
-	displayVals(1, 'hhva_ha28');
-});
-
-$("#hhva_ha29").change(function(event) 
-{
-	displayVals(1, 'hhva_ha29');
-});
-
-$("#hhva_ha30").change(function(event) 
-{
-	displayVals(1, 'hhva_ha30');
-});
-
-$("#hhva_ha31").change(function(event) 
-{
-	displayVals(1, 'hhva_ha31');
 });
 </script>
 {% endblock %}
