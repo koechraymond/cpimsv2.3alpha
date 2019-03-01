@@ -291,7 +291,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">Is there child (including under 5 year) in the household that is at risk or vulnerable to
                                     HIV? <i class="semi-bold">(Chronic illness: Asthma, Cancer, Diabetes, Epileplsy)</i></label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
+                                      <label class="radio-inline">
                                             <input type="radio" value="">
                                             Yes
                                         </label>
@@ -316,21 +316,14 @@ print(blu.sing("'Happy'"))
                                 <div class="form-group">
                                 <label class="col-md-6 control-label" style="text-align: left">1.2 If yes in 1.1 above, indicate the date when this was done </label>
                                     <div class="col-md-4">
-                                        <input type="text" class="form-control" placeholder=" ">
+                                       {{form.cp2q}}
                                     </div>
                                 </div>
                                 <div class="form-group">
                                 <label class="col-md-10 control-label" style="text-align: left">1.3 Have the child(ren) identified as high risk of HIV been referred for HIV
                                     testing services? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp3q}}
                                     </div>
                                 </div>
                                 <div class="form-group">
@@ -338,28 +331,14 @@ print(blu.sing("'Happy'"))
                                     at high risk of HIV, has documentation of all children’s completed referrals for HIV
                                     testing services been documented in their case file?  </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp4q}}
                                     </div>
                                 </div>
                                 <div class="form-group note note-info">
                                 <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
 
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes (1 point)
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No (0 point)
-                                        </label>
+                                       {{form.cp1b}}
                                     </div>
                                 </div>
                                 <h4>Information from Case File</h4>
@@ -367,27 +346,13 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">2.1 Has the HIV status of all children in the household (positive, negative, or unknown) been
                                     documented in their case file? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp5q}}
                                     </div>
                                 </div>
                                 <div class="form-group">
                                 <label class="col-md-10 control-label" style="text-align: left">2.2 Is the HIV status of the caregiver (positive, negative or unknown) documented in the case file?  </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp6q}}
                                     </div>
                                 </div>
                                 <h4>Questions for Caregiver</h4>
@@ -396,27 +361,13 @@ print(blu.sing("'Happy'"))
                                     household older than the age of five and   living with HIV (as documented in the case file),
                                     do they know their HIV status?  (Partial/ complete)? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                       {{form.cp7q}}
                                     </div>
                                 </div>
                                 <div class="form-group note note-info">
                                 <label class="col-md-4 control-label">Has the household achieved this benchmarks? </label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes (1 point)
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No (0 point)
-                                        </label>
+                                      {{form.cp2b}}
                                     </div>
                                 </div>
 
@@ -436,53 +387,25 @@ print(blu.sing("'Happy'"))
                                 <div class="form-group">
                                 <label class="col-md-10 control-label" style="text-align: left">3.1 Do you know how many pills (amount of syrup) your child(ren) should take each day? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                       {{form.cp8q}}
                                     </div>
                                 </div>
                                 <div class="form-group">
                                 <label class="col-md-10 control-label" style="text-align: left">3.2 Can you name/identify the medication that your child(ren) take each day? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp9q}}
                                     </div>
                                 </div>
                                 <div class="form-group">
                                 <label class="col-md-10 control-label" style="text-align: left">3.3 Do you remember when your child(ren) last visited the health clinic? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp10q}}
                                     </div>
                                 </div>
                                 <div class="form-group">
                                 <label class="col-md-10 control-label" style="text-align: left">3.4 Do you know when your child(ren) next have an appointment at the health clinic? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp11q}}
                                     </div>
                                 </div>
                                 <div class="form-group left">
@@ -490,14 +413,7 @@ print(blu.sing("'Happy'"))
                                     load is high or low (from the last viral load test)? Ask and document date of last
                                     test and probe to ensure the caregiver understands what low or high VL means</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp12q}}
                                     </div>
                                 </div>
 
@@ -534,56 +450,19 @@ print(blu.sing("'Happy'"))
 							                    <tr>
 							                        <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
 							                        <td>
-
-                                                <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        Yes
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        No
-                                                </label>
-
+                                                        {{form.cp13q}}
                                                     </td>
                                                     <td>
-                                                        <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        Yes
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        No
-                                                </label>
+                                                        {{form.cp14q}}
                                                     </td>
                                                 <td>
-                                                    <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        Yes
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        No
-                                                </label>
+                                                    {{form.cp15q}}
                                                 </td>
                                                 <td>
-                                                    <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        Yes
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        No
-                                                </label>
+                                                    {{form.cp16q}}
                                                 </td>
                                                 <td>
-                                                    <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        Yes
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        No
-                                                </label>
+                                                    {{form.cp17q}}
                                                 </td>
 							                    </tr>
 							                    {% endfor %}
@@ -606,53 +485,53 @@ print(blu.sing("'Happy'"))
                                                 </td>
                                                 <td>
                                                     <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        Yes
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        No
-                                                </label>
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
                                                 </td>
                                                 <td>
                                                     <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        Yes
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        No
-                                                </label>
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
                                                 </td>
                                                 <td>
                                                     <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        Yes
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        No
-                                                </label>
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
                                                 </td>
                                                 <td>
                                                     <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        Yes
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        No
-                                                </label>
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
                                                 </td>
                                                 <td>
                                                     <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        Yes
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        No
-                                                </label>
+                                            <input type="radio" value="">
+                                            Yes
+                                        </label>
+                                        <label class="radio-inline">
+                                            <input type="radio" value="">
+                                           No
+                                        </label>
                                                 </td>
                                             </tr>
 							                </tbody>
@@ -666,14 +545,7 @@ print(blu.sing("'Happy'"))
                             <div class="form-group note note-info">
                                 <label class="col-md-4 control-label">Has the household achieved this benchmarks? </label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes (1 point)
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No (0 point)
-                                        </label>
+                                       {{form.cp3b}}
                                     </div>
                                 </div>
 
@@ -695,14 +567,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">4.1 Is there evidence* that an adolescent or woman in the
                                     household is pregnant and has been tested for HIV? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                       {{form.cp19q}}
                                     </div>
                                 </div>
 
@@ -723,28 +588,14 @@ print(blu.sing("'Happy'"))
                                 <div class="form-group">
                                 <label class="col-md-10 control-label" style="text-align: left">4.2 Have you (the pregnant HIV+ adolescent / woman) been enrolled in PMTCT? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp20q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                 <label class="col-md-10 control-label" style="text-align: left">4.3 Have you or are you currently attending ANC services? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp21q}}
                                     </div>
                                 </div>
 
@@ -765,14 +616,7 @@ print(blu.sing("'Happy'"))
                                 <div class="form-group">
                                 <label class="col-md-10 control-label" style="text-align: left">4.4 Have you adhered to ART after delivery? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp22q}}
                                     </div>
                                 </div>
 
@@ -800,28 +644,14 @@ print(blu.sing("'Happy'"))
                                     :</label>
 
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp23q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group note note-info">
                                 <label class="col-md-4 control-label">Has the household achieved these benchmarks? </label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes (1 point)
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No (0 point)
-                                        </label>
+                                        {{form.cp4b}}
                                     </div>
                                 </div>
 
@@ -843,14 +673,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">5.1 Has the caregiver completed Positive parental skills training
                                     (with HIV/sexual and reproductive health modules)? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp24q}}
                                     </div>
                                 </div>
 
@@ -858,14 +681,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">5.2 Has the adolescent completed a life skills course or received (by other means)
                                     information on positive communication, protection and self-care and sexual and reproductive health? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp25q}}
                                     </div>
                                 </div>
 
@@ -873,14 +689,7 @@ print(blu.sing("'Happy'"))
                                 <div class="form-group">
                                 <label class="col-md-10 control-label" style="text-align: left">5.3 Please tell me at least two behaviors that increase the risk of HIV? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp26q}}
                                     </div>
                                 </div>
 
@@ -888,14 +697,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">5.4 Please tell me at least two behaviors that can help
                                     keep you safe from HIV or from infecting another person with HIV? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp27q}}
                                     </div>
                                 </div>
 
@@ -903,14 +705,7 @@ print(blu.sing("'Happy'"))
                                 <div class="form-group">
                                 <label class="col-md-10 control-label" style="text-align: left">5.5 Please tell me at least two behaviors that increase the risk of HIV? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp28q}}
                                     </div>
                                 </div>
 
@@ -918,28 +713,14 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">5.6 Please tell me at least two behaviors that can help keep you safe from HIV or from infecting
                                     another person with HIV? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp29q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group note note-info">
                                 <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes (1 point)
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No (0 point)
-                                        </label>
+                                        {{form.cp5b}}
                                     </div>
                                 </div>
 
@@ -961,14 +742,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">6.1 Has the child in the household with long term illness or disability been
                                     referred for health services and has accessed the service (e.g. returned referral slips?) </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp30q}}
                                     </div>
                                 </div>
 
@@ -976,28 +750,14 @@ print(blu.sing("'Happy'"))
                                 <div class="form-group">
                                 <label class="col-md-10 control-label" style="text-align: left">6.2 Can you describe the services you are receiving for the illness or disability? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp31q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group note note-info">
                                 <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes (1 point)
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No (0 point)
-                                        </label>
+                                        {{form.cp6b}}
                                     </div>
                                 </div>
 
@@ -1015,14 +775,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">7.1	Have all the children in the household eaten at least two
                                     cooked meals per day for at least the past six months? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp32q}}
                                     </div>
                                 </div>
 
@@ -1032,14 +785,7 @@ print(blu.sing("'Happy'"))
                                     Proteins such as: Beef, Fish, Chicken, Lentils, Beans, Nuts, etc. []; Vegetables such as: Sukuma wiki, cabbage,
                                     spinach, etc. []; Fruits such as: Orange, pineapple, mangoes, etc []  </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp33q}}
                                     </div>
                                 </div>
 
@@ -1047,28 +793,14 @@ print(blu.sing("'Happy'"))
                                 <div class="form-group">
                                 <label class="col-md-10 control-label" style="text-align: left">7.3 Have you had at least two cooked meals per day in the past two months? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp35q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group note note-info">
                                 <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes (1 point)
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No (0 point)
-                                        </label>
+                                        {{form.cp7bq}}
                                     </div>
                                 </div>
 
@@ -1078,14 +810,7 @@ print(blu.sing("'Happy'"))
                                     (this can include informal and formal income)? Probe if the family feels confident of the improved ability to meet
                                     basic over the past year. </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp36q}}
                                     </div>
                                 </div>
 
@@ -1093,14 +818,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">8.2 Does the caregiver demonstrate confidence and capacity to retain children in school
                                     (by paying school fees, school uniforms, books, medical bills, etc.), where applicable :</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp37q}}
                                     </div>
                                 </div>
 
@@ -1108,28 +826,14 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">8.3 Is the house safe and has a place for the child(ren) to sleep?
                                     (dry, ventilated, lockable) – (based on local standards)</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp38q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group note note-info">
                                 <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes (1 point)
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No (0 point)
-                                        </label>
+                                        {{form.cp8b}}
                                     </div>
                                 </div>
 
@@ -1138,14 +842,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">9.1 Was the household able to meet basic expenses such as medical treatment, house repair, etc.
                                     in the last six months?</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp39q}}
                                     </div>
                                 </div>
 
@@ -1153,28 +850,14 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">9.2 In reviewing the case file and or other documentation, is there evidence that the caregiver
                                     is actively participating in an economic activity such as SILC, VSLA, and have productive assets and can demonstrate savings.</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp40q}}
                                     </div>
                                 </div>
 
                                <div class="form-group note note-info">
                                 <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes (1 point)
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No (0 point)
-                                        </label>
+                                        {{form.cp9b}}
                                     </div>
                                 </div>
 
@@ -1184,14 +867,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">10.1 Do you know the types of critical services that exist in your community? e.g.,
                                     treatments, psychosocial support, legal assistance, financial services or other protection services?</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp41q}}
                                     </div>
                                 </div>
 
@@ -1199,14 +875,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">10.2 Have you or someone in your family ever accessed any critical service that exists in
                                     your community when you or someone in your family needed help in the last six months? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp42q}}
                                     </div>
                                 </div>
 
@@ -1215,28 +884,14 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">10.3 Have you or someone in your family been supported to access services if you or someone
                                     in your family was sick, hurt or needed help?</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp43q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group note note-info">
                                 <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes (1 point)
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No (0 point)
-                                        </label>
+                                        {{form.cp10b}}
                                     </div>
                                 </div>
 
@@ -1268,14 +923,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">11.1 If the household is child-headed, is there documentation in the case file that
                                     the household was referred for child protection services?</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp44q}}
                                     </div>
                                 </div>
 
@@ -1283,14 +931,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">11.2 If the household is child-headed, is there documentation in the case file that
                                     the household received child protection services? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp45q}}
                                     </div>
                                 </div>
 
@@ -1298,14 +939,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">11.3 If the household is child-headed, is there documentation in the case file that the
                                     household is linked to government sponsored social protection services e.g. CT-OVC, or from another non-governmental program?</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp46q}}
                                     </div>
                                 </div>
 
@@ -1313,14 +947,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">11.4 Is the household linked to an adult caregiver nearby who can give support
                                     when required? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp47q}}
                                     </div>
                                 </div>
 
@@ -1328,28 +955,14 @@ print(blu.sing("'Happy'"))
                                 <div class="form-group">
                                 <label class="col-md-10 control-label" style="text-align: left">11.5 Can you name at least one adult to whom you could go to for help or support? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp48q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group note note-info">
                                 <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes (1 point)
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No (0 point)
-                                        </label>
+                                        {{form.cp11b}}
                                     </div>
                                 </div>
 
@@ -1360,14 +973,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">12.1 Are all children in the household able to participate in daily activities such as eating,
                                     playing or talking with other family members or friends? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp49q}}
                                     </div>
                                 </div>
 
@@ -1375,28 +981,14 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label" style="text-align: left">12.2 If there is a child with signs of depression or mental health issues such as being withdrawn,
                                     not eating, or not playing, have they been referred for services?</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp50q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                 <label class="col-md-10 control-label" style="text-align: left">12.3 If the child has been referred for services, did they receive the service? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp51q}}
                                     </div>
                                 </div>
 
@@ -1434,34 +1026,13 @@ print(blu.sing("'Happy'"))
 							                    <tr>
 							                        <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
 							                        <td>
-                                                        <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        Yes
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        No
-                                                </label>
+                                                        {{form.cp52q}}
                                                     </td>
                                                     <td>
-                                                        <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        Yes
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        No
-                                                </label>
+                                                        {{form.cp53q}}
                                                     </td>
                                                 <td>
-                                                    <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        Yes
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        No
-                                                </label>
+                                                    {{form.cp54q}}
                                                 </td>
 
 
@@ -1526,14 +1097,7 @@ print(blu.sing("'Happy'"))
                             <div class="form-group note note-info">
                                 <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes (1 point)
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No (0 point)
-                                        </label>
+                                        {{form.cp12b}}
                                     </div>
                                 </div>
 
@@ -1560,14 +1124,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label semi-bold" style="text-align: left">13.1 If a child has been exposed to violence, abuse (sexual, physical or emotional),
                                     neglect, or exploitation, is there any evidence that the case has been referred for child protection services (DCS)?</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp55q}}
                                     </div>
                                 </div>
 
@@ -1575,14 +1132,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label semi-bold" style="text-align: left">13.2 If YES to the question above, is there documentation that they received child
                                     protection services (for example, counseling, psychosocial, legal or health services)?</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp56q}}
                                     </div>
                                 </div>
 
@@ -1609,34 +1159,13 @@ print(blu.sing("'Happy'"))
 							                    <tr>
 							                        <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
 							                        <td>
-                                                        <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        Yes
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        No
-                                                </label>
+                                                        {{form.cp57q}}
                                                     </td>
                                                     <td>
-                                                        <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        Yes
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        No
-                                                </label>
+                                                        {{form.cp58q}}
                                                     </td>
                                                 <td>
-                                                    <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        Yes
-                                                </label>
-                                                <label class="radio-inline">
-                                                    <input type="radio" value="">
-                                                        No
-                                                </label>
+                                                    {{form.cp59q}}
                                                 </td>
 
 
@@ -1703,14 +1232,7 @@ print(blu.sing("'Happy'"))
                             <div class="form-group note note-info">
                                 <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes (1 point)
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No (0 point)
-                                        </label>
+                                        {{form.cp13b}}
                                     </div>
                                 </div>
 
@@ -1722,14 +1244,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label semi-bold" style="text-align: left">14. 1 Is there someone or a group of people that you speak with when you are stressed or
                                     sad or want to share good news? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp60q}}
                                     </div>
                                 </div>
 
@@ -1738,28 +1253,14 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label semi-bold" style="text-align: left">14.2 Is there at least one person or place besides your family you can go to
                                     when you need help?</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp61q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group note note-info">
                                 <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes (1 point)
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No (0 point)
-                                        </label>
+                                        {{form.cp14b}}
                                     </div>
                                 </div>
 
@@ -1770,14 +1271,7 @@ print(blu.sing("'Happy'"))
                                 <div class="form-group">
                                 <label class="col-md-10 control-label semi-bold" style="text-align: left">15.1 Has the caregiver attended or been engaged in any positive parenting sessions? :</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp62q}}
                                     </div>
                                 </div>
 
@@ -1785,14 +1279,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label semi-bold" style="text-align: left">15.2 Could you please describe various ways of disciplining children? Probe;
                                     which ones do you use frequently? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp63q}}
                                     </div>
                                 </div>
 
@@ -1800,14 +1287,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label semi-bold" style="text-align: left">15.3 Do you feel that you can positively communicate with your child or adolescent and could
                                     you please give me an example?</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp64q}}
                                     </div>
                                 </div>
 
@@ -1816,28 +1296,14 @@ print(blu.sing("'Happy'"))
                                     (e.g. positive communication, positive discipline affectionate behavior and engaging in age and stage appropriate
                                     activities with their children).</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp65q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group note note-info">
                                 <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes (1 point)
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No (0 point)
-                                        </label>
+                                        {{form.cp16b}}
                                     </div>
                                 </div>
 
@@ -1857,14 +1323,7 @@ print(blu.sing("'Happy'"))
                                 <div class="form-group">
                                 <label class="col-md-10 control-label semi-bold" style="text-align: left">16.1 Are all children between ages 6 and 17 enrolled in school? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp66q}}
                                     </div>
                                 </div>
 
@@ -1873,13 +1332,7 @@ print(blu.sing("'Happy'"))
                                     for more than 3 weeks in total in a term). Probe the trend of absence). Verify with the school attendance tracking tool. </label>
                                     <div class="col-md-2">
                                         <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                            {{form.cp67q}}
                                     </div>
                                 </div>
 
@@ -1887,28 +1340,14 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label semi-bold" style="text-align: left">16.3 Are all children between ages 6-17 years progressing from one level to the other in
                                     school? Note: if possible, please ask to see report card. </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp68q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                 <label class="col-md-10 control-label semi-bold" style="text-align: left">16.4	Is your child attending ECDE?</label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp69q}}
                                     </div>
                                 </div>
 
@@ -1918,28 +1357,14 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label semi-bold" style="text-align: left">16.5 Could you tell me what you like about school? What is one example of something that
                                     you learned this week? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp70q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group note note-info">
                                 <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes (1 point)
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No (0 point)
-                                        </label>
+                                        {{form.cp16b}}
                                     </div>
                                 </div>
 
@@ -1964,14 +1389,7 @@ print(blu.sing("'Happy'"))
                                 <div class="form-group">
                                 <label class="col-md-10 control-label semi-bold" style="text-align: left">17.1 Is your adolescent regularly attending or completed vocational training? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp71q}}
                                     </div>
                                 </div>
 
@@ -1979,14 +1397,7 @@ print(blu.sing("'Happy'"))
                                 <label class="col-md-10 control-label semi-bold" style="text-align: left">17.2 Does the household have capacity to support the adolescent to complete their
                                     vocational training? </label>
                                     <div class="col-md-2">
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                            Yes
-                                        </label>
-                                        <label class="radio-inline">
-                                            <input type="radio" value="">
-                                           No
-                                        </label>
+                                        {{form.cp72q}}
                                     </div>
                                 </div>
 
@@ -2059,14 +1470,7 @@ print(blu.sing("'Happy'"))
                                 <div class="form-group note note-info">
                                 <label class="col-md-8 control-label" style="text-align: left">Has the household achieved this benchmark? </label>
                                     <div class="col-md-4">
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            Yes (1 point)
-                                        </label>
-                                        <label class="checkbox-inline">
-                                            <input type="checkbox" value="">
-                                            No (0 point)
-                                        </label>
+                                        {{form.cp17b}}
                                     </div>
                                 </div>
 
@@ -2088,7 +1492,7 @@ print(blu.sing("'Happy'"))
 					</div>
 
 					<div class="form-group">
-                        <label class="control-label col-md-4 col-sm-4" for="csi_qs">Date of CPARA : <span class="asteriskField">* </label>
+                        <label class="control-label col-md-4 col-sm-4" for="csi_qs">Date of CPARA : <span class="asteriskField">* </span></label>
 						<div class="col-md-4 col-sm-4">
 							{{ form.date_of_hhva }}
 						</div> 

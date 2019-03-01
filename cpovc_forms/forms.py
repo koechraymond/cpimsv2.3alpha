@@ -3361,31 +3361,541 @@ class CparaAssessment(forms.Form):
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
-    cp1q = forms.ChoiceField(
-        choices=YESNO_CHOICES,
-        widget=forms.RadioSelect(
-            renderer=RadioCustomRenderer,
-            attrs={'data-parsley-required': 'true',
-                   'data-parsley-errors-container': "#signed_csac_error"}))
-    cp2d = forms.ChoiceField(
-        choices=YESNO_CHOICES,
-        widget=forms.RadioSelect(
-            renderer=RadioCustomRenderer,
-            attrs={'data-parsley-required': 'true',
-                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp2q = forms.DateField(widget=forms.TextInput(
+        attrs={'class': 'form-control',
+               'id': 'disbursement_date',
+               'data-parsley-required': "true",
+               'data-parsley-group': 'group1'
+               # type': 'hidden'
+               }))
     cp3q = forms.ChoiceField(
         choices=YESNO_CHOICES,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
-    cp4d = forms.ChoiceField(
+    cp4q = forms.ChoiceField(
         choices=YESNO_CHOICES,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
-
+    cp1b = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp5q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp6q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp7q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp2b = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp8q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp9q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp10q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp11q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp12q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp13q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp14q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp15q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp16q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp17q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp18q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp3b = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp19q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp20q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp21q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp22q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp23q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp4b = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp24q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp25q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp26q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp27q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp28q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp29q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp5b = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp30q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp31q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp6b = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp32q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp33q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp34q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp7b = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp36q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp37q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp38q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp8b = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp39q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp40q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp9b = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp41q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp42q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp43q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp10b = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp44q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp45q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp46q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp47q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp48q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp11b = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp49q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp50q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp51q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp52q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp53q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp54q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp12b = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp55q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp56q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp57q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp58q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp59q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp13b = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp60q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp61q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp14b = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp62q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp63q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp64q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp65q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp15b = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp66q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp67q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp68q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp69q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp70q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp16b = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp71q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp72q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp73q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp17b = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp74q = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
 
 class CparaMonitoring(forms.Form):
     cpm1 = forms.ChoiceField(
