@@ -97,6 +97,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
 
 
 
+
 </style>
 {% endblock %}
 
@@ -153,6 +154,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                 <form class="form-horizontal form-bordered" action="." method="POST" data-parsley-validate="true"
                       name="form-wizard-hhva" id="new_hhva">
                     {% csrf_token %}
+
                     <div id="wizard-hhva">
                         <ol>
 
@@ -475,7 +477,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                 <tbody>
                                 <tr>
                                     <td>1.</td>
-                                    <td>How do you help your family?</td>
+                                    <td id="WB_STA_1">How do you help your family?</td>
                                     <td>
                                         {{form.WB_STA_1_1}}
                                         {{form.WB_STA_1_2}}
@@ -2594,7 +2596,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                         <div class="form-group">
                             <label class="control-label col-md-4 col-sm-4"></label>
                             <div class="col-md-6 col-sm-6">
-                                <button id="mysubmit-wellbeing" type="submit" class="btn btn-primary">Submit</button>
+                                <button  type="submit" class="btn btn-primary">Submit</button>
                                 <a href="javascript:history.go(-1)" class="btn btn-white">Cancel</a>
                             </div>
                         </div>
@@ -2648,6 +2650,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
 
 
 
+
 </script>
 
 
@@ -2662,6 +2665,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
         $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
       });
     });
+
 
 
 

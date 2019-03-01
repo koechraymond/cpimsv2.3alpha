@@ -956,9 +956,10 @@ class OVCCareCpara(models.Model):
 
 class OVCCareWellbeing(models.Model):
     well_being_id = models.AutoField(primary_key=True)
+    question_code = models.CharField(max_length=15)
     person_id = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
     question = models.CharField(max_length=150)
-    answer = models.CharField(max_length=5)
+    answer = models.CharField(max_length=50)
     household_id = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
     question_type = models.CharField(max_length=5)
     domain = models.CharField(max_length=10)
@@ -978,7 +979,8 @@ class OVCCareForms(models.Model):
     is_void = models.BooleanField(default=False)
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
-
+    class Meta:
+        db_table = 'ovc_care_forms'
 
 class OVCCareCasePlan(models.Model):
     case_plan_id = models.AutoField(primary_key=True)
