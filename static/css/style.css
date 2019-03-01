@@ -6392,4 +6392,12 @@ select,input,textarea{
     display: block;
     float: none;
 }
-/* CUSTOM */ 
+.control-label.formlabel{
+    padding: 0 !important;
+    border: none !important;
+    font-weight: 600;
+}
+.form-control {
+    padding: 0px 12px !important;
+}
+/* CUSTOM */
