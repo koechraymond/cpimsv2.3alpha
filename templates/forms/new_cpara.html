@@ -57,7 +57,7 @@ print(blu.sing("'Happy'"))
 <!-- end page-header -->
 
 <div id="messages" class="alert alert-danger fade in" style="display: none;" tabindex="1">
-    <span class="close" data-dismiss="alert">×</span>
+    <span class="close" data-dismiss="alert">�</span>
     <i class="fa fa-info fa-2x pull-left"></i>
     <span class="invalid-form-message" id="invalid-form-message"></span>
 </div>
@@ -105,181 +105,236 @@ print(blu.sing("'Happy'"))
 						<!-- begin wizard step-1 -->
 						<div class="wizard-step-1">
 							<div class="panel-body">
-                            <div class="form-group">
-                                    <label class="col-md-3 control-label" style="text-align: left">Date of Assessment :</label>
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder=" ">
+							    <div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label formlabel">Date of Assessment:</label><br/>
+											<input type="date" class="form-control" placeholder=" ">
+										</div>
                                     </div>
-                                <label class="col-md-3 control-label" style="text-align: left">Date enrolled in the project</label>
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder=" ">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label formlabel">Date enrolled in the project:</label><br/>
+											<input type="date" class="form-control" placeholder=" ">
+										</div>
                                     </div>
-                                </div>
-                            <div class="form-group">
-                                    <label class="col-md-3 control-label" style="text-align: left">Name of Organization (LIP) :</label>
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder=" ">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label formlabel">Name of Organization (LIP):</label><br/>
+											<input type="text" class="form-control" placeholder=" ">
+										</div>
                                     </div>
-                                </div>
-
-                            <div class="form-group">
-                                <div class="col-md-1 control-label" style="text-align: left"><b>Address</b></div>
-                                    <label class="col-md-2 control-label" style="text-align: left">County :</label>
-                                    <div class="col-md-1">
-                                        <input type="text" class="form-control" placeholder=" ">
+								</div>
+								<hr/>
+								<div class="row">
+									<div class="col-md-12">
+										<h5 class="text-bold"><u>Address</u></h5>
+									</div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label formlabel">County:</label><br/>
+											<input type="text" class="form-control" placeholder=" ">
+										</div>
                                     </div>
-                                <label class="col-md-2 control-label" style="text-align: left">Sub County :</label>
-                                    <div class="col-md-1">
-                                        <input type="text" class="form-control" placeholder=" ">
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label formlabel">Sub-county:</label><br/>
+											<input type="text" class="form-control" placeholder=" ">
+										</div>
                                     </div>
-                                <label class="col-md-1 control-label" style="text-align: left">Ward :</label>
-                                    <div class="col-md-1">
-                                        <input type="text" class="form-control" placeholder=" ">
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label formlabel">Ward:</label><br/>
+											<input type="text" class="form-control" placeholder=" ">
+										</div>
                                     </div>
-                                <label class="col-md-2 control-label" style="text-align: left">Village / Estate</label>
-                                    <div class="col-md-1">
-                                        <input type="text" class="form-control" placeholder=" ">
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label formlabel">Village/Estate:</label><br/>
+											<input type="text" class="form-control" placeholder=" ">
+										</div>
                                     </div>
-                                </div>
-
-                            <div class="form-group">
-                                    <label class="col-md-3 control-label" style="text-align: left">Name of Caregiver :</label>
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder=" ">
+								</div>
+								<hr/>
+								<div class="row">
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label formlabel">Name of Caregiver:</label><br/>
+											<input type="text" class="form-control" placeholder=" ">
+										</div>
                                     </div>
-                                <label class="col-md-3 control-label" style="text-align: left">Household unique number</label>
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder=" ">
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label formlabel">Household unique number:</label><br/>
+											<input type="text" class="form-control" placeholder=" ">
+										</div>
                                     </div>
-                                </div>
-
-                            <div class="form-group">
-                                    <label class="col-md-3 control-label" style="text-align: left">Name of Case worker (CHV) conducting assesment :</label>
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder=" ">
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label formlabel">Name of case worker/CHV conducting assesment:</label><br/>
+											<input type="text" class="form-control" placeholder=" ">
+										</div>
                                     </div>
-                                <label class="col-md-3 control-label" style="text-align: left">Name of SDP staff member (Case Manager)</label>
-                                    <div class="col-md-3">
-                                        <input type="text" class="form-control" placeholder=" ">
-                                    </div>
-                                </div>
-
-                            <div class="form-group">
-                                <div class="col-md-1"></div>
-                                    <label class="col-md-2 control-label" style="text-align: left">Caregiver ID Number :</label>
-                                    <div class="col-md-1">
-                                        <input type="text" class="form-control" placeholder=" ">
-                                    </div>
-                                <label class="col-md-1 control-label" style="text-align: left">Caregiver Gender :</label>
-                                    <div class="col-md-1">
-                                        <input type="text" class="form-control" placeholder=" ">
-                                    </div>
-                                <label class="col-md-1 control-label" style="text-align: left">Age of Caregiver :</label>
-                                    <div class="col-md-1">
-                                        <input type="text" class="form-control" placeholder=" ">
-                                    </div>
-                                <label class="col-md-1 control-label" style="text-align: left">Caregiver Phone Number :</label>
-                                    <div class="col-md-1">
-                                        <input type="text" class="form-control" placeholder=" ">
-                                    </div>
-                                </div>
-
-                            <div class="form-group">
-                                    <label class="col-md-3 control-label" style="text-align: left">Is this the first Case Plan Readiness Assessment?</label>
-                                    <div class="col-md-2">
-                                        {{ form.cp1d }}
-                                    </div>
-                                    <label class="col-md-3 control-label" style="text-align: left">If No, date of Previous Case Plan Readiness Assessment :</label>
-                                    <div class="col-md-3">
-                                        {{ form.cp2d }}
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label formlabel">Name of SDP staff/Case Manager:</label><br/>
+											<input type="text" class="form-control" placeholder=" ">
+										</div>
                                     </div>
                                 </div>
-
-                                <h4>Please fill the table below with details of all children below
-                                        18 years currently living in the household. <i class="semi-bold">(Note:
-                                            Please include any other aged above 18 years if still in school)</i> </h4>
-
-								<div class="form-group">
+                                <br/>
+								<div class="row">
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label formlabel">Caregiver ID Number:</label><br/>
+											<input type="text" class="form-control" placeholder=" ">
+										</div>
+                                    </div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label formlabel">Caregiver Gender:</label><br/>
+											<input type="text" class="form-control" placeholder=" ">
+										</div>
+                                    </div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label formlabel">Age of Caregiver:</label><br/>
+											<input type="text" class="form-control" placeholder=" ">
+										</div>
+                                    </div>
+									<div class="col-md-3">
+										<div class="form-group">
+											<label class="control-label formlabel">Caregiver Phone Number:</label><br/>
+											<input type="text" class="form-control" placeholder=" ">
+										</div>
+                                    </div>
+								</div>
+								<hr/>
+								<div class="row">
+									<div class="col-md-4">
+										<div class="form-group">
+											<label class="control-label formlabel">Is this the first Case Plan Readiness Assessment?:</label><br/>
+											{{ form.cp1d }}
+										</div>
+                                    </div>
+									<div class="col-md-8">
+										<div class="form-group">
+											<label class="control-label formlabel">If No, date of Previous Case Plan Readiness Assessment:</label><br/>
+											{{ form.cp2d }}
+										</div>
+                                    </div>
+								</div>
+								<hr/>
+								<div class="row">
+									<div class="col-md-12">
+										<h4>Please fill the table below with details of all children below 18 years currently living in the household.</h4>
+                                        <div class="alert alert-info">
+                                            <strong>Note:</strong><br/>
+                                            <p>Please include any other aged above 18 years if still in school</p>
+                                        </div>
+									</div>
+									<div class="col-md-12">
 										{% if siblings or osiblings %}
-							            <table class="table table-condensed table-responsive">
-							                <thead>
-							                    <tr>
-							                        <th>Name</th>
-                                                    <th>Age</th>
-                                                    <th>Gender</th>
-                                                    <th>Child Unique Number</th>
-                                                    <th>School Level</th>
-                                                    <th>Registered in this OVC Program</th>
-							                        <!--<th>Age</th>-->
-							                    </tr>
-							                </thead>
-							                <tbody>
-							                    {% for sibling in siblings %}
-							                    <tr>
-							                        <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
-{#                                                {% if sibling.sibling_person.age < 18 %}#}
-							                        <td>{{ sibling.sibling_person.age }}</td>
-{#                                                {% endif %}#}
-                                                    <td>
-                                                        {% if sibling.sibling_person.sex_id == 'SFEM' %}
-                                                        F
+                                            <table class="table table-condensed">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Name</th>
+                                                        <th>Age</th>
+                                                        <th>Gender</th>
+                                                        <th>Child Unique Number</th>
+                                                        <th>School Level</th>
+                                                        <th>Registered in this OVC Program</th>
+                                                        <!--<th>Age</th>-->
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    {% for sibling in siblings %}
+                                                    <tr>
+                                                        <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
+    {#                                                {% if sibling.sibling_person.age < 18 %}#}
+                                                        <td>{{ sibling.sibling_person.age }}</td>
+    {#                                                {% endif %}#}
+                                                        <td>
+                                                            {% if sibling.sibling_person.sex_id == 'SFEM' %}
+                                                            F
+                                                            {% else %}
+                                                            M
+                                                        {% endif %}
+                                                        </td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    <td></td>
+                                                    </tr>
+                                                    {% endfor %}
+                                                    {% for osibling in osiblings %}
+                                                    <tr>
+                                                        <td><a href="{% url 'view_person' id=osibling.child_person.id %}">{{ osibling.child_person.full_name }}</a></td>
+                                                        <td>
+                                                        {% if osibling.child_person.sex_id == 'SFEM' %}
+                                                        Sister
                                                         {% else %}
-                                                        M
-							                        {% endif %}
-							                        </td>
-                                                <td></td>
-                                                <td></td>
-                                                <td></td>
-							                    </tr>
-							                    {% endfor %}
-							                    {% for osibling in osiblings %}
-							                    <tr>
-							                        <td><a href="{% url 'view_person' id=osibling.child_person.id %}">{{ osibling.child_person.full_name }}</a></td>
-							                        <td>
-							                        {% if osibling.child_person.sex_id == 'SFEM' %}
-							                        Sister
-							                        {% else %}
-							                        Brother
-							                        {% endif %}
-							                        </td>
-							                        <!-- <td>{{ osibling.child_person.age }}</td> -->
-							                    </tr>
-							                    {% endfor %}
-							                </tbody>
-							            </table>
-							            {% else %}
-							                <br>
-							                <p>&nbsp;No relative details provided for this person.</p>  
-							            {% endif %}
-							    </div>
-
-							    <!-- add labels like HA1, HA2 .. -->
-							    <h4>Other Household Characteristics. Please tick either <b>Yes</b> or <b>No</b> on each of the statements below.</h4>
-							<div class="form-group">
-                                    <label class="col-md-10 control-label" style="text-align: left">Is this Household child headed (i.e Household head age is less than 18 years)?</label>
-                                    <div class="col-md-2">
-                                        {{ form.cp3d }}
+                                                        Brother
+                                                        {% endif %}
+                                                        </td>
+                                                        <!-- <td>{{ osibling.child_person.age }}</td> -->
+                                                    </tr>
+                                                    {% endfor %}
+                                                </tbody>
+                                            </table>
+                                        {% else %}
+                                            <br>
+                                            <div class="alert alert-warning">
+                                                <p>No relative details provided for this person.</p>  
+                                            </div>
+                                        {% endif %}
                                     </div>
-                                </div>
-                            <div class="form-group">
-                                    <label class="col-md-10 control-label" style="text-align: left">Does this Household currently have a pregnant woman or pregnant adolescent girl?</label>
-                                    <div class="col-md-2">
-                                        {{ form.cp4d }}
-                                    </div>
-                                </div>
-                            <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">Does this Household have a child living with disability or has chronic illness?
-                                    <i class="semi-bold">(Chronic illness includes Asthma, Cancer, Diabetes, Epileplsy)</i></label>
-                                    <div class="col-md-2">
-                                        {{ form.cp5d }}
-                                    </div>
-                                </div>
-                            <div class="form-group">
-                                    <label class="col-md-10 control-label" style="text-align: left">Does this Household have an adolescent enrolled in secondary school or vocational training? </label>
-                                    <div class="col-md-2">
-                                       {{ form.cp6d  }}
-                                    </div>
-                                </div>
+								</div>
+								<hr/>
+								<div class="row">
+									<h4>Other Household Characteristics. Please tick either <b>Yes</b> or <b>No</b> on each of the statements below.</h4>
+									<div class="col-md-12">
+                                        <div class="form-group">
+                                            <div class="col-md-10">
+                                                <label class="control-label formlabel">Is this Household child headed (i.e Household head age is less than 18 years)?</label>
+                                            </div>
+                                            <div class="col-md-2 text-right">
+                                                {{ form.cp3d }}
+                                            </div>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div class="form-group">
+                                            <div class="col-md-10">
+                                                <label class="control-label formlabel">Does this Household currently have a pregnant woman or pregnant adolescent girl?</label>
+                                            </div>
+                                            <div class="col-md-2 text-right">
+                                                {{ form.cp4d }}
+                                            </div>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div class="form-group">
+                                            <div class="col-md-10">
+											    <label class="control-label formlabel">Does this Household have a child living with disability or has chronic illness?
+                                                <i class="semi-bold">(Chronic illness includes Asthma, Cancer, Diabetes, Epileplsy)</i></label>
+                                            </div>
+                                            <div class="col-md-2 text-right">
+                                                {{ form.cp5d }}
+                                            </div>
+										</div>
+									</div>
+									<div class="col-md-12">
+										<div class="form-group">
+                                            <div class="col-md-10">
+                                                <label class="control-label formlabel">Does this Household have an adolescent enrolled in secondary school or vocational training? </label>
+                                            </div>
+                                            <div class="col-md-2 text-right">
+                                                {{ form.cp6d  }}
+                                            </div>
+										</div>
+									</div>
+								</div>
+								
                             </div>
                         </div>
 						<!-- end wizard step-1 -->  
@@ -288,7 +343,7 @@ print(blu.sing("'Happy'"))
 						<div class="wizard-step-2">
 							<div class="panel-body">
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">Is there child (including under 5 year) in the household that is at risk or vulnerable to
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">Is there child (including under 5 year) in the household that is at risk or vulnerable to
                                     HIV? <i class="semi-bold">(Chronic illness: Asthma, Cancer, Diabetes, Epileplsy)</i></label>
                                     <div class="col-md-2">
                                       <label class="radio-inline">
@@ -303,39 +358,39 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-6 control-label" style="text-align: left">1.1 Have the children at high risk of HIV been identified through the HIV risk
+                                <label class="col-md-6 control-label formlabel" style="text-align: left">1.1 Have the children at high risk of HIV been identified through the HIV risk
                                     assessment? </label>
                                     <div class="col-md-2">
                                         {{ form.cp1q }}
                                     </div>
-                                    <label class="col-md-3 control-label" style="text-align: left">If other means please specify :</label>
+                                    <label class="col-md-3 control-label formlabel" style="text-align: left">If other means please specify :</label>
                                     <div class="col-md-1">
                                         <input type="text" class="form-control" placeholder=" ">
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <label class="col-md-6 control-label" style="text-align: left">1.2 If yes in 1.1 above, indicate the date when this was done </label>
+                                <label class="col-md-6 control-label formlabel" style="text-align: left">1.2 If yes in 1.1 above, indicate the date when this was done </label>
                                     <div class="col-md-4">
                                        {{form.cp2q}}
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">1.3 Have the child(ren) identified as high risk of HIV been referred for HIV
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">1.3 Have the child(ren) identified as high risk of HIV been referred for HIV
                                     testing services? </label>
                                     <div class="col-md-2">
                                         {{form.cp3q}}
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">1.4 For the child(ren) identified
-                                    at high risk of HIV, has documentation of all children’s completed referrals for HIV
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">1.4 For the child(ren) identified
+                                    at high risk of HIV, has documentation of all childrens completed referrals for HIV
                                     testing services been documented in their case file?  </label>
                                     <div class="col-md-2">
                                         {{form.cp4q}}
                                     </div>
                                 </div>
                                 <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                <label class="col-md-4 control-label formlabel">Has the household achieved this benchmark? </label>
 
                                     <div class="col-md-3">
                                        {{form.cp1b}}
@@ -343,21 +398,21 @@ print(blu.sing("'Happy'"))
                                 </div>
                                 <h4>Information from Case File</h4>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">2.1 Has the HIV status of all children in the household (positive, negative, or unknown) been
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">2.1 Has the HIV status of all children in the household (positive, negative, or unknown) been
                                     documented in their case file? </label>
                                     <div class="col-md-2">
                                         {{form.cp5q}}
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">2.2 Is the HIV status of the caregiver (positive, negative or unknown) documented in the case file?  </label>
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">2.2 Is the HIV status of the caregiver (positive, negative or unknown) documented in the case file?  </label>
                                     <div class="col-md-2">
                                         {{form.cp6q}}
                                     </div>
                                 </div>
                                 <h4>Questions for Caregiver</h4>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">2.3 If there is a child or children in the
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">2.3 If there is a child or children in the
                                     household older than the age of five and   living with HIV (as documented in the case file),
                                     do they know their HIV status?  (Partial/ complete)? </label>
                                     <div class="col-md-2">
@@ -365,14 +420,14 @@ print(blu.sing("'Happy'"))
                                     </div>
                                 </div>
                                 <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmarks? </label>
+                                <label class="col-md-4 control-label formlabel">Has the household achieved this benchmarks? </label>
                                     <div class="col-md-3">
                                       {{form.cp2b}}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">Is child under ten and/or doesn’t know their status? </label>
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">Is child under ten and/or doesnt know their status? </label>
                                     <div class="col-md-2">
                                         <label class="radio-inline">
                                             <input type="radio" value="">
@@ -385,31 +440,31 @@ print(blu.sing("'Happy'"))
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">3.1 Do you know how many pills (amount of syrup) your child(ren) should take each day? </label>
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">3.1 Do you know how many pills (amount of syrup) your child(ren) should take each day? </label>
                                     <div class="col-md-2">
                                        {{form.cp8q}}
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">3.2 Can you name/identify the medication that your child(ren) take each day? </label>
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">3.2 Can you name/identify the medication that your child(ren) take each day? </label>
                                     <div class="col-md-2">
                                         {{form.cp9q}}
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">3.3 Do you remember when your child(ren) last visited the health clinic? </label>
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">3.3 Do you remember when your child(ren) last visited the health clinic? </label>
                                     <div class="col-md-2">
                                         {{form.cp10q}}
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">3.4 Do you know when your child(ren) next have an appointment at the health clinic? </label>
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">3.4 Do you know when your child(ren) next have an appointment at the health clinic? </label>
                                     <div class="col-md-2">
                                         {{form.cp11q}}
                                     </div>
                                 </div>
                                 <div class="form-group left">
-                                <label class="col-md-10 control-label" style="text-align: left">3.5 Do you know if your child or adolescent viral
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">3.5 Do you know if your child or adolescent viral
                                     load is high or low (from the last viral load test)? Ask and document date of last
                                     test and probe to ensure the caregiver understands what low or high VL means</label>
                                     <div class="col-md-2">
@@ -418,7 +473,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">Is child(ren) is above ten and know their status? </label>
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">Is child(ren) is above ten and know their status? </label>
                                     <div class="col-md-2">
                                         <label class="radio-inline">
                                             <input type="radio" value="">
@@ -543,14 +598,14 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                             <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmarks? </label>
+                                <label class="col-md-4 control-label formlabel">Has the household achieved this benchmarks? </label>
                                     <div class="col-md-3">
                                        {{form.cp3b}}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">Is there an adolescent or woman in the household who is pregnant or has been tested for HIV?</label>
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">Is there an adolescent or woman in the household who is pregnant or has been tested for HIV?</label>
                                     <div class="col-md-2">
                                         <label class="radio-inline">
                                             <input type="radio" value="">
@@ -564,7 +619,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">4.1 Is there evidence* that an adolescent or woman in the
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">4.1 Is there evidence* that an adolescent or woman in the
                                     household is pregnant and has been tested for HIV? </label>
                                     <div class="col-md-2">
                                        {{form.cp19q}}
@@ -572,7 +627,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-10 control-label semi-bold" style="text-align: left">Did the adolescent or woman test HIV positive? </label>
+                                    <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">Did the adolescent or woman test HIV positive? </label>
                                     <div class="col-md-2">
                                         <label class="radio-inline">
                                             <input type="radio" value="">
@@ -586,21 +641,21 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">4.2 Have you (the pregnant HIV+ adolescent / woman) been enrolled in PMTCT? </label>
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">4.2 Have you (the pregnant HIV+ adolescent / woman) been enrolled in PMTCT? </label>
                                     <div class="col-md-2">
                                         {{form.cp20q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">4.3 Have you or are you currently attending ANC services? </label>
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">4.3 Have you or are you currently attending ANC services? </label>
                                     <div class="col-md-2">
                                         {{form.cp21q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-10 control-label semi-bold" style="text-align: left">Has the woman/adolescent already delivered? </label>
+                                    <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">Has the woman/adolescent already delivered? </label>
                                     <div class="col-md-2">
                                         <label class="radio-inline">
                                             <input type="radio" value="">
@@ -614,14 +669,14 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">4.4 Have you adhered to ART after delivery? </label>
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">4.4 Have you adhered to ART after delivery? </label>
                                     <div class="col-md-2">
                                         {{form.cp22q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">4.5 If the infant was exposed to HIV during delivery,
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">4.5 If the infant was exposed to HIV during delivery,
                                     has the infant been tested for HIV and at what age (circle all that apply)
                                     <br>
                                     <label class="checkbox-inline">
@@ -649,14 +704,14 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved these benchmarks? </label>
+                                <label class="col-md-4 control-label formlabel">Has the household achieved these benchmarks? </label>
                                     <div class="col-md-3">
                                         {{form.cp4b}}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-10 control-label semi-bold" style="text-align: left">Are there adolescent girls and boys in the household? </label>
+                                    <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">Are there adolescent girls and boys in the household? </label>
                                     <div class="col-md-2">
                                         <label class="radio-inline">
                                             <input type="radio" value="">
@@ -670,7 +725,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">5.1 Has the caregiver completed Positive parental skills training
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">5.1 Has the caregiver completed Positive parental skills training
                                     (with HIV/sexual and reproductive health modules)? </label>
                                     <div class="col-md-2">
                                         {{form.cp24q}}
@@ -678,7 +733,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">5.2 Has the adolescent completed a life skills course or received (by other means)
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">5.2 Has the adolescent completed a life skills course or received (by other means)
                                     information on positive communication, protection and self-care and sexual and reproductive health? </label>
                                     <div class="col-md-2">
                                         {{form.cp25q}}
@@ -687,14 +742,14 @@ print(blu.sing("'Happy'"))
 
                                 <h4>Questions for the primary caregiver</h4>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">5.3 Please tell me at least two behaviors that increase the risk of HIV? </label>
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">5.3 Please tell me at least two behaviors that increase the risk of HIV? </label>
                                     <div class="col-md-2">
                                         {{form.cp26q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">5.4 Please tell me at least two behaviors that can help
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">5.4 Please tell me at least two behaviors that can help
                                     keep you safe from HIV or from infecting another person with HIV? </label>
                                     <div class="col-md-2">
                                         {{form.cp27q}}
@@ -703,14 +758,14 @@ print(blu.sing("'Happy'"))
 
                                 <h4>Questions for the adolescent</h4>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">5.5 Please tell me at least two behaviors that increase the risk of HIV? </label>
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">5.5 Please tell me at least two behaviors that increase the risk of HIV? </label>
                                     <div class="col-md-2">
                                         {{form.cp28q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">5.6 Please tell me at least two behaviors that can help keep you safe from HIV or from infecting
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">5.6 Please tell me at least two behaviors that can help keep you safe from HIV or from infecting
                                     another person with HIV? </label>
                                     <div class="col-md-2">
                                         {{form.cp29q}}
@@ -718,14 +773,14 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                <label class="col-md-4 control-label formlabel">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
                                         {{form.cp5b}}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                    <label class="col-md-10 control-label semi-bold" style="text-align: left">Is there a child(ren) with disability in the household? </label>
+                                    <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">Is there a child(ren) with disability in the household? </label>
                                     <div class="col-md-2">
                                         <label class="radio-inline">
                                             <input type="radio" value="">
@@ -739,7 +794,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">6.1 Has the child in the household with long term illness or disability been
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">6.1 Has the child in the household with long term illness or disability been
                                     referred for health services and has accessed the service (e.g. returned referral slips?) </label>
                                     <div class="col-md-2">
                                         {{form.cp30q}}
@@ -748,14 +803,14 @@ print(blu.sing("'Happy'"))
 
                                 <h4>Questions to caregiver or child(ren) ten years and over :</h4>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">6.2 Can you describe the services you are receiving for the illness or disability? </label>
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">6.2 Can you describe the services you are receiving for the illness or disability? </label>
                                     <div class="col-md-2">
                                         {{form.cp31q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                <label class="col-md-4 control-label formlabel">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
                                         {{form.cp6b}}
                                     </div>
@@ -772,7 +827,7 @@ print(blu.sing("'Happy'"))
 
                                 <h4>Questions for caregiver</h4>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">7.1	Have all the children in the household eaten at least two
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">7.1	Have all the children in the household eaten at least two
                                     cooked meals per day for at least the past six months? </label>
                                     <div class="col-md-2">
                                         {{form.cp32q}}
@@ -780,7 +835,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
 								<div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">7.2 Are you able to provide your child with a balance diet (a range of nutritious foods)
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">7.2 Are you able to provide your child with a balance diet (a range of nutritious foods)
                                     on a   regular basis? If yes, please describe [Carbohydrates such as: Ugali, Rice, Bread, potatoes, cassava, etc. [];
                                     Proteins such as: Beef, Fish, Chicken, Lentils, Beans, Nuts, etc. []; Vegetables such as: Sukuma wiki, cabbage,
                                     spinach, etc. []; Fruits such as: Orange, pineapple, mangoes, etc []  </label>
@@ -791,22 +846,22 @@ print(blu.sing("'Happy'"))
 
 								<h4>Questions for child(ren) ten years and above</h4>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">7.3 Have you had at least two cooked meals per day in the past two months? </label>
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">7.3 Have you had at least two cooked meals per day in the past two months? </label>
                                     <div class="col-md-2">
                                         {{form.cp35q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                <label class="col-md-4 control-label formlabel">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
                                         {{form.cp7bq}}
                                     </div>
                                 </div>
 
-                                <h4>Household able to pay for child(ren)’s basic needs.</h4>
+                                <h4>Household able to pay for child(ren)s basic needs.</h4>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">8.1 Does the household have a regular source of income that meets their basic needs
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">8.1 Does the household have a regular source of income that meets their basic needs
                                     (this can include informal and formal income)? Probe if the family feels confident of the improved ability to meet
                                     basic over the past year. </label>
                                     <div class="col-md-2">
@@ -815,7 +870,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">8.2 Does the caregiver demonstrate confidence and capacity to retain children in school
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">8.2 Does the caregiver demonstrate confidence and capacity to retain children in school
                                     (by paying school fees, school uniforms, books, medical bills, etc.), where applicable :</label>
                                     <div class="col-md-2">
                                         {{form.cp37q}}
@@ -823,15 +878,15 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">8.3 Is the house safe and has a place for the child(ren) to sleep?
-                                    (dry, ventilated, lockable) – (based on local standards)</label>
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">8.3 Is the house safe and has a place for the child(ren) to sleep?
+                                    (dry, ventilated, lockable)  (based on local standards)</label>
                                     <div class="col-md-2">
                                         {{form.cp38q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                <label class="col-md-4 control-label formlabel">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
                                         {{form.cp8b}}
                                     </div>
@@ -839,7 +894,7 @@ print(blu.sing("'Happy'"))
 
                                 <h4>Household able to pay for emergency expenses.</h4>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">9.1 Was the household able to meet basic expenses such as medical treatment, house repair, etc.
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">9.1 Was the household able to meet basic expenses such as medical treatment, house repair, etc.
                                     in the last six months?</label>
                                     <div class="col-md-2">
                                         {{form.cp39q}}
@@ -847,7 +902,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">9.2 In reviewing the case file and or other documentation, is there evidence that the caregiver
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">9.2 In reviewing the case file and or other documentation, is there evidence that the caregiver
                                     is actively participating in an economic activity such as SILC, VSLA, and have productive assets and can demonstrate savings.</label>
                                     <div class="col-md-2">
                                         {{form.cp40q}}
@@ -855,7 +910,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                <label class="col-md-4 control-label formlabel">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
                                         {{form.cp9b}}
                                     </div>
@@ -864,7 +919,7 @@ print(blu.sing("'Happy'"))
                                 <h4>The caregiver has demonstrated knowledge about how and where to access critical services if needed.  </h4>
                                 <h4>Questions for the caregiver</h4>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">10.1 Do you know the types of critical services that exist in your community? e.g.,
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">10.1 Do you know the types of critical services that exist in your community? e.g.,
                                     treatments, psychosocial support, legal assistance, financial services or other protection services?</label>
                                     <div class="col-md-2">
                                         {{form.cp41q}}
@@ -872,7 +927,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
 								<div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">10.2 Have you or someone in your family ever accessed any critical service that exists in
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">10.2 Have you or someone in your family ever accessed any critical service that exists in
                                     your community when you or someone in your family needed help in the last six months? </label>
                                     <div class="col-md-2">
                                         {{form.cp42q}}
@@ -881,7 +936,7 @@ print(blu.sing("'Happy'"))
 
 								<h4>Questions for child(ren) ten years and over</h4>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">10.3 Have you or someone in your family been supported to access services if you or someone
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">10.3 Have you or someone in your family been supported to access services if you or someone
                                     in your family was sick, hurt or needed help?</label>
                                     <div class="col-md-2">
                                         {{form.cp43q}}
@@ -889,7 +944,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                <label class="col-md-4 control-label formlabel">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
                                         {{form.cp10b}}
                                     </div>
@@ -906,7 +961,7 @@ print(blu.sing("'Happy'"))
                                     agencies or non-governmental organizations in the past six months. </h4>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">Is the houdehold child-headed? </label>
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">Is the houdehold child-headed? </label>
                                     <div class="col-md-2">
                                         <label class="radio-inline">
                                             <input type="radio" value="">
@@ -920,7 +975,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">11.1 If the household is child-headed, is there documentation in the case file that
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">11.1 If the household is child-headed, is there documentation in the case file that
                                     the household was referred for child protection services?</label>
                                     <div class="col-md-2">
                                         {{form.cp44q}}
@@ -928,7 +983,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">11.2 If the household is child-headed, is there documentation in the case file that
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">11.2 If the household is child-headed, is there documentation in the case file that
                                     the household received child protection services? </label>
                                     <div class="col-md-2">
                                         {{form.cp45q}}
@@ -936,7 +991,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">11.3 If the household is child-headed, is there documentation in the case file that the
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">11.3 If the household is child-headed, is there documentation in the case file that the
                                     household is linked to government sponsored social protection services e.g. CT-OVC, or from another non-governmental program?</label>
                                     <div class="col-md-2">
                                         {{form.cp46q}}
@@ -944,7 +999,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">11.4 Is the household linked to an adult caregiver nearby who can give support
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">11.4 Is the household linked to an adult caregiver nearby who can give support
                                     when required? </label>
                                     <div class="col-md-2">
                                         {{form.cp47q}}
@@ -953,14 +1008,14 @@ print(blu.sing("'Happy'"))
 
                                 <h4>Questions for child(ren) ten years and over</h4>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">11.5 Can you name at least one adult to whom you could go to for help or support? </label>
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">11.5 Can you name at least one adult to whom you could go to for help or support? </label>
                                     <div class="col-md-2">
                                         {{form.cp48q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                <label class="col-md-4 control-label formlabel">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
                                         {{form.cp11b}}
                                     </div>
@@ -970,7 +1025,7 @@ print(blu.sing("'Happy'"))
 
                                 <h4>Questions for caregiver: </h4>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">12.1 Are all children in the household able to participate in daily activities such as eating,
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">12.1 Are all children in the household able to participate in daily activities such as eating,
                                     playing or talking with other family members or friends? </label>
                                     <div class="col-md-2">
                                         {{form.cp49q}}
@@ -978,7 +1033,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">12.2 If there is a child with signs of depression or mental health issues such as being withdrawn,
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">12.2 If there is a child with signs of depression or mental health issues such as being withdrawn,
                                     not eating, or not playing, have they been referred for services?</label>
                                     <div class="col-md-2">
                                         {{form.cp50q}}
@@ -986,7 +1041,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label" style="text-align: left">12.3 If the child has been referred for services, did they receive the service? </label>
+                                <label class="col-md-10 control-label formlabel" style="text-align: left">12.3 If the child has been referred for services, did they receive the service? </label>
                                     <div class="col-md-2">
                                         {{form.cp51q}}
                                     </div>
@@ -995,7 +1050,7 @@ print(blu.sing("'Happy'"))
                                 <h4>12.4 Question for all child(ren) five years and over: </h4>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">Is there a child(ren) five years and over in the household? </label>
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">Is there a child(ren) five years and over in the household? </label>
                                     <div class="col-md-2">
                                         <label class="radio-inline">
                                             <input type="radio" value="">
@@ -1095,7 +1150,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                             <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                <label class="col-md-4 control-label formlabel">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
                                         {{form.cp12b}}
                                     </div>
@@ -1106,7 +1161,7 @@ print(blu.sing("'Happy'"))
                                     health and child protection services). </h4>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">Are there children in the household are at risk of or experienced abuse, violence,
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">Are there children in the household are at risk of or experienced abuse, violence,
                                     exploitation, or neglect? </label>
                                     <div class="col-md-2">
                                         <label class="radio-inline">
@@ -1121,7 +1176,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">13.1 If a child has been exposed to violence, abuse (sexual, physical or emotional),
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">13.1 If a child has been exposed to violence, abuse (sexual, physical or emotional),
                                     neglect, or exploitation, is there any evidence that the case has been referred for child protection services (DCS)?</label>
                                     <div class="col-md-2">
                                         {{form.cp55q}}
@@ -1129,7 +1184,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">13.2 If YES to the question above, is there documentation that they received child
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">13.2 If YES to the question above, is there documentation that they received child
                                     protection services (for example, counseling, psychosocial, legal or health services)?</label>
                                     <div class="col-md-2">
                                         {{form.cp56q}}
@@ -1230,7 +1285,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                             <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                <label class="col-md-4 control-label formlabel">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
                                         {{form.cp13b}}
                                     </div>
@@ -1241,7 +1296,7 @@ print(blu.sing("'Happy'"))
                                 <h4><b>Question to the caregiver</b></h4>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">14. 1 Is there someone or a group of people that you speak with when you are stressed or
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">14. 1 Is there someone or a group of people that you speak with when you are stressed or
                                     sad or want to share good news? </label>
                                     <div class="col-md-2">
                                         {{form.cp60q}}
@@ -1250,7 +1305,7 @@ print(blu.sing("'Happy'"))
 
                                 <h4><b>Questions to child(ren) over <u>five</u> years old</b></h4>
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">14.2 Is there at least one person or place besides your family you can go to
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">14.2 Is there at least one person or place besides your family you can go to
                                     when you need help?</label>
                                     <div class="col-md-2">
                                         {{form.cp61q}}
@@ -1258,7 +1313,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                <label class="col-md-4 control-label formlabel">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
                                         {{form.cp14b}}
                                     </div>
@@ -1269,14 +1324,14 @@ print(blu.sing("'Happy'"))
                                 <h4><b>Question for the caregiver</b></h4>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">15.1 Has the caregiver attended or been engaged in any positive parenting sessions? :</label>
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">15.1 Has the caregiver attended or been engaged in any positive parenting sessions? :</label>
                                     <div class="col-md-2">
                                         {{form.cp62q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">15.2 Could you please describe various ways of disciplining children? Probe;
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">15.2 Could you please describe various ways of disciplining children? Probe;
                                     which ones do you use frequently? </label>
                                     <div class="col-md-2">
                                         {{form.cp63q}}
@@ -1284,7 +1339,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">15.3 Do you feel that you can positively communicate with your child or adolescent and could
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">15.3 Do you feel that you can positively communicate with your child or adolescent and could
                                     you please give me an example?</label>
                                     <div class="col-md-2">
                                         {{form.cp64q}}
@@ -1292,7 +1347,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">15.4 Does the caregiver demonstrate positive parenting techniques?
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">15.4 Does the caregiver demonstrate positive parenting techniques?
                                     (e.g. positive communication, positive discipline affectionate behavior and engaging in age and stage appropriate
                                     activities with their children).</label>
                                     <div class="col-md-2">
@@ -1301,7 +1356,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                <label class="col-md-4 control-label formlabel">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
                                         {{form.cp16b}}
                                     </div>
@@ -1321,14 +1376,14 @@ print(blu.sing("'Happy'"))
                                 <h4>Questions for the caregiver: </h4>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">16.1 Are all children between ages 6 and 17 enrolled in school? </label>
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">16.1 Are all children between ages 6 and 17 enrolled in school? </label>
                                     <div class="col-md-2">
                                         {{form.cp66q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">16.2 Are the enrolled children attending school regularly? (i.e. have not missed school
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">16.2 Are the enrolled children attending school regularly? (i.e. have not missed school
                                     for more than 3 weeks in total in a term). Probe the trend of absence). Verify with the school attendance tracking tool. </label>
                                     <div class="col-md-2">
                                         <label class="radio-inline">
@@ -1337,7 +1392,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">16.3 Are all children between ages 6-17 years progressing from one level to the other in
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">16.3 Are all children between ages 6-17 years progressing from one level to the other in
                                     school? Note: if possible, please ask to see report card. </label>
                                     <div class="col-md-2">
                                         {{form.cp68q}}
@@ -1345,7 +1400,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">16.4	Is your child attending ECDE?</label>
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">16.4	Is your child attending ECDE?</label>
                                     <div class="col-md-2">
                                         {{form.cp69q}}
                                     </div>
@@ -1354,7 +1409,7 @@ print(blu.sing("'Happy'"))
                                 <h4>Question for the children in the household aged 6- 17: </h4>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">16.5 Could you tell me what you like about school? What is one example of something that
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">16.5 Could you tell me what you like about school? What is one example of something that
                                     you learned this week? </label>
                                     <div class="col-md-2">
                                         {{form.cp70q}}
@@ -1362,7 +1417,7 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group note note-info">
-                                <label class="col-md-4 control-label">Has the household achieved this benchmark? </label>
+                                <label class="col-md-4 control-label formlabel">Has the household achieved this benchmark? </label>
                                     <div class="col-md-3">
                                         {{form.cp16b}}
                                     </div>
@@ -1371,7 +1426,7 @@ print(blu.sing("'Happy'"))
                                 <h4>Adolescents enrolled in vocational training program are demonstrating that they are progressing.  </h4>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">Is there are no adolescents in the household enrolled in vocational training? </label>
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">Is there are no adolescents in the household enrolled in vocational training? </label>
                                     <div class="col-md-2">
                                         <label class="radio-inline">
                                             <input type="radio" value="">
@@ -1387,14 +1442,14 @@ print(blu.sing("'Happy'"))
                                 <h4>Questions to caregiver: </h4>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">17.1 Is your adolescent regularly attending or completed vocational training? </label>
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">17.1 Is your adolescent regularly attending or completed vocational training? </label>
                                     <div class="col-md-2">
                                         {{form.cp71q}}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-10 control-label semi-bold" style="text-align: left">17.2 Does the household have capacity to support the adolescent to complete their
+                                <label class="col-md-10 control-label formlabel semi-bold" style="text-align: left">17.2 Does the household have capacity to support the adolescent to complete their
                                     vocational training? </label>
                                     <div class="col-md-2">
                                         {{form.cp72q}}
@@ -1468,14 +1523,14 @@ print(blu.sing("'Happy'"))
                                 </div>
 
                                 <div class="form-group note note-info">
-                                <label class="col-md-8 control-label" style="text-align: left">Has the household achieved this benchmark? </label>
+                                <label class="col-md-8 control-label formlabel" style="text-align: left">Has the household achieved this benchmark? </label>
                                     <div class="col-md-4">
                                         {{form.cp17b}}
                                     </div>
                                 </div>
 
                                 <div class="form-group">
-                                <label class="col-md-4 control-label">Overall number of points from all DOMAINS:</label>
+                                <label class="col-md-4 control-label formlabel">Overall number of points from all DOMAINS:</label>
                                     <div class="col-md-8">
                                         <input type="text" class="form-control" placeholder=" ">
                                     </div>
@@ -1492,7 +1547,7 @@ print(blu.sing("'Happy'"))
 					</div>
 
 					<div class="form-group">
-                        <label class="control-label col-md-4 col-sm-4" for="csi_qs">Date of CPARA : <span class="asteriskField">* </span></label>
+                        <label class="control-label formlabel col-md-4 col-sm-4" for="csi_qs">Date of CPARA : <span class="asteriskField">* </span></label>
 						<div class="col-md-4 col-sm-4">
 							{{ form.date_of_hhva }}
 						</div> 
@@ -1502,7 +1557,7 @@ print(blu.sing("'Happy'"))
 
 					<div class="panel-body panel-form">
 						<div class="form-group">
-							<label class="control-label col-md-4 col-sm-4"></label>
+							<label class="control-label formlabel col-md-4 col-sm-4"></label>
 							<div class="col-md-6 col-sm-6">
 								<button type="submit" class="btn btn-primary">Submit</button>
 								<a href="javascript:history.go(-1)" class="btn btn-white">Cancel</a>
@@ -1552,4 +1607,4 @@ jQuery(document).ready(function()
 	FormWizardValidation.init();
 });
 </script>
-{% endblock %}
+{% endblock %} 
