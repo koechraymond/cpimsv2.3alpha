@@ -10,7 +10,7 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
+#dist/
 downloads/
 eggs/
 .eggs/
@@ -23,6 +23,7 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -97,3 +98,14 @@ ENV/
 
 # mypy
 .mypy_cache/
+.idea/
+cpovc_access/migrations/
+cpovc_api/migrations/
+cpovc_auth/migrations/
+cpovc_forms/migrations/
+cpovc_main/migrations/
+cpovc_ovc/migrations/
+cpovc_registry/migrations/
+cpovc_reports/migrations/
+cpovc_settings/migrations/
+

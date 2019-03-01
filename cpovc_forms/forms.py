@@ -3590,7 +3590,7 @@ class CparaAssessment(forms.Form):
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
-    cp35q = forms.ChoiceField(
+    cp34q = forms.ChoiceField(
         choices=YESNO_CHOICES,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
@@ -3897,4 +3897,156 @@ class CparaAssessment(forms.Form):
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
 
+class CparaMonitoring(forms.Form):
+    cpm1 = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cpm2 = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cpm3 = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cpm4 = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cpm5 =forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cpm6 = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cpm7 = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cmp8 = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cpm9 = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cpm10 = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cpm11 = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cpm12 = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
 
+    
+class CasePlanTemplate(forms.Form):
+
+    CPT_DOMAIN = forms.ChoiceField(
+    choices=(('DM','Domain'),('SCH','schooled'),('STB','Stable'),('SF','Safe'),('HE','healthy')),
+    initial='0',
+    widget=forms.Select(
+            attrs={'class': 'form-control',
+                   'data-parsley-required': "true",
+                   'data-parsley-group': "group1"}))
+
+    CPT_GOAL = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': _('Goal'),
+            'class': 'form-control',
+            'data-parsley-required': "true",
+            'data-parsley-group': 'group1'}))
+
+    CPT_GAPS = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': _('IDentified Gaps'),
+            'class': 'form-control',
+            'data-parsley-required': "true",
+            'data-parsley-group': 'group1'}))
+
+    CPT_MEMBER= forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': _('HH Member'),
+            'class': 'form-control',
+            'data-parsley-required': "true",
+            'data-parsley-group': 'group1'}))
+
+    CPT_ACTIONS = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': _('Priority Actions'),
+            'class': 'form-control',
+            'data-parsley-required': "true",
+            'data-parsley-group': 'group1'})
+    )
+
+    CPT_SERVICES = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': _('Services'),
+            'class': 'form-control',
+            'data-parsley-required': "true",
+            'data-parsley-group': 'group1'}))
+
+    CPT_RESPOSIBLE = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': _('Person Responsible'),
+            'class': 'form-control',
+            'data-parsley-required': "true",
+            'data-parsley-group': 'group1'}))
+
+
+    CPT_DATE = forms.DateField(widget=forms.TextInput(
+        attrs={'placeholder': _('Completion Date'),
+               'class': 'form-control',
+               'id': 'date_of_certificate_expiry',
+               'data-parsley-required': "true",
+               'data-parsley-group': "group0"
+               }))
+    CPT_RESULTS = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': _('Results'),
+            'class': 'form-control',
+            'data-parsley-required': "true",
+            'data-parsley-group': 'group1'}))
+    CPT_REASONS = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': _('State Reasons'),
+            'class': 'form-control',
+            'data-parsley-required': "true",
+            'data-parsley-group': 'group1'}))
+
+# CPT_RESPONSIBLE
+# CPT_DATE
+# CPT_RESULTS
+# CPT_REASONS
