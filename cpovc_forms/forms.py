@@ -3350,108 +3350,118 @@ WB_STA_1_1_CHOICES = (
     ('Other', 'Other')
 )
 WB_STA_2_1_CHOICES = (
-    ('blue', 'Not applicable (no other adults)'),
-    ('blue', 'Provide money'),
-    ('green', 'Look after the children'),
-    ('black1', 'Help with house chores'),
-    ('black2', 'Work on the farms'),
-    ('black3', 'Collect water and/ or wood'),
-    ('black4', 'Take care of animals'),
-    ('black5', 'Bring food'),
-    ('black6', 'Other')
+    ('Not applicable (no other adults', 'Not applicable (no other adults)'),
+    ('Provide money', 'Provide money'),
+    ('Look after the children', 'Look after the children'),
+    ('Help with house chores', 'Help with house chores'),
+    ('Work on the farms', 'Work on the farms'),
+    ('Collect water and/ or wood', 'Collect water and/ or wood'),
+    ('Take care of animals', 'Take care of animals'),
+    ('Bring food', 'Bring food'),
+    ('Other', 'Other')
 )
 
 WB_STA_3_1_CHOICES = (
-    ('blue', 'Look after younger children'),
-    ('blue', 'Help with house chores'),
-    ('green', 'Work on the farm'),
-    ('black1', 'Help with house chores'),
-    ('black2', 'Work on the farms'),
-    ('black3', 'Collect water and/ or wood'),
-    ('black4', 'Take care of animals'),
-    ('black5', 'Bring food'),
-    ('black6', 'Other')
+    ('Look after younger children', 'Look after younger children'),
+    ('Help with house chores', 'Help with house chores'),
+    ('Work on the farm', 'Work on the farm'),
+    ('Help with house chores', 'Help with house chores'),
+    ('Work on the farms', 'Work on the farms'),
+    ('Collect water and/ or wood', 'Collect water and/ or wood'),
+    ('Take care of animals', 'Take care of animals'),
+    ('Bring food', 'Bring food'),
+    ('Other', 'Other')
 )
 
 WB_STA_4_1_CHOICES = (
-    ('blue', 'Basic household utensils'),
-    ('blue', 'Tools for making repairs'),
-    ('green', 'Hoe, axe or farming tools'),
-    ('black1', 'Water storage container'),
-    ('black2', 'Bicycle'),
-    ('black3', 'Livestock'),
-    ('black4', 'Cellphone(s)'),
-    ('black5', 'Gas Lamp'),
-    ('black6', 'Lantern'),
-    ('black6', 'Radio')
+    ('Basic household utensils', 'Basic household utensils'),
+    ('Tools for making repairs', 'Tools for making repairs'),
+    ('Hoe, axe or farming tools', 'Hoe, axe or farming tools'),
+    ('Water storage container', 'Water storage container'),
+    ('Bicycle', 'Bicycle'),
+    ('Livestock', 'Livestock'),
+    ('Cellphone(s)', 'Cellphone(s)'),
+    ('Gas Lamp', 'Gas Lamp'),
+    ('Lantern', 'Lantern'),
+    ('Radio', 'Radio')
 
 )
 
 WB_STA_5_1_CHOICES = (
-    ('blue', 'Crop farming'),
-    ('blue', 'Livestock rearing'),
-    ('green', 'Fishing'),
-    ('black1', 'Begging'),
-    ('black2', 'Cash transfer'),
-    ('black3', 'Donations'),
-    ('black4', 'Bee keeping'),
-    ('black5', 'Casual labour'),
-    ('black6', 'Small business'),
-    ('black6', 'Formal employment'),
-    ('black6', 'Other (specify)')
+    ('Crop farming', 'Crop farming'),
+    ('Livestock rearing', 'Livestock rearing'),
+    ('Fishing', 'Fishing'),
+    ('Begging', 'Begging'),
+    ('Cash transfer', 'Cash transfer'),
+    ('Donations', 'Donations'),
+    ('Bee keeping', 'Bee keeping'),
+    ('Casual labour', 'Casual labour'),
+    ('Small business', 'Small business'),
+    ('Formal employment', 'Formal employment'),
+    ('Unemployed', 'Unemployed'),
+    ('Other (specify)', 'Other (specify)')
 
 )
 
 WB_STA_8_1_CHOICES = (
-    ('blue', 'Food'),
-    ('blue', 'Rent'),
-    ('green', 'Fishing'),
-    ('black1', 'Clothing'),
-    ('black2', 'Medical Bills'),
-    ('black3', 'School Fees'),
-    ('black4', 'Entertainment'),
-    ('black5', 'Transport(fair)'),
-    ('black6', 'Other (specify)')
+    ('Food', 'Food'),
+    ('Rent', 'Rent'),
+    ('Fishing', 'Fishing'),
+    ('Clothing', 'Clothing'),
+    ('Medical Bills', 'Medical Bills'),
+    ('School Fees', 'School Fees'),
+    ('Entertainment', 'Entertainment'),
+    ('Transport(fair)', 'Transport(fair)'),
+    ('Other (specify)', 'Other (specify)')
 
 )
 
 WB_STA_9_1_CHOICES = (
-    ('blue', 'Yes'),
-    ('blue', 'No'),
-    ('green', 'Savings'),
-    ('black1', 'Salary'),
-    ('black2', 'Self-employed (business/farming/fshing)'),
-    ('black3', 'Support of well-wishers'),
-    ('black4', 'Other programs/bursaries'),
-    ('black5', 'Selling of assets'),
-    ('black6', 'Borrowing'),
-    ('black6', 'specify Other')
+    ('Yes', 'Yes'),
+    ('No', 'No'),
+    ('Savings', 'Savings'),
+    ('Salary', 'Salary'),
+    ('Self-employed (business/farming/fshing)', 'Self-employed (business/farming/fshing)'),
+    ('Support of well-wishers', 'Support of well-wishers'),
+    ('Other programs/bursaries', 'Other programs/bursaries'),
+    ('Selling of assets', 'Selling of assets'),
+    ('Borrowing', 'Borrowing'),
+    ('specify Other', 'specify Other')
 
 )
 
 WB_STA_10_1_CHOICES = (
-    ('blue', 'My salary'),
-    ('blue', 'My savings'),
-    ('green', 'A loan from family for friend'),
-    ('black1', 'A loan from microcredit group'),
-    ('black2', 'A loan from a money lender'),
-    ('black3', 'Hawking/ market vending'),
-    ('black4', 'Sell of family assets'),
-    ('black5', 'Selling of assets'),
-    ('black6', 'Sell of stored family food'),
-    ('black6', 'Unable to meet unplanned needs')
+    ('My salary', 'My salary'),
+    ('My savings', 'My savings'),
+    ('A loan from family for friend', 'A loan from family for friend'),
+    ('A loan from microcredit group', 'A loan from microcredit group'),
+    ('A loan from a money lender', 'A loan from a money lender'),
+    ('Hawking/ market vending', 'Hawking/ market vending'),
+    ('Sell of family assets', 'Sell of family assets'),
+    ('Selling of assets', 'Selling of assets'),
+    ('Sell of stored family food', 'Sell of stored family food'),
+    ('Unable to meet unplanned needs', 'Unable to meet unplanned needs')
 
 )
 
 WB_STA_12_1_CHOICES = (
-    ('blue', 'Cash transfer'),
-    ('blue', 'Emergency food'),
-    ('green', 'School bursaries'),
-    ('black1', 'Farm inputs (e.g. fertilizer,seeds)'),
-    ('black2', 'NHIF'),
-    ('black3', 'None'),
+    ('Cash transfer', 'Cash transfer'),
+    ('Emergency food', 'Emergency food'),
+    ('School bursaries', 'School bursaries'),
+    ('Farm inputs (e.g. fertilizer,seeds)', 'Farm inputs (e.g. fertilizer,seeds)'),
+    ('NHIF', 'NHIF'),
+    ('None', 'None'),
 
 )
+
+
+WB_STA_13_1_CHOICES = (
+    ('Energy food', 'Energy food (Ugali, potatoes, bananas, oil, millet,sorghum,rice,cassava)'),
+    ('Body building foods', 'Body building foods (beans meat,soya beans, peas, milk, eggs, chicken, fish, ndengu)'),
+    ('Protective food', 'Protective food (pineapples, mangos, pawpaw, oranges, tomatoes, avaocado, guavas, bananas, vegetables)')
+
+)
+
 
 WB_STA_25_1_CHOICES = (
     ('blue', 'My child'),
@@ -3486,42 +3496,42 @@ WB_HEL_17YNR = (('AYES', 'Yes'), ('ANNO', 'No'), ('AREFUSE', 'Refuse'))
 WB_HEL_21YNR = (('AYES', 'Yes'), ('ANNO', 'No'), ('ANNOTAPPLICABLE', 'Not Applicable'))
 
 WB_HEL_14_1_CHOICES = (
-    ('choice1', 'No disability'),
-    ('choice2', 'Hearing'),
-    ('choice3', 'Speech'),
-    ('choice4', 'Physical'),
-    ('choice5', 'Mental'),
-    ('choice6', 'Visual'),
-    ('choice7', 'Genetic differences (albinism)'),
-    ('choice8', 'Other')
+    ('No disability', 'No disability'),
+    ('Hearing', 'Hearing'),
+    ('Speech', 'Speech'),
+    ('Physical', 'Physical'),
+    ('Mental', 'Mental'),
+    ('Visual', 'Visual'),
+    ('Genetic differences (albinism)', 'Genetic differences (albinism)'),
+    ('Other', 'Other')
 )
-WB_HEL_16_1_CHOICES = (
-    ('choice1', 'Cancer'),
-    ('choice2', 'Epilepsy'),
-    ('choice3', 'Diabetes'),
-    ('choice4', 'Hypertension'),
-    ('choice5', 'Other')
+WB_HEL_16_2_CHOICES = (
+    ('Cancer', 'Cancer'),
+    ('Epilepsy', 'Epilepsy'),
+    ('Diabetes', 'Diabetes'),
+    ('Hypertension', 'Hypertension'),
+    ('Other', 'Other')
 )
 WB_HEL_18CHOICES = (
-    ('choice1', 'Positive'),
-    ('choice2', 'Negative'),
-    ('choice3', 'Unknown'),
-    ('choice4', 'Refuse to share')
+    ('Positive', 'Positive'),
+    ('Negative', 'Negative'),
+    ('Unknown', 'Unknown'),
+    ('Refuse to share', 'Refuse to share')
 )
 WB_HEL_20CHOICES = (
-    ('choice1', 'No, too many side effects'),
-    ('choice2', 'No, treatment is not regularly available'),
-    ('choice3', 'No, scared that someone will find out that I\'m living with HIV'),
-    ('choice4', 'No, it\'s hard to remember'),
-    ('choice5', 'Yes, I take it on time and regularly'),
-    ('choice6', 'Yes, but not regularly'),
-    ('choice7', 'Other')
+    ('No, too many side effects', 'No, too many side effects'),
+    ('No, treatment is not regularly available', 'No, treatment is not regularly available'),
+    ('No, scared that someone will find out that I\'m living with HIV', 'No, scared that someone will find out that I\'m living with HIV'),
+    ('No, it\'s hard to remember', 'No, it\'s hard to remember'),
+    ('Yes, I take it on time and regularly', 'Yes, I take it on time and regularly'),
+    ('Yes, but not regularly', 'Yes, but not regularly'),
+    ('Other', 'Other')
 )
 WB_HEL_22CHOICES = (
-    ('choice1', 'High (above 1,000 copies/ml)'),
-    ('choice2', 'Low (less than 1,000 copies/ml)'),
-    ('choice3', 'Undetectable'),
-    ('choice4', 'Don\'t know')
+    ('High (above 1,000 copies/ml)', 'High (above 1,000 copies/ml)'),
+    ('Low (less than 1,000 copies/ml)', 'Low (less than 1,000 copies/ml)'),
+    ('Undetectable', 'Undetectable'),
+    ('Don\'t know', 'Don\'t know')
 )
 
 YESNO_CHOICES_REFUSE = (('AYES', 'Yes'), ('ANNO', 'No'), ('AREFUSE', 'Refuse to respond'))
@@ -3530,14 +3540,14 @@ FAMILY_MEMBERS_CHOICES = (('AMOTHER', 'Mother (1)'), ('ANNO', 'Father (2)'), ('A
                           ('AREFUSE', 'Uncle (4)'), ('AREFUSE', 'Grandmother (5)'), ('AREFUSE', 'Grandfather (6)'), ('AREFUSE', 'Older sibling (7)')
                           , ('AREFUSE', 'Other relative(specify) (8)'), ('AREFUSE', 'Other (specify)'))
 FAMILY_HELP_CHOICES = (
-        ('FAMILY_HELP_CHOICES1', 'Provide money'),
-        ('FAMILY_HELP_CHOICES2', 'Look after the children'),
-        ('FAMILY_HELP_CHOICES3', 'Help with house chores'),
-        ('FAMILY_HELP_CHOICES4', 'Work on the farms'),
-        ('FAMILY_HELP_CHOICES5', 'Collect water and/ or wood'),
-        ('FAMILY_HELP_CHOICES', 'Take care of animals'),
-        ('FAMILY_HELP_CHOICES', 'Bring food'),
-        ('FAMILY_HELP_CHOICES', 'Other')
+        ('Provide money', 'Provide money'),
+        ('Look after the children', 'Look after the children'),
+        ('Help with house chores', 'Help with house chores'),
+        ('Work on the farms', 'Work on the farms'),
+        ('Collect water and/ or wood', 'Collect water and/ or wood'),
+        ('Take care of animals', 'Take care of animals'),
+        ('Bring food', 'Bring food'),
+        ('Other', 'Other')
     )
 
 
@@ -3952,30 +3962,44 @@ class Wellbeing(forms.Form):
 
     )
 
-    WB_STA_5_1 = forms.CharField(widget=forms.TextInput(
+
+    #5
+    WB_STA_5_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_STA_5_1_CHOICES,
+    )
+    WB_STA_5_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other specify'),
                'class': 'form-control',
-               'id': 'WB_STA_1_2'
-            # ,
-            #    'data-parsley-required': "False"
+               'id': 'WB_STA_5_2'
+               # ,
+               #    'data-parsley-required': "False"
                }))
 
+    WB_STA_5_3 = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': '3', 'class': 'form-control','placeholder': _('Other specify')})
+
+    )
+
+    #6
     WB_STA_6_1 = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': _('Other specify'),
+        attrs={'placeholder': _('Avg monthly income'),
                'class': 'form-control',
-               'id': 'WB_STA_1_2'
+               'id': 'WB_STA_6_1'
             # ,
             #    'data-parsley-required': "False"
                }))
-
+    #7
     WB_STA_7_1 = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': _('Other specify'),
+        attrs={'placeholder': _('Household savings'),
                'class': 'form-control',
-               'id': 'WB_STA_1_2'
+               'id': 'WB_STA_7_1'
             # ,
             #    'data-parsley-required': "False"
                }))
 
+    #8
     WB_STA_8_1 = forms.MultipleChoiceField(
         required=False,
         widget=forms.CheckboxSelectMultiple,
@@ -3983,15 +4007,12 @@ class Wellbeing(forms.Form):
     )
     WB_STA_8_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other specify'),
-               'class': 'form-control',
-               'id': 'WB_STA_1_2'
+               'class': 'form-control'
             # ,
             #    'data-parsley-required': "False"
                }))
 
-    WB_STA_8_3 = forms.CharField(widget=forms.Textarea(
-        attrs={'rows': '3', 'class': 'form-control'}))
-
+    #9
     WB_STA_9_1 = forms.MultipleChoiceField(
         required=False,
         widget=forms.CheckboxSelectMultiple,
@@ -4006,6 +4027,7 @@ class Wellbeing(forms.Form):
             #    'data-parsley-required': "False"
                }))
 
+    #10
     WB_STA_10_1 = forms.MultipleChoiceField(
         required=False,
         widget=forms.CheckboxSelectMultiple,
@@ -4015,29 +4037,58 @@ class Wellbeing(forms.Form):
     WB_STA_10_2 = forms.CharField(widget=forms.Textarea(
         attrs={'rows': '3', 'class': 'form-control'}))
 
+    #11
     WB_STA_11_1 = forms.MultipleChoiceField(
-        required=False,
-        widget=forms.CheckboxSelectMultiple,
         choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            })
     )
 
     WB_STA_11_2 = forms.CharField(widget=forms.Textarea(
-        attrs={'rows': '3', 'class': 'form-control'})
+        attrs={'placeholder': _('Comment'),'rows': '3', 'class': 'form-control'})
 
     )
 
+    ## 12
     WB_STA_12_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_STA_12_1_CHOICES
+    )
+
+    WB_STA_12_2 = forms.MultipleChoiceField(
         required=False,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_STA_12_1_CHOICES,
     )
 
-    WB_STA_12_2 = forms.CharField(widget=forms.Textarea(
+    WB_STA_12_3 = forms.CharField(widget=forms.Textarea(
         attrs={'rows': '3', 'class': 'form-control'})
 
     )
+
+
+    #Q 13
+
+    WB_STA_13_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_STA_13_1_CHOICES
+    )
+
+    WB_STA_13_2 = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': '3', 'class': 'form-control'})
+
+    )
+
+
+
     WB_HEL_23_1 = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': _('Other specify'),
+        attrs={'placeholder': _('Name'),
                'class': 'form-control',
                'id': 'WB_STA_1_2'
             # ,
@@ -4073,10 +4124,23 @@ class Wellbeing(forms.Form):
         widget=forms.CheckboxSelectMultiple,
         choices=WB_HEL_27_1_CHOICES,)
 
+    WB_HEL_27_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control'  # ,
+               #    'data-parsley-required': "False"
+               }))
+
     WB_HEL_28_1 = forms.MultipleChoiceField(
         required=False,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_HEL_26_1_CHOICES,)
+
+    WB_HEL_28_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control'  # ,
+               #    'data-parsley-required': "False"
+               }))
+
     # Domain Safe
 
     # Healthy
@@ -4092,7 +4156,7 @@ class Wellbeing(forms.Form):
             # ,
             #    'data-parsley-required': "False"
                }))
-    WB_HEL_15 = forms.ChoiceField(
+    WB_HEL_15_1 = forms.MultipleChoiceField(
         choices=WB_HEL_14_YNR,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
@@ -4102,14 +4166,32 @@ class Wellbeing(forms.Form):
                 #    'data-parsley-errors-container': "#receiving_services_error"
                    })
     )
-    WB_HEL_16_1 = forms.MultipleChoiceField(
+
+    #16
+    WB_HEL_16_1 = forms.ChoiceField(
+        choices=WB_HEL_14_YNR,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true'
+                # ,
+                #    'data-parsley-errors-container': "#receiving_services_error"
+            })
+    )
+
+    WB_HEL_16_2 = forms.MultipleChoiceField(
         required=False,
         widget=forms.CheckboxSelectMultiple,
-        choices=WB_HEL_16_1_CHOICES,
+        choices=WB_HEL_16_2_CHOICES,
     )
-    WB_HEL_16_2=forms.CharField(widget=forms.Textarea(
+    WB_HEL_16_3=forms.CharField(widget=forms.Textarea(
         attrs={'rows': '3', 'class': 'form-control','placeholder': 'Specify Other'}))
+    WB_HEL_16_4 = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': '3', 'class': 'form-control', 'placeholder': 'Who'}))
+    WB_HEL_16_5 = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': '3', 'class': 'form-control', 'placeholder': 'What is the long-term illness that ypu have?'}))
 
+    #17
     WB_HEL_17_1 = forms.ChoiceField(
         choices=WB_HEL_17YNR,
         widget=forms.RadioSelect(
@@ -4123,18 +4205,60 @@ class Wellbeing(forms.Form):
       widget=forms.DateInput(format='%m/%d/%Y', attrs={'class': 'datepicker','placeholder': 'MMDDYYYY'}),
       input_formats=('%m/%d/%Y', )
       )
-    WB_HEL_18_1 = forms.MultipleChoiceField(
-        required=False,
-        widget=forms.CheckboxSelectMultiple,
-        choices=WB_HEL_18CHOICES,
+
+    # 18
+    WB_HEL_18_1 = forms.ChoiceField(
+        choices=WB_HEL_17YNR,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_testofhiv_error"
+            })
     )
-    WB_HEL_20_1 = forms.MultipleChoiceField(
-        required=False,
-        widget=forms.CheckboxSelectMultiple,
+
+    WB_HEL_18_2 = forms.ChoiceField(
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_testofhiv_error"
+            }),
+        choices=WB_HEL_18CHOICES
+    )
+
+    # 19
+    WB_HEL_19_1 = forms.ChoiceField(
+        choices=WB_HEL_14_YNR,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true'
+                # ,
+                #    'data-parsley-errors-container': "#receiving_services_error"
+            })
+    )
+
+    #20
+    WB_HEL_20_1 = forms.ChoiceField(
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_heardof_error"
+            }),
         choices=WB_HEL_20CHOICES,
     )
+
+    WB_HEL_20_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control'               # ,
+               #    'data-parsley-required': "False"
+               }))
+
+    #21
     WB_HEL_21_1 = forms.ChoiceField(
-        choices=WB_HEL_21YNR,
+        choices=YESNO_CHOICES_REFUSE,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
@@ -4142,6 +4266,8 @@ class Wellbeing(forms.Form):
                 #    'data-parsley-errors-container': "#in_heardof_error"
             })
     )
+
+    #22
     WB_HEL_22_1 = forms.MultipleChoiceField(
         required=False,
         widget=forms.CheckboxSelectMultiple,

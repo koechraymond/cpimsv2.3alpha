@@ -8532,6 +8532,235 @@ def persist_wellbeing_data(kvals, value, person, house_hold, new_pk):
             event_id=OVCCareEvents.objects.get(pk=new_pk)
         ).save()
 
+def populate_entity_to_persist(entity_values,entity_type,val,question_code,domain,type):
+    entity_values.append(
+        {"entity": entity_type, "value": val, "question_code": question_code, "type": type,
+         'domain': domain})
+    return entity_values
+
+
+# domain stable
+def prepare_domain_stable_values(request,entity_values):
+    ## Q 1
+    WB_STA_1_1 = request.POST.getlist('WB_STA_1_1')
+    WB_STA_1_2 = request.POST.get('WB_STA_1_2')
+    WB_STA_1_3 = request.POST.get('WB_STA_1_3')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_1_1, 'WB_STA_1_1', 1, 'list')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_1_2, 'WB_STA_1_2', 1, 'single')
+    entity_values = populate_entity_to_persist(entity_values, "comment", WB_STA_1_3, 'WB_STA_1_3', 1, 'single')
+
+    ## Q 2
+
+    WB_STA_2_1 = request.POST.getlist('WB_STA_2_1')
+    WB_STA_2_2 = request.POST.get('WB_STA_2_2')
+    WB_STA_2_3 = request.POST.get('WB_STA_2_3')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_2_1, 'WB_STA_2_1', 1, 'list')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_2_2, 'WB_STA_2_2', 1, 'single')
+    entity_values = populate_entity_to_persist(entity_values, "comment", WB_STA_2_3, 'WB_STA_2_3', 1, 'single')
+
+    ## Q 3
+    WB_STA_3_1 = request.POST.getlist('WB_STA_3_1')
+    WB_STA_3_2 = request.POST.get('WB_STA_3_2')
+    WB_STA_3_3 = request.POST.get('WB_STA_3_3')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_3_1, 'WB_STA_3_1', 1, 'list')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_3_2, 'WB_STA_3_2', 1, 'single')
+    entity_values = populate_entity_to_persist(entity_values, "comment", WB_STA_3_3, 'WB_STA_3_3', 1, 'single')
+
+    ## Q 4
+    WB_STA_4_1 = request.POST.getlist('WB_STA_4_1')
+    WB_STA_4_2 = request.POST.get('WB_STA_4_2')
+    WB_STA_4_3 = request.POST.get('WB_STA_4_3')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_4_1, 'WB_STA_4_1', 1, 'list')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_4_2, 'WB_STA_4_2', 1, 'single')
+    entity_values = populate_entity_to_persist(entity_values, "comment", WB_STA_4_3, 'WB_STA_4_3', 1, 'single')
+
+    ## Q 5
+    WB_STA_5_1 = request.POST.getlist('WB_STA_5_1')
+    WB_STA_5_2 = request.POST.get('WB_STA_5_2')
+    WB_STA_5_3 = request.POST.get('WB_STA_5_3')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_5_1, 'WB_STA_5_1', 1, 'list')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_5_2, 'WB_STA_5_2', 1, 'single')
+    entity_values = populate_entity_to_persist(entity_values, "comment", WB_STA_5_3, 'WB_STA_5_3', 1, 'single')
+
+    ## Q 6
+    WB_STA_6_1 = request.POST.get('WB_STA_6_1')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_6_1, 'WB_STA_6_1', 1, 'single')
+
+    ## Q 7
+    WB_STA_7_1 = request.POST.get('WB_STA_7_1')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_7_1, 'WB_STA_7_1', 1, 'single')
+
+    ## Q 8
+    WB_STA_8_1 = request.POST.getlist('WB_STA_8_1')
+    WB_STA_8_2 = request.POST.get('WB_STA_8_2')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_8_1, 'WB_STA_8_1', 1, 'list')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_8_2, 'WB_STA_8_2', 1, 'single')
+
+    ## Q 9
+    WB_STA_9_1 = request.POST.getlist('WB_STA_9_1')
+    WB_STA_9_2 = request.POST.get('WB_STA_9_2')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_9_1, 'WB_STA_9_1', 1, 'list')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_9_2, 'WB_STA_9_2', 1, 'single')
+
+    ## Q 10
+    WB_STA_10_1 = request.POST.getlist('WB_STA_10_1')
+    WB_STA_10_2 = request.POST.get('WB_STA_10_2')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_10_1, 'WB_STA_10_1', 1, 'list')
+    entity_values = populate_entity_to_persist(entity_values, "comment", WB_STA_10_2, 'WB_STA_10_2', 1, 'single')
+
+    ## Q 11
+    WB_STA_11_1 = request.POST.getlist('WB_STA_11_1')
+    WB_STA_11_2 = request.POST.get('WB_STA_11_2')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_11_1, 'WB_STA_11_1', 1,
+                                               'single')
+    entity_values = populate_entity_to_persist(entity_values, "comment", WB_STA_11_2, 'WB_STA_11_2', 1,
+                                               'single')
+
+    ## Q 12
+    WB_STA_12_1 = request.POST.getlist('WB_STA_12_1')
+    WB_STA_12_2 = request.POST.getlist('WB_STA_12_2')
+    WB_STA_12_3 = request.POST.get('WB_STA_12_3')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_12_1, 'WB_STA_12_1', 1,
+                                               'list')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_12_2, 'WB_STA_12_3', 1,
+                                               'list')
+    entity_values = populate_entity_to_persist(entity_values, "comment", WB_STA_12_3, 'WB_STA_12_3', 1,
+                                               'single')
+
+    # Q 13
+    WB_STA_13_1 = request.POST.getlist('WB_STA_13_1')
+    WB_STA_13_2 = request.POST.getlist('WB_STA_13_2')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_STA_13_1, 'WB_STA_13_1', 1,
+                                               'list')
+    entity_values = populate_entity_to_persist(entity_values, "comment", WB_STA_13_2, 'WB_STA_13_2', 1,
+                                               'single')
+
+
+    return entity_values
+
+
+
+#domain healthy
+def prepare_domain_healthy_values(request,entity_values):
+    ## Q 14
+    WB_HEL_14_1 = request.POST.getlist('WB_HEL_14_1')
+    WB_HEL_14_2 = request.POST.get('WB_HEL_14_2')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_14_1, 'WB_HEL_14_1', 1, 'list')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_14_2, 'WB_HEL_14_2', 1, 'single')
+
+    ## Q 15
+
+    WB_HEL_15_1 = request.POST.get('WB_HEL_15_1')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_15_1, 'WB_HEL_15_1', 1, 'single')
+
+
+    ## Q 16
+    WB_HEL_16_1 = request.POST.get('WB_HEL_16_1')
+    WB_HEL_16_2 = request.POST.getlist('WB_HEL_16_2')
+    WB_HEL_16_3 = request.POST.get('WB_HEL_16_3')
+    WB_HEL_16_4 = request.POST.get('WB_HEL_16_4')
+    WB_HEL_16_5 = request.POST.get('WB_HEL_16_5')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_16_1, 'WB_HEL_16_1', 1, 'single')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_16_2, 'WB_HEL_16_2', 1, 'list')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_16_3, 'WB_HEL_16_3', 1, 'single')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_16_4, 'WB_HEL_16_4', 1, 'single')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_16_5, 'WB_HEL_16_5', 1, 'single')
+
+    ## Q 17
+    WB_HEL_17_1 = request.POST.get('WB_HEL_17_1')
+    WB_HEL_17_2 = request.POST.get('WB_HEL_17_2')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_17_1, 'WB_HEL_17_1', 1, 'single')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_17_2, 'WB_HEL_17_2', 1, 'single')
+
+    ## Q 18
+    WB_HEL_18_1 = request.POST.get('WB_HEL_18_1')
+    WB_HEL_18_2 = request.POST.get('WB_HEL_18_2')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_18_1, 'WB_HEL_18_1', 1, 'single')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_18_2, 'WB_HEL_18_2', 1, 'single')
+
+    ## Q 19
+    WB_HEL_19_1 = request.POST.get('WB_HEL_19_1')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_19_1, 'WB_HEL_19_1', 1, 'single')
+
+    ## Q 20
+    WB_HEL_20_1 = request.POST.get('WB_HEL_20_1')
+    WB_HEL_20_2 = request.POST.get('WB_HEL_20_2')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_20_1, 'WB_HEL_20_1', 1, 'single')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_20_2, 'WB_HEL_20_2', 1, 'single')
+
+    ## Q 21
+    WB_HEL_21_1 = request.POST.get('WB_HEL_21_1')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_21_1, 'WB_HEL_21_1', 1, 'single')
+
+    ## Q 22
+    WB_HEL_22_1 = request.POST.getlist('WB_HEL_22_1')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_22_1, 'WB_HEL_22_1', 1, 'list')
+
+    ## Q 23
+    WB_HEL_23_1 = request.POST.get('WB_HEL_23_1')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_23_1, 'WB_HEL_23_1', 1, 'single')
+
+    ## Q 24
+    WB_HEL_24_1 = request.POST.get('WB_HEL_24_1')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_24_1, 'WB_HEL_24_1', 1,
+                                               'single')
+
+    ## Q 25
+    WB_HEL_25_1 = request.POST.getlist('WB_HEL_25_1')
+    WB_HEL_25_2 = request.POST.get('WB_HEL_25_2')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_25_1, 'WB_HEL_25_1', 1,
+                                               'list')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_25_2, 'WB_HEL_25_2', 1,
+                                               'single')
+
+    # Q 26
+    WB_HEL_26_1 = request.POST.get('WB_HEL_26_1')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_26_1, 'WB_HEL_26_1', 1,
+                                               'single')
+
+    # Q 27
+    WB_HEL_27_1 = request.POST.getlist('WB_HEL_27_1')
+    WB_HEL_27_2 = request.POST.getlist('WB_HEL_27_1')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_27_1, 'WB_HEL_27_1', 1,
+                                               'list')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_27_2, 'WB_HEL_27_2', 1,
+                                               'single')
+
+    # Q 28
+    WB_HEL_28_1 = request.POST.get('WB_HEL_28_1')
+    WB_HEL_28_2 = request.POST.get('WB_HEL_28_2')
+
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_28_1, 'WB_HEL_28_1', 1,
+                                               'single')
+    entity_values = populate_entity_to_persist(entity_values, "wellbeing", WB_HEL_28_2, 'WB_HEL_28_2', 1,
+                                               'single')
+
+    return entity_values
+
 
 
 @login_required
@@ -8569,23 +8798,10 @@ def new_wellbeing(request, id):
             entity_values = []
 
             ## Domain stable
+            entity_values=prepare_domain_stable_values(request, entity_values)
+            ## Domain Healthy
+            entity_values = prepare_domain_healthy_values(request, entity_values)
 
-            root_question_code = 'WB_STA_1'
-            print "fetch values"
-            WB_STA_1_1 = request.POST.getlist('WB_STA_1_1')
-            WB_STA_1_2 = request.POST.get('WB_STA_1_2')
-            WB_STA_1_3 = request.POST.get('WB_STA_1_3')
-
-            ## Q 1
-            entity_values.append(
-                {"entity": "wellbeing", "value": WB_STA_1_1, "question_code": 'WB_STA_1_1', "type": "list",
-                 'domain': '1'})
-            entity_values.append(
-                {"entity": "wellbeing", "value": WB_STA_1_2, "question_code": 'WB_STA_1_2', "type": "single",
-                 'domain': '1'})
-            entity_values.append(
-                {"entity": "comment", "value": WB_STA_1_3, "question_code": 'WB_STA_1_3', "type": "single",
-                 'domain': '1'})
 
             print "saving values"
 
