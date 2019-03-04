@@ -967,7 +967,7 @@ class OVCCareCpara(models.Model):
 class OVCCareWellbeing(models.Model):
     well_being_id = models.AutoField(primary_key=True)
     person_id = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
-    question = models.CharField(max_length=150)
+    question = models.ForeignKey('OVCCareQuestions')
     answer = models.CharField(max_length=5)
     household_id = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
     question_type = models.CharField(max_length=5)
@@ -1102,6 +1102,7 @@ class OVCCareQuestions(models.Model):
     question_id = models.AutoField(primary_key=True)
     code = models.CharField(max_length=5)
     question = models.CharField(max_length=255)
+    question_type = models.CharField(max_length=20, null=False)
     form_id = models.ForeignKey(OVCCareForms)
 
     class Meta:
