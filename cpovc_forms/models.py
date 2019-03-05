@@ -954,7 +954,7 @@ class OVCCareBenchmarkScore(models.Model):
 class OVCCareCpara(models.Model):
     cpara_id = models.AutoField(primary_key=True)
     person_id = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
-    question = models.ForeignKey('OVCCareQuestions')
+    # question = models.ForeignKey('OVCCareQuestions')
     answer = models.CharField(max_length=5)
     household_id = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
     question_type = models.CharField(max_length=50)
@@ -970,7 +970,7 @@ class OVCCareCpara(models.Model):
 class OVCCareWellbeing(models.Model):
     well_being_id = models.AutoField(primary_key=True)
     person_id = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
-    question = models.ForeignKey('OVCCareQuestions')
+    # question = models.ForeignKey('OVCCareQuestions')
     answer = models.CharField(max_length=5)
     household_id = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
     question_type = models.CharField(max_length=5)
@@ -1023,7 +1023,7 @@ class OVCHouseholdDemographics(models.Model):
 
 class OVCExplanations(models.Model):
     explanation_id = models.AutoField(primary_key=True)
-    question = models.ForeignKey('OVCCareQuestions')
+    # question = models.ForeignKey('OVCCareQuestions')
     comment = models.CharField(max_length=255)
     form = models.ForeignKey(OVCCareForms)
     event = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
