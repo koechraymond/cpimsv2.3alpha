@@ -908,17 +908,20 @@ Peace!
 
 
 class OVCCareForms(models.Model):
-    form_id = models.AutoField(primary_key=True)
+    form_id = models.UUIDField(primary_key=True, default=uuid.uuid1, editable=False)
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=255)
     is_void = models.BooleanField(default=False)
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
 
+    class Meta:
+        db_table = 'ovc_care_forms'
+
 
 class OVCCareBenchmarkScore(models.Model):
     bench_mark_score_id = models.AutoField(primary_key=True)
-    household_id = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
+    household = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
     bench_mark_1 = models.IntegerField(default=0)
     bench_mark_2 = models.IntegerField(default=0)
     bench_mark_3 = models.IntegerField(default=0)
@@ -937,8 +940,8 @@ class OVCCareBenchmarkScore(models.Model):
     bench_mark_16 = models.IntegerField(default=0)
     bench_mark_17 = models.IntegerField(default=0)
     score = models.IntegerField(default=0)
-    event_id = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
-    care_giver_id = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
+    event = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
+    care_giver = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
     is_void = models.BooleanField(default=False)
     date_of_event = models.DateField(default=timezone.now)
     timestamp_created = models.DateTimeField(default=timezone.now)
@@ -950,13 +953,13 @@ class OVCCareBenchmarkScore(models.Model):
 
 class OVCCareCpara(models.Model):
     cpara_id = models.AutoField(primary_key=True)
-    person_id = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
+    person = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
     question = models.ForeignKey('OVCCareQuestions')
     answer = models.CharField(max_length=5)
-    household_id = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
+    household = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
     question_type = models.CharField(max_length=50)
     domain = models.CharField(max_length=50)
-    event_id = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
+    event = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
     timestamp_created = models.DateTimeField(default=timezone.now)
     is_void = models.BooleanField(default=False)
 
@@ -966,14 +969,14 @@ class OVCCareCpara(models.Model):
 
 class OVCCareWellbeing(models.Model):
     well_being_id = models.AutoField(primary_key=True)
-    person_id = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
-    question = models.CharField(max_length=150)
+    person = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
+    question = models.ForeignKey('OVCCareQuestions')
     answer = models.CharField(max_length=5)
-    household_id = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
+    household = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
     question_type = models.CharField(max_length=5)
     domain = models.CharField(max_length=10)
     is_void = models.BooleanField(default=False)
-    event_id = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
+    event = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
 
@@ -985,17 +988,17 @@ class OVCCareCasePlan(models.Model):
     case_plan_id = models.AutoField(primary_key=True)
     domain = models.CharField(max_length=50)
     goal = models.CharField(max_length=255)
-    person_id = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
+    person = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
     need = models.CharField(max_length=255)
     priority = models.CharField(max_length=255)
-    cp_service_id = models.ForeignKey('cpovc_main.SetupList', on_delete=models.CASCADE)
+    cp_service = models.ForeignKey('cpovc_main.SetupList', on_delete=models.CASCADE)
     responsible = models.CharField(max_length=50)
     completion_date = models.DateField(default=timezone.now)
     results = models.CharField(max_length=300)
     reasons = models.CharField(max_length=300)
-    form_id = models.ForeignKey(OVCCareForms)
+    form = models.ForeignKey(OVCCareForms)
     is_void = models.BooleanField(default=False)
-    event_id = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
+    event = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
 
@@ -1005,12 +1008,12 @@ class OVCCareCasePlan(models.Model):
 
 class OVCHouseholdDemographics(models.Model):
     household_demographics_id = models.AutoField(primary_key=True)
-    household_id = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
+    household = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
     key = models.CharField(max_length=15)
     male = models.IntegerField(default=0)
     female = models.IntegerField(default=0)
     is_void = models.BooleanField(default=False)
-    event_id = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
+    event = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
 
@@ -1022,8 +1025,8 @@ class OVCExplanations(models.Model):
     explanation_id = models.AutoField(primary_key=True)
     question = models.ForeignKey('OVCCareQuestions')
     comment = models.CharField(max_length=255)
-    form_id = models.ForeignKey(OVCCareForms)
-    event_id = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
+    form = models.ForeignKey(OVCCareForms)
+    event = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
 
@@ -1033,10 +1036,10 @@ class OVCExplanations(models.Model):
 
 class OVCGoals(models.Model):
     goal_id = models.AutoField(primary_key=True)
-    person_id = models.ForeignKey(RegPerson)
+    person = models.ForeignKey(RegPerson)
     goal = models.CharField(max_length=255)
     action = models.CharField(max_length=255)
-    event_id = models.ForeignKey(OVCCareEvents)
+    event = models.ForeignKey(OVCCareEvents)
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
 
@@ -1046,12 +1049,12 @@ class OVCGoals(models.Model):
 
 class OVCReferrals(models.Model):
     referral_id = models.AutoField(primary_key=True)
-    person_id = models.ForeignKey(RegPerson)
+    person = models.ForeignKey(RegPerson)
     referral_date = models.DateField(default=timezone.now)
     service = models.CharField(max_length=20)
     institution = models.CharField(max_length=50)
     contact_person = models.CharField(max_length=50)
-    event_id = models.ForeignKey(OVCCareEvents)
+    event = models.ForeignKey(OVCCareEvents)
     completed = models.BooleanField(default=False)
     outcome = models.CharField(max_length=255)
     is_void = models.BooleanField(default=False)
@@ -1064,7 +1067,7 @@ class OVCReferrals(models.Model):
 
 class OVCMonitoring(models.Model):
     monitoring_id = models.AutoField(primary_key=True)
-    household_id = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
+    household = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
     hiv_status_knowledge = models.CharField(max_length=5)
     viral_suppression = models.CharField(max_length=5)
     hiv_prevention = models.CharField(max_length=5)
@@ -1075,7 +1078,8 @@ class OVCMonitoring(models.Model):
     school_progression = models.CharField(max_length=5)
     cp_achievement = models.CharField(max_length=5)
     case_closure = models.CharField(max_length=5)
-    event_id = models.ForeignKey(OVCCareEvents)
+    event = models.ForeignKey(OVCCareEvents)
+    quarter = models.CharField(max_length=10)
     is_void = models.BooleanField(default=False)
     event_date = models.DateField(default=timezone.now)
     timestamp_created = models.DateTimeField(default=timezone.now)
@@ -1087,22 +1091,24 @@ class OVCMonitoring(models.Model):
 
 class OVCHivStatus(models.Model):
     hiv_status_id = models.AutoField(primary_key=True)
-    person_id = models.ForeignKey(RegPerson)
+    person = models.ForeignKey(RegPerson)
     hiv_status = models.CharField(max_length=10)
-    event_id = models.ForeignKey(OVCCareEvents)
+    event = models.ForeignKey(OVCCareEvents)
     is_void = models.BooleanField(default=False)
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
+    # date_1 = models.DateTimeField(default=timezone.now)
 
     class Meta:
         db_table = 'ovc_hiv_status'
 
 
 class OVCCareQuestions(models.Model):
-    question_id = models.AutoField(primary_key=True)
+    question_id = models.UUIDField(primary_key=True, default=uuid.uuid1, editable=False)
     code = models.CharField(max_length=5)
     question = models.CharField(max_length=255)
-    form_id = models.ForeignKey(OVCCareForms)
+    question_type = models.CharField(max_length=20, null=False)
+    form = models.ForeignKey(OVCCareForms)
 
     class Meta:
         db_table = 'ovc_care_questions'
