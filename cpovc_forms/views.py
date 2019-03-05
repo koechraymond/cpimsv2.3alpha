@@ -8613,9 +8613,19 @@ def new_wellbeing(request, id):
         # get relations
     guardians = RegPersonsGuardians.objects.select_related().filter(
         child_person=id, is_void=False, date_delinked=None)
-    siblings = RegPersonsSiblings.objects.select_related().filter(
-        child_person=id, is_void=False, date_delinked=None)
+    # siblings = RegPersonsSiblings.objects.select_related().filter(
+    #     child_person=id, is_void=False, date_delinked=None)
+    ovc_id = int(id)
+    child = RegPerson.objects.get(is_void=False, id=ovc_id)
+    print "the child ============"
+    print child
+    print "child id ============"
+    print child.id
 
+    siblings = RegPersonsSiblings.objects.filter(
+        is_void=False, child_person=child.id)
+    print "siblings ============"
+    print siblings
     # Reverse relationship
     osiblings = RegPersonsSiblings.objects.select_related().filter(
         sibling_person=id, is_void=False, date_delinked=None)
@@ -8628,6 +8638,16 @@ def new_wellbeing(request, id):
     check_fields = ['sex_id', 'relationship_type_id']
     vals = get_dict(field_name=check_fields)
 
+    # Get house hold
+    hhold = OVCHHMembers.objects.get(
+        is_void=False, person_id=child.id)
+    # Get HH members
+    hhid = hhold.house_hold_id
+    hhmqs = OVCHHMembers.objects.filter(
+        is_void=False, house_hold_id=hhid).order_by("-hh_head")
+
+    hhmembers = hhmqs.exclude(person_id=ovcreg.caretaker_id)
+
     form = Wellbeing(initial={'household_id': household_id})
     return render(request,
                   'forms/new_wellbeing.html',
@@ -8639,6 +8659,7 @@ def new_wellbeing(request, id):
                       'person': id,
                       'guardians': guardians,
                       'siblings': siblings,
+                      'hhmembers': hhmembers,
                       'osiblings': osiblings,
                       'person_sex_type': person_sex_type,
                       'oguardians': oguardians

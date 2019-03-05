@@ -98,6 +98,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
 
 
 
+
 </style>
 {% endblock %}
 
@@ -229,14 +230,16 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                             </td>
 
                                                             <td>
-                                                                Name:<label style="display: block" for="care-name">{{ovcreg.caretaker.first_name}} {{ovcreg.caretaker.other_names}}
+                                                                Name:<label style="display: block" for="care-name">{{ovcreg.caretaker.first_name}}
+                                                                {{ovcreg.caretaker.other_names}}
                                                                 {{ovcreg.caretaker.surname}}
-                                                                </label>
+                                                            </label>
                                                                 Phone:<label style="display: block" for="care-name">{{ovcreg.caretaker.des_phone_number}}</label>
                                                                 Physical:<label style="display: block" for="care-name">slip
                                                                 road</label>
                                                                 Date of Birth:<label style="display: block"
-                                                                                     for="care-age"> {{ovcreg.caretaker.date_of_birth}}</label>
+                                                                                     for="care-age">
+                                                                {{ovcreg.caretaker.date_of_birth}}</label>
                                                             </td>
                                                             <td>
                                                                 Age:<label style="display: block" for="care-age">
@@ -272,54 +275,92 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                         </tbody>
                                                     </table>
                                                     <div>
-                                                        <table class="table table-bordered">
+
+
+                                                        <table class="table">
                                                             <thead>
                                                             <tr>
-                                                                <th scope="col">#</th>
-                                                                <th scope="col">Name (3 Names)</th>
-                                                                <th scope="col">Date Of Birth (dd/mm/yyyy)</th>
-                                                                <th scope="col">Sex M/F</th>
+                                                                <th>#</th>
+                                                                <th>First Name</th>
+                                                                <th>Surname</th>
+                                                                <th>Sex M/F</th>
+                                                                <th>Date of birth</th>
+                                                                <th>Age</th>
+
                                                             </tr>
                                                             </thead>
                                                             <tbody>
-                                                            <tr>
-                                                                <th scope="row">1</th>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">2</th>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">3</th>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">4</th>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">5</th>
-                                                                <td></td>
-                                                                <td></td>
-                                                                <td></td>
-                                                            </tr>
-                                                            <tr>
-                                                                <th scope="row">6</th>
-                                                                <td class="text-center"></td>
-                                                                <td class="text-center"></td>
-                                                                <td class="text-center"></td>
-                                                            </tr>
+                                                            {% for hhmember in hhmembers %}
+                                                                <tr>
+                                                                    <td>{{ forloop.counter }}</td>
+                                                                    <td>{{ hhmember.person.first_name }}</td>
+                                                                    <td>{{ hhmember.person.surname }}</td>
+                                                                    <td>
+                                                                        {% if hhmember.person.sex_id == 'SFEM' %}
+                                                                            female
+                                                                        {% endif %}
+                                                                        {% if hhmember.person.sex_id == 'SMAL' %}
+                                                                            male
+                                                                        {% endif %}
+                                                                    </td>
+                                                                    </td>
+
+                                                                    <td>{{ hhmember.person.date_of_birth }}</td>
+                                                                    <td>{{ hhmember.person.years }}</td>
+
+                                                                </tr>
+                                                            {% endfor %}
                                                             </tbody>
                                                         </table>
+
+                                                            <!--<table class="table table-bordered">-->
+                                                            <!--<thead>-->
+                                                            <!--<tr>-->
+                                                            <!--<th scope="col">#</th>-->
+                                                            <!--<th scope="col">Name (3 Names)</th>-->
+                                                            <!--<th scope="col">Date Of Birth (dd/mm/yyyy)</th>-->
+                                                            <!--<th scope="col">Sex M/F</th>-->
+                                                            <!--</tr>-->
+                                                            <!--</thead>-->
+                                                            <!--<tbody>-->
+                                                            <!--<tr>-->
+                                                            <!--<th scope="row">1</th>-->
+                                                            <!--<td></td>-->
+                                                            <!--<td></td>-->
+                                                            <!--<td></td>-->
+                                                            <!--</tr>-->
+                                                            <!--<tr>-->
+                                                            <!--<th scope="row">2</th>-->
+                                                            <!--<td></td>-->
+                                                            <!--<td></td>-->
+                                                            <!--<td></td>-->
+                                                            <!--</tr>-->
+                                                            <!--<tr>-->
+                                                            <!--<th scope="row">3</th>-->
+                                                            <!--<td></td>-->
+                                                            <!--<td></td>-->
+                                                            <!--<td></td>-->
+                                                            <!--</tr>-->
+                                                            <!--<tr>-->
+                                                            <!--<th scope="row">4</th>-->
+                                                            <!--<td></td>-->
+                                                            <!--<td></td>-->
+                                                            <!--<td></td>-->
+                                                            <!--</tr>-->
+                                                            <!--<tr>-->
+                                                            <!--<th scope="row">5</th>-->
+                                                            <!--<td></td>-->
+                                                            <!--<td></td>-->
+                                                            <!--<td></td>-->
+                                                            <!--</tr>-->
+                                                            <!--<tr>-->
+                                                            <!--<th scope="row">6</th>-->
+                                                            <!--<td class="text-center"></td>-->
+                                                            <!--<td class="text-center"></td>-->
+                                                            <!--<td class="text-center"></td>-->
+                                                            <!--</tr>-->
+                                                            <!--</tbody>-->
+                                                            <!--</table>-->
 
                                                     </div>
 
@@ -804,7 +845,9 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
 
                                 <tr>
                                     <td>9.</td>
-                                    <td>Are you able to regularly meet the needs of your children (School fees,medication,clothes,housing)?</td>
+                                    <td>Are you able to regularly meet the needs of your children (School
+                                        fees,medication,clothes,housing)?
+                                    </td>
                                     <td>{{form.WB_STA_9_1}}
                                         {{form.WB_STA_9_2}}
                                     </td>
@@ -946,20 +989,20 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                         {{form.WB_STA_13_1}}
                                         {{form.WB_STA_13_2}}
                                         <!--<div class="row">-->
-                                            <!--<div class="col-md-6">-->
-                                                <!--<div class="checkbox">-->
-                                                    <!--<label><input type="checkbox" value="">Energy food</label>-->
-                                                <!--</div>-->
-                                                <!--<div class="checkbox">-->
-                                                    <!--<label><input type="checkbox" value="">Body building foods:</label>-->
-                                                <!--</div>-->
+                                        <!--<div class="col-md-6">-->
+                                        <!--<div class="checkbox">-->
+                                        <!--<label><input type="checkbox" value="">Energy food</label>-->
+                                        <!--</div>-->
+                                        <!--<div class="checkbox">-->
+                                        <!--<label><input type="checkbox" value="">Body building foods:</label>-->
+                                        <!--</div>-->
 
-                                                <!--<div class="checkbox">-->
-                                                    <!--<label><input type="checkbox" value=""> Protective food</label>-->
-                                                <!--</div>-->
+                                        <!--<div class="checkbox">-->
+                                        <!--<label><input type="checkbox" value=""> Protective food</label>-->
+                                        <!--</div>-->
 
 
-                                            <!--</div>-->
+                                        <!--</div>-->
                                         <!--</div>-->
 
                                     </td>
@@ -1391,7 +1434,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     </td>
                                     <td>
                                         {{form.WB_HEL_28_1}}
-                                         {{form.WB_HEL_28_2}}
+                                        {{form.WB_HEL_28_2}}
 
                                         <!-- <div class="row">
                                             <div class="col-md-6">
@@ -2603,7 +2646,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                         <div class="form-group">
                             <label class="control-label col-md-4 col-sm-4"></label>
                             <div class="col-md-6 col-sm-6">
-                                <button  type="submit" class="btn btn-primary">Submit</button>
+                                <button type="submit" class="btn btn-primary">Submit</button>
                                 <a href="javascript:history.go(-1)" class="btn btn-white">Cancel</a>
                             </div>
                         </div>
@@ -2658,6 +2701,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
 
 
 
+
 </script>
 
 
@@ -2672,6 +2716,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
         $("div.bhoechie-tab>div.bhoechie-tab-content").eq(index).addClass("active");
       });
     });
+
 
 
 

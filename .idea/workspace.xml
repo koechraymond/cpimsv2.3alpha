@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5584b072-c84b-4a21-9198-217ece8e363b" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cpovc_forms/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpovc_forms/forms.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cpovc_forms/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/cpovc_forms/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/forms/new_wellbeing.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/forms/new_wellbeing.html" afterDir="false" />
     </list>
@@ -16,37 +15,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="new_wellbeing.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/forms/new_wellbeing.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="2667" column="24" selection-start-line="2667" selection-start-column="16" selection-end-line="2667" selection-end-column="24" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cpovc_forms/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="398">
-              <caret line="8621" selection-start-line="8621" selection-end-line="8621" />
-              <folding>
-                <element signature="e#0#44#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cpovc_registry/models.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="428">
-              <caret line="218" column="12" lean-forward="true" selection-start-line="218" selection-start-column="12" selection-end-line="218" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="forms.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="forms.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cpovc_forms/forms.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="379">
@@ -59,7 +28,7 @@
         <entry file="file://$PROJECT_DIR$/cpovc_ovc/models.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="561">
-              <caret line="76" column="37" selection-start-line="76" selection-start-column="37" selection-end-line="76" selection-end-column="37" />
+              <caret line="76" column="13" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -76,40 +45,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new_hhva.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/forms/new_hhva.html">
+      <file leaf-file-name="new_wellbeing.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/forms/new_wellbeing.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3097">
-              <caret line="640" column="48" selection-start-line="640" selection-start-column="36" selection-end-line="640" selection-end-column="48" />
+            <state relative-caret-position="258">
+              <caret line="232" column="121" selection-start-line="232" selection-start-column="121" selection-end-line="232" selection-end-column="121" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/cpovc_forms/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="246">
+              <caret line="8646" column="42" selection-start-line="8646" selection-start-column="42" selection-end-line="8646" selection-end-column="42" />
               <folding>
-                <element signature="e#3995#9892#0" />
-                <element signature="e#9970#11820#0" />
-                <element signature="e#11897#15929#0" />
-                <element signature="e#16008#17012#0" />
-                <element signature="e#17090#25947#0" />
-                <element signature="e#26025#29327#0" />
-                <element signature="e#29406#30032#0" />
-                <element signature="e#30109#31160#0" />
-                <element signature="e#31237#31774#0" />
+                <element signature="e#0#44#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cpovc_forms/urls.py">
+      <file leaf-file-name="models.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cpovc_registry/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4389">
-              <caret line="231" column="44" selection-start-line="231" selection-start-column="31" selection-end-line="231" selection-end-column="44" />
+            <state relative-caret-position="295">
+              <caret line="113" column="6" selection-start-line="113" selection-start-column="6" selection-end-line="113" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="functions.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cpovc_main/functions.py">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cpovc_ovc/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="340" column="4" selection-start-line="340" selection-start-column="4" selection-end-line="340" selection-end-column="4" />
+            <state relative-caret-position="588">
+              <caret line="367" column="18" selection-start-line="367" selection-start-column="18" selection-end-line="367" selection-end-column="18" />
             </state>
           </provider>
         </entry>
@@ -117,8 +87,8 @@
       <file leaf-file-name="view_child.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/ovc/view_child.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5605">
-              <caret line="295" column="54" selection-start-line="295" selection-start-column="41" selection-end-line="295" selection-end-column="54" />
+            <state relative-caret-position="608">
+              <caret line="242" column="40" lean-forward="true" selection-start-line="242" selection-start-column="40" selection-end-line="242" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -127,18 +97,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>#11</find>
-      <find>WB_STA_12_1_CHOICES</find>
-      <find>WB_STA_13_1_CHOICES</find>
-      <find>WB_STA_8_2</find>
-      <find>WB_STA_7_1</find>
-      <find>ra</find>
-      <find>WB_STA_8_1_CHOICES</find>
-      <find>WB_HEL_16_1_CHOICES</find>
-      <find>WB_HEL_16_2</find>
-      <find>wellbe</find>
-      <find>#20</find>
-      <find>not app</find>
       <find>WB_HEL_23_1</find>
       <find>WB_HEL_14_YNR</find>
       <find>WB_HEL_20_1</find>
@@ -156,7 +114,19 @@
       <find>vals</find>
       <find>wellb</find>
       <find>Flo</find>
+      <find>wellbeing ad</find>
+      <find>hhmember</find>
+      <find>HouseHold Members details</find>
+      <find>view_c</find>
+      <find>view_child</find>
+      <find>view_</find>
+      <find>wellbeing</find>
+      <find>OVCHHMembers</find>
+      <find>black1</find>
       <find>siblings</find>
+      <find>hhmembers</find>
+      <find>Basic in</find>
+      <find>RegPersonsSiblings</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/cpovc_main</dir>
@@ -174,13 +144,13 @@
         <option value="$PROJECT_DIR$/templates/menus.html" />
         <option value="$PROJECT_DIR$/cpovc_forms/urls.py" />
         <option value="$PROJECT_DIR$/cpovc_ovc/urls.py" />
-        <option value="$PROJECT_DIR$/templates/ovc/view_child.html" />
         <option value="$PROJECT_DIR$/cpims/settings.py" />
         <option value="$PROJECT_DIR$/static/js/form-wizards.js" />
         <option value="$PROJECT_DIR$/cpovc_forms/models.py" />
+        <option value="$PROJECT_DIR$/cpovc_forms/forms.py" />
+        <option value="$PROJECT_DIR$/templates/ovc/view_child.html" />
         <option value="$PROJECT_DIR$/templates/forms/new_wellbeing.html" />
         <option value="$PROJECT_DIR$/cpovc_forms/views.py" />
-        <option value="$PROJECT_DIR$/cpovc_forms/forms.py" />
       </list>
     </option>
   </component>
@@ -221,33 +191,7 @@
             <path>
               <item name="cpimsv2.3alpha" type="b2602c69:ProjectViewProjectNode" />
               <item name="cpimsv2.3alpha" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cpimsv2.3alpha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cpimsv2.3alpha" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap-multiselect" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cpimsv2.3alpha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cpimsv2.3alpha" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="plugins" type="462c0819:PsiDirectoryNode" />
-              <item name="parsley" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cpimsv2.3alpha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cpimsv2.3alpha" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="cpimsv2.3alpha" type="b2602c69:ProjectViewProjectNode" />
-              <item name="cpimsv2.3alpha" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="forms" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cpimsv2.3alpha" type="b2602c69:ProjectViewProjectNode" />
@@ -299,9 +243,10 @@
     <frame x="-3" y="0" width="1926" height="1083" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11451187" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.105540894" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -315,24 +260,23 @@
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
     <layout-to-restore>
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.11451187" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.105540894" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Python Console" order="7" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Python Console" order="8" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
-      <window_info anchor="bottom" id="Terminal" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="10" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info id="Favorites" order="2" side_tool="true" />
     </layout-to-restore>
@@ -560,13 +504,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cpovc_ovc/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="409" column="70" lean-forward="true" selection-start-line="409" selection-start-column="70" selection-end-line="409" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cpovc_ovc/urls.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="247">
@@ -606,20 +543,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/ovc/view_child.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5605">
-          <caret line="295" column="54" selection-start-line="295" selection-start-column="41" selection-end-line="295" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cpovc_forms/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4389">
-          <caret line="231" column="44" selection-start-line="231" selection-start-column="31" selection-end-line="231" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cpovc_forms/models.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18316">
@@ -630,6 +553,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/cpovc_forms/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="146" column="15" selection-start-line="146" selection-start-column="15" selection-end-line="146" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cpovc_main/functions.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="252">
@@ -637,41 +567,55 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cpovc_ovc/models.py">
+    <entry file="file://$PROJECT_DIR$/templates/ovc/view_child.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="76" column="37" selection-start-line="76" selection-start-column="37" selection-end-line="76" selection-end-column="37" />
+        <state relative-caret-position="608">
+          <caret line="242" column="40" lean-forward="true" selection-start-line="242" selection-start-column="40" selection-end-line="242" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cpovc_ovc/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="588">
+          <caret line="367" column="18" selection-start-line="367" selection-start-column="18" selection-end-line="367" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cpovc_registry/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="428">
-          <caret line="218" column="12" lean-forward="true" selection-start-line="218" selection-start-column="12" selection-end-line="218" selection-end-column="12" />
+        <state relative-caret-position="295">
+          <caret line="113" column="6" selection-start-line="113" selection-start-column="6" selection-end-line="113" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cpovc_forms/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="848">
+          <caret line="231" column="44" selection-start-line="231" selection-start-column="31" selection-end-line="231" selection-end-column="44" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/forms/new_wellbeing.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="2667" column="24" selection-start-line="2667" selection-start-column="16" selection-end-line="2667" selection-end-column="24" />
+        <state relative-caret-position="258">
+          <caret line="232" column="121" selection-start-line="232" selection-start-column="121" selection-end-line="232" selection-end-column="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cpovc_ovc/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="76" column="13" selection-start-line="76" selection-start-column="4" selection-end-line="76" selection-end-column="13" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cpovc_forms/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="398">
-          <caret line="8621" selection-start-line="8621" selection-end-line="8621" />
+        <state relative-caret-position="246">
+          <caret line="8646" column="42" selection-start-line="8646" selection-start-column="42" selection-end-line="8646" selection-end-column="42" />
           <folding>
             <element signature="e#0#44#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cpovc_forms/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="379">
-          <caret line="146" column="15" selection-start-line="146" selection-start-column="15" selection-end-line="146" selection-end-column="15" />
         </state>
       </provider>
     </entry>
