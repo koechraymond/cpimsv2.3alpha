@@ -30,7 +30,7 @@ from .models import (
     OVCAdverseEventsFollowUp, OVCAdverseEventsOtherFollowUp,
     OVCCaseEventClosure, OVCCaseGeo, OVCMedicalSubconditions, OVCBursary,
     OVCFamilyCare, OVCCaseEventSummon, OVCCareEvents, OVCCarePriority,
-    OVCCareServices, OVCCareEAV, OVCCareAssessment, OVCGokBursary)
+    OVCCareServices, OVCCareEAV, OVCCareAssessment, OVCGokBursary, OVCCareCpara)
 from cpovc_ovc.models import OVCRegistration, OVCHHMembers, OVCHealth, OVCHouseHold
 from cpovc_main.functions import (
     get_list_of_org_units, get_dict, get_vgeo_list, get_vorg_list,
@@ -8488,6 +8488,43 @@ def form_bursary(request, id):
 @login_required
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def new_cpara(request, id):
+    if request.method == 'POST':
+        data = request.POST
+        child = RegPerson.objects.get(id=id)
+        # from cpovc_ovc.models import OVCHHMembers
+        # house_hold = OVCHHMembers.objects.get(person=child)
+        print data
+        # event = OVCCareEvents.objects.create(
+        #     event_type_id = 'cpr',
+        #     created_by = request.user.id,
+        #     person = child,
+        #     house_hold = house_hold
+        # )
+        # cpara_obj = OVCCareCpara.objects.create(
+        #     person_id = id,
+        #     question = '',
+        #     answer = '',
+        #     household_id = house_hold,
+        #     question_type = '',
+        #     domain = '',
+        #     event_id = event)
+        cp1b = data.get('cp1b')
+        cp2b = data.get('cp2b')
+        cp3b = data.get('cp3b')
+        cp4b = data.get('cp4b')
+        cp5b = data.get('cp5b')
+        cp6b = data.get('cp6b')
+        cp7b = data.get('cp7b')
+        cp8b = data.get('cp8b')
+        cp9b = data.get('cp9b')
+        cp10b = data.get('cp10b')
+        cp11b = data.get('cp11b')
+        cp12b = data.get('cp12b')
+        cp13b = data.get('cp13b')
+        cp14b = data.get('cp14b')
+        cp15b = data.get('cp15b')
+        cp16b = data.get('cp16b')
+        cp17b = data.get('cp17b')
         # get relations
     guardians = RegPersonsGuardians.objects.select_related().filter(
         child_person=id, is_void=False, date_delinked=None)
