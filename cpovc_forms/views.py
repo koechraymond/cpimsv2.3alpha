@@ -8491,15 +8491,15 @@ def new_cpara(request, id):
     if request.method == 'POST':
         data = request.POST
         child = RegPerson.objects.get(id=id)
-        # from cpovc_ovc.models import OVCHHMembers
-        # house_hold = OVCHHMembers.objects.get(person=child)
+        from cpovc_ovc.models import OVCHHMembers
+        house_hold = OVCHouseHold.objects.get(id=OVCHHMembers.objects.get(person=child).house_hold_id)
         print data
-        # event = OVCCareEvents.objects.create(
-        #     event_type_id = 'cpr',
-        #     created_by = request.user.id,
-        #     person = child,
-        #     house_hold = house_hold
-        # )
+        event = OVCCareEvents.objects.create(
+            event_type_id='cpr',
+            created_by=request.user.id,
+            person=child,
+            house_hold=house_hold
+        )
         # cpara_obj = OVCCareCpara.objects.create(
         #     person_id = id,
         #     question = '',
@@ -8508,23 +8508,35 @@ def new_cpara(request, id):
         #     question_type = '',
         #     domain = '',
         #     event_id = event)
-        cp1b = data.get('cp1b')
-        cp2b = data.get('cp2b')
-        cp3b = data.get('cp3b')
-        cp4b = data.get('cp4b')
-        cp5b = data.get('cp5b')
-        cp6b = data.get('cp6b')
-        cp7b = data.get('cp7b')
-        cp8b = data.get('cp8b')
-        cp9b = data.get('cp9b')
-        cp10b = data.get('cp10b')
-        cp11b = data.get('cp11b')
-        cp12b = data.get('cp12b')
-        cp13b = data.get('cp13b')
-        cp14b = data.get('cp14b')
-        cp15b = data.get('cp15b')
-        cp16b = data.get('cp16b')
-        cp17b = data.get('cp17b')
+        from cpovc_forms.models import OVCCareBenchmarkScore
+        answer_value = {
+            'AYES': 1,
+            'ANNO': 0,
+            0: 0
+        }
+        OVCCareBenchmarkScore.objects.create(
+            household=house_hold,
+            bench_mark_1=answer_value[data.get('cp1b', 0)],
+            bench_mark_2=answer_value[data.get('cp2b', 0)],
+            bench_mark_3=answer_value[data.get('cp3b', 0)],
+            bench_mark_4=answer_value[data.get('cp4b', 0)],
+            bench_mark_5=answer_value[data.get('cp5b', 0)],
+            bench_mark_6=answer_value[data.get('cp6b', 0)],
+            bench_mark_7=answer_value[data.get('cp7b', 0)],
+            bench_mark_8=answer_value[data.get('cp8b', 0)],
+            bench_mark_9=answer_value[data.get('cp9b', 0)],
+            bench_mark_10=answer_value[data.get('cp10b', 0)],
+            bench_mark_11=answer_value[data.get('cp11b', 0)],
+            bench_mark_12=answer_value[data.get('cp12b', 0)],
+            bench_mark_13=answer_value[data.get('cp13b', 0)],
+            bench_mark_14=answer_value[data.get('cp14b', 0)],
+            bench_mark_15=answer_value[data.get('cp15b', 0)],
+            bench_mark_16=answer_value[data.get('cp16b', 0)],
+            bench_mark_17=answer_value[data.get('cp17b', 0)],
+            event=event,
+            care_giver=RegPerson.objects.get(id=OVCRegistration.objects.get(person=child).caretaker_id),
+        )
+        print 'Benchmark saved successfully'
         # get relations
     guardians = RegPersonsGuardians.objects.select_related().filter(
         child_person=id, is_void=False, date_delinked=None)
