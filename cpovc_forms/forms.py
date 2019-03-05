@@ -137,14 +137,14 @@ olmis_ha31_list = get_list('olmis_ha31_id', 'Please Select')
 YESNO_CHOICES_REFUSE = (('AYES', 'Yes'), ('ANNO', 'No'), ('AREFUSE', 'Refuse'))
 
 FAVORITE_COLORS_CHOICES = (
-        ('blue', 'Provide money'),
-        ('green', 'Look after the children'),
-        ('black1', 'Help with house chores'),
-        ('black2', 'Work on the farms'),
-        ('black3', 'Collect water and/ or wood'),
-        ('black4', 'Take care of animals'),
-        ('black5', 'Bring food'),
-        ('black6', 'Other')
+        ('Provide money', 'Provide money'),
+        ('Look after the children', 'Look after the children'),
+        ('Help with house chores', 'Help with house chores'),
+        ('Work on the farms', 'Work on the farms'),
+        ('Collect water and/ or wood', 'Collect water and/ or wood'),
+        ('Take care of animals', 'Take care of animals'),
+        ('Bring food', 'Bring food'),
+        ('Other', 'Other')
     )
 
 class OVCSchoolForm(forms.Form):
@@ -3553,40 +3553,40 @@ FAMILY_HELP_CHOICES = (
 
 
 CHILD_NOT_ENROLLED = (
-        ('FAMILY_HELP_CHOICES1', 'Sick/ Fever'),
-        ('FAMILY_HELP_CHOICES2', 'Housework'),
-        ('FAMILY_HELP_CHOICES3', 'Exhaustion'),
-        ('FAMILY_HELP_CHOICES4', 'Fear of the school or other children at school'),
-        ('FAMILY_HELP_CHOICES5', 'Fear of the walk to school'),
-        ('FAMILY_HELP_CHOICES', 'Inability to pay school fees'),
-        ('FAMILY_HELP_CHOICES', 'Inability to pay for school materials'),
-        ('FAMILY_HELP_CHOICES', 'specify if other')
+        ('Sick/ Fever', 'Sick/ Fever'),
+        ('Housework', 'Housework'),
+        ('Exhaustion', 'Exhaustion'),
+        ('Fear of the school or other children at school', 'Fear of the school or other children at school'),
+        ('Fear of the walk to school', 'Fear of the walk to school'),
+        ('Inability to pay school fees', 'Inability to pay school fees'),
+        ('Inability to pay for school materials', 'Inability to pay for school materials'),
+        ('specify if other', 'specify if other')
     )
 
 
 
 PARENTING_INFORMATION_SOURCE = (
-        ('PARENTING_INFORMATION_SOURCE1', 'Radio'),
-        ('PARENTING_INFORMATION_SOURCE2', 'Counseling'),
-        ('PARENTING_INFORMATION_SOURCE3', 'Mentoring from Caseworkers'),
-        ('PARENTING_INFORMATION_SOURCE4', 'Care group'),
-        ('PARENTING_INFORMATION_SOURCE5', 'Community Meeting'),
-        ('PARENTING_INFORMATION_SOURCE6', 'Health care facility'),
-        ('PARENTING_INFORMATION_SOURCE7', 'Schools'),
-        ('PARENTING_INFORMATION_SOURCE8', 'Under five clinic'),
-        ('PARENTING_INFORMATION_SOURCE9', 'Other')
+        ('Radio', 'Radio'),
+        ('Counseling', 'Counseling'),
+        ('Mentoring from Caseworkers', 'Mentoring from Caseworkers'),
+        ('Care group', 'Care group'),
+        ('Community Meeting', 'Community Meeting'),
+        ('Health care facility', 'Health care facility'),
+        ('Schools', 'Schools'),
+        ('Under five clinic', 'Under five clinic'),
+        ('Other', 'Other')
     )
 
 
 COMMUNITY_GROUPS = (
-        ('COMMUNITY_GROUPS1', 'Womens group'),
-        ('COMMUNITY_GROUPS2', 'Church/Religious group'),
-        ('COMMUNITY_GROUPS3', 'Parents/Caregivers group'),
-        ('COMMUNITY_GROUPS4', 'HIV support group'),
-        ('COMMUNITY_GROUPS5', 'Community savings group'),
-        ('COMMUNITY_GROUPS6', 'Trade association or business group'),
-        ('COMMUNITY_GROUPS7', 'Political group'),
-        ('COMMUNITY_GROUPS8', 'Other')
+        ('Womens group', 'Womens group'),
+        ('Church/Religious group', 'Church/Religious group'),
+        ('Parents/Caregivers group', 'Parents/Caregivers group'),
+        ('HIV support group', 'HIV support group'),
+        ('Community savings group', 'Community savings group'),
+        ('Trade association or business group', 'Trade association or business group'),
+        ('Political group', 'Political group'),
+        ('Other', 'Other')
     )
 
 FAMILY_MEMBER_STATUS = (('ELSEWHERE', 'Live / work elsewhere'), ('DECEASED', 'Deceased'), ('OTHER', 'Other (specify)'))
@@ -3601,6 +3601,14 @@ class Wellbeing(forms.Form):
 
 
     ##Domain Safe
+
+    name=forms.CharField(label='Your name')
+
+    household_id = forms.CharField(widget=forms.TextInput(
+        attrs={'class': 'form-control',
+               'id': 'household_id',
+               'type': 'hidden'
+               }))
 
     WB_SAF_1_1 = forms.MultipleChoiceField(
         required=False,
@@ -4274,11 +4282,7 @@ class Wellbeing(forms.Form):
         choices=WB_HEL_22CHOICES,
     )
 
-    household_id = forms.CharField(widget=forms.TextInput(
-        attrs={'class': 'form-control',
-               'id': 'household_id',
-               'type': 'hidden'
-               }))
+
 
 class WellbeingAdolescentForm(forms.Form):
 

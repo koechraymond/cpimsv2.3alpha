@@ -8579,7 +8579,6 @@ def new_wellbeing(request, id):
                     entity_type='wellbeing'
                     if(key in comments):
                         entity_type='comment'
-                        print "yessssssssssssssssssssssssssssss"
                     kvals = {"entity": entity_type, "value": val, "question_code": key,
                              'domain': 1}
                     persist_wellbeing_data(kvals, value, person, house_hold, new_events_pk)
@@ -8595,9 +8594,14 @@ def new_wellbeing(request, id):
 
     # get household members/ caretaker/ household_id
     household_id = None
+    ovcreg=None
+    person_sex_type='male'
     try:
         ovcreg = get_object_or_404(OVCRegistration, person_id=id, is_void=False)
+
+        person_sex_type='male' if ovcreg.caretaker.sex_id=='SMAL' else 'female'
         caretaker_id = ovcreg.caretaker_id if ovcreg else None
+
         ovchh = get_object_or_404(OVCHouseHold, head_person=caretaker_id, is_void=False)
         household_id = ovchh.id if ovchh else None
     except Exception, e:
@@ -8611,9 +8615,11 @@ def new_wellbeing(request, id):
         child_person=id, is_void=False, date_delinked=None)
     siblings = RegPersonsSiblings.objects.select_related().filter(
         child_person=id, is_void=False, date_delinked=None)
+
     # Reverse relationship
     osiblings = RegPersonsSiblings.objects.select_related().filter(
         sibling_person=id, is_void=False, date_delinked=None)
+
     oguardians = RegPersonsGuardians.objects.select_related().filter(
         guardian_person=id, is_void=False, date_delinked=None)
 
@@ -8629,10 +8635,12 @@ def new_wellbeing(request, id):
                       'form': form,
                       'init_data': init_data,
                       'vals': vals,
+                      'ovcreg':ovcreg,
                       'person': id,
                       'guardians': guardians,
                       'siblings': siblings,
                       'osiblings': osiblings,
+                      'person_sex_type': person_sex_type,
                       'oguardians': oguardians
                   })
 

@@ -229,18 +229,19 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                             </td>
 
                                                             <td>
-                                                                Name:<label style="display: block" for="care-name">Florence
-                                                                Omusi</label>
-                                                                Phone:<label style="display: block" for="care-name">0713489990</label>
+                                                                Name:<label style="display: block" for="care-name">{{ovcreg.caretaker.first_name}} {{ovcreg.caretaker.other_names}}
+                                                                {{ovcreg.caretaker.surname}}
+                                                                </label>
+                                                                Phone:<label style="display: block" for="care-name">{{ovcreg.caretaker.des_phone_number}}</label>
                                                                 Physical:<label style="display: block" for="care-name">slip
                                                                 road</label>
                                                                 Date of Birth:<label style="display: block"
-                                                                                     for="care-age"> 09/07/1987</label>
+                                                                                     for="care-age"> {{ovcreg.caretaker.date_of_birth}}</label>
                                                             </td>
                                                             <td>
                                                                 Age:<label style="display: block" for="care-age">
                                                                 31</label>
-                                                                Gender:<label style="display: block" for="care-name">Female</label>
+                                                                Gender:<label style="display: block" for="care-name">{{person_sex_type}}</label>
                                                                 What is your marital status:<label
                                                                     style="display: block"
                                                                     for="care-name">Single</label>
