@@ -8566,8 +8566,6 @@ def new_wellbeing(request, id):
             ovccareevent.save()
             new_events_pk = ovccareevent.pk
 
-            print "event saved"
-
             entity_values = []
 
             for key in request.POST:
@@ -8617,15 +8615,10 @@ def new_wellbeing(request, id):
     #     child_person=id, is_void=False, date_delinked=None)
     ovc_id = int(id)
     child = RegPerson.objects.get(is_void=False, id=ovc_id)
-    print "the child ============"
-    print child
-    print "child id ============"
-    print child.id
 
     siblings = RegPersonsSiblings.objects.filter(
         is_void=False, child_person=child.id)
-    print "siblings ============"
-    print siblings
+
     # Reverse relationship
     osiblings = RegPersonsSiblings.objects.select_related().filter(
         sibling_person=id, is_void=False, date_delinked=None)
