@@ -8485,6 +8485,22 @@ def form_bursary(request, id):
         pass
 
 
+def save_cpara_form_by_domain(id, question, answer, house_hold, event, domain='GEN'):
+    try:
+        OVCCareCpara.objects.create(
+            person_id=id,
+            question=question,
+            answer=answer,
+            household=house_hold,
+            question_type=question.question_type,
+            domain=domain,
+            event=event
+        )
+    except Exception as e:
+        print 'error saving cpara - %s' % (str(e))
+        print question.code
+        return False
+
 @login_required
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def new_cpara(request, id):
@@ -8500,20 +8516,32 @@ def new_cpara(request, id):
             person=child,
             house_hold=house_hold
         )
+        from cpovc_forms.models import OVCCareQuestions
+        questions = OVCCareQuestions.objects.all()
+        for question in questions:
+            save_cpara_form_by_domain(
+                id=id,
+                question=question,
+                answer=data.get(question.code.lower()),
+                house_hold=house_hold,
+                event=event
+            )
         # cpara_obj = OVCCareCpara.objects.create(
         #     person_id = id,
-        #     question = '',
+        #     question = questions.get(''),
         #     answer = '',
         #     household_id = house_hold,
         #     question_type = '',
         #     domain = '',
-        #     event_id = event)
+        #     event_id = event
+        #     )
         from cpovc_forms.models import OVCCareBenchmarkScore
         answer_value = {
             'AYES': 1,
             'ANNO': 0,
             0: 0
         }
+        # Saving Benchmarks
         OVCCareBenchmarkScore.objects.create(
             household=house_hold,
             bench_mark_1=answer_value[data.get('cp1b', 0)],
@@ -8537,6 +8565,10 @@ def new_cpara(request, id):
             care_giver=RegPerson.objects.get(id=OVCRegistration.objects.get(person=child).caretaker_id),
         )
         print 'Benchmark saved successfully'
+        msg = 'Benchmark Assessment save successful'
+        messages.add_message(request, messages.INFO, msg)
+        url = reverse('ovc_view', kwargs={'id': id})
+        return HttpResponseRedirect(url)
         # get relations
     guardians = RegPersonsGuardians.objects.select_related().filter(
         child_person=id, is_void=False, date_delinked=None)
