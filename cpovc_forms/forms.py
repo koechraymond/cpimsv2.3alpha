@@ -3661,7 +3661,7 @@ class Wellbeing(forms.Form):
     WB_SAF_31_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other specify'),
                'class': 'form-control',
-               'id': 'WB_STA_1_2'
+               'id': 'WB_SAF_31_2'
             # ,
             #    'data-parsley-required': "False"
                }))
@@ -3698,10 +3698,10 @@ class Wellbeing(forms.Form):
     WB_SAF_34_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other specify'),
                'class': 'form-control',
-               'id': 'WB_STA_1_2'
-            # ,
-               # 'data-parsley-required': "False"
-               }))
+               'id': 'WB_SAF_34_2'
+        # ,
+        # 'data-parsley-required': "False"
+    }))
 
     WB_SAF_35_1 = forms.ChoiceField(
         choices=YESNO_CHOICES_REFUSE,
@@ -3725,7 +3725,7 @@ class Wellbeing(forms.Form):
                'id': 'WB_SAF_36_2'
             # ,
             #    'data-parsley-required': "False"
-               }))
+    }))
 
     WB_SAF_37_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other specify'),
@@ -3846,6 +3846,8 @@ class Wellbeing(forms.Form):
     WB_SCH_42_1 = forms.CharField(widget=forms.NumberInput(
         attrs={'placeholder': _('Grade/form/year'),
                'class': 'form-control',
+               'min': '1',
+               'max': '8',
                'id': 'WB_SCH_42_1'
             # ,
             #    'data-parsley-required': "False"
@@ -3863,6 +3865,8 @@ class Wellbeing(forms.Form):
     WB_SCH_43_1 = forms.CharField(widget=forms.NumberInput(
         attrs={'placeholder': _('Grade/form/year'),
                'class': 'form-control',
+               'min': '1',
+               'max': '8',
                'id': 'WB_SCH_43_1'
             # ,
             #    'data-parsley-required': "False"
