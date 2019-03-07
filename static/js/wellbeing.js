@@ -207,7 +207,7 @@ $("input[name='WB_STA_5_1'][value='Other']").on('change', function () {
     if (ival == 'Other' && $(this).prop('checked')) {
         unhideQn('WB_STA_5_2');
     }else{
-        hideQn('WB_STA_4_2');
+        hideQn('WB_STA_5_2');
     }
 });
 

@@ -3383,7 +3383,8 @@ WB_STA_4_1_CHOICES = (
     ('Cellphone(s)', 'Cellphone(s)'),
     ('Gas Lamp', 'Gas Lamp'),
     ('Lantern', 'Lantern'),
-    ('Radio', 'Radio')
+    ('Radio', 'Radio'),
+    ('Other', 'Other (specify)'),
 
 )
 
