@@ -918,6 +918,9 @@ class OVCCareForms(models.Model):
     class Meta:
         db_table = 'ovc_care_forms'
 
+    def __unicode__(self):
+        return str(self.form_id)
+
 
 class OVCCareBenchmarkScore(models.Model):
     bench_mark_score_id = models.AutoField(primary_key=True)
@@ -953,6 +956,9 @@ class OVCCareBenchmarkScore(models.Model):
     class Meta:
         db_table = 'ovc_care_benchmark_score'
 
+    def __unicode__(self):
+        return str(self.bench_mark_score_id)
+
 
 class OVCCareCpara(models.Model):
     cpara_id = models.AutoField(primary_key=True)
@@ -966,12 +972,17 @@ class OVCCareCpara(models.Model):
     date_of_event = models.DateField()
     timestamp_created = models.DateTimeField(default=timezone.now)
     is_void = models.BooleanField(default=False)
+    timestamp_created = models.DateTimeField(default=timezone.now)
+    timestamp_updated = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
         return self.answer
 
     class Meta:
         db_table = 'ovc_care_cpara'
+
+    def __unicode__(self):
+        return str(self.cpara_id)
 
 
 class OVCCareWellbeing(models.Model):
@@ -993,6 +1004,9 @@ class OVCCareWellbeing(models.Model):
 
     class Meta:
         db_table = 'ovc_care_well_being'
+
+    def __unicode__(self):
+        return str(self.well_being_id)
 
 
 class OVCCareCasePlan(models.Model):
@@ -1019,6 +1033,9 @@ class OVCCareCasePlan(models.Model):
     class Meta:
         db_table = 'ovc_care_case_plan'
 
+    def __unicode__(self):
+        return str(self.case_plan_id)
+
 
 class OVCHouseholdDemographics(models.Model):
     household_demographics_id = models.AutoField(primary_key=True)
@@ -1034,6 +1051,9 @@ class OVCHouseholdDemographics(models.Model):
     class Meta:
         db_table = 'ovc_household_demographics'
 
+    def __unicode__(self):
+        return str(self.household_demographics_id)
+
 
 class OVCExplanations(models.Model):
     explanation_id = models.AutoField(primary_key=True)
@@ -1041,11 +1061,16 @@ class OVCExplanations(models.Model):
     comment = models.CharField(max_length=255)
     form = models.ForeignKey(OVCCareForms)
     event = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
+    is_void = models.BooleanField(default=False)
+    timestamp_updated = models.DateTimeField(auto_now=True)
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'ovc_explanations'
+
+    def __unicode__(self):
+        return str(self.explanation_id)
 
 
 class OVCGoals(models.Model):
@@ -1054,12 +1079,16 @@ class OVCGoals(models.Model):
     goal = models.CharField(max_length=255)
     action = models.CharField(max_length=255)
     event = models.ForeignKey(OVCCareEvents)
+    is_void = models.BooleanField(default=False)
     date_of_event = models.DateField()
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
 
     class Meta:
         db_table = 'ovc_goals'
+
+    def __unicode__(self):
+        return str(self.goal_id)
 
 
 class OVCReferrals(models.Model):
@@ -1079,6 +1108,9 @@ class OVCReferrals(models.Model):
 
     class Meta:
         db_table = 'ovc_cp_referrals'
+
+    def __unicode__(self):
+        return str(self.referral_id)
 
 
 class OVCMonitoring(models.Model):
@@ -1104,6 +1136,9 @@ class OVCMonitoring(models.Model):
     class Meta:
         db_table = 'ovc_monitoring'
 
+    def __unicode__(self):
+        return str(self.monitoring_id)
+
 
 class OVCHivStatus(models.Model):
     hiv_status_id = models.AutoField(primary_key=True)
@@ -1114,21 +1149,31 @@ class OVCHivStatus(models.Model):
     date_of_event = models.DateField()
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
-    # date_1 = models.DateTimeField(default=timezone.now)
 
     class Meta:
         db_table = 'ovc_hiv_status'
+
+    def __unicode__(self):
+        return str(self.hiv_status_id)
 
 
 class OVCCareQuestions(models.Model):
     question_id = models.UUIDField(primary_key=True, default=uuid.uuid1, editable=False)
     code = models.CharField(max_length=5)
-    question = models.CharField(max_length=255)
+    question = models.CharField(max_length=55)
+    domain = models.CharField(max_length=10)
+    question_text = models.CharField(max_length=255)
     question_type = models.CharField(max_length=20, null=False)
     form = models.ForeignKey(OVCCareForms)
+    is_void = models.BooleanField(default=False)
+    timestamp_created = models.DateTimeField(default=timezone.now)
+    timestamp_updated = models.DateTimeField(auto_now=True)
 
     def __unicode__(self):
         return self.code
 
     class Meta:
         db_table = 'ovc_care_questions'
+
+    def __unicode__(self):
+        return str(self.question_id)
