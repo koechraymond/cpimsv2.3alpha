@@ -957,6 +957,7 @@ class OVCCareBenchmarkScore(models.Model):
 class OVCCareCpara(models.Model):
     cpara_id = models.AutoField(primary_key=True)
     person = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
+    question_code = models.CharField(max_length=10, null=False, blank=True)
     question = models.ForeignKey('OVCCareQuestions')
     answer = models.CharField(max_length=15)
     household = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
@@ -970,6 +971,10 @@ class OVCCareCpara(models.Model):
     def __unicode__(self):
         return self.answer
 
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        super(OVCCareCpara, self).save(force_insert, force_update, using, update_fields)
+        self.question_code = self.question.code
+
     class Meta:
         db_table = 'ovc_care_cpara'
 
@@ -977,6 +982,7 @@ class OVCCareCpara(models.Model):
 class OVCCareWellbeing(models.Model):
     well_being_id = models.AutoField(primary_key=True)
     person = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
+    question_code = models.CharField(max_length=10, null=False, blank=True)
     question = models.ForeignKey('OVCCareQuestions')
     answer = models.CharField(max_length=15)
     household = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
@@ -990,6 +996,11 @@ class OVCCareWellbeing(models.Model):
 
     def __unicode__(self):
         return self.answer
+
+    def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
+        super(OVCCareWellbeing, self).save(force_insert, force_update, using, update_fields)
+        self.question_code = self.question.code
+
 
     class Meta:
         db_table = 'ovc_care_well_being'
