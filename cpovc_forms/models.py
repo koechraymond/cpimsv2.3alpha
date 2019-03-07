@@ -1137,7 +1137,7 @@ class OVCHivStatus(models.Model):
     class Meta:
         db_table = 'ovc_hiv_status'
 
-    def __init__(self):
+    def __unicode__(self):
         return str(self.hiv_status_id)
 
 
@@ -1156,5 +1156,5 @@ class OVCCareQuestions(models.Model):
     class Meta:
         db_table = 'ovc_care_questions'
 
-    def __init__(self):
+    def __unicode__(self):
         return str(self.question_id)
