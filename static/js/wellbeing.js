@@ -161,6 +161,76 @@ $("input[name='WB_SCH_41_1'][value='Other']").on('change', function () {
     }
 });
 
+hideQn('WB_STA_1_2');
+$("input[name='WB_STA_1_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_1_2');
+    }else{
+        hideQn('WB_STA_1_2');
+    }
+});
+
+hideQn('WB_STA_2_2');
+$("input[name='WB_STA_2_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_2_2');
+    }else{
+        hideQn('WB_STA_2_2');
+    }
+});
+
+hideQn('WB_STA_3_2');
+$("input[name='WB_STA_3_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_3_2');
+    }else{
+        hideQn('WB_STA_3_2');
+    }
+});
+
+hideQn('WB_STA_4_2');
+$("input[name='WB_STA_4_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_4_2');
+    }else{
+        hideQn('WB_STA_4_2');
+    }
+});
+
+hideQn('WB_STA_5_2');
+$("input[name='WB_STA_5_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_5_2');
+    }else{
+        hideQn('WB_STA_4_2');
+    }
+});
+
+hideQn('WB_STA_8_2');
+$("input[name='WB_STA_8_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_8_2');
+    }else{
+        hideQn('WB_STA_8_2');
+    }
+});
+
+hideQn('WB_STA_9_2');
+$("input[name='WB_STA_9_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_9_2');
+    }else{
+        hideQn('WB_STA_9_2');
+    }
+});
+
 hideQn('WB_SCH_42_1');
 $("input[name='WB_SCH_42_2']").on('change', function () {
     if ($(this).prop('checked')) {

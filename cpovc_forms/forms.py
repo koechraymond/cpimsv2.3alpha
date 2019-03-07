@@ -3399,7 +3399,7 @@ WB_STA_5_1_CHOICES = (
     ('Small business', 'Small business'),
     ('Formal employment', 'Formal employment'),
     ('Unemployed', 'Unemployed'),
-    ('Other (specify)', 'Other (specify)')
+    ('Other', 'Other (specify)')
 
 )
 
@@ -3412,7 +3412,7 @@ WB_STA_8_1_CHOICES = (
     ('School Fees', 'School Fees'),
     ('Entertainment', 'Entertainment'),
     ('Transport(fair)', 'Transport(fair)'),
-    ('Other (specify)', 'Other (specify)')
+    ('Other', 'Other (specify)')
 
 )
 
@@ -3426,7 +3426,7 @@ WB_STA_9_1_CHOICES = (
     ('Other programs/bursaries', 'Other programs/bursaries'),
     ('Selling of assets', 'Selling of assets'),
     ('Borrowing', 'Borrowing'),
-    ('specify Other', 'specify Other')
+    ('Other', 'specify Other')
 
 )
 
@@ -3978,7 +3978,7 @@ class Wellbeing(forms.Form):
     WB_STA_2_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other specify'),
                'class': 'form-control',
-               'id': 'WB_STA_1_2'
+               'id': 'WB_STA_2_2'
             # ,
             #    'data-parsley-required': "False"
                }))
@@ -3995,7 +3995,7 @@ class Wellbeing(forms.Form):
     WB_STA_3_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other specify'),
                'class': 'form-control',
-               'id': 'WB_STA_1_2'
+               'id': 'WB_STA_3_2'
             # ,
             #    'data-parsley-required': "False"
                }))
@@ -4011,7 +4011,7 @@ class Wellbeing(forms.Form):
     WB_STA_4_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other specify'),
                'class': 'form-control',
-               'id': 'WB_STA_1_2'
+               'id': 'WB_STA_4_2'
             # ,
             #    'data-parsley-required': "False"
                }))
@@ -4066,7 +4066,8 @@ class Wellbeing(forms.Form):
     )
     WB_STA_8_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other specify'),
-               'class': 'form-control'
+               'class': 'form-control',
+               'id': 'WB_STA_8_2'
             # ,
             #    'data-parsley-required': "False"
                }))
@@ -4081,7 +4082,7 @@ class Wellbeing(forms.Form):
     WB_STA_9_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other specify'),
                'class': 'form-control',
-               'id': 'WB_STA_1_2'
+               'id': 'WB_STA_9_2'
             # ,
             #    'data-parsley-required': "False"
                }))
