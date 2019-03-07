@@ -9,6 +9,7 @@ from cpovc_registry.models import RegOrgUnit
 from cpovc_main.models import SchoolList
 # New lists
 YESNO_CHOICES = (('AYES', 'Yes'), ('ANNO', 'No'))
+CPARA_MONITORING_CASE_CHOICES = (('1', 'First'), ('2', 'Second'), ('3', 'Third'))
 bursary_school_type_list = (('STPR', 'Private'), ('STPU', 'Public'))
 bursary_school_category_list = (('SCNA', 'National'), ('SCCT', 'County'), ('SCSC', 'Sub-County'))
 bursary_school_enrolled_list = (('SEDY', 'Day'), ('SEBO', 'Boarding'), ('SESP', 'Special'))
@@ -3925,75 +3926,82 @@ class CparaAssessment(forms.Form):
             'class': 'form-control'
         }))
 
+
 class CparaMonitoring(forms.Form):
-    cpm1 = forms.ChoiceField(
+    cm1d = forms.DateField(widget=forms.TextInput(
+        attrs={'class': 'form-control',
+               'id': 'disbursement_date',
+               'data-parsley-required': "true",
+               'data-parsley-group': 'group1'
+               }))
+    cm2q = forms.ChoiceField(
         choices=YESNO_CHOICES,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
-    cpm2 = forms.ChoiceField(
+    cm3q = forms.ChoiceField(
         choices=YESNO_CHOICES,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
-    cpm3 = forms.ChoiceField(
+    cm4q = forms.ChoiceField(
         choices=YESNO_CHOICES,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
-    cpm4 = forms.ChoiceField(
+    cm5q = forms.ChoiceField(
         choices=YESNO_CHOICES,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
-    cpm5 =forms.ChoiceField(
+    cm6q =forms.ChoiceField(
         choices=YESNO_CHOICES,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
-    cpm6 = forms.ChoiceField(
+    cm7q = forms.ChoiceField(
         choices=YESNO_CHOICES,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
-    cpm7 = forms.ChoiceField(
+    cm8q = forms.ChoiceField(
         choices=YESNO_CHOICES,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
-    cmp8 = forms.ChoiceField(
+    cm9q = forms.ChoiceField(
         choices=YESNO_CHOICES,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
-    cpm9 = forms.ChoiceField(
+    cm10q = forms.ChoiceField(
         choices=YESNO_CHOICES,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
-    cpm10 = forms.ChoiceField(
+    cm11q = forms.ChoiceField(
         choices=YESNO_CHOICES,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
-    cpm11 = forms.ChoiceField(
+    cm12q = forms.ChoiceField(
         choices=YESNO_CHOICES,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
-    cpm12 = forms.ChoiceField(
-        choices=YESNO_CHOICES,
+    cm13q = forms.ChoiceField(
+        choices=CPARA_MONITORING_CASE_CHOICES,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',

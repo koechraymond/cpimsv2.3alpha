@@ -31,7 +31,7 @@ from .models import (
     OVCCaseEventClosure, OVCCaseGeo, OVCMedicalSubconditions, OVCBursary,
     OVCFamilyCare, OVCCaseEventSummon, OVCCareEvents, OVCCarePriority,
     OVCCareServices, OVCCareEAV, OVCCareAssessment, OVCGokBursary, OVCCareCpara, OVCCareQuestions,
-    OVCCareBenchmarkScore)
+    OVCCareBenchmarkScore, OVCMonitoring)
 from cpovc_ovc.models import OVCRegistration, OVCHHMembers, OVCHealth, OVCHouseHold
 from cpovc_main.functions import (
     get_list_of_org_units, get_dict, get_vgeo_list, get_vorg_list,
@@ -8501,6 +8501,7 @@ def new_cpara(request, id):
             house_hold=house_hold
         )
         questions = OVCCareQuestions.objects.filter(code__startswith='cp')
+        exceptions = ['cp2d', 'cp2q', 'cp74q', 'cp34q', 'cp18q']
         for question in questions:
             save_cpara_form_by_domain(
                 id=id,
@@ -8508,7 +8509,8 @@ def new_cpara(request, id):
                 answer=data.get(question.code.lower()),
                 house_hold=house_hold,
                 event=event,
-                date_event=convert_date(date_of_event)
+                date_event=convert_date(date_of_event),
+                exceptions=exceptions
             )
         answer_value = {
             'AYES': 1,
@@ -8579,11 +8581,57 @@ def case_plan_template(request, id):
 
 @login_required
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
-def new_rcpa(request, id):
-    print request.POST
+def new_case_plan_monitoring(request, id):
+    if request.method == 'POST':
+        data = request.POST
+        child = RegPerson.objects.get(id=id)
+        house_hold = OVCHouseHold.objects.get(id=OVCHHMembers.objects.get(person=child).house_hold_id)
+        event = OVCCareEvents.objects.create(
+            event_type_id='cpr',
+            created_by=request.user.id,
+            person=child,
+            house_hold=house_hold
+        )
+        event_date = convert_date(data.get('cm1d'))
+        month = event_date.month
+        quarter = 0
+        if month in [10, 11, 12]:
+            quarter = 1
+        elif month in [1, 2, 3]:
+            quarter = 2
+        elif month in [4, 5, 6]:
+            quarter = 3
+        elif month in [7, 8, 9]:
+            quarter = 4
+        answer_value = {
+            'AYES': 'Yes',
+            'ANNO': 'No'
+        }
+        try:
+            OVCMonitoring.objects.create(
+                household=house_hold,
+                hiv_status_knowledge=answer_value[data.get('cm2q')],
+                viral_suppression=answer_value[data.get('cm3q')],
+                hiv_prevention=answer_value[data.get('cm4q')],
+                undernourished=answer_value[data.get('cm5q')],
+                access_money=answer_value[data.get('cm6q')],
+                violence=answer_value[data.get('cm7q')],
+                caregiver=answer_value[data.get('cm8q')],
+                school_attendance=answer_value[data.get('cm9q')],
+                school_progression=answer_value[data.get('cm10q')],
+                cp_achievement=answer_value[data.get('cm11q')],
+                case_closure=answer_value[data.get('cm12q')],
+                case_closure_checked=data.get('cm13q'),
+                quarter=quarter,
+                event=event,
+                event_date=event_date
+            )
+        except Exception as e:
+            print 'error saving caseplan monitoring - %s' % (str(e))
+            return False
+        msg = 'Case Plan Monitoring saved successful'
+        messages.add_message(request, messages.INFO, msg)
+        url = reverse('ovc_view', kwargs={'id': id})
+        return HttpResponseRedirect(url)
     form = CparaMonitoring()
-    return render(request,
-                  'forms/new_rcpa.html',
-                  {
-                      'form': form,
-                  })
+    return render(request, 'forms/new_case_plan_monitoring.html', {'form': form})
