@@ -3512,6 +3512,30 @@ class CparaAssessment(forms.Form):
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
+    cp23qa = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp23qb = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp23qc = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
+    cp23qd = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={'data-parsley-required': 'true',
+                   'data-parsley-errors-container': "#signed_csac_error"}))
     cp4b = forms.ChoiceField(
         choices=YESNO_CHOICES,
         widget=forms.RadioSelect(
@@ -3590,7 +3614,12 @@ class CparaAssessment(forms.Form):
             renderer=RadioCustomRenderer,
             attrs={'data-parsley-required': 'true',
                    'data-parsley-errors-container': "#signed_csac_error"}))
-    cp34q = forms.ChoiceField(
+    cp34q = forms.CharField(widget=forms.TextInput(
+        attrs={
+            'placeholder': _('Describe'),
+            'class': 'form-control'
+        }))
+    cp35q = forms.ChoiceField(
         choices=YESNO_CHOICES,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,

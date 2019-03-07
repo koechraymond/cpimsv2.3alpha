@@ -8485,7 +8485,19 @@ def form_bursary(request, id):
         pass
 
 
-def save_cpara_form_by_domain(id, question, answer, house_hold, event, domain='GEN'):
+def save_cpara_form_by_domain(id, question, answer, house_hold, event, date_event, domain='GEN'):
+    answer_value = {
+        'AYES': 'Yes',
+        'ANNO': 'No',
+        'No': 'No'
+    }
+    qn_code = []
+    if answer is None:
+        qn_code.append(question.code.lower())
+        answer = 'No'
+        print qn_code
+    if question.code.lower() not in ['cp2d', 'cp2q', 'cp74q', 'cp34q', 'cp18q']:
+        answer = answer_value[answer]
     try:
         OVCCareCpara.objects.create(
             person_id=id,
@@ -8494,7 +8506,8 @@ def save_cpara_form_by_domain(id, question, answer, house_hold, event, domain='G
             household=house_hold,
             question_type=question.question_type,
             domain=domain,
-            event=event
+            event=event,
+            date_of_event=date_event
         )
     except Exception as e:
         print 'error saving cpara - %s' % (str(e))
@@ -8509,6 +8522,7 @@ def new_cpara(request, id):
         child = RegPerson.objects.get(id=id)
         from cpovc_ovc.models import OVCHHMembers
         house_hold = OVCHouseHold.objects.get(id=OVCHHMembers.objects.get(person=child).house_hold_id)
+        date_of_event = data.get('cp2d')
         print data
         event = OVCCareEvents.objects.create(
             event_type_id='cpr',
@@ -8524,7 +8538,8 @@ def new_cpara(request, id):
                 question=question,
                 answer=data.get(question.code.lower()),
                 house_hold=house_hold,
-                event=event
+                event=event,
+                date_event=convert_date(date_of_event)
             )
         # cpara_obj = OVCCareCpara.objects.create(
         #     person_id = id,
