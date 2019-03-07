@@ -28,6 +28,6 @@ python manage.py loaddata cpovc_main/fixtures/initial_persons_externalids.csv.js
 python manage.py loaddata cpovc_main/fixtures/initial_persons_geo.csv.json
 python manage.py loaddata cpovc_main/fixtures/initial_persons_org_units.csv.json
 
-python manage.py loaddata cpovc_forms/fixtures/ovc_care_forms.jsons
-python manage.py loaddata cpovc_forms/fixtures/ovc_care_questions.jsons
+python manage.py loaddata cpovc_forms/fixtures/ovc_care_forms.json
+python manage.py loaddata cpovc_forms/fixtures/ovc_care_questions.json
 
