@@ -3465,32 +3465,39 @@ WB_STA_13_1_CHOICES = (
 
 
 WB_STA_25_1_CHOICES = (
-    ('blue', 'My child'),
-    ('blue', 'My spouse'),
-    ('green', 'A friend/neighbour'),
-    ('black1', 'Boyfriend/ girlfriend'),
-    ('black2', 'Member of the family'),
-    ('black3', 'Pastor or priest'),
-    ('black3', 'Other')
+    ('CHILD', 'My child'),
+    ('SPOUSE', 'My spouse'),
+    ('FRIEND_NEIGHBOUR', 'A friend/neighbour'),
+    ('BG_GF', 'Boyfriend/ girlfriend'),
+    ('FAMILY', 'Member of the family'),
+    ('PASTOR', 'Pastor or priest'),
+    ('Other', 'Other')
 
 )
 
 WB_HEL_26_1_CHOICES = (
-    ('blue', 'Yes'),
-    ('blue', 'No'),
-    ('green', 'I refuse to answer'),
+    ('YES', 'Yes'),
+    ('NO', 'No'),
+    ('Refuse', 'I refuse to answer'),
+)
+
+WB_HEL_28_1_CHOICES = (
+    ('YES', 'Yes'),
+    ('NO', 'No'),
+    ('Refuse', 'I refuse to answer'),
+    ('Other', 'Other (please specify)'),
 )
 
 WB_HEL_27_1_CHOICES = (
-    ('blue', 'I am part of a support group'),
-    ('blue', 'I speak with people who I am close with or my family'),
-    ('green', 'I speak with my doctor'),
-    ('blue', 'I speak with my pastor or priest'),
-    ('blue', ' I face it all alone'),
+    ('SUPPORT_GROUP', 'I am part of a support group'),
+    ('CLOSE_PPL', 'I speak with people who I am close with or my family'),
+    ('DOCTOR', 'I speak with my doctor'),
+    ('PASTOR', 'I speak with my pastor or priest'),
+    ('ALONE', ' I face it all alone'),
 
     ('blue', 'I avoid thinking about it because its too difcult'),
-    ('green', 'I do not face stigma'),
-    ('green', 'Other please '),
+    ('NOSTIGMA', 'I do not face stigma'),
+    ('Other', 'Other please '),
 )
 WB_HEL_14_YNR = (('AYES', 'Yes'), ('ANNO', 'No'))
 WB_HEL_17YNR = (('AYES', 'Yes'), ('ANNO', 'No'), ('AREFUSE', 'Refuse'))
@@ -4170,7 +4177,7 @@ class Wellbeing(forms.Form):
     WB_HEL_25_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other specify'),
                'class': 'form-control',
-               'id': 'WB_STA_25_2'
+               'id': 'WB_HEL_25_2'
             # ,
             #    'data-parsley-required': "False"
                }))
@@ -4194,11 +4201,13 @@ class Wellbeing(forms.Form):
     WB_HEL_28_1 = forms.MultipleChoiceField(
         required=False,
         widget=forms.CheckboxSelectMultiple,
-        choices=WB_HEL_26_1_CHOICES,)
+        choices=WB_HEL_28_1_CHOICES,)
 
     WB_HEL_28_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other specify'),
-               'class': 'form-control'  # ,
+               'class': 'form-control',
+               'id': 'WB_HEL_28_2'
+                 # ,
                #    'data-parsley-required': "False"
                }))
 
@@ -4246,7 +4255,7 @@ class Wellbeing(forms.Form):
         choices=WB_HEL_16_2_CHOICES,
     )
     WB_HEL_16_3=forms.CharField(widget=forms.Textarea(
-        attrs={'rows': '3', 'class': 'form-control','placeholder': 'Specify Other'}))
+        attrs={'rows': '3', 'class': 'form-control','placeholder': 'Specify Other','id':'WB_HEL_16_3'}))
     WB_HEL_16_4 = forms.CharField(widget=forms.Textarea(
         attrs={'rows': '3', 'class': 'form-control', 'placeholder': 'Who'}))
     WB_HEL_16_5 = forms.CharField(widget=forms.Textarea(
@@ -4313,7 +4322,8 @@ class Wellbeing(forms.Form):
 
     WB_HEL_20_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other specify'),
-               'class': 'form-control'               # ,
+               'class': 'form-control',
+               'id': 'WB_HEL_20_2'               # ,
                #    'data-parsley-required': "False"
                }))
 
