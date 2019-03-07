@@ -108,3 +108,5 @@ cpovc_registry/migrations/
 cpovc_reports/migrations/
 cpovc_settings/migrations/
 
+#ignore settings
+cpovc/settings.py

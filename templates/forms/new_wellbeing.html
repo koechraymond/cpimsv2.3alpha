@@ -142,7 +142,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
 <!-- end page-header -->
 
 <div id="messages" class="alert alert-danger fade in" style="display: none;" tabindex="1">
-    <span class="close" data-dismiss="alert">×</span>
+    <span class="close" data-dismiss="alert">�</span>
     <i class="fa fa-info fa-2x pull-left"></i>
     <span class="invalid-form-message" id="invalid-form-message"></span>
 </div>
@@ -1253,7 +1253,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                     <p>If yes:</p>
                                                 </div>
                                                 <div class="checkbox">
-                                                    <label><input type="checkbox" value="">Don’t know </label>
+                                                    <label><input type="checkbox" value="">Dont know </label>
                                                 </div>
                                             </div>
                                         </div> -->
@@ -1421,7 +1421,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
 
                                                 </div>
                                                 <div class="checkbox">
-                                                    <label><input type="checkbox" value="">I avoid thinking about it because it’s too
+                                                    <label><input type="checkbox" value="">I avoid thinking about it because its too
                                                         difficult
                                                     </label>
                                                 </div>
@@ -1506,7 +1506,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
 
                                         <!--<div class="col-sm-6">-->
                                         <!--<div class="checkbox">-->
-                                        <!--<label><input type="checkbox" value="">Women’s group</label>-->
+                                        <!--<label><input type="checkbox" value="">Womens group</label>-->
                                         <!--</div>-->
                                         <!--<div class="checkbox">-->
                                         <!--<label><input type="checkbox" value="">Church/Religious-->
@@ -1515,7 +1515,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
 
 
                                         <!--<div class="checkbox">-->
-                                        <!--<label><input type="checkbox" value="">Parent’s/Caregivers’-->
+                                        <!--<label><input type="checkbox" value="">Parents/Caregivers-->
                                         <!--group</label>-->
                                         <!--</div>-->
 
@@ -1823,22 +1823,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                     <a class="nav-link active" id="Q40-tab" data-toggle="tab"
                                                        href="#Q40"
                                                        role="tab" aria-controls="Q40"
-                                                       aria-selected="true">Q40.</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="Q41-tab" data-toggle="tab" href="#Q41"
-                                                       role="tab" aria-controls="profile"
-                                                       aria-selected="false">Q41.</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="Q42-tab" data-toggle="tab" href="#Q42"
-                                                       role="tab" aria-controls="contact"
-                                                       aria-selected="false">Q42.</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" id="Q43-tab" data-toggle="tab" href="#Q43"
-                                                       role="tab" aria-controls="contact"
-                                                       aria-selected="false">Q43.</a>
+                                                       aria-selected="true">Questions.</a>
                                                 </li>
                                             </ul>
 
@@ -1851,144 +1836,54 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
 
                                                         <table class="table table-bordered">
                                                             <thead>
-
-                                                            <col width>
-                                                            <col width="500">
-
-                                                            <th>Question</th>
-                                                            <th>Options</th>
+                                                                <col width>
+                                                                <col width="500">
+                                                                <th>Question</th>
+                                                                <th>Options</th>
                                                             </thead>
                                                             <tbody>
-                                                            <tr>
-
-
-                                                                <td>
-                                                                    What is your relationship to the child?
-
-                                                                </td>
-                                                                <td>
-
-                                                                    {{form.WB_SAF_37_1}}
-                                                                    {{form.WB_SAF_37_2}}
-
-
-                                                                </td>
-                                                            </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>40:</b> What is your relationship to the child?
+                                                                    </td>
+                                                                    <td>
+                                                                        {{form.WB_SAF_37_1}}
+                                                                        {{form.WB_SAF_37_2}}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>41:</b> What is their relationship to the child?
+                                                                    </td>
+                                                                    <td>
+                                                                        {{form.WB_SAF_38_1}}
+                                                                        {{form.WB_SAF_38_2}}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>42:</b> If the mother is not a primary caregiver, where is
+                                                                        the childs mother?
+                                                                    </td>
+                                                                    <td>
+                                                                        {{form.WB_SAF_39_1}}
+                                                                        {{form.WB_SAF_39_2}}
+                                                                    </td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td>
+                                                                        <b>43:</b> If the father is not a primary caregiver, where is the childs father?
+                                                                    </td>
+                                                                    <td>
+                                                                        <div class="row">
+                                                                            {{form.WB_SAF_40_1}}
+                                                                            {{form.WB_SAF_40_2}}
+                                                                        </div>
+                                                                    </td>
+                                                                </tr>
 
                                                             </tbody>
                                                         </table>
-
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane fade" id="Q41" role="tabpanel"
-                                                     aria-labelledby="profile-tab">
-
-                                                    <div class="panel-body">
-
-
-                                                        <table class="table table-bordered">
-                                                            <thead>
-
-                                                            <col width>
-                                                            <col width="500">
-
-                                                            <th>Question</th>
-                                                            <th>Options</th>
-                                                            </thead>
-                                                            <tbody>
-                                                            <tr>
-
-
-                                                                <td>
-                                                                    What is their relationship to the child?
-
-                                                                </td>
-                                                                <td>
-
-                                                                    {{form.WB_SAF_38_1}}
-                                                                    {{form.WB_SAF_38_2}}
-
-
-                                                                </td>
-                                                            </tr>
-
-                                                            </tbody>
-                                                        </table>
-
-
-                                                    </div>
-
-                                                </div>
-                                                <div class="tab-pane fade" id="Q42" role="tabpanel"
-                                                     aria-labelledby="contact-tab">
-                                                    <div class="panel-body">
-
-                                                        <table class="table table-bordered">
-                                                            <thead>
-
-                                                            <col width>
-                                                            <col width="500">
-
-                                                            <th>Question</th>
-                                                            <th>Options</th>
-                                                            </thead>
-                                                            <tbody>
-                                                            <tr>
-
-
-                                                                <td>
-                                                                    If the mother is not a primary caregiver, where is
-                                                                    the child’s mother?
-
-                                                                </td>
-                                                                <td>
-                                                                    {{form.WB_SAF_39_1}}
-                                                                    {{form.WB_SAF_39_2}}
-                                                                </td>
-                                                            </tr>
-
-                                                            </tbody>
-                                                        </table>
-
-
-                                                    </div>
-                                                </div>
-                                                <div class="tab-pane fade" id="Q43" role="tabpanel"
-                                                     aria-labelledby="contact-tab">
-                                                    <div class="panel-body">
-
-                                                        <table class="table table-bordered">
-                                                            <thead>
-
-                                                            <col width>
-                                                            <col width="500">
-
-                                                            <th>Question</th>
-                                                            <th>Options</th>
-                                                            </thead>
-                                                            <tbody>
-                                                            <tr>
-
-                                                                <td>
-                                                                    If the father is not a primary caregiver,
-                                                                    Where is the child’s father?
-
-                                                                </td>
-                                                                <td>
-
-                                                                    <div class="row">
-
-                                                                        {{form.WB_SAF_40_1}}
-                                                                        {{form.WB_SAF_40_2}}
-
-                                                                    </div>
-
-                                                                </td>
-                                                            </tr>
-
-                                                            </tbody>
-                                                        </table>
-
 
                                                     </div>
                                                 </div>
@@ -2043,51 +1938,9 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                               <a class="nav-link active" id="Q44-tab" data-toggle="tab"
                                                  href="#Q44"
                                                  role="tab" aria-controls="Q44"
-                                                 aria-selected="true">Q44.</a>
+                                                 aria-selected="true">Questions.</a>
                                           </li>
-                                          <li class="nav-item">
-                                              <a class="nav-link active" id="Q45-tab" data-toggle="tab"
-                                                 href="#Q45"
-                                                 role="tab" aria-controls="Q45"
-                                                 aria-selected="true">Q45.</a>
-                                          </li>
-                                          <li class="nav-item">
-                                              <a class="nav-link active" id="Q46-tab" data-toggle="tab"
-                                                 href="#Q46"
-                                                 role="tab" aria-controls="Q46"
-                                                 aria-selected="true">Q46.</a>
-                                          </li>
-
-                                          <li class="nav-item">
-                                              <a class="nav-link active" id="Q47-tab" data-toggle="tab"
-                                                 href="#Q47"
-                                                 role="tab" aria-controls="Q47"
-                                                 aria-selected="true">Q47.</a>
-                                          </li>
-
-                                          <li class="nav-item">
-                                              <a class="nav-link active" id="Q48-tab" data-toggle="tab"
-                                                 href="#Q48"
-                                                 role="tab" aria-controls="Q48"
-                                                 aria-selected="true">Q48.</a>
-                                          </li>
-
-
-                                          <li class="nav-item">
-                                              <a class="nav-link active" id="Q49-tab" data-toggle="tab"
-                                                 href="#Q49"
-                                                 role="tab" aria-controls="Q49"
-                                                 aria-selected="true">Q49.</a>
-                                          </li>
-
-                                          <li class="nav-item">
-                                              <a class="nav-link active" id="Q50-tab" data-toggle="tab"
-                                                 href="#Q50"
-                                                 role="tab" aria-controls="Q50"
-                                                 aria-selected="true">Q50.</a>
-                                          </li>
-
-
+                                          
                                       </ul>
 
                                       <div class="tab-content" id="mTabContent">
@@ -2102,187 +1955,70 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                       <th>Options</th>
                                                       </thead>
                                                       <tbody>
-                                                      <tr>
-                                                          <td>
-                                                              Is [name of child] currently enrolled in school?
-                                                          </td>
-                                                          <td>
-                                                              {{form.WB_SCH_39_1}}
-                                                              <!-- {{form.WB_SAF_39_2}} -->
-                                                          </td>
-                                                      </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Is [name of child] currently enrolled in school?
+                                                            </td>
+                                                            <td>
+                                                                {{form.WB_SCH_39_1}}
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                If the caregiver responded no, has the child ever been enrolled in school?
+                                                            </td>
+                                                            <td>
+                                                                {{form.WB_SCH_40_1}}
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Record why the child is not enrolled in school.
+                                                            </td>
+                                                            <td>
+                                                                {{form.WB_SCH_41_1}}
+                                                                {{form.WB_SCH_41_2}}
+                                                                
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                If the caregiver responded yes, what grade/form/year is this child in now?
+                                                            </td>
+                                                            <td>
+                                                                {{form.WB_SCH_42_1}}
+                                                                {{form.WB_SCH_42_2}}
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                If the caregiver responded yes, what grade/form/year was this child in last year?
+                                                            </td>
+                                                            <td>
+                                                                {{form.WB_SCH_43_1}}
+                                                                {{form.WB_SCH_43_2}}
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                If the child is enrolled in school, during the last month, did [name of child] miss more than five days for any reason?
+                                                            </td>
+                                                            <td>
+                                                                {{form.WB_SCH_44_1}} 
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                Does [name of child] like to go to school?
+                                                            </td>
+                                                            <td>
+                                                                {{form.WB_SCH_45_1}}  
+                                                            </td>
+                                                        </tr>
                                                       </tbody>
                                                   </table>
                                               </div>
                                           </div>
-                                          <div class="tab-pane fade in" id="Q45" role="tabpanel"
-                                               aria-labelledby="home-tab">
-                                              <div class="panel-body">
-                                                  <table class="table table-bordered">
-                                                      <thead>
-                                                      <col width>
-                                                      <col width="500">
-                                                      <th>Question</th>
-                                                      <th>Options</th>
-                                                      </thead>
-                                                      <tbody>
-                                                      <tr>
-                                                          <td>
-                                                            If the caregiver responded no, has the child ever been enrolled in school?
-                                                          </td>
-                                                          <td>
-                                                              {{form.WB_SCH_40_1}}
-
-                                                              
-                                                          </td>
-                                                      </tr>
-                                                      </tbody>
-                                                  </table>
-                                              </div>
-                                          </div>
-                                          <div class="tab-pane fade in" id="Q46" role="tabpanel"
-                                               aria-labelledby="home-tab">
-                                              <div class="panel-body">
-                                                  <table class="table table-bordered">
-                                                      <thead>
-                                                      <col width>
-                                                      <col width="500">
-                                                      <th>Question</th>
-                                                      <th>Options</th>
-                                                      </thead>
-                                                      <tbody>
-                                                      <tr>
-                                                          <td>
-                                                            Record why the child is not enrolled in school.
-                                                          </td>
-                                                          <td>
-                                                              {{form.WB_SCH_41_1}}
-                                                              {{form.WB_SCH_41_2}}
-                                                              
-                                                          </td>
-                                                      </tr>
-                                                      </tbody>
-                                                  </table>
-                                              </div>
-                                          </div>
-
-
-
-                                          <div class="tab-pane fade in" id="Q47" role="tabpanel"
-                                               aria-labelledby="home-tab">
-                                              <div class="panel-body">
-                                                  <table class="table table-bordered">
-                                                      <thead>
-                                                      <col width>
-                                                      <col width="500">
-                                                      <th>Question</th>
-                                                      <th>Options</th>
-                                                      </thead>
-                                                      <tbody>
-                                                      <tr>
-                                                          <td>
-                                                            If the caregiver responded yes, what grade/form/year
-                                                            is this child in now?
-                                                          </td>
-                                                          <td>
-                                                              {{form.WB_SCH_42_1}}
-                                                              {{form.WB_SCH_42_2}}
-                                                          </td>
-                                                      </tr>
-                                                      </tbody>
-                                                  </table>
-                                              </div>
-                                          </div>
-
-
-
-
-                                          <div class="tab-pane fade in" id="Q48" role="tabpanel"
-                                               aria-labelledby="home-tab">
-                                              <div class="panel-body">
-                                                  <table class="table table-bordered">
-                                                      <thead>
-                                                      <col width>
-                                                      <col width="500">
-                                                      <th>Question</th>
-                                                      <th>Options</th>
-                                                      </thead>
-                                                      <tbody>
-                                                      <tr>
-                                                          <td>
-                                                            If the caregiver responded yes, what grade/form/year
-                                                            was this child in last year?
-                                                          </td>
-                                                          <td>
-                                                              {{form.WB_SCH_43_1}}
-                                                              {{form.WB_SCH_43_2}}
-                                                              
-                                                          </td>
-                                                      </tr>
-                                                      </tbody>
-                                                  </table>
-                                              </div>
-                                          </div>
-
-
-                                          <div class="tab-pane fade in" id="Q49" role="tabpanel"
-                                               aria-labelledby="home-tab">
-                                              <div class="panel-body">
-                                                  <table class="table table-bordered">
-                                                      <thead>
-                                                      <col width>
-                                                      <col width="500">
-                                                      <th>Question</th>
-                                                      <th>Options</th>
-                                                      </thead>
-                                                      <tbody>
-                                                      <tr>
-                                                          <td>
-                                                            If the child is enrolled in school, during the last
-                                                            month, did
-                                                            [name
-                                                            of child] miss more than five days
-                                                            for any reason?
-                                                          </td>
-                                                          <td>
-                                                              {{form.WB_SCH_44_1}}
-                                                              
-                                                          </td>
-                                                      </tr>
-                                                      </tbody>
-                                                  </table>
-                                              </div>
-                                          </div>
-
-
-
-                                          <div class="tab-pane fade in" id="Q50" role="tabpanel"
-                                               aria-labelledby="home-tab">
-                                              <div class="panel-body">
-                                                  <table class="table table-bordered">
-                                                      <thead>
-                                                      <col width>
-                                                      <col width="500">
-                                                      <th>Question</th>
-                                                      <th>Options</th>
-                                                      </thead>
-                                                      <tbody>
-                                                      <tr>
-                                                          <td>
-                                                            Does [name of child] like to go to school?
-                                                          </td>
-                                                          <td>
-                                                              {{form.WB_SCH_45_1}}
-                                                              
-                                                          </td>
-                                                      </tr>
-                                                      </tbody>
-                                                  </table>
-                                              </div>
-                                          </div>
-
-
-
 
                                       </div>
 
@@ -2304,9 +2040,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <div class="panel-heading">
                                         <h4 class="panel-title">
                                             <a data-toggle="collapse" data-parent="#accordion" href="#collapse001"><u>Child
-                                                1 </u></a>
-                                            Details
-                                            From DB
+                                                1 </u></a> Details From DB
                                         </h4>
                                     </div>
                                     <div id="collapse001" class="panel-collapse collapse">
@@ -2450,15 +2184,6 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
       $('html,body').scrollTop(0);
       FormWizardValidation.init();
     });
-
-
-
-
-
-
-
-
-
 
 
 
