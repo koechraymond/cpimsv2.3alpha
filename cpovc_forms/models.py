@@ -980,8 +980,8 @@ class OVCCareCpara(models.Model):
         return self.answer
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        super(OVCCareCpara, self).save(force_insert, force_update, using, update_fields)
         self.question_code = self.question.code
+        super(OVCCareCpara, self).save(force_insert, force_update, using, update_fields)
 
     class Meta:
         db_table = 'ovc_care_cpara'
@@ -1009,8 +1009,8 @@ class OVCCareWellbeing(models.Model):
         return self.answer
 
     def save(self, force_insert=False, force_update=False, using=None, update_fields=None):
-        super(OVCCareWellbeing, self).save(force_insert, force_update, using, update_fields)
         self.question_code = self.question.code
+        super(OVCCareWellbeing, self).save(force_insert, force_update, using, update_fields)
 
 
     class Meta:

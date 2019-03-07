@@ -30,7 +30,8 @@ from .models import (
     OVCAdverseEventsFollowUp, OVCAdverseEventsOtherFollowUp,
     OVCCaseEventClosure, OVCCaseGeo, OVCMedicalSubconditions, OVCBursary,
     OVCFamilyCare, OVCCaseEventSummon, OVCCareEvents, OVCCarePriority,
-    OVCCareServices, OVCCareEAV, OVCCareAssessment, OVCGokBursary, OVCCareCpara)
+    OVCCareServices, OVCCareEAV, OVCCareAssessment, OVCGokBursary, OVCCareCpara, OVCCareQuestions,
+    OVCCareBenchmarkScore)
 from cpovc_ovc.models import OVCRegistration, OVCHHMembers, OVCHealth, OVCHouseHold
 from cpovc_main.functions import (
     get_list_of_org_units, get_dict, get_vgeo_list, get_vorg_list,
@@ -38,7 +39,7 @@ from cpovc_main.functions import (
     case_event_id_generator, convert_date, new_guid_32,
     beneficiary_id_generator, translate_geo, translate, translate_case,
     translate_reverse, translate_reverse_org, translate_school, get_days_difference)
-from cpovc_forms.functions import (save_audit_trail)
+from cpovc_forms.functions import (save_audit_trail, save_cpara_form_by_domain)
 from cpovc_main.country import (COUNTRIES)
 from cpovc_registry.models import (
     RegOrgUnit, RegOrgUnitContact, RegOrgUnitGeography, RegPerson, RegPersonsOrgUnits, AppUser, RegPersonsSiblings,
@@ -8485,53 +8486,21 @@ def form_bursary(request, id):
         pass
 
 
-def save_cpara_form_by_domain(id, question, answer, house_hold, event, date_event, domain='GEN'):
-    answer_value = {
-        'AYES': 'Yes',
-        'ANNO': 'No',
-        'No': 'No'
-    }
-    qn_code = []
-    if answer is None:
-        qn_code.append(question.code.lower())
-        answer = 'No'
-        print qn_code
-    if question.code.lower() not in ['cp2d', 'cp2q', 'cp74q', 'cp34q', 'cp18q']:
-        answer = answer_value[answer]
-    try:
-        OVCCareCpara.objects.create(
-            person_id=id,
-            question=question,
-            answer=answer,
-            household=house_hold,
-            question_type=question.question_type,
-            domain=domain,
-            event=event,
-            date_of_event=date_event
-        )
-    except Exception as e:
-        print 'error saving cpara - %s' % (str(e))
-        print question.code
-        return False
-
 @login_required
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def new_cpara(request, id):
     if request.method == 'POST':
         data = request.POST
         child = RegPerson.objects.get(id=id)
-        from cpovc_ovc.models import OVCHHMembers
         house_hold = OVCHouseHold.objects.get(id=OVCHHMembers.objects.get(person=child).house_hold_id)
         date_of_event = data.get('cp2d')
-        print data
         event = OVCCareEvents.objects.create(
             event_type_id='cpr',
             created_by=request.user.id,
             person=child,
             house_hold=house_hold
         )
-        from cpovc_forms.models import OVCCareQuestions
-        questions = OVCCareQuestions.objects.all()
+        questions = OVCCareQuestions.objects.filter(code__startswith='cp')
         for question in questions:
             save_cpara_form_by_domain(
                 id=id,
@@ -8541,16 +8510,6 @@ def new_cpara(request, id):
                 event=event,
                 date_event=convert_date(date_of_event)
             )
-        # cpara_obj = OVCCareCpara.objects.create(
-        #     person_id = id,
-        #     question = questions.get(''),
-        #     answer = '',
-        #     household_id = house_hold,
-        #     question_type = '',
-        #     domain = '',
-        #     event_id = event
-        #     )
-        from cpovc_forms.models import OVCCareBenchmarkScore
         answer_value = {
             'AYES': 1,
             'ANNO': 0,
@@ -8579,7 +8538,6 @@ def new_cpara(request, id):
             event=event,
             care_giver=RegPerson.objects.get(id=OVCRegistration.objects.get(person=child).caretaker_id),
         )
-        print 'Benchmark saved successfully'
         msg = 'Benchmark Assessment save successful'
         messages.add_message(request, messages.INFO, msg)
         url = reverse('ovc_view', kwargs={'id': id})
