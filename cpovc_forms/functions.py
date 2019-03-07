@@ -260,17 +260,15 @@ def save_bursary(request, person_id):
         return True
 
 
-def save_cpara_form_by_domain(id, question, answer, house_hold, event, date_event):
+def save_cpara_form_by_domain(id, question, answer, house_hold, event, date_event, exceptions=[]):
     answer_value = {
         'AYES': 'Yes',
         'ANNO': 'No',
         'No': 'No'
     }
-    qn_code = []
     if answer is None:
-        qn_code.append(question.code.lower())
         answer = 'No'
-    if question.code.lower() not in ['cp2d', 'cp2q', 'cp74q', 'cp34q', 'cp18q']:
+    if question.code.lower() not in exceptions:
         answer = answer_value[answer]
     try:
         OVCCareCpara.objects.create(
