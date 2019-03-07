@@ -4330,13 +4330,116 @@ class Wellbeing(forms.Form):
     )
 
 
+WB_AD_GEN_5_1 = (
+        ('Mother and/or father ', 'Mother and/or father '),
+        ('Aunt and/or uncle', 'Aunt and/or uncle'),
+        ('Grandmother and/or grandfather ', 'Grandmother and/or grandfather '),
+        ('Other relative ', 'Other relative '),
+        ('Neighbor', 'Neighbor'),
+        ('Friend', 'Friend'),
+    )
 
+WB_AD_SCH_7 = (
+        ('School', 'School'),
+        ('Vocational Training', 'Vocational Training'),
+        ('Not enrolled in either', 'Not enrolled in either'),
+    )
+
+WB_AD_SCH_9_1= (
+        ('grade', 'grade'),
+        ('form', 'form'),
+        ('year now', 'year now'),
+    )
+
+WB_AD_SCH_12_2 = (
+        ('Fear of the teacher', 'Fear of the teacher'),
+        ('Fear of the other children', 'Fear of the other children'),
+        ('Feeling lonely ', 'Feeling lonely'),
+        ('Bored', 'Bored'),
+    )
+
+WB_AD_STA_13_2 = (
+        ('Every night', 'Every night'),
+        ('A few nights per week', 'A few nights per week'),
+        ('A few nights per month ', 'A few nights per month'),
+    )
+WB_AD_HEL_20_4_CHOICE = (
+        ('Positive', 'Positive'),
+        ('Negative', 'Negative'),
+        ('Don\'t Know', 'Don\'t Know'),
+        ('Refuse', 'Refuse'),
+    )
+
+
+WB_AD_HEL_21_1 = (
+        ('Father', 'Father'),
+        ('Other adult in the family', 'Other adult in the family'),
+        ('Sibling', 'Sibling'),
+        ('Friend', 'Friend'),
+        ('Teacher', 'Teacher'),
+    )
+
+
+WB_AD_HEL_24_1 = (
+        ('mother', 'mother'),
+        ('Father', 'Father'),
+        ('Other caregiver', 'Other caregiver'),  
+        ('Sibling', 'Sibling'),
+        ('Teacher', 'Teacher'),
+        ('Friend', 'Friend'),
+        ('Neighbour', 'Neighbour')
+        
+    )
+
+WB_AD_SAF_26 = (
+        ('All the time', 'All the time'),
+        ('Often', 'Often'),
+        ('Sometimes', 'Sometimes'),  
+        ('Rarely', 'Rarely'),
+        ('Never', 'Never'),        
+    )
+
+
+WB_AD_SAF_27_1 = (
+        ('OVC cash transfer', 'OVC cash transfer'),
+        ('NHIF', 'NHIF'),       
+    )
+
+WB_AD_SAF_28 = (
+        ('All the time', 'All the time'),
+        ('Often', 'Often'),
+        ('Sometimes', 'Sometimes'),  
+        ('Rarely', 'Rarely'),
+        ('Never', 'Never'),        
+    )
+
+WB_AD_SAF_32_2 = (
+        ('Almost every day', 'Almost every day'),
+        ('Once in a while', 'Once in a while'),
+        ('Long time ago', 'Long time ago'),  
+        ('Declined to answer', 'Declined to answer'),      
+    )
+
+WB_AD_SAF_32_6_1 = (
+        ('Friend', 'Friend'),
+        ('Health facility', 'Health facility'),
+        ('CHV', 'CHV')
+        
+    )
 class WellbeingAdolescentForm(forms.Form):
+    household_id = forms.CharField(widget=forms.TextInput(
+        attrs={'class': 'form-control',
+               'id': 'household_id',
+               'type': 'hidden'
+               }))
+
+
 
     #Domain General
 
     WB_AD_GEN_4_1 = forms.DateField(
-        widget = forms.TextInput(
+        widget = forms.widgets.DateInput(
+        format="%m/%d/%Y",
         attrs = {'placeholder': _('Date Of Assessement'),
                'class': 'form-control',
                'name': 'WB_AD_GEN_4_1',
@@ -4345,7 +4448,7 @@ class WellbeingAdolescentForm(forms.Form):
             #    'data-parsley-required': "true",
             #    'data-parsley-group': 'group0'
         }))
-
+    
     WB_AD_GEN_4_2 = forms.CharField(
         widget = forms.Textarea(
         attrs = {'placeholder': _('Comment'),
@@ -4356,7 +4459,7 @@ class WellbeingAdolescentForm(forms.Form):
         )
 
     WB_AD_GEN_5_1 = forms.ChoiceField(
-        choices = WB_AD_GEN_5_ChoiceList,
+        choices = WB_AD_GEN_5_1,
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
@@ -4372,7 +4475,7 @@ class WellbeingAdolescentForm(forms.Form):
             #    'data-parsley-required': "true",
             #    'data-parsley-group': 'group0'
                }))
-
+    
     WB_AD_GEN_6 = forms.CharField(
         widget = forms.Textarea(
         attrs = {'placeholder': _('Response-Role in the Family'),
@@ -4385,7 +4488,7 @@ class WellbeingAdolescentForm(forms.Form):
      ##Domain School
 
     WB_AD_SCH_7 = forms.ChoiceField(
-        choices = WB_AD_SCH_7_CHOICELIST,
+        choices =WB_AD_SCH_7,
         widget = forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
@@ -4398,6 +4501,7 @@ class WellbeingAdolescentForm(forms.Form):
         widget = forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'id': 'WB_AD_SCH_8_1',
                 #'data-parsley-required': 'true',
  #               'data-parsley-errors-container': "#errorfield"
                 }))
@@ -4405,20 +4509,22 @@ class WellbeingAdolescentForm(forms.Form):
     WB_AD_SCH_8_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Response-Not enrolled in School'),
                'class': 'form-control',
-               'id': 'WB_AD_SCH_8_2'#,
+               'id': 'WB_AD_SCH_8_2',
+        
+               #,
  #              'data-parsley-required': "true",
             #    'data-parsley-group': 'group0'
                }))
 
-    WB_AD_SCH_9_1 = forms.CharField(widget=forms.TextInput(
-        attrs={'placeholder': _('Grade/Form/YearNow'),
-               'class': 'form-control',
-               'id': 'WB_AD_SCH_9_1'
-            #,
-             #  'data-parsley-required': "true",
-            #    'data-parsley-group': 'group0'
-               }))
-
+    WB_AD_SCH_9_1 = forms.ChoiceField(
+        choices = WB_AD_SCH_9_1,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                #'data-parsley-required': 'true',
+ #               'data-parsley-errors-container': "#errorfield"
+                }))
+    
     WB_AD_SCH_9_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Grade/Form/YearLastYear'),
                'class': 'form-control',
@@ -4427,7 +4533,7 @@ class WellbeingAdolescentForm(forms.Form):
               # 'data-parsley-required': "true",
             #    'data-parsley-group': 'group0'
                }))
-
+    
     WB_AD_SCH_10 = forms.CharField(
         widget = forms.Textarea(
         attrs = {'placeholder': _('Response-Vocational Training'),
@@ -4436,7 +4542,7 @@ class WellbeingAdolescentForm(forms.Form):
             #    'data-parsley-group': 'group0',
                'rows': '2'})
         )
-
+    
     WB_AD_SCH_11 = forms.ChoiceField(
         choices = YESNO_CHOICES,
         widget = forms.RadioSelect(
@@ -4445,6 +4551,15 @@ class WellbeingAdolescentForm(forms.Form):
                 # 'data-parsley-required': 'true',
                 # 'data-parsley-errors-container': "#errorfield"
                 }))
+
+    WB_AD_SCH_11_1 = forms.CharField(widget=forms.TextInput(
+    attrs={'placeholder': _('Vocational training'),
+            'class': 'form-control',
+            'id': 'WB_AD_SCH_9_1'
+        #,
+            #  'data-parsley-required': "true",
+        #    'data-parsley-group': 'group0'
+            }))
 
     WB_AD_SCH_12_1 = forms.ChoiceField(
         choices = YESNO_CHOICES,
@@ -4456,7 +4571,7 @@ class WellbeingAdolescentForm(forms.Form):
                 }))
 
     WB_AD_SCH_12_2 = forms.ChoiceField(
-        choices = WB_AD_SCH_12_2_CHOICELIST,
+        choices = WB_AD_SCH_12_2,
         widget=forms.SelectMultiple(
                     attrs={'class': 'form-control',
                             'id': 'WB_AD_SCH_12_2',
@@ -4467,7 +4582,7 @@ class WellbeingAdolescentForm(forms.Form):
 
     WB_AD_SCH_12_2_1 = forms.CharField(
         widget=forms.TextInput(
-        attrs={'placeholder': _('Other'),
+        attrs={'placeholder': _('Others'),
                'class': 'form-control',
                'id': 'WB_AD_SCH_12_2_1',
             #    'data-parsley-group': 'group0'
@@ -4485,7 +4600,7 @@ class WellbeingAdolescentForm(forms.Form):
                 }))
 
     WB_AD_STA_13_2 = forms.ChoiceField(
-        choices = WB_AD_SCH_13_2_CHOICELIST,
+        choices = WB_AD_STA_13_2,
         widget = forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
@@ -4503,7 +4618,7 @@ class WellbeingAdolescentForm(forms.Form):
             # 'data-parsley-required': 'true',
             # 'data-parsley-errors-container': "#errorfield"
             }))
-
+   
     WB_AD_HEL_15 = forms.ChoiceField(
         choices = YESNO_CHOICES,
         widget = forms.RadioSelect(
@@ -4521,7 +4636,7 @@ class WellbeingAdolescentForm(forms.Form):
             # 'data-parsley-required': 'true',
             # 'data-parsley-errors-container': "#errorfield"
             }))
-
+    
     WB_AD_HEL_16_2 = forms.CharField(
         widget = forms.Textarea(
         attrs = {'placeholder': _('Response-What was It?'),
@@ -4530,7 +4645,7 @@ class WellbeingAdolescentForm(forms.Form):
             #    'data-parsley-group': 'group0',
                'rows': '2'})
         )
-
+    
     WB_AD_HEL_16_3 = forms.ChoiceField(
         choices = YESNO_CHOICES,
         widget = forms.RadioSelect(
@@ -4539,7 +4654,7 @@ class WellbeingAdolescentForm(forms.Form):
             # 'data-parsley-required': 'true',
             # 'data-parsley-errors-container': "#errorfield"
             }))
-
+    
     WB_AD_HEL_16_4 = forms.CharField(
         widget = forms.Textarea(
         attrs = {'placeholder': _('Response-What Kind?'),
@@ -4557,7 +4672,7 @@ class WellbeingAdolescentForm(forms.Form):
             # 'data-parsley-required': 'true',
             # 'data-parsley-errors-container': "#errorfield"
             }))
-
+    
     WB_AD_HEL_17_2 = forms.ChoiceField(
         choices = YESNO_CHOICES,
         widget = forms.RadioSelect(
@@ -4566,7 +4681,7 @@ class WellbeingAdolescentForm(forms.Form):
             # 'data-parsley-required': 'true',
             # 'data-parsley-errors-container': "#errorfield"
             }))
-
+    
     WB_AD_HEL_17_3 = forms.CharField(
         widget = forms.Textarea(
         attrs = {'placeholder': _('Response-List'),
@@ -4575,7 +4690,7 @@ class WellbeingAdolescentForm(forms.Form):
             #    'data-parsley-group': 'group0',
                'rows': '2'})
         )
-
+    
     WB_AD_HEL_17_4 = forms.ChoiceField(
         choices = YESNO_CHOICES,
         widget = forms.RadioSelect(
@@ -4584,7 +4699,7 @@ class WellbeingAdolescentForm(forms.Form):
             # 'data-parsley-required': 'true',
             # 'data-parsley-errors-container': "#errorfield"
             }))
-
+    
     WB_AD_HEL_17_5 = forms.CharField(
         widget = forms.Textarea(
         attrs = {'placeholder': _('Response-from whom?'),
@@ -4593,8 +4708,8 @@ class WellbeingAdolescentForm(forms.Form):
             #    'data-parsley-group': 'group0',
                'rows': '2'})
         )
-
-
+    
+    
     WB_AD_HEL_18_1 = forms.ChoiceField(
         choices = YESNO_CHOICES,
         widget = forms.RadioSelect(
@@ -4603,7 +4718,7 @@ class WellbeingAdolescentForm(forms.Form):
             # 'data-parsley-required': 'true',
             # 'data-parsley-errors-container': "#errorfield"
             }))
-
+    
     WB_AD_HEL_18_2 = forms.CharField(
         widget = forms.Textarea(
         attrs = {'placeholder': _('Responses'),
@@ -4621,7 +4736,7 @@ class WellbeingAdolescentForm(forms.Form):
             # 'data-parsley-required': 'true',
             # 'data-parsley-errors-container': "#errorfield"
             }))
-
+    
     WB_AD_HEL_19_2 = forms.CharField(
         widget = forms.Textarea(
         attrs = {'placeholder': _('Responses'),
@@ -4630,7 +4745,7 @@ class WellbeingAdolescentForm(forms.Form):
             #    'data-parsley-group': 'group0',
                'rows': '2'})
         )
-
+    
     WB_AD_HEL_20_1 = forms.ChoiceField(
         choices = YESNO_CHOICES,
         widget = forms.RadioSelect(
@@ -4639,7 +4754,7 @@ class WellbeingAdolescentForm(forms.Form):
             # 'data-parsley-required': 'true',
             # 'data-parsley-errors-container': "#errorfield"
             }))
-
+    
     WB_AD_HEL_20_2 = forms.DateField(
         widget = forms.TextInput(
         attrs = {'placeholder': _('Date Of Test'),
@@ -4660,7 +4775,7 @@ class WellbeingAdolescentForm(forms.Form):
             }))
 
     WB_AD_HEL_20_4 = forms.ChoiceField(
-        choices = WB_AD_HEL_20_4_CHOICELIST,
+        choices = WB_AD_HEL_20_4_CHOICE,
         widget = forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
@@ -4669,14 +4784,14 @@ class WellbeingAdolescentForm(forms.Form):
             }))
 
     WB_AD_HEL_21_1 = forms.ChoiceField(
-        choices = WB_AD_HEL_21_1_CHOICELIST,
+        choices = WB_AD_HEL_21_1,
         widget = forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
             # 'data-parsley-required': 'true',
             # 'data-parsley-errors-container': "#errorfield"
             }))
-
+    
     WB_AD_HEL_21_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other'),
                'class': 'form-control',
@@ -4699,7 +4814,7 @@ class WellbeingAdolescentForm(forms.Form):
             # 'data-parsley-required': 'true',
             # 'data-parsley-errors-container': "#errorfield"
             }))
-
+    
     WB_AD_HEL_22_2 = forms.ChoiceField(
         choices = YESNO_CHOICES,
         widget = forms.RadioSelect(
@@ -4724,23 +4839,23 @@ class WellbeingAdolescentForm(forms.Form):
                'id': 'WB_AD_HEL_23',
             #    'data-parsley-group': 'group0'
                }))
-
+    
     WB_AD_HEL_24_1 = forms.ChoiceField(
-        choices = WB_AD_HEL_24_1_CHOICELIST,
+        choices = WB_AD_HEL_24_1,
         widget = forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
             # 'data-parsley-required': 'true',
             # 'data-parsley-errors-container': "#errorfield"
             }))
-
+    
     WB_AD_HEL_24_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other'),
                'class': 'form-control',
                'id': 'WB_AD_HEL_24_2',
             #    'data-parsley-group': 'group0'
                }))
-
+    
     WB_AD_HEL_25_1 = forms.CharField(
         widget = forms.Textarea(
         attrs = {'placeholder': _('Responses'),
@@ -4761,16 +4876,16 @@ class WellbeingAdolescentForm(forms.Form):
     # Domain Safe
 
     WB_AD_SAF_26 = forms.ChoiceField(
-        choices = WB_AD_SAF_26_CHOICELIST,
+        choices = WB_AD_SAF_26,
         widget = forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
             # 'data-parsley-required': 'true',
             # 'data-parsley-errors-container': "#errorfield"
             }))
-
+    
     WB_AD_SAF_27_1 = forms.ChoiceField(
-        choices = WB_AD_SAF_27_1_CHOICELIST,
+        choices = WB_AD_SAF_27_1,
         widget = forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
@@ -4786,14 +4901,14 @@ class WellbeingAdolescentForm(forms.Form):
                }))
 
     WB_AD_SAF_28 = forms.ChoiceField(
-        choices = WB_AD_SAF_28_CHOICELIST,
+        choices = WB_AD_SAF_28,
         widget = forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
             # 'data-parsley-required': 'true',
             # 'data-parsley-errors-container': "#errorfield"
             }))
-
+    
     WB_AD_SAF_29 = forms.ChoiceField(
         choices = YESNO_CHOICES,
         widget = forms.RadioSelect(
@@ -4820,7 +4935,7 @@ class WellbeingAdolescentForm(forms.Form):
             #    'data-parsley-group': 'group0',
                'rows': '2'})
         )
-
+    
     WB_AD_SAF_31_1 = forms.ChoiceField(
         choices = YESNO_CHOICES,
         widget = forms.RadioSelect(
@@ -4856,16 +4971,16 @@ class WellbeingAdolescentForm(forms.Form):
         # 'data-parsley-required': 'true',
         # 'data-parsley-errors-container': "#errorfield"
         }))
-
+    
     WB_AD_SAF_32_2 = forms.ChoiceField(
-        choices = WB_AD_SAF_32_2_CHOICELIST,
+        choices = WB_AD_SAF_32_2,
         widget = forms.RadioSelect(
         renderer=RadioCustomRenderer,
         attrs={
         # 'data-parsley-required': 'true',
         # 'data-parsley-errors-container': "#errorfield"
         }))
-
+    
     WB_AD_SAF_32_3 = forms.ChoiceField(
         choices = YESNO_CHOICES_REFUSE,
         widget = forms.RadioSelect(
@@ -4874,7 +4989,7 @@ class WellbeingAdolescentForm(forms.Form):
         # 'data-parsley-required': 'true',
         # 'data-parsley-errors-container': "#errorfield"
         }))
-
+    
     WB_AD_SAF_32_4 = forms.ChoiceField(
         choices = YESNO_CHOICES_REFUSE,
         widget = forms.RadioSelect(
@@ -4894,7 +5009,7 @@ class WellbeingAdolescentForm(forms.Form):
         }))
 
     WB_AD_SAF_32_6_1 = forms.ChoiceField(
-        choices = WB_AD_SAF_32_6_CHOICELIST,
+        choices = WB_AD_SAF_32_6_1,
         widget = forms.RadioSelect(
         renderer=RadioCustomRenderer,
         attrs={
@@ -4908,7 +5023,7 @@ class WellbeingAdolescentForm(forms.Form):
                'id': 'WB_AD_SAF_32_6_2',
             #    'data-parsley-group': 'group0'
                }))
-
+    
     WB_AD_SAF_33_1 = forms.ChoiceField(
         choices = YESNO_CHOICES_REFUSE,
         widget = forms.RadioSelect(
@@ -4917,7 +5032,7 @@ class WellbeingAdolescentForm(forms.Form):
         # 'data-parsley-required': 'true',
         # 'data-parsley-errors-container': "#errorfield"
         }))
-
+    
     WB_AD_SAF_33_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Response'),
                'class': 'form-control',
@@ -4933,7 +5048,7 @@ class WellbeingAdolescentForm(forms.Form):
         # 'data-parsley-required': 'true',
         # 'data-parsley-errors-container': "#errorfield"
         }))
-
+    
     ##Goals
 
     WB_AD_GOAL_1 = forms.CharField(
@@ -4953,7 +5068,7 @@ class WellbeingAdolescentForm(forms.Form):
             #    'data-parsley-group': 'group0',
                'rows': '2'})
         )
-
+    
     WB_AD_ACTION_1 = forms.CharField(
         widget = forms.Textarea(
         attrs = {'placeholder': _('Actions for Goal 1'),
@@ -4970,3 +5085,4 @@ class WellbeingAdolescentForm(forms.Form):
             #    'data-parsley-group': 'group0',
                'rows': '2'})
         )
+    

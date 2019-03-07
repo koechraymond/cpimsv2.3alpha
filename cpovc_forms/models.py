@@ -1100,3 +1100,23 @@ class OVCHivStatus(models.Model):
 
 
         
+class OVCCareQuestions(models.Model):
+    question_id = models.UUIDField(primary_key=True, default=uuid.uuid1, editable=False)
+    code = models.CharField(max_length=5)
+    question = models.CharField(max_length=55)
+    domain = models.CharField(max_length=10)
+    question_text = models.CharField(max_length=255)
+    question_type = models.CharField(max_length=20, null=False)
+    form = models.ForeignKey(OVCCareForms)
+    is_void = models.BooleanField(default=False)
+    timestamp_created = models.DateTimeField(default=timezone.now)
+    timestamp_updated = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.code
+
+    class Meta:
+        db_table = 'ovc_care_questions'
+
+    def __unicode__(self):
+        return str(self.question_id)
