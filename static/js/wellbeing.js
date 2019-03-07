@@ -281,6 +281,16 @@ $("input[name='WB_HEL_27_1'][value='Other']").on('change', function () {
     }
 });
 
+hideQn('WB_HEL_28_2');
+$("input[name='WB_HEL_28_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_HEL_28_2');
+    }else{
+        hideQn('WB_HEL_28_2');
+    }
+});
+
 
 
 

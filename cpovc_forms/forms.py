@@ -4194,7 +4194,9 @@ class Wellbeing(forms.Form):
 
     WB_HEL_27_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other specify'),
-               'class': 'form-control'  # ,
+               'class': 'form-control',
+               'id': 'WB_HEL_27_2'
+               # ,
                #    'data-parsley-required': "False"
                }))
 
