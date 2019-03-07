@@ -11,6 +11,7 @@ import json
 import random
 import uuid
 import time
+import ast
 from reportlab.pdfgen import canvas
 # from itertools import chain #
 from datetime import datetime, timedelta
@@ -31,7 +32,7 @@ from .models import (
     OVCAdverseEventsFollowUp, OVCAdverseEventsOtherFollowUp,
     OVCCaseEventClosure, OVCCaseGeo, OVCMedicalSubconditions, OVCBursary,
     OVCFamilyCare, OVCCaseEventSummon, OVCCareEvents, OVCCarePriority,
-    OVCCareServices, OVCCareEAV, OVCCareAssessment, OVCGokBursary, OVCCareWellbeing,OVCExplanations,OVCCareForms)
+    OVCCareServices, OVCCareEAV, OVCCareAssessment, OVCGokBursary, OVCCareWellbeing, OVCExplanations, OVCCareForms)
 from cpovc_ovc.models import OVCRegistration, OVCHHMembers, OVCHealth, OVCHouseHold
 from cpovc_main.functions import (
     get_list_of_org_units, get_dict, get_vgeo_list, get_vorg_list,
@@ -8533,15 +8534,55 @@ def persist_wellbeing_data(kvals, value, person, house_hold, new_pk):
         ).save()
 
 
+
+def persist_per_child_wellbeing_question(request,key,house_hold,new_events_pk):
+    print "debug 1"
+    if (key == 'safeanswer'):
+        print "================================= vol1"
+        answer_obj = request.POST.get(key)
+        answer_obj = ast.literal_eval(answer_obj)  # convert to dict
+        print answer_obj
+        print "debug 6"
+        for person_id, individual_person_answers in answer_obj.iteritems():
+            # individual_person_answers=ast.literal_eval(individual_person_answers)
+            print "debug 0"
+            person = RegPerson.objects.get(pk=int(person_id))
+            print "debug 1"
+            for element_id, answer in individual_person_answers.iteritems():
+                kvals = {"entity": "wellbeing", "value": answer, "question_code": element_id,
+                         'domain': 1}
+                persist_wellbeing_data(kvals, answer, person, house_hold, new_events_pk)
+
+    if (key == 'schooledanswer'):
+        print "================================= vol2"
+        answer_obj = request.POST.get(key)
+        answer_obj = ast.literal_eval(answer_obj)  # convert to dict
+        for person_id, individual_person_answers in answer_obj.iteritems():
+            # individual_person_answers=ast.literal_eval(individual_person_answers)
+            person = RegPerson.objects.get(pk=int(person_id))
+            for element_id, answer in individual_person_answers.iteritems():
+
+                kvals = {"entity": "wellbeing", "value": answer, "question_code": element_id,
+                         'domain': 1}
+                if isinstance(answer, (list,)):
+                    for vall in answer:
+                        kvals['value'] = vall
+                        persist_wellbeing_data(kvals, vall, person, house_hold, new_events_pk)
+                else:
+                    persist_wellbeing_data(kvals, answer, person, house_hold, new_events_pk)
+
+
+
+
 @login_required
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def new_wellbeing(request, id):
-    print("new wellbeing processing------------------")
     try:
 
         if request.method == 'POST':
-            comments=['WB_STA_13_2', 'WB_STA_12_3', 'WB_STA_11_2', 'WB_STA_10_2', 'WB_STA_5_3', 'WB_STA_4_3', 'WB_STA_3_3', 'WB_STA_2_3', 'WB_STA_1_3']
-            ignore_request_values= ['household_id','csrfmiddlewaretoken']
+            comments = ['WB_STA_13_2', 'WB_STA_12_3', 'WB_STA_11_2', 'WB_STA_10_2', 'WB_STA_5_3', 'WB_STA_4_3',
+                        'WB_STA_3_3', 'WB_STA_2_3', 'WB_STA_1_3']
+            ignore_request_values = ['household_id', 'csrfmiddlewaretoken']
 
             household_id = request.POST.get('household_id')
             hse_uuid = uuid.UUID(household_id)
@@ -8569,19 +8610,20 @@ def new_wellbeing(request, id):
             entity_values = []
 
             for key in request.POST:
-                if (key == 'safeanswer'):
-                    print "================================= vol"
-                if(key in ignore_request_values):
-                    continue
-                val = request.POST.getlist(key)
-
-                for i, value in enumerate(val):
-                    entity_type='wellbeing'
-                    if(key in comments):
-                        entity_type='comment'
-                    kvals = {"entity": entity_type, "value": val, "question_code": key,
-                             'domain': 1}
-                    persist_wellbeing_data(kvals, value, person, house_hold, new_events_pk)
+                if (key != 'schooledanswer' or key == 'schooledanswer'):
+                    persist_per_child_wellbeing_question(request, key, house_hold, new_events_pk)
+                    print "debug 2"
+                    if (key in ignore_request_values):
+                        continue
+                    val = request.POST.getlist(key)
+                    print "debug 3"
+                    for i, value in enumerate(val):
+                        entity_type = 'wellbeing'
+                        if (key in comments):
+                            entity_type = 'comment'
+                        kvals = {"entity": entity_type, "value": val, "question_code": key,
+                                 'domain': 1}
+                        persist_wellbeing_data(kvals, value, person, house_hold, new_events_pk)
 
             url = reverse('ovc_view', kwargs={'id': id})
             # return HttpResponseRedirect(reverse(forms_registry))
@@ -8589,17 +8631,18 @@ def new_wellbeing(request, id):
     except Exception, e:
         msg = 'Household Vulnerability Assessment save error: (%s)' % (str(e))
         messages.add_message(request, messages.ERROR, msg)
-        print 'Error saving HHVA : %s' % str(e)
+        print 'Error saving wellbeing : %s' % str(e)
+        print  e
         return HttpResponseRedirect(reverse(forms_registry))
 
     # get household members/ caretaker/ household_id
     household_id = None
-    ovcreg=None
-    person_sex_type='male'
+    ovcreg = None
+    person_sex_type = 'male'
     try:
         ovcreg = get_object_or_404(OVCRegistration, person_id=id, is_void=False)
 
-        person_sex_type='male' if ovcreg.caretaker.sex_id=='SMAL' else 'female'
+        person_sex_type = 'male' if ovcreg.caretaker.sex_id == 'SMAL' else 'female'
         caretaker_id = ovcreg.caretaker_id if ovcreg else None
 
         ovchh = get_object_or_404(OVCHouseHold, head_person=caretaker_id, is_void=False)
@@ -8650,7 +8693,7 @@ def new_wellbeing(request, id):
                       'form': form,
                       'init_data': init_data,
                       'vals': vals,
-                      'ovcreg':ovcreg,
+                      'ovcreg': ovcreg,
                       'person': id,
                       'guardians': guardians,
                       'siblings': siblings,
