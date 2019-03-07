@@ -950,6 +950,9 @@ class OVCCareBenchmarkScore(models.Model):
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
 
+    def __unicode__(self):
+        return str(self.bench_mark_score_id)
+
     class Meta:
         db_table = 'ovc_care_benchmark_score'
 
@@ -966,10 +969,14 @@ class OVCCareCpara(models.Model):
     question_type = models.CharField(max_length=50)
     domain = models.CharField(max_length=50)
     event = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
-    event_date = models.DateTimeField(default=timezone.now)
+    date_of_event = models.DateField()
+    timestamp_created = models.DateTimeField(default=timezone.now)
     is_void = models.BooleanField(default=False)
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.answer
 
     class Meta:
         db_table = 'ovc_care_cpara'
@@ -988,9 +995,12 @@ class OVCCareWellbeing(models.Model):
     domain = models.CharField(max_length=10)
     is_void = models.BooleanField(default=False)
     event = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
-    event_date = models.DateTimeField(default=timezone.now)
+    date_of_event = models.DateField()
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.answer
 
     class Meta:
         db_table = 'ovc_care_well_being'
@@ -1016,6 +1026,9 @@ class OVCCareCasePlan(models.Model):
     event = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.results
 
     class Meta:
         db_table = 'ovc_care_case_plan'
@@ -1067,6 +1080,7 @@ class OVCGoals(models.Model):
     action = models.CharField(max_length=255)
     event = models.ForeignKey(OVCCareEvents)
     is_void = models.BooleanField(default=False)
+    date_of_event = models.DateField()
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
 
@@ -1088,6 +1102,7 @@ class OVCReferrals(models.Model):
     completed = models.BooleanField(default=False)
     outcome = models.CharField(max_length=255)
     is_void = models.BooleanField(default=False)
+    date_of_event = models.DateField()
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
 
@@ -1114,7 +1129,7 @@ class OVCMonitoring(models.Model):
     event = models.ForeignKey(OVCCareEvents)
     quarter = models.CharField(max_length=10)
     is_void = models.BooleanField(default=False)
-    event_date = models.DateField(default=timezone.now)
+    event_date = models.DateField()
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
 
@@ -1131,6 +1146,7 @@ class OVCHivStatus(models.Model):
     hiv_status = models.CharField(max_length=10)
     event = models.ForeignKey(OVCCareEvents)
     is_void = models.BooleanField(default=False)
+    date_of_event = models.DateField()
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
 
@@ -1152,6 +1168,9 @@ class OVCCareQuestions(models.Model):
     is_void = models.BooleanField(default=False)
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
+
+    def __unicode__(self):
+        return self.code
 
     class Meta:
         db_table = 'ovc_care_questions'
