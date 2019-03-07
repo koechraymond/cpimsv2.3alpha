@@ -8569,6 +8569,8 @@ def new_wellbeing(request, id):
             entity_values = []
 
             for key in request.POST:
+                if (key == 'safeanswer'):
+                    print "================================= vol"
                 if(key in ignore_request_values):
                     continue
                 val = request.POST.getlist(key)

@@ -6236,3 +6236,19 @@ body.flat-black {
     text-align: justify;
     text-justify: inter-word;
 }
+
+
+/*DanChanges*/
+.nav-pills.nav-stacked li{
+    padding: 3px;
+    border-radius: 3px;
+    margin: 2px auto;
+}
+.nav-pills.nav-stacked li.active,
+.nav-pills.nav-stacked li:hover,
+.nav-pills.nav-stacked li:focus,
+.nav-pills.nav-stacked li:active{
+    background-color: #00acac;
+    color: #ffffff;
+}
+/*DanChanges*/
