@@ -6417,6 +6417,12 @@ select,input,textarea{
     background-color: #00acac;
     color: #ffffff;
 }
+td:focus{
+    outline: thick double #32a1ce;
+}
+.hidden{
+    display: none;
+}
 /*DanChanges*/
 
 
