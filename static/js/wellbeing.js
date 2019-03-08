@@ -27,7 +27,7 @@ $('#safetytab > .nav-pills.nav-stacked > li').on('click focus', function(event){
     childrenQuestion[childId]=ansObj;
     console.log("the error log gone");
     console.log(JSON.stringify(childrenQuestion));
-    
+    $('#safeanswer').val(JSON.stringify(childrenQuestion));
 });
 
 
@@ -42,7 +42,7 @@ $('#schooltab > .nav-pills.nav-stacked > li').on('click focus', function(event){
         var inpt_type = inpt.attr('type');
 
        // console.log(inpt);
-        //console.log(inpt_type);
+        console.log(inpt_type);
 
         if(inpt_type == 'radio'){
             var answr = $('input[name='+ans_name+']:checked').val();
@@ -57,15 +57,18 @@ $('#schooltab > .nav-pills.nav-stacked > li').on('click focus', function(event){
             ansObj[''+ans_name+''] = answerList;
         }
 
+        if(inpt_type == 'text' || inpt_type == 'number'){
+            var answr = $('input[name='+ans_name+']').val();
+            ansObj[''+ans_name+''] = answr;
+        }
+
         childrenQuestion2[childId]=ansObj;
-        
+        $('#schooledanswer').val(JSON.stringify(childrenQuestion2));
     });
 
 })
 
 
-$('#safeanswer').val(JSON.stringify(childrenQuestion));
-$('#schooledanswer').val(JSON.stringify(childrenQuestion2));
 
 
 hideQn('WB_SAF_39_2');

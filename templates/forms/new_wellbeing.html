@@ -2022,6 +2022,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                             <ul class="nav nav-pills nav-stacked">
                                                 {% for hhmember in hhmembers %}
                                                     {% if forloop.counter == 1 %}
+
                                                         <li class="active" data-child-id={{ hhmember.person_id }} >
                                                     {% else %}
                                                         <li data-child-id={{ hhmember.person_id }} >
@@ -2409,8 +2410,8 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                             </div>
                         </div>
                     </div>
-                    <input name="safeanswer" id="safeanswer"  type="hidden"/>
-                    <input name="schooledanswer" id="schooledanswer"  type="hidden"/>
+                    <input name="safeanswer" id="safeanswer"  value="{}" type="hidden"/>
+                    <input name="schooledanswer" id="schooledanswer" value="{}" type="hidden"/>
                 </form>
             </div>
             <div class="badge pull-right m-4">Revised: Oct 6th 2016</div>

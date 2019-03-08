@@ -8610,8 +8610,9 @@ def new_wellbeing(request, id):
             entity_values = []
 
             for key in request.POST:
-                if (key != 'schooledanswer' or key == 'schooledanswer'):
-                    persist_per_child_wellbeing_question(request, key, house_hold, new_events_pk)
+                if (str(key) != "safeanswer" and str(key) != "schooledanswer"):
+                    print key
+                    print type(str(key))
                     print "debug 2"
                     if (key in ignore_request_values):
                         continue
@@ -8624,6 +8625,8 @@ def new_wellbeing(request, id):
                         kvals = {"entity": entity_type, "value": val, "question_code": key,
                                  'domain': 1}
                         persist_wellbeing_data(kvals, value, person, house_hold, new_events_pk)
+                else:
+                    persist_per_child_wellbeing_question(request, key, house_hold, new_events_pk)
 
             url = reverse('ovc_view', kwargs={'id': id})
             # return HttpResponseRedirect(reverse(forms_registry))
