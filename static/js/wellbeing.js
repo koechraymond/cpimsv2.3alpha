@@ -111,13 +111,194 @@ $("input[name='WB_SAF_40_1']").on('change', function () {
     }
 });
 
+hideQn('WB_SAF_31_2');
+$("input[name='WB_SAF_31_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_SAF_31_2');
+    }else{
+        hideQn('WB_SAF_31_2');
+    }
+});
+
+hideQn('WB_SAF_34_2');
+$("input[name='WB_SAF_34_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_SAF_34_2');
+    }else{
+        hideQn('WB_SAF_34_2');
+    }
+});
+
+hideQn('WB_SAF_36_2');
+$("input[name='WB_SAF_36_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_SAF_36_2');
+    }else{
+        hideQn('WB_SAF_36_2');
+    }
+});
+
 hideQn('WB_SCH_41_2');
-$("input[name='WB_SCH_41_1']").on('change', function () {
-  var ival = $(this).val();
-    if (ival == 'Other' && $(this).is(':checked')) {
+$("input[name='WB_SCH_41_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
         unhideQn('WB_SCH_41_2');
     }else{
         hideQn('WB_SCH_41_2');
+    }
+});
+
+hideQn('WB_STA_1_2');
+$("input[name='WB_STA_1_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_1_2');
+    }else{
+        hideQn('WB_STA_1_2');
+    }
+});
+
+hideQn('WB_STA_2_2');
+$("input[name='WB_STA_2_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_2_2');
+    }else{
+        hideQn('WB_STA_2_2');
+    }
+});
+
+hideQn('WB_STA_3_2');
+$("input[name='WB_STA_3_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_3_2');
+    }else{
+        hideQn('WB_STA_3_2');
+    }
+});
+
+hideQn('WB_STA_4_2');
+$("input[name='WB_STA_4_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_4_2');
+    }else{
+        hideQn('WB_STA_4_2');
+    }
+});
+
+hideQn('WB_STA_5_2');
+$("input[name='WB_STA_5_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_5_2');
+    }else{
+        hideQn('WB_STA_5_2');
+    }
+});
+
+hideQn('WB_STA_8_2');
+$("input[name='WB_STA_8_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_8_2');
+    }else{
+        hideQn('WB_STA_8_2');
+    }
+});
+
+hideQn('WB_STA_9_2');
+$("input[name='WB_STA_9_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_9_2');
+    }else{
+        hideQn('WB_STA_9_2');
+    }
+});
+
+hideQn('WB_HEL_14_2');
+$("input[name='WB_HEL_14_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_HEL_14_2');
+    }else{
+        hideQn('WB_HEL_14_2');
+    }
+});
+
+hideQn('WB_HEL_16_3');
+$("input[name='WB_HEL_16_2'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_HEL_16_3');
+    }else{
+        hideQn('WB_HEL_16_3');
+    }
+});
+
+hideQn('WB_HEL_20_2');
+$("input[name='WB_HEL_20_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_HEL_20_2');
+    }else{
+        hideQn('WB_HEL_20_2');
+    }
+});
+
+hideQn('WB_HEL_25_2');
+$("input[name='WB_HEL_25_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_HEL_25_2');
+    }else{
+        hideQn('WB_HEL_25_2');
+    }
+});
+
+hideQn('WB_HEL_27_2');
+$("input[name='WB_HEL_27_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_HEL_27_2');
+    }else{
+        hideQn('WB_HEL_27_2');
+    }
+});
+
+hideQn('WB_HEL_28_2');
+$("input[name='WB_HEL_28_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_HEL_28_2');
+    }else{
+        hideQn('WB_HEL_28_2');
+    }
+});
+
+
+
+
+hideQn('WB_SCH_42_1');
+$("input[name='WB_SCH_42_2']").on('change', function () {
+    if ($(this).prop('checked')) {
+        unhideQn('WB_SCH_42_1');
+    }else{
+        hideQn('WB_SCH_42_1');
+    }
+});
+
+hideQn('WB_SCH_43_1');
+$("input[name='WB_SCH_43_2']").on('change', function () {
+    if ($(this).prop('checked')) {
+        unhideQn('WB_SCH_43_1');
+    }else{
+        hideQn('WB_SCH_43_1');
     }
 });
 
