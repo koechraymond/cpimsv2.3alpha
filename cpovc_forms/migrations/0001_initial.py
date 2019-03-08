@@ -4,12 +4,17 @@ from __future__ import unicode_literals
 from django.db import migrations, models
 import datetime
 import django.utils.timezone
+from django.conf import settings
 import uuid
 
 
 class Migration(migrations.Migration):
 
     dependencies = [
+        ('cpovc_registry', '__first__'),
+        ('cpovc_main', '__first__'),
+        migrations.swappable_dependency(settings.AUTH_USER_MODEL),
+        ('cpovc_ovc', '__first__'),
     ]
 
     operations = [
@@ -24,6 +29,7 @@ class Migration(migrations.Migration):
                 ('timestamp_modified', models.DateTimeField(auto_now=True)),
                 ('ip_address', models.GenericIPAddressField()),
                 ('meta_data', models.TextField(null=True)),
+                ('app_user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'db_table': 'forms_audit_trail',
@@ -40,6 +46,7 @@ class Migration(migrations.Migration):
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
                 ('timestamp_modified', models.DateTimeField(auto_now=True)),
                 ('app_user', models.IntegerField(default=404, null=True)),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson', null=True)),
             ],
             options={
                 'db_table': 'forms_log',
@@ -71,6 +78,7 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
             ],
             options={
                 'db_table': 'ovc_adverseevents_followup',
@@ -84,6 +92,7 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('adverse_condition_id', models.ForeignKey(to='cpovc_forms.OVCAdverseEventsFollowUp')),
             ],
             options={
                 'db_table': 'ovc_adverseevents_other_followup',
@@ -103,6 +112,7 @@ class Migration(migrations.Migration):
                 ('is_active', models.BooleanField(default=True)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
                 ('created_by', models.IntegerField(default=404, null=True)),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
             ],
             options={
                 'db_table': 'ovc_bursaryinfo',
@@ -121,6 +131,74 @@ class Migration(migrations.Migration):
             ],
             options={
                 'db_table': 'ovc_care_assessment',
+            },
+        ),
+        migrations.CreateModel(
+            name='OVCCareBenchmarkScore',
+            fields=[
+                ('bench_mark_score_id', models.AutoField(serialize=False, primary_key=True)),
+                ('bench_mark_1', models.IntegerField(default=0)),
+                ('bench_mark_2', models.IntegerField(default=0)),
+                ('bench_mark_3', models.IntegerField(default=0)),
+                ('bench_mark_4', models.IntegerField(default=0)),
+                ('bench_mark_5', models.IntegerField(default=0)),
+                ('bench_mark_6', models.IntegerField(default=0)),
+                ('bench_mark_7', models.IntegerField(default=0)),
+                ('bench_mark_8', models.IntegerField(default=0)),
+                ('bench_mark_9', models.IntegerField(default=0)),
+                ('bench_mark_10', models.IntegerField(default=0)),
+                ('bench_mark_11', models.IntegerField(default=0)),
+                ('bench_mark_12', models.IntegerField(default=0)),
+                ('bench_mark_13', models.IntegerField(default=0)),
+                ('bench_mark_14', models.IntegerField(default=0)),
+                ('bench_mark_15', models.IntegerField(default=0)),
+                ('bench_mark_16', models.IntegerField(default=0)),
+                ('bench_mark_17', models.IntegerField(default=0)),
+                ('score', models.IntegerField()),
+                ('is_void', models.BooleanField(default=False)),
+                ('date_of_event', models.DateField(default=django.utils.timezone.now)),
+                ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
+                ('timestamp_updated', models.DateTimeField(auto_now=True)),
+                ('care_giver_id', models.ForeignKey(to='cpovc_registry.RegPerson')),
+            ],
+            options={
+                'db_table': 'ovc_care_benchmark_score',
+            },
+        ),
+        migrations.CreateModel(
+            name='OVCCareCasePlan',
+            fields=[
+                ('case_plan_id', models.AutoField(serialize=False, primary_key=True)),
+                ('domain', models.CharField(max_length=50)),
+                ('goal', models.CharField(max_length=255)),
+                ('need', models.CharField(max_length=255)),
+                ('priority', models.CharField(max_length=255)),
+                ('responsible', models.CharField(max_length=50)),
+                ('completion_date', models.DateField(default=django.utils.timezone.now)),
+                ('results', models.CharField(max_length=300)),
+                ('reasons', models.CharField(max_length=300)),
+                ('is_void', models.BooleanField(default=False)),
+                ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
+                ('timestamp_updated', models.DateTimeField(auto_now=True)),
+                ('cp_service_id', models.ForeignKey(to='cpovc_main.SetupList')),
+            ],
+            options={
+                'db_table': 'ovc_care_case_plan',
+            },
+        ),
+        migrations.CreateModel(
+            name='OVCCareCpara',
+            fields=[
+                ('cpara_id', models.AutoField(serialize=False, primary_key=True)),
+                ('question', models.CharField(max_length=150)),
+                ('answer', models.CharField(max_length=5)),
+                ('question_type', models.CharField(max_length=50)),
+                ('domain', models.CharField(max_length=50)),
+                ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
+                ('is_void', models.BooleanField(default=False)),
+            ],
+            options={
+                'db_table': 'ovc_care_cpara',
             },
         ),
         migrations.CreateModel(
@@ -146,10 +224,13 @@ class Migration(migrations.Migration):
                 ('event_counter', models.IntegerField(default=0)),
                 ('event_score', models.IntegerField(default=0, null=True)),
                 ('date_of_event', models.DateField(default=django.utils.timezone.now)),
+                ('date_of_previous_event', models.DateTimeField(default=django.utils.timezone.now, null=True)),
                 ('created_by', models.IntegerField(default=404, null=True)),
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('house_hold', models.ForeignKey(to='cpovc_ovc.OVCHouseHold', null=True)),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson', null=True)),
             ],
             options={
                 'db_table': 'ovc_care_events',
@@ -163,9 +244,24 @@ class Migration(migrations.Migration):
                 ('entity', models.CharField(max_length=5)),
                 ('value', models.SmallIntegerField(default=1)),
                 ('is_void', models.BooleanField(default=False)),
+                ('event', models.ForeignKey(to='cpovc_forms.OVCCareEvents')),
             ],
             options={
                 'db_table': 'ovc_care_f1b',
+            },
+        ),
+        migrations.CreateModel(
+            name='OVCCareForms',
+            fields=[
+                ('form_id', models.AutoField(serialize=False, primary_key=True)),
+                ('name', models.CharField(max_length=50)),
+                ('description', models.CharField(max_length=255)),
+                ('is_void', models.BooleanField(default=False)),
+                ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
+                ('timestamp_updated', models.DateTimeField(auto_now=True)),
+            ],
+            options={
+                'db_table': 'ovc_care_forms',
             },
         ),
         migrations.CreateModel(
@@ -177,9 +273,28 @@ class Migration(migrations.Migration):
                 ('service_grouping_id', models.UUIDField(default=uuid.uuid1, editable=False)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('event', models.ForeignKey(to='cpovc_forms.OVCCareEvents')),
             ],
             options={
                 'db_table': 'ovc_care_priority',
+            },
+        ),
+        migrations.CreateModel(
+            name='OVCCareQuestions',
+            fields=[
+                ('question_id', models.UUIDField(default=uuid.uuid1, serialize=False, editable=False, primary_key=True)),
+                ('code', models.CharField(max_length=5)),
+                ('question', models.CharField(max_length=55)),
+                ('domain', models.CharField(max_length=10)),
+                ('question_text', models.CharField(max_length=255)),
+                ('question_type', models.CharField(max_length=20)),
+                ('is_void', models.BooleanField(default=False)),
+                ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
+                ('timestamp_updated', models.DateTimeField(auto_now=True)),
+                ('form', models.ForeignKey(to='cpovc_forms.OVCCareForms')),
+            ],
+            options={
+                'db_table': 'ovc_care_questions',
             },
         ),
         migrations.CreateModel(
@@ -194,9 +309,30 @@ class Migration(migrations.Migration):
                 ('service_grouping_id', models.UUIDField(default=uuid.uuid1, editable=False)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('event', models.ForeignKey(to='cpovc_forms.OVCCareEvents')),
             ],
             options={
                 'db_table': 'ovc_care_services',
+            },
+        ),
+        migrations.CreateModel(
+            name='OVCCareWellbeing',
+            fields=[
+                ('well_being_id', models.AutoField(serialize=False, primary_key=True)),
+                ('question_code', models.CharField(max_length=15)),
+                ('question', models.CharField(max_length=150)),
+                ('answer', models.CharField(max_length=50)),
+                ('question_type', models.CharField(max_length=5)),
+                ('domain', models.CharField(max_length=10)),
+                ('is_void', models.BooleanField(default=False)),
+                ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
+                ('timestamp_updated', models.DateTimeField(auto_now=True)),
+                ('event_id', models.ForeignKey(to='cpovc_forms.OVCCareEvents')),
+                ('household_id', models.ForeignKey(to='cpovc_ovc.OVCHouseHold')),
+                ('person_id', models.ForeignKey(to='cpovc_registry.RegPerson')),
+            ],
+            options={
+                'db_table': 'ovc_care_well_being',
             },
         ),
         migrations.CreateModel(
@@ -241,6 +377,7 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('case_category', models.ForeignKey(default=uuid.uuid1, blank=True, editable=False, to='cpovc_forms.OVCCaseCategory')),
             ],
             options={
                 'db_table': 'ovc_case_event_court',
@@ -262,6 +399,7 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('app_user', models.ForeignKey(default=1, to=settings.AUTH_USER_MODEL)),
             ],
             options={
                 'db_table': 'ovc_case_events',
@@ -279,6 +417,8 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('case_category', models.ForeignKey(default=uuid.uuid1, blank=True, editable=False, to='cpovc_forms.OVCCaseCategory')),
+                ('case_event_id', models.ForeignKey(to='cpovc_forms.OVCCaseEvents')),
             ],
             options={
                 'db_table': 'ovc_case_event_encounters',
@@ -295,6 +435,8 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('case_category', models.ForeignKey(default=uuid.uuid1, editable=False, to='cpovc_forms.OVCCaseCategory', null=True)),
+                ('case_event_id', models.ForeignKey(to='cpovc_forms.OVCCaseEvents')),
             ],
             options={
                 'db_table': 'ovc_case_event_summon',
@@ -347,6 +489,7 @@ class Migration(migrations.Migration):
                 ('case_remarks', models.CharField(max_length=1000, null=True)),
                 ('date_of_summon', models.DateField(null=True)),
                 ('summon_status', models.NullBooleanField(default=None)),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
             ],
             options={
                 'db_table': 'ovc_case_record',
@@ -361,6 +504,8 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('case_category', models.ForeignKey(to='cpovc_forms.OVCCaseCategory')),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
             ],
             options={
                 'db_table': 'ovc_case_sub_category',
@@ -381,6 +526,7 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
             ],
             options={
                 'db_table': 'ovc_discharge_followup',
@@ -398,6 +544,7 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
             ],
             options={
                 'db_table': 'ovc_documents',
@@ -411,6 +558,8 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('case_id', models.ForeignKey(to='cpovc_forms.OVCCaseRecord')),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
             ],
             options={
                 'db_table': 'ovc_economic_status',
@@ -429,6 +578,7 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
             ],
             options={
                 'db_table': 'ovc_education_followup',
@@ -443,9 +593,25 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('education_followup_id', models.ForeignKey(to='cpovc_forms.OVCEducationFollowUp')),
             ],
             options={
                 'db_table': 'ovc_education_level_followup',
+            },
+        ),
+        migrations.CreateModel(
+            name='OVCExplanations',
+            fields=[
+                ('explanation_id', models.AutoField(serialize=False, primary_key=True)),
+                ('question', models.CharField(max_length=255)),
+                ('comment', models.CharField(max_length=255)),
+                ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
+                ('timestamp_updated', models.DateTimeField(auto_now=True)),
+                ('event_id', models.ForeignKey(to='cpovc_forms.OVCCareEvents')),
+                ('form_id', models.ForeignKey(to='cpovc_forms.OVCCareForms')),
+            ],
+            options={
+                'db_table': 'ovc_explanations',
             },
         ),
         migrations.CreateModel(
@@ -478,6 +644,11 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('adoption_subcounty', models.ForeignKey(related_name='adoption_subcounty_fk', to='cpovc_main.SetupGeography', null=True)),
+                ('children_office', models.ForeignKey(related_name='children_office_fk', to='cpovc_registry.RegOrgUnit', null=True)),
+                ('fostered_from', models.ForeignKey(related_name='fostered_from_fk', to='cpovc_registry.RegOrgUnit', null=True)),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
+                ('residential_institution_name', models.ForeignKey(related_name='residential_institution_name_fk', to='cpovc_registry.RegOrgUnit', null=True)),
             ],
             options={
                 'db_table': 'ovc_family_care',
@@ -491,6 +662,8 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('case_id', models.ForeignKey(to='cpovc_forms.OVCCaseRecord')),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
             ],
             options={
                 'db_table': 'ovc_family_status',
@@ -506,9 +679,26 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('case_id', models.ForeignKey(to='cpovc_forms.OVCCaseRecord')),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
             ],
             options={
                 'db_table': 'ovc_friends',
+            },
+        ),
+        migrations.CreateModel(
+            name='OVCGoals',
+            fields=[
+                ('goal_id', models.AutoField(serialize=False, primary_key=True)),
+                ('goal', models.CharField(max_length=255)),
+                ('action', models.CharField(max_length=255)),
+                ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
+                ('timestamp_updated', models.DateTimeField(auto_now=True)),
+                ('event_id', models.ForeignKey(to='cpovc_forms.OVCCareEvents')),
+                ('person_id', models.ForeignKey(to='cpovc_registry.RegPerson')),
+            ],
+            options={
+                'db_table': 'ovc_goals',
             },
         ),
         migrations.CreateModel(
@@ -578,11 +768,33 @@ class Migration(migrations.Migration):
                 ('application_date', models.DateField()),
                 ('created_at', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
+                ('app_user', models.ForeignKey(to=settings.AUTH_USER_MODEL)),
+                ('constituency', models.ForeignKey(related_name='child_constituency', to='cpovc_main.SetupGeography')),
+                ('county', models.ForeignKey(related_name='child_county', to='cpovc_main.SetupGeography')),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
+                ('school_bank', models.ForeignKey(to='cpovc_forms.ListBanks')),
+                ('school_constituency', models.ForeignKey(related_name='school_constituency', to='cpovc_main.SetupGeography')),
+                ('school_county', models.ForeignKey(related_name='school_county', to='cpovc_main.SetupGeography')),
             ],
             options={
                 'db_table': 'bursary_application',
                 'verbose_name': 'GoK Bursary',
                 'verbose_name_plural': 'GoK Bursaries',
+            },
+        ),
+        migrations.CreateModel(
+            name='OVCHivStatus',
+            fields=[
+                ('hiv_status_id', models.AutoField(serialize=False, primary_key=True)),
+                ('hiv_status', models.CharField(max_length=10)),
+                ('is_void', models.BooleanField(default=False)),
+                ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
+                ('timestamp_updated', models.DateTimeField(auto_now=True)),
+                ('event_id', models.ForeignKey(to='cpovc_forms.OVCCareEvents')),
+                ('person_id', models.ForeignKey(to='cpovc_registry.RegPerson')),
+            ],
+            options={
+                'db_table': 'ovc_hiv_status',
             },
         ),
         migrations.CreateModel(
@@ -593,9 +805,28 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('case_id', models.ForeignKey(to='cpovc_forms.OVCCaseRecord')),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
             ],
             options={
                 'db_table': 'ovc_hobbies',
+            },
+        ),
+        migrations.CreateModel(
+            name='OVCHouseholdDemographics',
+            fields=[
+                ('household_demographics_id', models.AutoField(serialize=False, primary_key=True)),
+                ('key', models.CharField(max_length=15)),
+                ('male', models.IntegerField(default=0)),
+                ('female', models.IntegerField(default=0)),
+                ('is_void', models.BooleanField(default=False)),
+                ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
+                ('timestamp_updated', models.DateTimeField(auto_now=True)),
+                ('event_id', models.ForeignKey(to='cpovc_forms.OVCCareEvents')),
+                ('household_id', models.ForeignKey(to='cpovc_ovc.OVCHouseHold')),
+            ],
+            options={
+                'db_table': 'ovc_household_demographics',
             },
         ),
         migrations.CreateModel(
@@ -608,6 +839,8 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('case_id', models.ForeignKey(to='cpovc_forms.OVCCaseRecord')),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
             ],
             options={
                 'db_table': 'ovc_medical',
@@ -622,9 +855,36 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('medical_id', models.ForeignKey(to='cpovc_forms.OVCMedical')),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
             ],
             options={
                 'db_table': 'ovc_medical_subconditions',
+            },
+        ),
+        migrations.CreateModel(
+            name='OVCMonitoring',
+            fields=[
+                ('monitoring_id', models.AutoField(serialize=False, primary_key=True)),
+                ('hiv_status_knowledge', models.CharField(max_length=5)),
+                ('viral_suppression', models.CharField(max_length=5)),
+                ('hiv_prevention', models.CharField(max_length=5)),
+                ('access_money', models.CharField(max_length=5)),
+                ('violence', models.CharField(max_length=5)),
+                ('caregiver', models.CharField(max_length=5)),
+                ('school_attendance', models.CharField(max_length=5)),
+                ('school_progression', models.CharField(max_length=5)),
+                ('cp_achievement', models.CharField(max_length=5)),
+                ('case_closure', models.CharField(max_length=5)),
+                ('is_void', models.BooleanField(default=False)),
+                ('event_date', models.DateField(default=django.utils.timezone.now)),
+                ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
+                ('timestamp_updated', models.DateTimeField(auto_now=True)),
+                ('event_id', models.ForeignKey(to='cpovc_forms.OVCCareEvents')),
+                ('household_id', models.ForeignKey(to='cpovc_ovc.OVCHouseHold')),
+            ],
+            options={
+                'db_table': 'ovc_monitoring',
             },
         ),
         migrations.CreateModel(
@@ -636,6 +896,8 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('case_id', models.ForeignKey(to='cpovc_forms.OVCCaseRecord')),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
             ],
             options={
                 'db_table': 'ovc_needs',
@@ -667,6 +929,7 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
             ],
             options={
                 'db_table': 'ovc_placement',
@@ -684,6 +947,8 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
+                ('placement_id', models.ForeignKey(to='cpovc_forms.OVCPlacement')),
             ],
             options={
                 'db_table': 'ovc_placement_followup',
@@ -703,9 +968,32 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('case_category', models.ForeignKey(default=uuid.uuid1, editable=False, to='cpovc_forms.OVCCaseCategory', null=True)),
+                ('case_id', models.ForeignKey(to='cpovc_forms.OVCCaseRecord')),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
             ],
             options={
                 'db_table': 'ovc_referrals',
+            },
+        ),
+        migrations.CreateModel(
+            name='OVCReferrals',
+            fields=[
+                ('referral_id', models.AutoField(serialize=False, primary_key=True)),
+                ('referral_date', models.DateField(default=django.utils.timezone.now)),
+                ('service', models.CharField(max_length=20)),
+                ('institution', models.CharField(max_length=50)),
+                ('contact_person', models.CharField(max_length=50)),
+                ('completed', models.BooleanField(default=False)),
+                ('outcome', models.CharField(max_length=255)),
+                ('is_void', models.BooleanField(default=False)),
+                ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
+                ('timestamp_updated', models.DateTimeField(auto_now=True)),
+                ('event_id', models.ForeignKey(to='cpovc_forms.OVCCareEvents')),
+                ('person_id', models.ForeignKey(to='cpovc_registry.RegPerson')),
+            ],
+            options={
+                'db_table': 'ovc_cp_referrals',
             },
         ),
         migrations.CreateModel(
@@ -720,9 +1008,145 @@ class Migration(migrations.Migration):
                 ('timestamp_created', models.DateTimeField(default=django.utils.timezone.now)),
                 ('is_void', models.BooleanField(default=False)),
                 ('sync_id', models.UUIDField(default=uuid.uuid1, editable=False)),
+                ('person', models.ForeignKey(to='cpovc_registry.RegPerson')),
             ],
             options={
                 'db_table': 'ovc_reminders',
             },
+        ),
+        migrations.AddField(
+            model_name='ovceducationfollowup',
+            name='placement_id',
+            field=models.ForeignKey(to='cpovc_forms.OVCPlacement', null=True),
+        ),
+        migrations.AddField(
+            model_name='ovceducationfollowup',
+            name='school_id',
+            field=models.ForeignKey(to='cpovc_main.SchoolList', null=True),
+        ),
+        migrations.AddField(
+            model_name='ovcdischargefollowup',
+            name='placement_id',
+            field=models.ForeignKey(to='cpovc_forms.OVCPlacement'),
+        ),
+        migrations.AddField(
+            model_name='ovccasegeo',
+            name='case_id',
+            field=models.ForeignKey(to='cpovc_forms.OVCCaseRecord'),
+        ),
+        migrations.AddField(
+            model_name='ovccasegeo',
+            name='occurence_county',
+            field=models.ForeignKey(related_name='occurence_county_fk', to='cpovc_main.SetupGeography'),
+        ),
+        migrations.AddField(
+            model_name='ovccasegeo',
+            name='occurence_subcounty',
+            field=models.ForeignKey(related_name='occurence_subcounty_fk', to='cpovc_main.SetupGeography'),
+        ),
+        migrations.AddField(
+            model_name='ovccasegeo',
+            name='person',
+            field=models.ForeignKey(to='cpovc_registry.RegPerson'),
+        ),
+        migrations.AddField(
+            model_name='ovccasegeo',
+            name='report_orgunit',
+            field=models.ForeignKey(to='cpovc_registry.RegOrgUnit', max_length=10, null=True),
+        ),
+        migrations.AddField(
+            model_name='ovccasegeo',
+            name='report_subcounty',
+            field=models.ForeignKey(related_name='report_subcounty_fk', to='cpovc_main.SetupGeography'),
+        ),
+        migrations.AddField(
+            model_name='ovccaseevents',
+            name='case_id',
+            field=models.ForeignKey(to='cpovc_forms.OVCCaseRecord', null=True),
+        ),
+        migrations.AddField(
+            model_name='ovccaseevents',
+            name='placement_id',
+            field=models.ForeignKey(to='cpovc_forms.OVCPlacement', null=True),
+        ),
+        migrations.AddField(
+            model_name='ovccaseeventcourt',
+            name='case_event_id',
+            field=models.ForeignKey(to='cpovc_forms.OVCCaseEvents'),
+        ),
+        migrations.AddField(
+            model_name='ovccaseeventclosure',
+            name='case_event_id',
+            field=models.ForeignKey(to='cpovc_forms.OVCCaseEvents'),
+        ),
+        migrations.AddField(
+            model_name='ovccaseeventclosure',
+            name='transfer_to',
+            field=models.ForeignKey(to='cpovc_registry.RegOrgUnit', max_length=10, null=True),
+        ),
+        migrations.AddField(
+            model_name='ovccasecategory',
+            name='case_id',
+            field=models.ForeignKey(to='cpovc_forms.OVCCaseRecord'),
+        ),
+        migrations.AddField(
+            model_name='ovccasecategory',
+            name='person',
+            field=models.ForeignKey(to='cpovc_registry.RegPerson'),
+        ),
+        migrations.AddField(
+            model_name='ovccareeav',
+            name='event',
+            field=models.ForeignKey(to='cpovc_forms.OVCCareEvents'),
+        ),
+        migrations.AddField(
+            model_name='ovccarecpara',
+            name='event_id',
+            field=models.ForeignKey(to='cpovc_forms.OVCCareEvents'),
+        ),
+        migrations.AddField(
+            model_name='ovccarecpara',
+            name='household_id',
+            field=models.ForeignKey(to='cpovc_ovc.OVCHouseHold'),
+        ),
+        migrations.AddField(
+            model_name='ovccarecpara',
+            name='person_id',
+            field=models.ForeignKey(to='cpovc_registry.RegPerson'),
+        ),
+        migrations.AddField(
+            model_name='ovccarecaseplan',
+            name='event_id',
+            field=models.ForeignKey(to='cpovc_forms.OVCCareEvents'),
+        ),
+        migrations.AddField(
+            model_name='ovccarecaseplan',
+            name='form_id',
+            field=models.ForeignKey(to='cpovc_forms.OVCCareForms'),
+        ),
+        migrations.AddField(
+            model_name='ovccarecaseplan',
+            name='person_id',
+            field=models.ForeignKey(to='cpovc_registry.RegPerson'),
+        ),
+        migrations.AddField(
+            model_name='ovccarebenchmarkscore',
+            name='event_id',
+            field=models.ForeignKey(to='cpovc_forms.OVCCareEvents'),
+        ),
+        migrations.AddField(
+            model_name='ovccarebenchmarkscore',
+            name='household_id',
+            field=models.ForeignKey(to='cpovc_ovc.OVCHouseHold'),
+        ),
+        migrations.AddField(
+            model_name='ovccareassessment',
+            name='event',
+            field=models.ForeignKey(to='cpovc_forms.OVCCareEvents'),
+        ),
+        migrations.AddField(
+            model_name='ovcadverseeventsfollowup',
+            name='placement_id',
+            field=models.ForeignKey(to='cpovc_forms.OVCPlacement'),
         ),
     ]
