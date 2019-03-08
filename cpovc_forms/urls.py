@@ -234,4 +234,12 @@ urlpatterns = patterns(
     url(r'^caseplan/new/(?P<id>\d+)/$',
         'case_plan_template', name='new_caseplan'),
     url(r'^caseplan-monitoring/new/(?P<id>\d+)/$', 'new_case_plan_monitoring', name='new_caseplan_monitoring'),
+
+    #wellbeing Adult and Child
+    url(r'^wellbeing/new/(?P<id>\d+)/$',
+        'new_wellbeing', name='new_wellbeing'),
+    #wellbeing Adolescent
+    url(r'^wellbeingadolescent/new/(?P<id>\d+)/$',
+        'new_wellbeingadolescent', name='new_wellbeingadolescent')
+
 )

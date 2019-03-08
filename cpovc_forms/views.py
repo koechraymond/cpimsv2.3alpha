@@ -19,8 +19,8 @@ from cpovc_forms.forms import (
     OVCSearchForm, ResidentialSearchForm, ResidentialFollowupForm,
     ResidentialForm, OVC_FT3hForm, SearchForm, OVCCareSearchForm,
     OVC_CaseEventForm, DocumentsManager, OVCSchoolForm, OVCBursaryForm,
-    BackgroundDetailsForm, OVC_FTFCForm, OVCCsiForm, OVCF1AForm, OVCHHVAForm,
-    GOKBursaryForm, CparaAssessment, CparaMonitoring, CasePlanTemplate)
+    BackgroundDetailsForm, OVC_FTFCForm, OVCCsiForm, OVCF1AForm, OVCHHVAForm, Wellbeing,
+    GOKBursaryForm, CparaAssessment, CparaMonitoring, CasePlanTemplate, WellbeingAdolescentForm)
 from .models import (
     OVCEconomicStatus, OVCFamilyStatus, OVCReferral, OVCHobbies, OVCFriends,
     OVCDocuments, OVCMedical, OVCCaseRecord, OVCNeeds, OVCCaseCategory,
@@ -30,7 +30,7 @@ from .models import (
     OVCAdverseEventsFollowUp, OVCAdverseEventsOtherFollowUp,
     OVCCaseEventClosure, OVCCaseGeo, OVCMedicalSubconditions, OVCBursary,
     OVCFamilyCare, OVCCaseEventSummon, OVCCareEvents, OVCCarePriority,
-    OVCCareServices, OVCCareEAV, OVCCareAssessment, OVCGokBursary, OVCCareCpara, OVCCareQuestions,
+    OVCCareServices, OVCCareEAV, OVCCareAssessment, OVCGokBursary, OVCCareWellbeing, OVCCareCpara, OVCCareQuestions,OVCCareForms,OVCExplanations,
     OVCCareBenchmarkScore, OVCMonitoring)
 from cpovc_ovc.models import OVCRegistration, OVCHHMembers, OVCHealth, OVCHouseHold
 from cpovc_main.functions import (
@@ -8635,3 +8635,308 @@ def new_case_plan_monitoring(request, id):
         return HttpResponseRedirect(url)
     form = CparaMonitoring()
     return render(request, 'forms/new_case_plan_monitoring.html', {'form': form})
+
+
+
+
+
+def persist_wellbeing_data(kvals, value, person, house_hold, new_pk):
+    entity = kvals["entity"]
+    question_code = kvals["question_code"]
+    domain = kvals["domain"]
+
+    if (entity == 'wellbeing'):
+        OVCCareWellbeing(
+            question_code=question_code,
+            person_id=person,
+            question="wjwj",
+            answer=value,
+            household_id=house_hold,
+            question_type='CG',
+            domain=domain,
+            event_id=OVCCareEvents.objects.get(pk=new_pk)
+        ).save()
+
+    elif (entity == 'comment'):
+
+        OVCExplanations(
+            question="wjwj",
+            comment=value,
+            form_id=OVCCareForms.objects.get(pk=4),
+            event_id=OVCCareEvents.objects.get(pk=new_pk)
+        ).save()
+
+
+
+def persist_per_child_wellbeing_question(request,key,house_hold,new_events_pk):
+    print "debug 1"
+    if (key == 'safeanswer'):
+        print "================================= vol1"
+        answer_obj = request.POST.get(key)
+        answer_obj = ast.literal_eval(answer_obj)  # convert to dict
+        print answer_obj
+        print "debug 6"
+        for person_id, individual_person_answers in answer_obj.iteritems():
+            # individual_person_answers=ast.literal_eval(individual_person_answers)
+            print "debug 0"
+            person = RegPerson.objects.get(pk=int(person_id))
+            print "debug 1"
+            for element_id, answer in individual_person_answers.iteritems():
+                kvals = {"entity": "wellbeing", "value": answer, "question_code": element_id,
+                         'domain': 1}
+                persist_wellbeing_data(kvals, answer, person, house_hold, new_events_pk)
+
+    if (key == 'schooledanswer'):
+        print "================================= vol2"
+        answer_obj = request.POST.get(key)
+        answer_obj = ast.literal_eval(answer_obj)  # convert to dict
+        for person_id, individual_person_answers in answer_obj.iteritems():
+            # individual_person_answers=ast.literal_eval(individual_person_answers)
+            person = RegPerson.objects.get(pk=int(person_id))
+            for element_id, answer in individual_person_answers.iteritems():
+
+                kvals = {"entity": "wellbeing", "value": answer, "question_code": element_id,
+                         'domain': 1}
+                if isinstance(answer, (list,)):
+                    for vall in answer:
+                        kvals['value'] = vall
+                        persist_wellbeing_data(kvals, vall, person, house_hold, new_events_pk)
+                else:
+                    persist_wellbeing_data(kvals, answer, person, house_hold, new_events_pk)
+
+
+
+@login_required
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def new_wellbeing(request, id):
+    try:
+
+        if request.method == 'POST':
+            comments = ['WB_STA_13_2', 'WB_STA_12_3', 'WB_STA_11_2', 'WB_STA_10_2', 'WB_STA_5_3', 'WB_STA_4_3',
+                        'WB_STA_3_3', 'WB_STA_2_3', 'WB_STA_1_3']
+            ignore_request_values = ['household_id', 'csrfmiddlewaretoken']
+
+            household_id = request.POST.get('household_id')
+            hse_uuid = uuid.UUID(household_id)
+            house_hold = OVCHouseHold.objects.get(pk=hse_uuid)
+            person = RegPerson.objects.get(pk=int(id))
+            event_type_id = 'FHSA'
+            date_of_wellbeing_event = convert_date(datetime.today().strftime('%d-%b-%Y'))
+
+            """ Save Wellbeing-event """
+            event_counter = OVCCareEvents.objects.filter(
+                event_type_id=event_type_id, person=id, is_void=False).count()
+            print "save event"
+            ovccareevent = OVCCareEvents(
+                event_type_id=event_type_id,
+                event_counter=event_counter,
+                event_score=0,
+                date_of_event=date_of_wellbeing_event,
+                created_by=request.user.id,
+                person=RegPerson.objects.get(pk=int(id)),
+                house_hold=house_hold
+            )
+            ovccareevent.save()
+            new_events_pk = ovccareevent.pk
+
+            entity_values = []
+
+            for key in request.POST:
+                if (str(key) != "safeanswer" and str(key) != "schooledanswer"):
+                    print key
+                    print type(str(key))
+                    print "debug 2"
+                    if (key in ignore_request_values):
+                        continue
+                    val = request.POST.getlist(key)
+                    print "debug 3"
+                    for i, value in enumerate(val):
+                        entity_type = 'wellbeing'
+                        if (key in comments):
+                            entity_type = 'comment'
+                        kvals = {"entity": entity_type, "value": val, "question_code": key,
+                                 'domain': 1}
+                        persist_wellbeing_data(kvals, value, person, house_hold, new_events_pk)
+                else:
+                    persist_per_child_wellbeing_question(request, key, house_hold, new_events_pk)
+
+            url = reverse('ovc_view', kwargs={'id': id})
+            # return HttpResponseRedirect(reverse(forms_registry))
+            return HttpResponseRedirect(url)
+    except Exception, e:
+        msg = 'Household Vulnerability Assessment save error: (%s)' % (str(e))
+        messages.add_message(request, messages.ERROR, msg)
+        print 'Error saving wellbeing : %s' % str(e)
+        print  e
+        return HttpResponseRedirect(reverse(forms_registry))
+
+    # get household members/ caretaker/ household_id
+    household_id = None
+    ovcreg = None
+    person_sex_type = 'male'
+    try:
+        ovcreg = get_object_or_404(OVCRegistration, person_id=id, is_void=False)
+
+        person_sex_type = 'male' if ovcreg.caretaker.sex_id == 'SMAL' else 'female'
+        caretaker_id = ovcreg.caretaker_id if ovcreg else None
+
+        ovchh = get_object_or_404(OVCHouseHold, head_person=caretaker_id, is_void=False)
+        household_id = ovchh.id if ovchh else None
+    except Exception, e:
+        print str(e)
+        msg = 'Error getting household identifier: (%s)' % (str(e))
+        messages.add_message(request, messages.ERROR, msg)
+        return HttpResponseRedirect(reverse(forms_registry))
+
+        # get relations
+    guardians = RegPersonsGuardians.objects.select_related().filter(
+        child_person=id, is_void=False, date_delinked=None)
+    # siblings = RegPersonsSiblings.objects.select_related().filter(
+    #     child_person=id, is_void=False, date_delinked=None)
+    ovc_id = int(id)
+    child = RegPerson.objects.get(is_void=False, id=ovc_id)
+
+    siblings = RegPersonsSiblings.objects.filter(
+        is_void=False, child_person=child.id)
+
+    # Reverse relationship
+    osiblings = RegPersonsSiblings.objects.select_related().filter(
+        sibling_person=id, is_void=False, date_delinked=None)
+
+    oguardians = RegPersonsGuardians.objects.select_related().filter(
+        guardian_person=id, is_void=False, date_delinked=None)
+
+    # get child data
+    init_data = RegPerson.objects.filter(pk=id)
+    check_fields = ['sex_id', 'relationship_type_id']
+    vals = get_dict(field_name=check_fields)
+
+    # Get house hold
+    hhold = OVCHHMembers.objects.get(
+        is_void=False, person_id=child.id)
+    # Get HH members
+    hhid = hhold.house_hold_id
+    hhmqs = OVCHHMembers.objects.filter(
+        is_void=False, house_hold_id=hhid).order_by("-hh_head")
+
+    hhmembers = hhmqs.exclude(person_id=ovcreg.caretaker_id)
+
+    form = Wellbeing(initial={'household_id': household_id})
+    return render(request,
+                  'forms/new_wellbeing.html',
+                  {
+                      'form': form,
+                      'init_data': init_data,
+                      'vals': vals,
+                      'ovcreg': ovcreg,
+                      'person': id,
+                      'guardians': guardians,
+                      'siblings': siblings,
+                      'hhmembers': hhmembers,
+                      'osiblings': osiblings,
+                      'person_sex_type': person_sex_type,
+                      'oguardians': oguardians
+                  })
+
+@login_required
+@cache_control(no_cache=True, must_revalidate=True, no_store=True)
+def new_wellbeingadolescent(request, id):
+    print("new wellbeing processing------------------")
+    try:
+        if request.method == 'POST':
+            comments=['WB_AD_GEN_4_2']
+            ignore_request_values= ['household_id','csrfmiddlewaretoken']
+
+            household_id = request.POST.get('household_id')
+            hse_uuid = uuid.UUID(household_id)
+            house_hold = OVCHouseHold.objects.get(pk=hse_uuid)
+            person = RegPerson.objects.get(pk=int(id))
+            event_type_id = 'FHSA'
+            date_of_wellbeing_event = convert_date(datetime.today().strftime('%d-%b-%Y'))
+
+            """ Save Wellbeing-event """
+            event_counter = OVCCareEvents.objects.filter(
+                event_type_id=event_type_id, person=id, is_void=False).count()
+            print "save event"
+            ovccareevent = OVCCareEvents(
+                event_type_id=event_type_id,
+                event_counter=event_counter,
+                event_score=0,
+                date_of_event=date_of_wellbeing_event,
+                created_by=request.user.id,
+                person=RegPerson.objects.get(pk=int(id)),
+                house_hold=house_hold
+            )
+            ovccareevent.save()
+            new_events_pk = ovccareevent.pk
+
+            print "event saved"
+
+            entity_values = []
+
+            for key in request.POST:
+                print "submitted data ============================"
+                print key
+                if(key in ignore_request_values):
+                    continue
+                val = request.POST.getlist(key)
+
+                for i, value in enumerate(val):
+                    entity_type='wellbeing'
+                    if(key in comments):
+                        entity_type='comment'
+                    kvals = {"entity": entity_type, "value": val, "question_code": key,
+                             'domain': 1}
+                    persist_wellbeing_data(kvals, value, person, house_hold, new_events_pk)
+
+            url = reverse('ovc_view', kwargs={'id': id})
+            # return HttpResponseRedirect(reverse(forms_registry))
+            return HttpResponseRedirect(url)
+    except Exception, e:
+        msg = 'Household Vulnerability Assessment save error: (%s)' % (str(e))
+        messages.add_message(request, messages.ERROR, msg)
+        print 'Error saving HHVA : %s' % str(e)
+        return HttpResponseRedirect(reverse(forms_registry))
+
+    # get household members/ caretaker/ household_id
+    household_id = None
+    try:
+        ovcreg = get_object_or_404(OVCRegistration, person_id=id, is_void=False)
+        caretaker_id = ovcreg.caretaker_id if ovcreg else None
+        ovchh = get_object_or_404(OVCHouseHold, head_person=caretaker_id, is_void=False)
+        household_id = ovchh.id if ovchh else None
+    except Exception, e:
+        print str(e)
+        msg = 'Error getting household identifier: (%s)' % (str(e))
+        messages.add_message(request, messages.ERROR, msg)
+        return HttpResponseRedirect(reverse(forms_registry))
+
+        # get relations
+    guardians = RegPersonsGuardians.objects.select_related().filter(
+        child_person=id, is_void=False, date_delinked=None)
+    siblings = RegPersonsSiblings.objects.select_related().filter(
+        child_person=id, is_void=False, date_delinked=None)
+    # Reverse relationship
+    osiblings = RegPersonsSiblings.objects.select_related().filter(
+        sibling_person=id, is_void=False, date_delinked=None)
+    oguardians = RegPersonsGuardians.objects.select_related().filter(
+        guardian_person=id, is_void=False, date_delinked=None)
+
+    # get child data
+    init_data = RegPerson.objects.filter(pk=id)
+    check_fields = ['sex_id', 'relationship_type_id']
+    vals = get_dict(field_name=check_fields)
+
+    form = WellbeingAdolescentForm(initial={'household_id': household_id})
+    return render(request,
+                  'forms/new_wellbeingadolescent.html',
+                  {
+                      'form': form,
+                      'init_data': init_data,
+                      'vals': vals,
+                      'person': id,
+                      'guardians': guardians,
+                      'siblings': siblings,
+                      'osiblings': osiblings,
+                      'oguardians': oguardians
+                  })
