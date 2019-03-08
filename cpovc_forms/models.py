@@ -956,7 +956,7 @@ class OVCCareCpara(models.Model):
 
 class OVCCareWellbeing(models.Model):
     well_being_id = models.AutoField(primary_key=True)
-    question_code = models.CharField(max_length=15)
+    question_code = models.CharField(max_length=150)
     person_id = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
     question = models.CharField(max_length=150)
     answer = models.CharField(max_length=350)
