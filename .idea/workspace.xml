@@ -39,17 +39,17 @@
       <file leaf-file-name="new_wellbeing.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/forms/new_wellbeing.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4779">
-              <caret line="2278" column="62" selection-start-line="2278" selection-start-column="62" selection-end-line="2278" selection-end-column="62" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="settings.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/cpims/settings.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="151">
-              <caret line="17" column="91" selection-start-line="17" selection-start-column="91" selection-end-line="17" selection-end-column="91" />
+            <state relative-caret-position="314">
+              <caret line="2411" column="93" lean-forward="true" selection-start-line="2411" selection-start-column="93" selection-end-line="2411" selection-end-column="93" />
+              <folding>
+                <element signature="e#5719#26350#0" />
+                <element signature="e#26517#55089#0" />
+                <element signature="e#55223#80484#0" />
+                <element signature="e#95021#95065#0" expanded="true" />
+                <element signature="e#95838#95860#0" expanded="true" />
+                <element signature="e#106957#107001#0" expanded="true" />
+                <element signature="e#107809#107831#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -57,8 +57,8 @@
       <file leaf-file-name="wellbeing.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/static/js/wellbeing.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="31" selection-start-line="31" selection-end-line="31" />
+            <state>
+              <caret column="23" selection-start-column="23" selection-end-column="23" />
             </state>
           </provider>
         </entry>
@@ -75,8 +75,11 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cpovc_forms/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4076">
-              <caret line="8762" selection-start-line="8762" selection-end-line="8762" />
+            <state relative-caret-position="163381">
+              <caret line="8654" column="45" selection-start-line="8654" selection-start-column="45" selection-end-line="8654" selection-end-column="45" />
+              <folding>
+                <element signature="e#0#44#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -94,6 +97,7 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
+      <find>view_child</find>
       <find>view_</find>
       <find>wellbeing</find>
       <find>OVCHHMembers</find>
@@ -123,7 +127,6 @@
       <find>FAMILY_MEMBERS_CHOICES</find>
       <find>&lt;/form</find>
       <find>schooled</find>
-      <find>INSTALLED_APPS</find>
     </findStrings>
     <dirStrings>
       <dir>$PROJECT_DIR$/cpovc_main</dir>
@@ -590,36 +593,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/static/js/wellbeing.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="589">
-          <caret line="31" selection-start-line="31" selection-end-line="31" />
+        <state relative-caret-position="163381">
+          <caret line="8654" column="45" selection-start-line="8654" selection-start-column="45" selection-end-line="8654" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/templates/forms/new_wellbeing.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4779">
-          <caret line="2278" column="62" selection-start-line="2278" selection-start-column="62" selection-end-line="2278" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cpovc_forms/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1178">
+        <state relative-caret-position="67089">
           <caret line="3539" selection-start-line="3539" selection-end-line="3539" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/cpims/settings.py">
+    <entry file="file://$PROJECT_DIR$/static/js/wellbeing.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="17" column="91" selection-start-line="17" selection-start-column="91" selection-end-line="17" selection-end-column="91" />
+        <state>
+          <caret column="23" selection-start-column="23" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cpovc_forms/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="907" lean-forward="true" selection-start-line="907" selection-end-line="1121" selection-end-column="36" />
+        <state relative-caret-position="314">
+          <caret line="2411" column="93" lean-forward="true" selection-start-line="2411" selection-start-column="93" selection-end-line="2411" selection-end-column="93" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
           </folding>

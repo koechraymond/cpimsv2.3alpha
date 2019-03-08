@@ -959,7 +959,7 @@ class OVCCareWellbeing(models.Model):
     question_code = models.CharField(max_length=15)
     person_id = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
     question = models.CharField(max_length=150)
-    answer = models.CharField(max_length=50)
+    answer = models.CharField(max_length=350)
     household_id = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
     question_type = models.CharField(max_length=5)
     domain = models.CharField(max_length=10)

@@ -1,11 +1,8 @@
 var childrenQuestion={}
-
+var childrenQuestion2={}
 var safe_validQns = ['WB_SAF_37_1','WB_SAF_37_2','WB_SAF_38_1','WB_SAF_38_2','WB_SAF_39_1','WB_SAF_39_2','WB_SAF_40_1','WB_SAF_40_2'];
 var school_validQns = ['WB_SCH_39_1','WB_SCH_40_1','WB_SCH_41_1','WB_SCH_41_2','WB_SCH_42_1','WB_SCH_42_2','WB_SCH_43_1','WB_SCH_43_2','WB_SCH_44_1','WB_SCH_45_1'];
 
-function loadIndividualChildAnswer(){
-
-}
 
 $('#safetytab > .nav-pills.nav-stacked > li').on('click focus', function(event){
     $('.nav-pills.nav-stacked > li').removeClass('active');
@@ -28,10 +25,11 @@ $('#safetytab > .nav-pills.nav-stacked > li').on('click focus', function(event){
 
     //END get values of inputs
     childrenQuestion[childId]=ansObj;
+    console.log("the error log gone");
     console.log(JSON.stringify(childrenQuestion));
+    $('#safeanswer').val(JSON.stringify(childrenQuestion));
+});
 
-    // WB_SAF_36_1,WB_SAF_37_1,WB_SAF_38_1,WB_SAF_39_1
-})
 
 $('#schooltab > .nav-pills.nav-stacked > li').on('click focus', function(event){
     $('.nav-pills.nav-stacked > li').removeClass('active');
@@ -42,41 +40,33 @@ $('#schooltab > .nav-pills.nav-stacked > li').on('click focus', function(event){
     $.each(school_validQns, function(qindx, ans_name){
         var inpt = $('input[name='+ans_name+']');
         var inpt_type = inpt.attr('type');
-        
+
+       // console.log(inpt);
+        console.log(inpt_type);
+
         if(inpt_type == 'radio'){
             var answr = $('input[name='+ans_name+']:checked').val();
-            console.log('answr rd: '+answr);
+            ansObj[''+ans_name+''] = answr;
         }
-        if(inpt_type == 'date' || inpt_type == 'text' || inpt_type == 'number'){
-            var answr = $(this).val();
-            console.log('answr: '+answr);
-        }
-        // checkbox manenos
-        var cb_inpt = $('input[type="checkbox"]');
-        if(cb_inpt.length > 0){
-            var answr_cb = '';
-            $.each(cb_inpt, function(indc, cbel){
-                if($(this).attr('name') === ans_name && $(this).is(':checked')){
-                    answr_cb += $(this).val()+', ';
-                }
+        if(inpt_type == 'checkbox'){
+            var answerList=[];
+            var selectedCheckboxes = $('input[name='+ans_name+']:checked');
+            $.each(selectedCheckboxes, function(indx, curElement){
+                answerList.push($(curElement).val());
             });
-            console.log('answr_cb: '+answr_cb);
-            var answr = answr_cb;
-            // ENDcheckbox manenos
+            ansObj[''+ans_name+''] = answerList;
         }
-        ansObj[''+ans_name+''] = answr;
-    })
 
-    //get values of inputs
+        if(inpt_type == 'text' || inpt_type == 'number'){
+            var answr = $('input[name='+ans_name+']').val();
+            ansObj[''+ans_name+''] = answr;
+        }
 
-    //END get values of inputs
-    childrenQuestion[childId]=ansObj;
-    console.log(JSON.stringify(childrenQuestion));
+        childrenQuestion2[childId]=ansObj;
+        $('#schooledanswer').val(JSON.stringify(childrenQuestion2));
+    });
 
-    // WB_SAF_36_1,WB_SAF_37_1,WB_SAF_38_1,WB_SAF_39_1
 })
-
-
 
 
 
@@ -121,13 +111,194 @@ $("input[name='WB_SAF_40_1']").on('change', function () {
     }
 });
 
+hideQn('WB_SAF_31_2');
+$("input[name='WB_SAF_31_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_SAF_31_2');
+    }else{
+        hideQn('WB_SAF_31_2');
+    }
+});
+
+hideQn('WB_SAF_34_2');
+$("input[name='WB_SAF_34_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_SAF_34_2');
+    }else{
+        hideQn('WB_SAF_34_2');
+    }
+});
+
+hideQn('WB_SAF_36_2');
+$("input[name='WB_SAF_36_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_SAF_36_2');
+    }else{
+        hideQn('WB_SAF_36_2');
+    }
+});
+
 hideQn('WB_SCH_41_2');
-$("input[name='WB_SCH_41_1']").on('change', function () {
-  var ival = $(this).val();
-    if (ival == 'Other' && $(this).is(':checked')) {
+$("input[name='WB_SCH_41_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
         unhideQn('WB_SCH_41_2');
     }else{
         hideQn('WB_SCH_41_2');
+    }
+});
+
+hideQn('WB_STA_1_2');
+$("input[name='WB_STA_1_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_1_2');
+    }else{
+        hideQn('WB_STA_1_2');
+    }
+});
+
+hideQn('WB_STA_2_2');
+$("input[name='WB_STA_2_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_2_2');
+    }else{
+        hideQn('WB_STA_2_2');
+    }
+});
+
+hideQn('WB_STA_3_2');
+$("input[name='WB_STA_3_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_3_2');
+    }else{
+        hideQn('WB_STA_3_2');
+    }
+});
+
+hideQn('WB_STA_4_2');
+$("input[name='WB_STA_4_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_4_2');
+    }else{
+        hideQn('WB_STA_4_2');
+    }
+});
+
+hideQn('WB_STA_5_2');
+$("input[name='WB_STA_5_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_5_2');
+    }else{
+        hideQn('WB_STA_5_2');
+    }
+});
+
+hideQn('WB_STA_8_2');
+$("input[name='WB_STA_8_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_8_2');
+    }else{
+        hideQn('WB_STA_8_2');
+    }
+});
+
+hideQn('WB_STA_9_2');
+$("input[name='WB_STA_9_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_STA_9_2');
+    }else{
+        hideQn('WB_STA_9_2');
+    }
+});
+
+hideQn('WB_HEL_14_2');
+$("input[name='WB_HEL_14_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_HEL_14_2');
+    }else{
+        hideQn('WB_HEL_14_2');
+    }
+});
+
+hideQn('WB_HEL_16_3');
+$("input[name='WB_HEL_16_2'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_HEL_16_3');
+    }else{
+        hideQn('WB_HEL_16_3');
+    }
+});
+
+hideQn('WB_HEL_20_2');
+$("input[name='WB_HEL_20_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_HEL_20_2');
+    }else{
+        hideQn('WB_HEL_20_2');
+    }
+});
+
+hideQn('WB_HEL_25_2');
+$("input[name='WB_HEL_25_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_HEL_25_2');
+    }else{
+        hideQn('WB_HEL_25_2');
+    }
+});
+
+hideQn('WB_HEL_27_2');
+$("input[name='WB_HEL_27_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_HEL_27_2');
+    }else{
+        hideQn('WB_HEL_27_2');
+    }
+});
+
+hideQn('WB_HEL_28_2');
+$("input[name='WB_HEL_28_1'][value='Other']").on('change', function () {
+    var ival = $(this).val();
+    if (ival == 'Other' && $(this).prop('checked')) {
+        unhideQn('WB_HEL_28_2');
+    }else{
+        hideQn('WB_HEL_28_2');
+    }
+});
+
+
+
+
+hideQn('WB_SCH_42_1');
+$("input[name='WB_SCH_42_2']").on('change', function () {
+    if ($(this).prop('checked')) {
+        unhideQn('WB_SCH_42_1');
+    }else{
+        hideQn('WB_SCH_42_1');
+    }
+});
+
+hideQn('WB_SCH_43_1');
+$("input[name='WB_SCH_43_2']").on('change', function () {
+    if ($(this).prop('checked')) {
+        unhideQn('WB_SCH_43_1');
+    }else{
+        hideQn('WB_SCH_43_1');
     }
 });
 
