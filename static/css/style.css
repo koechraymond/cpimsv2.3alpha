@@ -6251,4 +6251,10 @@ body.flat-black {
     background-color: #00acac;
     color: #ffffff;
 }
+td:focus{
+    outline: thick double #32a1ce;
+}
+.hidden{
+    display: none;
+}
 /*DanChanges*/
