@@ -4276,7 +4276,7 @@ WB_HEL_17YNR = (('AYES', 'Yes'), ('ANNO', 'No'), ('AREFUSE', 'Refuse'))
 WB_HEL_21YNR = (('AYES', 'Yes'), ('ANNO', 'No'), ('ANNOTAPPLICABLE', 'Not Applicable'))
 
 WB_HEL_14_1_CHOICES = (
-    ('No disability', 'No disability'),
+    ('NODISABILITY', 'No disability'),
     ('Hearing', 'Hearing'),
     ('Speech', 'Speech'),
     ('Physical', 'Physical'),

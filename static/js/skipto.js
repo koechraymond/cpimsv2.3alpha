@@ -1,9 +1,10 @@
 // QuestionSkipLogic
+//format is:   triggerSkip(inputToCheck,rightValue,questionToGoTo,tabContainingDestinationQn);
     // Q5 -> Q10
     triggerSkip('WB_STA_5_1','Unemployed','WB_STA_10_1','2');
 
-    // Q5 -> Q10
-    triggerSkip('WB_STA_5_1','Unemployed','WB_STA_10_1','2');
+    // Q14 -> Q17
+    triggerSkip('WB_HEL_14_1','NODISABILITY','WB_HEL_17_1','3');
 
 // endQuestionSkipLogic
 
