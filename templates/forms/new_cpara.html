@@ -611,19 +611,54 @@ print(blu.sing("'Happy'"))
                                                                 <tr>
                                                                     <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
                                                                     <td>
-                                                                        {{form.cp13q}}
+                                                                          <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            Yes
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            No
+                                                                    </label>
                                                                     </td>
                                                                     <td>
-                                                                        {{form.cp14q}}
+                                                                          <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            Yes
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            No
+                                                                    </label>
                                                                     </td>
                                                                 <td>
-                                                                    {{form.cp15q}}
+                                                                      <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            Yes
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            No
+                                                                    </label>
                                                                 </td>
                                                                 <td>
-                                                                    {{form.cp16q}}
+                                                                      <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            Yes
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            No
+                                                                    </label>
                                                                 </td>
                                                                 <td>
-                                                                    {{form.cp17q}}
+                                                                      <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            Yes
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            No
+                                                                    </label>
                                                                 </td>
                                                                 </tr>
                                                                 {% endfor %}
@@ -645,54 +680,19 @@ print(blu.sing("'Happy'"))
                                                                     Tick <u>Yes</u> if <u>YES</u> for all children
                                                                 </td>
                                                                 <td>
-                                                                    <label class="radio-inline">
-                                                            <input type="radio" value="">
-                                                            Yes
-                                                        </label>
-                                                        <label class="radio-inline">
-                                                            <input type="radio" value="">
-                                                            No
-                                                        </label>
+                                                                    {{ form.cp13q }}
                                                                 </td>
                                                                 <td>
-                                                                    <label class="radio-inline">
-                                                            <input type="radio" value="">
-                                                            Yes
-                                                        </label>
-                                                        <label class="radio-inline">
-                                                            <input type="radio" value="">
-                                                            No
-                                                        </label>
+                                                                   {{ form.cp14q }}
                                                                 </td>
                                                                 <td>
-                                                                    <label class="radio-inline">
-                                                            <input type="radio" value="">
-                                                            Yes
-                                                        </label>
-                                                        <label class="radio-inline">
-                                                            <input type="radio" value="">
-                                                            No
-                                                        </label>
+                                                                    {{ form.cp15q }}
                                                                 </td>
                                                                 <td>
-                                                                    <label class="radio-inline">
-                                                            <input type="radio" value="">
-                                                            Yes
-                                                        </label>
-                                                        <label class="radio-inline">
-                                                            <input type="radio" value="">
-                                                            No
-                                                        </label>
+                                                                   {{ form.cp16q }}
                                                                 </td>
                                                                 <td>
-                                                                    <label class="radio-inline">
-                                                            <input type="radio" value="">
-                                                            Yes
-                                                        </label>
-                                                        <label class="radio-inline">
-                                                            <input type="radio" value="">
-                                                            No
-                                                        </label>
+                                                                    {{ form.cp17q }}
                                                                 </td>
                                                             </tr>
                                                             </tbody>
@@ -836,27 +836,20 @@ print(blu.sing("'Happy'"))
                                                     <div class="col-md-6">
                                                         <div class="row">
                                                             <div class="col-md-6 col-sm-6 col-xs-6">
-                                                                <label class="checkbox-inline">
-                                                                    <input type="checkbox" value="">
-                                                                    Six weeks
-                                                                </label>
+                                                                <label class="control-label formlabel">Six Weeks |</label>
+                                                                {{ form.cp23qa }}
                                                                 <br/>
-                                                                <label class="checkbox-inline">
-                                                                        <input type="checkbox" value="">
-                                                                        Six months
-                                                                </label>
+                                                                <label class="control-label formlabel">Six Months |</label>
+                                                                {{ form.cp23qb }}
+
                                                             </div>
                                                             <div class="col-md-6 col-sm-6 col-xs-6">
-                                                                <label class="checkbox-inline">
-                                                                        <input type="checkbox" value="">
-                                                                        Twelve months
-                                                                </label>
+                                                                <label class="control-label formlabel">Twelve Months |</label>
+                                                                {{ form.cp23qc }}
                                                                 <br/>
-                                                                <label class="checkbox-inline">
-                                                                        <input type="checkbox" value="">
-                                                                        Eighteen months
-                                                                </label>
-                                                                :</label>
+                                                                <label class="control-label formlabel">Eighteen Months |</label>
+                                                                {{ form.cp23qd }}
+
                                                             </div>
                                                         </div>
                                                                             
@@ -1089,6 +1082,16 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                             </div>
                                         </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="col-md-10 text-left">
+                                                    <label class="control-label formlabel text-right">If <b><u>Yes</u></b>, Please Describe</label>
+                                                </div>
+                                                <div class="col-md-21">
+                                                    {{form.cp34q}}
+                                                </div>
+                                            </div>
+                                        </div>
                                         <hr>
                                     </div>
 
@@ -1118,7 +1121,7 @@ print(blu.sing("'Happy'"))
                                                     <label class="control-label formlabel">Has the household achieved this benchmark? </label>
                                                 </div>
                                                 <div class="col-md-2 text-right">
-                                                    {{form.cp7bq}}
+                                                    {{ form.cp7b }}
                                                 </div>
                                             </div>
                                         </div>
@@ -1490,13 +1493,34 @@ print(blu.sing("'Happy'"))
                                                                     <tr>
                                                                         <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
                                                                         <td>
-                                                                            {{form.cp52q}}
+                                                                              <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            Yes
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            No
+                                                                    </label>
                                                                         </td>
                                                                         <td>
-                                                                            {{form.cp53q}}
+                                                                              <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            Yes
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            No
+                                                                    </label>
                                                                         </td>
                                                                     <td>
-                                                                        {{form.cp54q}}
+                                                                          <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            Yes
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            No
+                                                                    </label>
                                                                     </td>
                                     
                                     
@@ -1520,34 +1544,13 @@ print(blu.sing("'Happy'"))
                                                                         Tick <u>Yes</u> if <u>YES</u> for all children
                                                                     </td>
                                                                     <td>
-                                                                        <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
+                                                                        {{ form.cp52q }}
                                                                     </td>
                                                                     <td>
-                                                                        <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
+                                                                        {{ form.cp53q }}
                                                                     </td>
                                                                     <td>
-                                                                        <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
+                                                                      {{ form.cp54q }}
                                                                     </td>
                                                                 </tr>
                                                                 </tbody>
@@ -1653,13 +1656,34 @@ print(blu.sing("'Happy'"))
                                                                     <tr>
                                                                         <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
                                                                         <td>
-                                                                            {{form.cp57q}}
+                                                                             <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            Yes
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            No
+                                                                    </label>
                                                                         </td>
                                                                         <td>
-                                                                            {{form.cp58q}}
+                                                                              <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            Yes
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            No
+                                                                    </label>
                                                                         </td>
                                                                     <td>
-                                                                        {{form.cp59q}}
+                                                                          <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            Yes
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" value="">
+                                                                            No
+                                                                    </label>
                                                                     </td>
                                     
                                     
@@ -1683,37 +1707,14 @@ print(blu.sing("'Happy'"))
                                                                         Tick <u>Yes</u> if <u>YES</u> for all children
                                                                     </td>
                                                                     <td>
-                                                                        <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
+                                                                        {{ form.cp57q }}
                                                                     </td>
                                                                     <td>
-                                                                        <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
+                                                                        {{ form.cp58q }}
                                                                     </td>
                                                                     <td>
-                                                                        <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
+                                                                        {{ form.cp59q }}
                                                                     </td>
-                                    
-                                    
                                                                 </tr>
                                                                 </tbody>
                                                             </table>
@@ -1850,7 +1851,7 @@ print(blu.sing("'Happy'"))
                                                             <label class="control-label formlabel">Has the household achieved this benchmark? </label>
                                                         </div>
                                                         <div class="col-md-2 text-right">
-                                                            {{form.cp16b}}
+                                                            {{form.cp15b }}
                                                         </div>
                                                     </div>
                                                 </div>
@@ -2070,15 +2071,8 @@ print(blu.sing("'Happy'"))
                                                                     </td>
                                                                     <td>
                                                                         <div class="col-md-2">
-                                                            <label class="radio-inline">
-                                                                <input type="radio" value="">
-                                                                Yes
-                                                            </label>
-                                                            <label class="radio-inline">
-                                                                <input type="radio" value="">
-                                                                No
-                                                            </label>
-                                                        </div>
+                                                                            {{ form.cp73q }}
+                                                                        </div>
                                                                     </td>
                                         
                                                                 </tr>
@@ -2110,7 +2104,7 @@ print(blu.sing("'Happy'"))
                                                             <label class="control-label formlabel">Overall number of points from all DOMAINS:</label>
                                                         </div>
                                                         <div class="col-md-6">
-                                                            <input type="text" class="form-control" placeholder=" ">
+                                                            {{ form.cp74q }}
                                                         </div>
                                                     </div>
                                                 </div>
