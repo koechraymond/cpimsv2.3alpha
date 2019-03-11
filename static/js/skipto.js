@@ -6,6 +6,29 @@
     // Q14 -> Q17
     triggerSkip('WB_HEL_14_1','NODISABILITY','WB_HEL_17_1','3');
 
+    // Q17 -> Q31
+    triggerSkip('WB_HEL_17_1','ANNO','WB_SAF_33_1','4');
+    triggerSkip('WB_HEL_17_1','AREFUSE','WB_SAF_33_1','4');
+    
+    // Q19 -> Q21
+    triggerSkip('WB_HEL_19_1','ANNO','WB_HEL_21_1','3');
+    
+    // Q21 -> Q23
+    triggerSkip('WB_HEL_21_1','ANNO','WB_HEL_23_1','3');
+    
+    // Q24 -> Q26
+    triggerSkip('WB_HEL_24_1','NO','WB_HEL_26_1','3');
+    triggerSkip('WB_HEL_24_1','Refuse','WB_HEL_26_1','3');
+    
+    // Q31 -> Q33
+    triggerSkip('WB_SAF_33_1','ANNO','WB_SAF_34_1','4');
+    triggerSkip('WB_SAF_33_1','AREFUSE','WB_SAF_34_1','4');
+    
+    // Q33 -> Q35 *********** Not Implemented ************
+      // triggerSkip('WB_SAF_34_1','ANNO','WB_SAF_36_1','4');
+      // triggerSkip('WB_SAF_34_1','AREFUSE','WB_SAF_36_1','4');
+    // END Q33 -> Q35 *********** Not Implemented ************
+
 // endQuestionSkipLogic
 
 
