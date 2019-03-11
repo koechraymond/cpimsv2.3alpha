@@ -4401,6 +4401,12 @@ class Wellbeing(forms.Form):
                'type': 'hidden'
                }))
 
+    caretaker_id = forms.CharField(widget=forms.TextInput(
+        attrs={'class': 'form-control',
+               'id': 'caretaker_id',
+               'type': 'hidden'
+               }))
+
     WB_SAF_1_1 = forms.MultipleChoiceField(
         required=False,
         widget=forms.CheckboxSelectMultiple,
