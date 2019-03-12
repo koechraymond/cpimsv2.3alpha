@@ -5233,7 +5233,8 @@ class WellbeingAdolescentForm(forms.Form):
         attrs = {'placeholder': _('Date Of Assessement'),
                'class': 'form-control',
                'name': 'WB_AD_GEN_4_1',
-               'id': 'WB_AD_GEN_4_1'
+               'id': 'WB_AD_GEN_4_1',
+               'autocomplete': "off"
             # ,
             #    'data-parsley-required': "true",
             #    'data-parsley-group': 'group0'

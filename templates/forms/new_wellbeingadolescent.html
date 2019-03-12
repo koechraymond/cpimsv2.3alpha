@@ -812,8 +812,12 @@
         $('#' + qnID).removeAttr('disabled');
         $('#' + qnID).attr('required');
     }
-
-
 </script>
+
+<script>
+    $( function() {
+      $( "#WB_AD_GEN_4_1" ).datepicker({ format: 'yyyy-mm-dd' }).val();
+    } );
+    </script>
 
 {% endblock %}
