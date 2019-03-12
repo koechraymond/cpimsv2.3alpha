@@ -8695,11 +8695,13 @@ def persist_wellbeing_data(kvals, value, person, house_hold, new_pk):
 
             explanation_uuid = uuid.UUID('3249b14e-3e83-11e9-b210-d663bd873d93')
             ovc_Care_forms_obj = OVCCareForms.objects.get(pk=explanation_uuid)
+            print "got forms object +++++++++++++++++++>"
+            print ovc_Care_forms_obj
             OVCExplanations(
                 question=ovc_qst,
                 comment=value,
-                form_id=ovc_Care_forms_obj,
-                event_id=OVCCareEvents.objects.get(pk=new_pk)
+                form=ovc_Care_forms_obj,
+                event=OVCCareEvents.objects.get(pk=new_pk)
             ).save()
     except Exception, e:
         print "error saving wellbeing data"
@@ -8783,18 +8785,20 @@ def new_wellbeing(request, id):
                     for i, value in enumerate(val):
                         entity_type = 'wellbeing'
                         if (key in comments):
+                            print "in comment ==============================>"
                             entity_type = 'comment'
                         kvals = {"entity": entity_type, "value": val, "question_code": key,
                                  'domain': 1}
                         persist_wellbeing_data(kvals, value, person, house_hold, new_events_pk)
                 else:
                     persist_per_child_wellbeing_question(request, key, house_hold, new_events_pk)
-            print "finished processing ============================>"
             url = reverse('ovc_view', kwargs={'id': id})
+            print url
+            print id
             # return HttpResponseRedirect(reverse(forms_registry))
             return HttpResponseRedirect(url)
     except Exception, e:
-        msg = 'Household Vulnerability Assessment save error: (%s)' % (str(e))
+        msg = 'wellbeing save error: (%s)' % (str(e))
         messages.add_message(request, messages.ERROR, msg)
         print 'Error saving wellbeing : %s' % str(e)
         print  e
