@@ -8875,7 +8875,6 @@ def new_wellbeing(request, id):
 @login_required
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def new_wellbeingadolescent(request, id):
-    print("new wellbeing processing------------------")
     try:
         if request.method == 'POST':
             comments=['WB_AD_GEN_4_2']
@@ -8883,15 +8882,16 @@ def new_wellbeingadolescent(request, id):
 
             household_id = request.POST.get('household_id')
             hse_uuid = uuid.UUID(household_id)
-            house_hold = OVCHouseHold.objects.get(pk=hse_uuid)
+            house_holds = OVCHouseHold.objects.get(pk=hse_uuid)
             person = RegPerson.objects.get(pk=int(id))
             event_type_id = 'FHSA'
             date_of_wellbeing_event = convert_date(datetime.today().strftime('%d-%b-%Y'))
 
             """ Save Wellbeing-event """
+            # get event counter
             event_counter = OVCCareEvents.objects.filter(
                 event_type_id=event_type_id, person=id, is_void=False).count()
-            print "save event"
+                # save event
             ovccareevent = OVCCareEvents(
                 event_type_id=event_type_id,
                 event_counter=event_counter,
@@ -8899,38 +8899,33 @@ def new_wellbeingadolescent(request, id):
                 date_of_event=date_of_wellbeing_event,
                 created_by=request.user.id,
                 person=RegPerson.objects.get(pk=int(id)),
-                house_hold=house_hold
+                house_hold=house_holds
             )
             ovccareevent.save()
-            new_events_pk = ovccareevent.pk
-
-            print "event saved"
-
-            entity_values = []
-
-            for key in request.POST:
-                print "submitted data ============================"
-                print key
-                if(key in ignore_request_values):
-                    continue
-                val = request.POST.getlist(key)
-
-                for i, value in enumerate(val):
-                    entity_type='wellbeing'
-                    if(key in comments):
-                        entity_type='comment'
-                    kvals = {"entity": entity_type, "value": val, "question_code": key,
-                             'domain': 1}
-                    persist_wellbeing_data(kvals, value, person, house_hold, new_events_pk)
-
+            # get questions for adolescent
+            questions = OVCCareQuestions.objects.filter(code__startswith='wba')
+            for question in questions:
+                answer=request.POST.get(question.question)
+                if answer is None:
+                    answer = 'No'
+                OVCCareWellbeing.objects.create(
+                    person=RegPerson.objects.get(pk=int(id)),
+                    question=question,
+                    answer=answer,
+                    household=house_holds,
+                    event=ovccareevent,
+                    date_of_event=convert_date(datetime.today().strftime('%d-%b-%Y')),
+                    domain=question.domain,
+                    question_type=question.question_type
+                    )
             url = reverse('ovc_view', kwargs={'id': id})
             # return HttpResponseRedirect(reverse(forms_registry))
             return HttpResponseRedirect(url)
     except Exception, e:
-        msg = 'Household Vulnerability Assessment save error: (%s)' % (str(e))
+        msg = 'wellbeing adolescent save error : (%s)' % (str(e))
         messages.add_message(request, messages.ERROR, msg)
-        print 'Error saving HHVA : %s' % str(e)
-        return HttpResponseRedirect(reverse(forms_registry))
+        print 'Error saving wellbeing adolescent : %s' % str(e)
+        return HttpResponseRedirect(reverse(forms_home))
 
     # get household members/ caretaker/ household_id
     household_id = None
@@ -8944,18 +8939,6 @@ def new_wellbeingadolescent(request, id):
         msg = 'Error getting household identifier: (%s)' % (str(e))
         messages.add_message(request, messages.ERROR, msg)
         return HttpResponseRedirect(reverse(forms_registry))
-
-        # get relations
-    guardians = RegPersonsGuardians.objects.select_related().filter(
-        child_person=id, is_void=False, date_delinked=None)
-    siblings = RegPersonsSiblings.objects.select_related().filter(
-        child_person=id, is_void=False, date_delinked=None)
-    # Reverse relationship
-    osiblings = RegPersonsSiblings.objects.select_related().filter(
-        sibling_person=id, is_void=False, date_delinked=None)
-    oguardians = RegPersonsGuardians.objects.select_related().filter(
-        guardian_person=id, is_void=False, date_delinked=None)
-
     # get child data
     init_data = RegPerson.objects.filter(pk=id)
     check_fields = ['sex_id', 'relationship_type_id']
@@ -8969,8 +8952,4 @@ def new_wellbeingadolescent(request, id):
                       'init_data': init_data,
                       'vals': vals,
                       'person': id,
-                      'guardians': guardians,
-                      'siblings': siblings,
-                      'osiblings': osiblings,
-                      'oguardians': oguardians
                   })
