@@ -813,8 +813,7 @@ class ListBanks(models.Model):
 
 class OVCGokBursary(models.Model):
     """"Model to save all GoK Bursary application."""
-    application_id = models.UUIDField(
-        primary_key=True, default=uuid.uuid4, editable=False)
+    application_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     county = models.ForeignKey(
         'cpovc_main.SetupGeography', related_name='child_county')
     constituency = models.ForeignKey(
@@ -923,7 +922,8 @@ class OVCCareForms(models.Model):
 
 
 class OVCCareBenchmarkScore(models.Model):
-    bench_mark_score_id = models.AutoField(primary_key=True)
+    
+    bench_mark_score_id=models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     household = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
     bench_mark_1 = models.IntegerField(default=0)
     bench_mark_2 = models.IntegerField(default=0)
@@ -961,7 +961,7 @@ class OVCCareBenchmarkScore(models.Model):
 
 
 class OVCCareCpara(models.Model):
-    cpara_id = models.AutoField(primary_key=True)
+    cpara_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     person = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
     question_code = models.CharField(max_length=10, null=False, blank=True)
     question = models.ForeignKey('OVCCareQuestions')
@@ -991,7 +991,8 @@ class OVCCareCpara(models.Model):
 
 
 class OVCCareWellbeing(models.Model):
-    well_being_id = models.AutoField(primary_key=True)
+    #well_being_id = models.AutoField(primary_key=True)
+    well_being_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     person = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
     question_code = models.CharField(max_length=10, null=False, blank=True)
     question = models.ForeignKey('OVCCareQuestions')
@@ -1021,10 +1022,12 @@ class OVCCareWellbeing(models.Model):
 
 
 class OVCCareCasePlan(models.Model):
-    case_plan_id = models.AutoField(primary_key=True)
+    id=models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    case_plan_id = models.AutoField(editable=False)
     domain = models.CharField(max_length=50)
     goal = models.CharField(max_length=255)
     person = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
+    household = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
     need = models.CharField(max_length=255)
     priority = models.CharField(max_length=255)
     cp_service = models.ForeignKey('cpovc_main.SetupList', on_delete=models.CASCADE)
@@ -1033,6 +1036,9 @@ class OVCCareCasePlan(models.Model):
     results = models.CharField(max_length=300)
     reasons = models.CharField(max_length=300)
     form = models.ForeignKey(OVCCareForms)
+    date_of_event = models.DateField()
+    date_of_previous_event =models.DateField()
+    case_plan_status=CharField(max_length, 5)
     is_void = models.BooleanField(default=False)
     event = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
     timestamp_created = models.DateTimeField(default=timezone.now)
@@ -1049,7 +1055,7 @@ class OVCCareCasePlan(models.Model):
 
 
 class OVCHouseholdDemographics(models.Model):
-    household_demographics_id = models.AutoField(primary_key=True)
+    household_demographics_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     household = models.ForeignKey(OVCHouseHold, on_delete=models.CASCADE)
     key = models.CharField(max_length=15)
     male = models.IntegerField(default=0)
@@ -1067,7 +1073,7 @@ class OVCHouseholdDemographics(models.Model):
 
 
 class OVCExplanations(models.Model):
-    explanation_id = models.AutoField(primary_key=True)
+    explanation_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     question = models.ForeignKey('OVCCareQuestions')
     comment = models.CharField(max_length=255)
     form = models.ForeignKey(OVCCareForms)
@@ -1085,7 +1091,7 @@ class OVCExplanations(models.Model):
 
 
 class OVCGoals(models.Model):
-    goal_id = models.AutoField(primary_key=True)
+    goal_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     person = models.ForeignKey(RegPerson)
     goal = models.CharField(max_length=255)
     action = models.CharField(max_length=255)
