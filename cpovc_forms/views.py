@@ -8645,7 +8645,7 @@ def fetch_question(answer_item_code):
     return question_code
 
 
-def persist_wellbeing_data(kvals, value, person, house_hold, new_pk):
+def persist_wellbeing_data(kvals, value, person, house_hold, new_pk,date_of_wellbeing_event):
     question_code_to_ui_item_mapping = {
         'WB_GEN_07': 'WB_GEN_06', "WB_GEN_08": "WB_GEN_07", "WB_GEN_09": "WB_GEN_07",
         "WB_SAF_32_1": "WB_SAF_31", "WB_SAF_33_1": "WB_SAF_32", "WB_SAF_34_2": "WB_SAF_33", "WB_SAF_34_1": "WB_SAF_33",
@@ -8685,7 +8685,6 @@ def persist_wellbeing_data(kvals, value, person, house_hold, new_pk):
     question_code = kvals["question_code"]
     try:
         question_code = question_code_to_ui_item_mapping[question_code]
-        date_of_wellbeing_event = convert_date(datetime.today().strftime('%d-%b-%Y'))
         ovc_qst = OVCCareQuestions.objects.get(question=question_code)
 
         if (entity == 'wellbeing'):
@@ -8716,6 +8715,7 @@ def persist_wellbeing_data(kvals, value, person, house_hold, new_pk):
 
 
 def persist_per_child_wellbeing_question(request, key, house_hold, new_events_pk):
+    date_of_wellbeing_event = convert_date(request.POST.get('WB_GEN_01'))
     if (key == 'safeanswer'):
         answer_obj = request.POST.get(key)
         answer_obj = ast.literal_eval(answer_obj)  # convert to dict
@@ -8724,7 +8724,7 @@ def persist_per_child_wellbeing_question(request, key, house_hold, new_events_pk
             person = RegPerson.objects.get(pk=int(person_id))
             for element_id, answer in individual_person_answers.iteritems():
                 kvals = {"entity": "wellbeing", "value": answer, "question_code": element_id}
-                persist_wellbeing_data(kvals, answer, person, house_hold, new_events_pk)
+                persist_wellbeing_data(kvals, answer, person, house_hold, new_events_pk,date_of_wellbeing_event)
 
     if (key == 'schooledanswer'):
         answer_obj = request.POST.get(key)
@@ -8738,9 +8738,9 @@ def persist_per_child_wellbeing_question(request, key, house_hold, new_events_pk
                 if isinstance(answer, (list,)):
                     for vall in answer:
                         kvals['value'] = vall
-                        persist_wellbeing_data(kvals, vall, person, house_hold, new_events_pk)
+                        persist_wellbeing_data(kvals, vall, person, house_hold, new_events_pk,date_of_wellbeing_event)
                 else:
-                    persist_wellbeing_data(kvals, answer, person, house_hold, new_events_pk)
+                    persist_wellbeing_data(kvals, answer, person, house_hold, new_events_pk,date_of_wellbeing_event)
 
 
 @login_required
@@ -8761,7 +8761,7 @@ def new_wellbeing(request, id):
             house_hold = OVCHouseHold.objects.get(pk=hse_uuid)
             person = RegPerson.objects.get(pk=int(caretker_id))
             event_type_id = 'FHSA'
-            date_of_wellbeing_event = convert_date(datetime.today().strftime('%d-%b-%Y'))
+            date_of_wellbeing_event = convert_date(request.POST.get('WB_GEN_01'))
 
             """ Save Wellbeing-event """
             event_counter = OVCCareEvents.objects.filter(
@@ -8780,7 +8780,6 @@ def new_wellbeing(request, id):
             new_events_pk = ovccareevent.pk
 
             entity_values = []
-
             for key in request.POST:
                 if (str(key) != "safeanswer" and str(key) != "schooledanswer"):
 
@@ -8790,11 +8789,10 @@ def new_wellbeing(request, id):
                     for i, value in enumerate(val):
                         entity_type = 'wellbeing'
                         if (key in comments):
-                            print "in comment ==============================>"
                             entity_type = 'comment'
                         kvals = {"entity": entity_type, "value": val, "question_code": key,
                                  'domain': 1}
-                        persist_wellbeing_data(kvals, value, person, house_hold, new_events_pk)
+                        persist_wellbeing_data(kvals, value, person, house_hold, new_events_pk,date_of_wellbeing_event)
                 else:
                     persist_per_child_wellbeing_question(request, key, house_hold, new_events_pk)
             url = reverse('ovc_view', kwargs={'id': id})
