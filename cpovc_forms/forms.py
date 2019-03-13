@@ -137,6 +137,10 @@ olmis_ha31_list = get_list('olmis_ha31_id', 'Please Select')
 #wellbeing
 YESNO_CHOICES_REFUSE = (('AYES', 'Yes'), ('ANNO', 'No'), ('AREFUSE', 'Refuse'))
 
+MARITAL_STATUS =(('Monogamous Marriage','Monogamous Marriage'),('Polygamous Marriage', 'Polygamous Marriage'), ('Single', 'Single'),
+                 ('Widowed', 'Widowed'), ('Divorced/Separated', 'Divorced/Separated'),
+                 ('Cohabiting(leaving with a partner)', 'Cohabiting(leaving with a partner)'))
+
 FAVORITE_COLORS_CHOICES = (
         ('Provide money', 'Provide money'),
         ('Look after the children', 'Look after the children'),
@@ -4685,6 +4689,82 @@ class Wellbeing(forms.Form):
     ##DOMAIN: SAFE
 
     ##DEMOGRAPHICS
+
+
+
+    WB_GEN_01= forms.DateField(
+        widget=forms.widgets.DateInput(
+            format="%m/%d/%Y",
+            attrs={'placeholder': _('Date Of Assessement'),
+                   'class': 'form-control wellbeing_dates',
+                   'autocomplete': "off"
+                   # ,
+                   #    'data-parsley-required': "true",
+                   #    'data-parsley-group': 'group0'
+                   }))
+    WB_GEN_02 = forms.DateField(
+        widget=forms.widgets.DateInput(
+            format="%m/%d/%Y",
+            attrs={'placeholder': _('Birth Date'),
+                   'class': 'form-control wellbeing_dates',
+                   'autocomplete': "off"
+                   # ,
+                   #    'data-parsley-required': "true",
+                   #    'data-parsley-group': 'group0'
+                   }))
+
+    WB_GEN_03 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Address'),
+               'class': 'form-control'               # ,
+               #    'data-parsley-required': "False"
+               }))
+
+    WB_GEN_11 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Phone number'),
+               'class': 'form-control'               # ,
+               #    'data-parsley-required': "False"
+               }))
+
+
+
+    WB_GEN_12 = forms.ChoiceField(
+        choices=MARITAL_STATUS,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            })
+    )
+
+    WB_GEN_13 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Male'),
+               'class': 'form-control'               # ,
+               #    'data-parsley-required': "False"
+               }))
+    WB_GEN_14 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Female'),
+               'class': 'form-control'               # ,
+               #    'data-parsley-required': "False"
+               }))
+
+    WB_GEN_15 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Male'),
+               'class': 'form-control'               # ,
+               #    'data-parsley-required': "False"
+               }))
+    WB_GEN_16 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Female'),
+               'class': 'form-control'               # ,
+               #    'data-parsley-required': "False"
+               }))
+
+
+
+
+
+
+
     WB_GEN_04 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _(''),
                'class': 'form-control',

@@ -403,6 +403,116 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                             <tbody>
                                                             <tr>
 
+
+                                                                <td>
+                                                                    Date of assessement.
+                                                                </td>
+                                                                <td>
+
+                                                                    {{form.WB_GEN_01}}
+
+                                                                </td>
+                                                            </tr>
+
+                                                                <tr>
+                                                                <td>
+                                                                    What is your birth date
+                                                                </td>
+                                                                <td>
+
+                                                                    {{form.WB_GEN_02}}
+
+                                                                </td>
+                                                            </tr>
+<tr>
+                                                                <td>
+                                                                    What is your physical address
+                                                                </td>
+                                                                <td>
+
+                                                                    {{form.WB_GEN_03}}
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    What is your phone number
+                                                                </td>
+                                                                <td>
+
+                                                                    {{form.WB_GEN_11}}
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    What is your Marital status
+                                                                </td>
+                                                                <td>
+
+                                                                    {{form.WB_GEN_12}}
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Number of individuals in the household below 18 years
+                                                                </td>
+                                                                <td>
+
+                                                                      <table class="table table-bordered">
+                                                                        <thead>
+
+                                                                        <th scope="col">Male</th>
+                                                                        <th>Female</th>
+
+                                                                        </thead>
+                                                                        <tbody>
+                                                                        <tr>
+                                                                            <!--<td><label><input type="text" value=""></label></td>-->
+                                                                            <!--<td><label><input type="text" value=""></label></td>-->
+
+                                                                            <td>{{form.WB_GEN_13}}</td>
+                                                                            <td>{{form.WB_GEN_14}}</td>
+                                                                        </tr>
+                                                                        </tbody>
+
+                                                                    </table>
+
+
+                                                                </td>
+                                                            </tr>
+                                            <tr>
+                                                                <td>
+                                                                    Number of disabled individuals in the household below 18 years
+                                                                </td>
+                                                                <td>
+
+
+                                                                    <table class="table table-bordered">
+                                                                        <thead>
+
+                                                                        <th scope="col">Male</th>
+                                                                        <th>Female</th>
+
+                                                                        </thead>
+                                                                        <tbody>
+                                                                        <tr>
+                                                                            <!--<td><label><input type="text" value=""></label></td>-->
+                                                                            <!--<td><label><input type="text" value=""></label></td>-->
+
+                                                                            <td>{{form.WB_GEN_15}}</td>
+                                                                            <td>{{form.WB_GEN_16}}</td>
+                                                                        </tr>
+                                                                        </tbody>
+
+                                                                    </table>
+
+
+                                                                </td>
+                                                            </tr>
+                                                <!------------------------------------------------>
+                                                            <tr>
                                                                 <td>
 
                                                                     How many people currently live in your household?
@@ -2259,7 +2369,9 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
     });
 
 
-
+    $( function() {
+      $( ".wellbeing_dates" ).datepicker({ format: 'yyyy-mm-dd' }).val();
+    } );
 
 
 </script>
