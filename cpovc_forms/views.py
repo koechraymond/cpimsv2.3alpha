@@ -8673,7 +8673,7 @@ def persist_wellbeing_data(kvals, value, person, house_hold, new_pk,date_of_well
         "WB_STA_12_1": "WB_STA_12", "WB_STA_12_2": "WB_STA_12", "WB_STA_12_3": "WB_STA_12", "WB_STA_13_1": "WB_STA_13",
         "WB_STA_13_2": "WB_STA_13",
         "WB_GEN_04": "WB_GEN_04", "WB_GEN_05": "WB_GEN_05", "WB_GEN_07": "WB_GEN_06", "WB_GEN_06": "WB_GEN_06",
-        "WB_GEN_08": "WB_GEN_07", "WB_GEN_09": "WB_GEN_07"
+        "WB_GEN_08": "WB_GEN_07", "WB_GEN_09": "WB_GEN_07",'WB_GEN_12':'WB_GEN_01','WB_GEN_04':'WB_GEN_04','WB_GEN_05':'WB_GEN_05'
     }
 
     other_list = ['WB_SAF_1_2', 'WB_SAF_31_2', 'WB_SAF_34_2', 'WB_SAF_37_2', 'WB_SAF_38_2', 'WB_SAF_39_2', 'WB_SAF_40_2'
@@ -8681,13 +8681,16 @@ def persist_wellbeing_data(kvals, value, person, house_hold, new_pk,date_of_well
                   'WB_STA_4_2', 'WB_STA_5_2', 'WB_STA_5_3', 'WB_STA_8_2', 'WB_STA_9_2', 'WB_HEL_25_2', 'WB_HEL_27_2',
                   'WB_HEL_28_2', 'WB_HEL_14_2', 'WB_HEL_20_2']
 
+
+
     entity = kvals["entity"]
     question_code = kvals["question_code"]
+    demographics_items = ['WB_GEN_12', 'WB_GEN_13', 'WB_GEN_15', 'WB_GEN_06', 'WB_GEN_08']
     try:
         question_code = question_code_to_ui_item_mapping[question_code]
         ovc_qst = OVCCareQuestions.objects.get(question=question_code)
 
-        if (entity == 'wellbeing' and not (str(kvals["question_code"]).startswith('WB_HEL'))):
+        if (entity == 'wellbeing' and kvals["question_code"] not in demographics_items):
             OVCCareWellbeing(
                 question_code=ovc_qst.code,
                 person=person,
@@ -8714,12 +8717,10 @@ def persist_wellbeing_data(kvals, value, person, house_hold, new_pk,date_of_well
         print "error saving wellbeing data"
         print e
 
-
-    if (str(kvals["question_code"]).startswith('WB_GEN')):
+    if (kvals["question_code"] in demographics_items):
         m_value = 0
         f_value = 0
         key = ''
-        skip_processing = ['WB_GEN_14', 'WB_GEN_16', 'WB_GEN_07', 'WB_GEN_09']  # to avoid double entry
 
         if (kvals["question_code"] == 'WB_GEN_12'):
             status_val = {'Monogamous Marriage': '1', 'Polygamous Marriage': '2', 'Single': '3', 'Widowed': '4',
@@ -8748,14 +8749,13 @@ def persist_wellbeing_data(kvals, value, person, house_hold, new_pk,date_of_well
             f_value = request.POST.get('WB_GEN_09')  # female
             key = 'DO18'
 
-        if (kvals["question_code"] not in skip_processing):
-            OVCHouseholdDemographics(
-                household=house_hold,
-                key=key,
-                male=m_value,
-                female=f_value,
-                event=OVCCareEvents.objects.get(pk=new_pk)
-            ).save()
+        OVCHouseholdDemographics(
+            household=house_hold,
+            key=key,
+            male=m_value,
+            female=f_value,
+            event=OVCCareEvents.objects.get(pk=new_pk)
+        ).save()
 
 def persist_per_child_wellbeing_question(request, key, house_hold, new_events_pk):
     date_of_wellbeing_event = convert_date(request.POST.get('WB_GEN_01'))
