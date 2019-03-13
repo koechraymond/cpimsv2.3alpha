@@ -32,7 +32,7 @@ from .models import (
     OVCCaseEventClosure, OVCCaseGeo, OVCMedicalSubconditions, OVCBursary,
     OVCFamilyCare, OVCCaseEventSummon, OVCCareEvents, OVCCarePriority,
     OVCCareServices, OVCCareEAV, OVCCareAssessment, OVCGokBursary, OVCCareWellbeing, OVCCareCpara, OVCCareQuestions,OVCCareForms,OVCExplanations,
-    OVCCareBenchmarkScore, OVCMonitoring)
+    OVCCareBenchmarkScore, OVCMonitoring,OVCHouseholdDemographics)
 from cpovc_ovc.models import OVCRegistration, OVCHHMembers, OVCHealth, OVCHouseHold
 from cpovc_main.functions import (
     get_list_of_org_units, get_dict, get_vgeo_list, get_vorg_list,
@@ -8645,7 +8645,7 @@ def fetch_question(answer_item_code):
     return question_code
 
 
-def persist_wellbeing_data(kvals, value, person, house_hold, new_pk,date_of_wellbeing_event):
+def persist_wellbeing_data(kvals, value, person, house_hold, new_pk,date_of_wellbeing_event,request):
     question_code_to_ui_item_mapping = {
         'WB_GEN_07': 'WB_GEN_06', "WB_GEN_08": "WB_GEN_07", "WB_GEN_09": "WB_GEN_07",
         "WB_SAF_32_1": "WB_SAF_31", "WB_SAF_33_1": "WB_SAF_32", "WB_SAF_34_2": "WB_SAF_33", "WB_SAF_34_1": "WB_SAF_33",
@@ -8687,7 +8687,7 @@ def persist_wellbeing_data(kvals, value, person, house_hold, new_pk,date_of_well
         question_code = question_code_to_ui_item_mapping[question_code]
         ovc_qst = OVCCareQuestions.objects.get(question=question_code)
 
-        if (entity == 'wellbeing'):
+        if (entity == 'wellbeing' and not (str(kvals["question_code"]).startswith('WB_HEL'))):
             OVCCareWellbeing(
                 question_code=ovc_qst.code,
                 person=person,
@@ -8709,10 +8709,53 @@ def persist_wellbeing_data(kvals, value, person, house_hold, new_pk,date_of_well
                 form=ovc_Care_forms_obj,
                 event=OVCCareEvents.objects.get(pk=new_pk)
             ).save()
+
     except Exception, e:
         print "error saving wellbeing data"
         print e
 
+
+    if (str(kvals["question_code"]).startswith('WB_GEN')):
+        m_value = 0
+        f_value = 0
+        key = ''
+        skip_processing = ['WB_GEN_14', 'WB_GEN_16', 'WB_GEN_07', 'WB_GEN_09']  # to avoid double entry
+
+        if (kvals["question_code"] == 'WB_GEN_12'):
+            status_val = {'Monogamous Marriage': '1', 'Polygamous Marriage': '2', 'Single': '3', 'Widowed': '4',
+                          'Divorced': '5', 'Cohabiting': '6'}
+            m_value = status_val[value]
+            f_value = status_val[value]
+            key = 'MARS'
+
+        if (kvals["question_code"] == 'WB_GEN_13'):
+            m_value = request.POST.get('WB_GEN_13')  # male
+            f_value = request.POST.get('WB_GEN_14')  # female
+            key = 'IU18'
+
+        if (kvals["question_code"] == 'WB_GEN_15'):
+            m_value = request.POST.get('WB_GEN_15')  # male
+            f_value = request.POST.get('WB_GEN_16')  # female
+            key = 'DU18'
+
+        if (kvals["question_code"] == 'WB_GEN_06'):
+            m_value = request.POST.get('WB_GEN_06')  # male
+            f_value = request.POST.get('WB_GEN_07')  # female
+            key = 'IO18'
+
+        if (kvals["question_code"] == 'WB_GEN_08'):
+            m_value = request.POST.get('WB_GEN_08')  # male
+            f_value = request.POST.get('WB_GEN_09')  # female
+            key = 'DO18'
+
+        if (kvals["question_code"] not in skip_processing):
+            OVCHouseholdDemographics(
+                household=house_hold,
+                key=key,
+                male=m_value,
+                female=f_value,
+                event=OVCCareEvents.objects.get(pk=new_pk)
+            ).save()
 
 def persist_per_child_wellbeing_question(request, key, house_hold, new_events_pk):
     date_of_wellbeing_event = convert_date(request.POST.get('WB_GEN_01'))
@@ -8724,7 +8767,7 @@ def persist_per_child_wellbeing_question(request, key, house_hold, new_events_pk
             person = RegPerson.objects.get(pk=int(person_id))
             for element_id, answer in individual_person_answers.iteritems():
                 kvals = {"entity": "wellbeing", "value": answer, "question_code": element_id}
-                persist_wellbeing_data(kvals, answer, person, house_hold, new_events_pk,date_of_wellbeing_event)
+                persist_wellbeing_data(kvals, answer, person, house_hold, new_events_pk,date_of_wellbeing_event,request)
 
     if (key == 'schooledanswer'):
         answer_obj = request.POST.get(key)
@@ -8738,9 +8781,9 @@ def persist_per_child_wellbeing_question(request, key, house_hold, new_events_pk
                 if isinstance(answer, (list,)):
                     for vall in answer:
                         kvals['value'] = vall
-                        persist_wellbeing_data(kvals, vall, person, house_hold, new_events_pk,date_of_wellbeing_event)
+                        persist_wellbeing_data(kvals, vall, person, house_hold, new_events_pk,date_of_wellbeing_event,request)
                 else:
-                    persist_wellbeing_data(kvals, answer, person, house_hold, new_events_pk,date_of_wellbeing_event)
+                    persist_wellbeing_data(kvals, answer, person, house_hold, new_events_pk,date_of_wellbeing_event,request)
 
 
 @login_required
@@ -8792,7 +8835,7 @@ def new_wellbeing(request, id):
                             entity_type = 'comment'
                         kvals = {"entity": entity_type, "value": val, "question_code": key,
                                  'domain': 1}
-                        persist_wellbeing_data(kvals, value, person, house_hold, new_events_pk,date_of_wellbeing_event)
+                        persist_wellbeing_data(kvals, value, person, house_hold, new_events_pk,date_of_wellbeing_event,request)
                 else:
                     persist_per_child_wellbeing_question(request, key, house_hold, new_events_pk)
             url = reverse('ovc_view', kwargs={'id': id})

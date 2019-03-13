@@ -138,8 +138,8 @@ olmis_ha31_list = get_list('olmis_ha31_id', 'Please Select')
 YESNO_CHOICES_REFUSE = (('AYES', 'Yes'), ('ANNO', 'No'), ('AREFUSE', 'Refuse'))
 
 MARITAL_STATUS =(('Monogamous Marriage','Monogamous Marriage'),('Polygamous Marriage', 'Polygamous Marriage'), ('Single', 'Single'),
-                 ('Widowed', 'Widowed'), ('Divorced/Separated', 'Divorced/Separated'),
-                 ('Cohabiting(leaving with a partner)', 'Cohabiting(leaving with a partner)'))
+                 ('Widowed', 'Widowed'), ('Divorced', 'Divorced/Separated'),
+                 ('Cohabiting', 'Cohabiting(leaving with a partner)'))
 
 FAVORITE_COLORS_CHOICES = (
         ('Provide money', 'Provide money'),
