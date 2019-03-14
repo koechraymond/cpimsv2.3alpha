@@ -4402,30 +4402,32 @@ class Wellbeing(forms.Form):
     household_id = forms.CharField(widget=forms.TextInput(
         attrs={'class': 'form-control',
                'id': 'household_id',
-               'type': 'hidden'
+               'type': 'hidden',
+               'data-parsley-required': "False"
                }))
 
     caretaker_id = forms.CharField(widget=forms.TextInput(
         attrs={'class': 'form-control',
                'id': 'caretaker_id',
-               'type': 'hidden'
+               'type': 'hidden',
+               'data-parsley-required': "False"
                }))
 
     WB_SAF_1_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=FAMILY_HELP_CHOICES,
     )
     WB_SAF_1_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other specify'),
                'class': 'form-control',
-               'id': 'WB_STA_1_2'
+               'id': 'WB_STA_1_2',
             # ,
-            #    'data-parsley-required': "False"
+               'data-parsley-required': "False"
                }))
 
     WB_SAF_1_3 = forms.CharField(widget=forms.Textarea(
-        attrs={'rows': '3', 'class': 'form-control'}))
+        attrs={'rows': '3', 'class': 'form-control','data-parsley-required': "False"}))
 
 
     WB_SAF_31 = forms.ChoiceField(
@@ -4433,6 +4435,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "True"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_school_error"
             }
@@ -4444,7 +4447,7 @@ class Wellbeing(forms.Form):
     ##Safe
 
     WB_SAF_31_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=COMMUNITY_GROUPS,
     )
@@ -4463,6 +4466,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "True"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_school_error"
             })
@@ -4475,20 +4479,22 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "True"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_school_error"
             })
     )
 
     WB_SAF_34_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=PARENTING_INFORMATION_SOURCE,
     )
     WB_SAF_34_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other specify'),
                'class': 'form-control',
-               'id': 'WB_SAF_34_2'
+               'id': 'WB_SAF_34_2',
+               'data-parsley-required': "False"
         # ,
         # 'data-parsley-required': "False"
     }))
@@ -4498,13 +4504,14 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_school_error"
             })
     )
 
     WB_SAF_36_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=SUPPORT_CHOICES,
     )
@@ -4530,6 +4537,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_school_error"
             })
@@ -4540,6 +4548,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_school_error"
             })
@@ -4557,6 +4566,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_school_error"
             })
@@ -4575,6 +4585,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_school_error"
             })
@@ -4595,6 +4606,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_school_error"
             })
@@ -4605,6 +4617,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_school_error"
             })
@@ -4628,6 +4641,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_school_error"
             })
@@ -4638,7 +4652,8 @@ class Wellbeing(forms.Form):
                'class': 'form-control',
                'min': '1',
                'max': '8',
-               'id': 'WB_SCH_42_1'
+               'id': 'WB_SCH_42_1',
+               'data-parsley-required': "False"
             # ,
             #    'data-parsley-required': "False"
     }))
@@ -4648,6 +4663,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_school_error"
             })
@@ -4657,7 +4673,8 @@ class Wellbeing(forms.Form):
                'class': 'form-control',
                'min': '1',
                'max': '8',
-               'id': 'WB_SCH_43_1'
+               'id': 'WB_SCH_43_1',
+               'data-parsley-required': "False"
             # ,
             #    'data-parsley-required': "False"
     }))
@@ -4667,6 +4684,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_school_error"
             })
@@ -4677,6 +4695,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_school_error"
             })
@@ -4697,7 +4716,8 @@ class Wellbeing(forms.Form):
             format="%m/%d/%Y",
             attrs={'placeholder': _('Date Of Assessement'),
                    'class': 'form-control wellbeing_dates',
-                   'autocomplete': "off"
+                   'autocomplete': "off",
+                   'data-parsley-required': "False"
                    # ,
                    #    'data-parsley-required': "true",
                    #    'data-parsley-group': 'group0'
@@ -4707,7 +4727,8 @@ class Wellbeing(forms.Form):
             format="%m/%d/%Y",
             attrs={'placeholder': _('Birth Date'),
                    'class': 'form-control wellbeing_dates',
-                   'autocomplete': "off"
+                   'autocomplete': "off",
+                   'data-parsley-required': "False"
                    # ,
                    #    'data-parsley-required': "true",
                    #    'data-parsley-group': 'group0'
@@ -4715,13 +4736,16 @@ class Wellbeing(forms.Form):
 
     WB_GEN_03 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Address'),
-               'class': 'form-control'               # ,
+               'class': 'form-control'  ,
+               'data-parsley-required': "False" # ,
                #    'data-parsley-required': "False"
                }))
 
     WB_GEN_11 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Phone number'),
-               'class': 'form-control'               # ,
+               'class': 'form-control' ,
+               'data-parsley-required': "False"
+               # ,
                #    'data-parsley-required': "False"
                }))
 
@@ -4732,6 +4756,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_school_error"
             })
@@ -4739,23 +4764,28 @@ class Wellbeing(forms.Form):
 
     WB_GEN_13 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Male'),
-               'class': 'form-control'               # ,
+               'class': 'form-control',               # ,
+                        'data-parsley-required': "False"
                #    'data-parsley-required': "False"
                }))
     WB_GEN_14 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Female'),
-               'class': 'form-control'               # ,
+               'class': 'form-control' ,              # ,
+               'data-parsley-required': "False"
                #    'data-parsley-required': "False"
                }))
 
     WB_GEN_15 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Male'),
-               'class': 'form-control'               # ,
+               'class': 'form-control' ,
+               'data-parsley-required': "False"
+               # ,
                #    'data-parsley-required': "False"
                }))
     WB_GEN_16 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Female'),
-               'class': 'form-control'               # ,
+               'class': 'form-control'  ,             # ,
+                        'data-parsley-required': "False"
                #    'data-parsley-required': "False"
                }))
 
@@ -4768,7 +4798,8 @@ class Wellbeing(forms.Form):
     WB_GEN_04 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _(''),
                'class': 'form-control',
-               'id': 'WB_GEN_04'
+               'id': 'WB_GEN_04',
+                     'data-parsley-required': "False"
             # ,
             #    'data-parsley-required': "False"
                }))
@@ -4778,6 +4809,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_school_error"
             })
@@ -4786,7 +4818,8 @@ class Wellbeing(forms.Form):
     WB_GEN_06 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _(''),
                'class': 'form-control',
-               'id': 'WB_GEN_04'
+               'id': 'WB_GEN_04',
+               'data-parsley-required': "False"
             # ,
             #    'data-parsley-required': "False"
                }))
@@ -4794,7 +4827,8 @@ class Wellbeing(forms.Form):
     WB_GEN_07 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _(''),
                'class': 'form-control',
-               'id': 'WB_GEN_04'
+               'id': 'WB_GEN_04',
+               'data-parsley-required': "False"
             # ,
             #    'data-parsley-required': "False"
                }))
@@ -4802,7 +4836,8 @@ class Wellbeing(forms.Form):
     WB_GEN_08 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _(''),
                'class': 'form-control',
-               'id': 'WB_GEN_04'
+               'id': 'WB_GEN_04',
+               'data-parsley-required': "False"
             # ,
             #    'data-parsley-required': "False"
                }))
@@ -4810,7 +4845,8 @@ class Wellbeing(forms.Form):
     WB_GEN_09 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _(''),
                'class': 'form-control',
-               'id': 'WB_GEN_04'
+               'id': 'WB_GEN_04',
+               'data-parsley-required': "False"
             # ,
             #    'data-parsley-required': "False"
                }))
@@ -4820,15 +4856,15 @@ class Wellbeing(forms.Form):
     #### Stable
 
     WB_STA_1_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_STA_1_1_CHOICES,
+
     )
     WB_STA_1_2 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Other specify'),
                'class': 'form-control',
-               'id': 'WB_STA_1_2'
-            # ,
+               'id': 'WB_STA_1_2'            # ,
             #    'data-parsley-required': "False"
                }))
 
@@ -4837,7 +4873,7 @@ class Wellbeing(forms.Form):
                'placeholder': _('Comment')}))
 
     WB_STA_2_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_STA_2_1_CHOICES,
     )
@@ -4853,9 +4889,10 @@ class Wellbeing(forms.Form):
         attrs={'rows': '3', 'class': 'form-control'}))
 
     WB_STA_3_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_STA_3_1_CHOICES,
+
     )
 
     WB_STA_3_2 = forms.CharField(widget=forms.TextInput(
@@ -4870,7 +4907,7 @@ class Wellbeing(forms.Form):
         attrs={'rows': '3', 'class': 'form-control'}))
 
     WB_STA_4_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_STA_4_1_CHOICES,
     )
@@ -4890,7 +4927,7 @@ class Wellbeing(forms.Form):
 
     #5
     WB_STA_5_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_STA_5_1_CHOICES,
     )
@@ -4911,7 +4948,8 @@ class Wellbeing(forms.Form):
     WB_STA_6_1 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Avg monthly income'),
                'class': 'form-control',
-               'id': 'WB_STA_6_1'
+               'id': 'WB_STA_6_1',
+               'data-parsley-required': "False"
             # ,
             #    'data-parsley-required': "False"
                }))
@@ -4919,14 +4957,15 @@ class Wellbeing(forms.Form):
     WB_STA_7_1 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Household savings'),
                'class': 'form-control',
-               'id': 'WB_STA_7_1'
+               'id': 'WB_STA_7_1',
+               'data-parsley-required': "False"
             # ,
             #    'data-parsley-required': "False"
                }))
 
     #8
     WB_STA_8_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_STA_8_1_CHOICES,
     )
@@ -4940,7 +4979,7 @@ class Wellbeing(forms.Form):
 
     #9
     WB_STA_9_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_STA_9_1_CHOICES,
     )
@@ -4955,7 +4994,7 @@ class Wellbeing(forms.Form):
 
     #10
     WB_STA_10_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_STA_10_1_CHOICES,
     )
@@ -4969,6 +5008,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_school_error"
             })
@@ -4981,13 +5021,13 @@ class Wellbeing(forms.Form):
 
     ## 12
     WB_STA_12_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_STA_12_1_CHOICES
     )
 
     WB_STA_12_2 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_STA_12_1_CHOICES,
     )
@@ -5001,7 +5041,7 @@ class Wellbeing(forms.Form):
     #Q 13
 
     WB_STA_13_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_STA_13_1_CHOICES
     )
@@ -5016,17 +5056,19 @@ class Wellbeing(forms.Form):
     WB_HEL_23_1 = forms.CharField(widget=forms.TextInput(
         attrs={'placeholder': _('Name'),
                'class': 'form-control',
-               'id': 'WB_STA_1_2'
+               'id': 'WB_STA_1_2',
+               'data-parsley-required': "False"
             # ,
             #    'data-parsley-required': "False"
                }))
     WB_HEL_24_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_HEL_26_1_CHOICES,
     )
+
     WB_HEL_25_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_STA_25_1_CHOICES,
     )
@@ -5041,12 +5083,12 @@ class Wellbeing(forms.Form):
                }))
 
     WB_HEL_26_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_HEL_26_1_CHOICES,)
 
     WB_HEL_27_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_HEL_27_1_CHOICES,)
 
@@ -5059,7 +5101,7 @@ class Wellbeing(forms.Form):
                }))
 
     WB_HEL_28_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_HEL_28_1_CHOICES,)
 
@@ -5075,7 +5117,7 @@ class Wellbeing(forms.Form):
 
     # Healthy
     WB_HEL_14_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_HEL_14_1_CHOICES,
     )
@@ -5091,6 +5133,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true'
                 # ,
                 #    'data-parsley-errors-container': "#receiving_services_error"
@@ -5103,6 +5146,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true'
                 # ,
                 #    'data-parsley-errors-container': "#receiving_services_error"
@@ -5110,7 +5154,7 @@ class Wellbeing(forms.Form):
     )
 
     WB_HEL_16_2 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_HEL_16_2_CHOICES,
     )
@@ -5119,7 +5163,7 @@ class Wellbeing(forms.Form):
     WB_HEL_16_4 = forms.CharField(widget=forms.Textarea(
         attrs={'rows': '3', 'class': 'form-control', 'placeholder': 'Who'}))
     WB_HEL_16_5 = forms.CharField(widget=forms.Textarea(
-        attrs={'rows': '3', 'class': 'form-control', 'placeholder': 'What is the long-term illness that ypu have?'}))
+        attrs={'rows': '3', 'class': 'form-control', 'placeholder': 'What is the long-term illness that ypu have?','data-parsley-required': "False"}))
 
     #17
     WB_HEL_17_1 = forms.ChoiceField(
@@ -5127,12 +5171,13 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_testofhiv_error"
             })
     )
     WB_HEL_17_2 = forms.DateField(
-      widget=forms.DateInput(format='%m/%d/%Y', attrs={'class': 'datepicker','placeholder': 'MMDDYYYY'}),
+      widget=forms.DateInput(format='%m/%d/%Y', attrs={'class': 'datepicker','placeholder': 'MMDDYYYY','data-parsley-required': "False"}),
       input_formats=('%m/%d/%Y', )
       )
 
@@ -5142,6 +5187,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_testofhiv_error"
             })
@@ -5151,6 +5197,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_testofhiv_error"
             }),
@@ -5163,6 +5210,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true'
                 # ,
                 #    'data-parsley-errors-container': "#receiving_services_error"
@@ -5174,6 +5222,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_heardof_error"
             }),
@@ -5193,6 +5242,7 @@ class Wellbeing(forms.Form):
         widget=forms.RadioSelect(
             renderer=RadioCustomRenderer,
             attrs={
+                'data-parsley-required': "False"
                 # 'data-parsley-required': 'true',
                 #    'data-parsley-errors-container': "#in_heardof_error"
             })
@@ -5200,9 +5250,10 @@ class Wellbeing(forms.Form):
 
     #22
     WB_HEL_22_1 = forms.MultipleChoiceField(
-        required=False,
+        required=True,
         widget=forms.CheckboxSelectMultiple,
         choices=WB_HEL_22CHOICES,
+
     )
 
 
