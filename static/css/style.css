@@ -6423,6 +6423,9 @@ td:focus{
 .hidden{
     display: none;
 }
+.well td ul{
+    list-style: none;
+}
 /*DanChanges*/
 
 
