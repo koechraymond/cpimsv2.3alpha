@@ -8,6 +8,7 @@ from cpovc_registry.functions import get_geo_list, get_all_geo_list
 from cpovc_registry.models import RegOrgUnit
 from cpovc_main.models import SchoolList
 # New lists
+WB_AD_GEN_5_ChoiceList=WB_AD_SAF_32_6_CHOICELIST=WB_AD_SAF_32_2_CHOICELIST=WB_AD_SAF_28_CHOICELIST=WB_AD_SAF_27_1_CHOICELIST=WB_AD_SAF_26_CHOICELIST=WB_AD_HEL_24_1_CHOICELIST=WB_AD_HEL_21_1_CHOICELIST=WB_AD_SCH_7_CHOICELIST=WB_AD_SCH_12_2_CHOICELIST=WB_AD_HEL_20_4_CHOICELIST=WB_AD_SCH_13_2_CHOICELIST = (('TBD1', 'TBD1'), ('TBD2', 'TBD2'),('TBD3', 'TBD3'))
 YESNO_CHOICES = (('AYES', 'Yes'), ('ANNO', 'No'))
 CPARA_MONITORING_CASE_CHOICES = (('1', 'First'), ('2', 'Second'), ('3', 'Third'))
 bursary_school_type_list = (('STPR', 'Private'), ('STPU', 'Public'))
@@ -131,6 +132,21 @@ olmis_ha28_list = get_list('olmis_ha28_id', 'Please Select')
 olmis_ha29_list = get_list('olmis_ha29_id', 'Please Select')
 olmis_ha30_list = get_list('olmis_ha30_id', 'Please Select')
 olmis_ha31_list = get_list('olmis_ha31_id', 'Please Select')
+
+
+#wellbeing
+YESNO_CHOICES_REFUSE = (('AYES', 'Yes'), ('ANNO', 'No'), ('AREFUSE', 'Refuse'))
+
+FAVORITE_COLORS_CHOICES = (
+        ('Provide money', 'Provide money'),
+        ('Look after the children', 'Look after the children'),
+        ('Help with house chores', 'Help with house chores'),
+        ('Work on the farms', 'Work on the farms'),
+        ('Collect water and/ or wood', 'Collect water and/ or wood'),
+        ('Take care of animals', 'Take care of animals'),
+        ('Bring food', 'Bring food'),
+        ('Other', 'Other')
+    )
 
 class OVCSchoolForm(forms.Form):
     school_name = forms.CharField(widget=forms.TextInput(
@@ -3318,6 +3334,7 @@ class GOKBursaryForm(forms.Form):
     )
 
 
+
 class CparaAssessment(forms.Form):
     cp1d = forms.ChoiceField(
         choices=YESNO_CHOICES,
@@ -4086,3 +4103,1776 @@ class CasePlanTemplate(forms.Form):
 # CPT_DATE
 # CPT_RESULTS
 # CPT_REASONS
+
+
+
+
+#wellbeing
+
+
+YESNO_CHOICES_REFUSE = (('AYES', 'Yes'), ('ANNO', 'No'), ('AREFUSE', 'Refuse'))
+WB_STA_1_1_CHOICES = (
+    ('Provide money', 'Provide money'),
+    ('Look after the children', 'Look after the children'),
+    ('Help with house chores', 'Help with house chores'),
+    ('Work on the farms', 'Work on the farms'),
+    ('Collect water and/ or wood', 'Collect water and/ or wood'),
+    ('Take care of animals', 'Take care of animals'),
+    ('Bring food', 'Bring food'),
+    ('Other', 'Other')
+)
+WB_STA_2_1_CHOICES = (
+    ('Not applicable (no other adults', 'Not applicable (no other adults)'),
+    ('Provide money', 'Provide money'),
+    ('Look after the children', 'Look after the children'),
+    ('Help with house chores', 'Help with house chores'),
+    ('Work on the farms', 'Work on the farms'),
+    ('Collect water and/ or wood', 'Collect water and/ or wood'),
+    ('Take care of animals', 'Take care of animals'),
+    ('Bring food', 'Bring food'),
+    ('Other', 'Other')
+)
+
+WB_STA_3_1_CHOICES = (
+    ('Look after younger children', 'Look after younger children'),
+    ('Help with house chores', 'Help with house chores'),
+    ('Work on the farm', 'Work on the farm'),
+    ('Help with house chores', 'Help with house chores'),
+    ('Work on the farms', 'Work on the farms'),
+    ('Collect water and/ or wood', 'Collect water and/ or wood'),
+    ('Take care of animals', 'Take care of animals'),
+    ('Bring food', 'Bring food'),
+    ('Other', 'Other')
+)
+
+WB_STA_4_1_CHOICES = (
+    ('Basic household utensils', 'Basic household utensils'),
+    ('Tools for making repairs', 'Tools for making repairs'),
+    ('Hoe, axe or farming tools', 'Hoe, axe or farming tools'),
+    ('Water storage container', 'Water storage container'),
+    ('Bicycle', 'Bicycle'),
+    ('Livestock', 'Livestock'),
+    ('Cellphone(s)', 'Cellphone(s)'),
+    ('Gas Lamp', 'Gas Lamp'),
+    ('Lantern', 'Lantern'),
+    ('Radio', 'Radio'),
+    ('Other', 'Other (specify)'),
+
+)
+
+WB_STA_5_1_CHOICES = (
+    ('Crop farming', 'Crop farming'),
+    ('Livestock rearing', 'Livestock rearing'),
+    ('Fishing', 'Fishing'),
+    ('Begging', 'Begging'),
+    ('Cash transfer', 'Cash transfer'),
+    ('Donations', 'Donations'),
+    ('Bee keeping', 'Bee keeping'),
+    ('Casual labour', 'Casual labour'),
+    ('Small business', 'Small business'),
+    ('Formal employment', 'Formal employment'),
+    ('Unemployed', 'Unemployed'),
+    ('Other', 'Other (specify)')
+
+)
+
+WB_STA_8_1_CHOICES = (
+    ('Food', 'Food'),
+    ('Rent', 'Rent'),
+    ('Fishing', 'Fishing'),
+    ('Clothing', 'Clothing'),
+    ('Medical Bills', 'Medical Bills'),
+    ('School Fees', 'School Fees'),
+    ('Entertainment', 'Entertainment'),
+    ('Transport(fair)', 'Transport(fair)'),
+    ('Other', 'Other (specify)')
+
+)
+
+WB_STA_9_1_CHOICES = (
+    ('Yes', 'Yes'),
+    ('No', 'No'),
+    ('Savings', 'Savings'),
+    ('Salary', 'Salary'),
+    ('Self-employed (business/farming/fshing)', 'Self-employed (business/farming/fshing)'),
+    ('Support of well-wishers', 'Support of well-wishers'),
+    ('Other programs/bursaries', 'Other programs/bursaries'),
+    ('Selling of assets', 'Selling of assets'),
+    ('Borrowing', 'Borrowing'),
+    ('Other', 'specify Other')
+
+)
+
+WB_STA_10_1_CHOICES = (
+    ('My salary', 'My salary'),
+    ('My savings', 'My savings'),
+    ('A loan from family for friend', 'A loan from family for friend'),
+    ('A loan from microcredit group', 'A loan from microcredit group'),
+    ('A loan from a money lender', 'A loan from a money lender'),
+    ('Hawking/ market vending', 'Hawking/ market vending'),
+    ('Sell of family assets', 'Sell of family assets'),
+    ('Selling of assets', 'Selling of assets'),
+    ('Sell of stored family food', 'Sell of stored family food'),
+    ('Unable to meet unplanned needs', 'Unable to meet unplanned needs')
+
+)
+
+WB_STA_12_1_CHOICES = (
+    ('Cash transfer', 'Cash transfer'),
+    ('Emergency food', 'Emergency food'),
+    ('School bursaries', 'School bursaries'),
+    ('Farm inputs (e.g. fertilizer,seeds)', 'Farm inputs (e.g. fertilizer,seeds)'),
+    ('NHIF', 'NHIF'),
+    ('None', 'None'),
+
+)
+
+
+WB_STA_13_1_CHOICES = (
+    ('Energy food', 'Energy food (Ugali, potatoes, bananas, oil, millet,sorghum,rice,cassava)'),
+    ('Body building foods', 'Body building foods (beans meat,soya beans, peas, milk, eggs, chicken, fish, ndengu)'),
+    ('Protective food', 'Protective food (pineapples, mangos, pawpaw, oranges, tomatoes, avaocado, guavas, bananas, vegetables)')
+
+)
+
+
+WB_STA_25_1_CHOICES = (
+    ('CHILD', 'My child'),
+    ('SPOUSE', 'My spouse'),
+    ('FRIEND_NEIGHBOUR', 'A friend/neighbour'),
+    ('BG_GF', 'Boyfriend/ girlfriend'),
+    ('FAMILY', 'Member of the family'),
+    ('PASTOR', 'Pastor or priest'),
+    ('Other', 'Other')
+
+)
+
+WB_HEL_26_1_CHOICES = (
+    ('YES', 'Yes'),
+    ('NO', 'No'),
+    ('Refuse', 'I refuse to answer'),
+)
+
+WB_HEL_28_1_CHOICES = (
+    ('YES', 'Yes'),
+    ('NO', 'No'),
+    ('Refuse', 'I refuse to answer'),
+    ('Other', 'Other (please specify)'),
+)
+
+WB_HEL_27_1_CHOICES = (
+    ('SUPPORT_GROUP', 'I am part of a support group'),
+    ('CLOSE_PPL', 'I speak with people who I am close with or my family'),
+    ('DOCTOR', 'I speak with my doctor'),
+    ('PASTOR', 'I speak with my pastor or priest'),
+    ('ALONE', ' I face it all alone'),
+
+    ('blue', 'I avoid thinking about it because its too difcult'),
+    ('NOSTIGMA', 'I do not face stigma'),
+    ('Other', 'Other please '),
+)
+WB_HEL_14_YNR = (('AYES', 'Yes'), ('ANNO', 'No'))
+WB_HEL_17YNR = (('AYES', 'Yes'), ('ANNO', 'No'), ('AREFUSE', 'Refuse'))
+WB_HEL_21YNR = (('AYES', 'Yes'), ('ANNO', 'No'), ('ANNOTAPPLICABLE', 'Not Applicable'))
+
+WB_HEL_14_1_CHOICES = (
+    ('No disability', 'No disability'),
+    ('Hearing', 'Hearing'),
+    ('Speech', 'Speech'),
+    ('Physical', 'Physical'),
+    ('Mental', 'Mental'),
+    ('Visual', 'Visual'),
+    ('Genetic differences (albinism)', 'Genetic differences (albinism)'),
+    ('Other', 'Other')
+)
+WB_HEL_16_2_CHOICES = (
+    ('Cancer', 'Cancer'),
+    ('Epilepsy', 'Epilepsy'),
+    ('Diabetes', 'Diabetes'),
+    ('Hypertension', 'Hypertension'),
+    ('Other', 'Other')
+)
+WB_HEL_18CHOICES = (
+    ('Positive', 'Positive'),
+    ('Negative', 'Negative'),
+    ('Unknown', 'Unknown'),
+    ('Refuse to share', 'Refuse to share')
+)
+WB_HEL_20CHOICES = (
+    ('No, too many side effects', 'No, too many side effects'),
+    ('No, treatment is not regularly available', 'No, treatment is not regularly available'),
+    ('No, scared that someone will find out that I\'m living with HIV', 'No, scared that someone will find out that I\'m living with HIV'),
+    ('No, it\'s hard to remember', 'No, it\'s hard to remember'),
+    ('Yes, I take it on time and regularly', 'Yes, I take it on time and regularly'),
+    ('Yes, but not regularly', 'Yes, but not regularly'),
+    ('Other', 'Other')
+)
+WB_HEL_22CHOICES = (
+    ('High (above 1,000 copies/ml)', 'High (above 1,000 copies/ml)'),
+    ('Low (less than 1,000 copies/ml)', 'Low (less than 1,000 copies/ml)'),
+    ('Undetectable', 'Undetectable'),
+    ('Don\'t know', 'Don\'t know')
+)
+
+YESNO_CHOICES_REFUSE = (('AYES', 'Yes'), ('ANNO', 'No'), ('AREFUSE', 'Refuse to respond'))
+
+SCHOOL_GRADE = (('GRADE', 'Grade'), ('FORM', 'Form'), ('YEAR', 'Year'))
+
+FAMILY_MEMBERS_CHOICES = (('Mother', 'Mother (1)'), ('Father', 'Father (2)'), ('Aunt', 'Aunt (3)'),
+                          ('Uncle', 'Uncle (4)'), ('Grandmother', 'Grandmother (5)'), ('Grandfather', 'Grandfather (6)'), ('Other sibling', 'Older sibling (7)'), ('Other relative', 'Other relative(specify) (8)'), ('OTHER', 'Other (specify)'))
+
+FAMILY_MEMBERS_CHOICES2 = (('Mother', 'Mother (1)'), ('Father', 'Father (2)'), ('Aunt', 'Aunt (3)'),
+                          ('Uncle', 'Uncle (4)'), ('Grandmother', 'Grandmother (5)'), ('Grandfather', 'Grandfather (6)'), ('Other sibling', 'Older sibling (7)'), ('Other relative', 'Other relative(specify) (8)'), ('OTHER', 'Other (specify)'))
+
+
+SUPPORT_CHOICES = (('Legal', 'Legal Assistance'), ('Psychosocial', 'Psychosocial support'), ('Medical', 'Medical services'),
+                          ('Other', 'Other'))
+
+FAMILY_HELP_CHOICES = (
+        ('Provide money', 'Provide money'),
+        ('Look after the children', 'Look after the children'),
+        ('Help with house chores', 'Help with house chores'),
+        ('Work on the farms', 'Work on the farms'),
+        ('Collect water and/ or wood', 'Collect water and/ or wood'),
+        ('Take care of animals', 'Take care of animals'),
+        ('Bring food', 'Bring food'),
+        ('Other', 'Other')
+    )
+
+
+
+CHILD_NOT_ENROLLED = (
+        ('Sick/ Fever', 'Sick/ Fever'),
+        ('Housework', 'Housework'),
+        ('Exhaustion', 'Exhaustion'),
+        ('Fear of the school or other children at school', 'Fear of the school or other children at school'),
+        ('Fear of the walk to school', 'Fear of the walk to school'),
+        ('Inability to pay school fees', 'Inability to pay school fees'),
+        ('Inability to pay for school materials', 'Inability to pay for school materials'),
+        ('Other', 'specify if other')
+    )
+
+
+
+PARENTING_INFORMATION_SOURCE = (
+        ('Radio', 'Radio'),
+        ('Counseling', 'Counseling'),
+        ('Mentoring from Caseworkers', 'Mentoring from Caseworkers'),
+        ('Care group', 'Care group'),
+        ('Community Meeting', 'Community Meeting'),
+        ('Health care facility', 'Health care facility'),
+        ('Schools', 'Schools'),
+        ('Under five clinic', 'Under five clinic'),
+        ('Other', 'Other')
+    )
+
+
+COMMUNITY_GROUPS = (
+        ('Womens group', 'Womens group'),
+        ('Church/Religious group', 'Church/Religious group'),
+        ('Parents/Caregivers group', 'Parents/Caregivers group'),
+        ('HIV support group', 'HIV support group'),
+        ('Community savings group', 'Community savings group'),
+        ('Trade association or business group', 'Trade association or business group'),
+        ('Political group', 'Political group'),
+        ('Other', 'Other')
+    )
+
+FAMILY_MEMBER_STATUS = (('ELSEWHERE', 'Live / work elsewhere'), ('DECEASED', 'Deceased'), ('OTHER', 'Other (specify)'))
+
+FAMILY_MEMBER_STATUS2 = (('ELSEWHERE', 'Live / work elsewhere'), ('DECEASED', 'Deceased'), ('OTHER', 'Other (specify)'))
+
+class Wellbeing(forms.Form):
+
+    ##Domain Stable
+    # WB_STA_1 = forms.CharField(
+    #     choices=YESNO_CHOICES_REFUSE,
+    #     widget=forms.CheckboxInput(
+    #         attrs={'class': 'form-control', 'id': 'WB_STA_1'}))
+
+
+    ##Domain Safe
+
+    name=forms.CharField(label='Your name')
+
+    household_id = forms.CharField(widget=forms.TextInput(
+        attrs={'class': 'form-control',
+               'id': 'household_id',
+               'type': 'hidden'
+               }))
+
+    WB_SAF_1_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=FAMILY_HELP_CHOICES,
+    )
+    WB_SAF_1_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_STA_1_2'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+
+    WB_SAF_1_3 = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': '3', 'class': 'form-control'}))
+
+
+    WB_SAF_31 = forms.ChoiceField(
+        choices=YESNO_CHOICES_REFUSE,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            }
+        )
+    )
+
+    ##Schooled
+
+    ##Safe
+
+    WB_SAF_31_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=COMMUNITY_GROUPS,
+    )
+    WB_SAF_31_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_SAF_31_2'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+
+
+
+    WB_SAF_32_1=forms.ChoiceField(
+        choices=YESNO_CHOICES_REFUSE,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            })
+    )
+
+
+
+    WB_SAF_33_1 = forms.ChoiceField(
+        choices=YESNO_CHOICES_REFUSE,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            })
+    )
+
+    WB_SAF_34_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=PARENTING_INFORMATION_SOURCE,
+    )
+    WB_SAF_34_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_SAF_34_2'
+        # ,
+        # 'data-parsley-required': "False"
+    }))
+
+    WB_SAF_35_1 = forms.ChoiceField(
+        choices=YESNO_CHOICES_REFUSE,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            })
+    )
+
+    WB_SAF_36_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=SUPPORT_CHOICES,
+    )
+
+    WB_SAF_36_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_SAF_36_2'
+            # ,
+            #    'data-parsley-required': "False"
+    }))
+
+    WB_SAF_37_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_SAF_37_2'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+
+    WB_SAF_37_1 = forms.ChoiceField(
+        choices=FAMILY_MEMBERS_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            })
+    )
+
+    WB_SAF_38_1 = forms.ChoiceField(
+        choices=FAMILY_MEMBERS_CHOICES2,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            })
+    )
+    WB_SAF_38_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_SAF_38_2'
+        # ,
+        #    'data-parsley-required': "False"
+   }))
+
+    WB_SAF_39_1 = forms.ChoiceField(
+        choices=FAMILY_MEMBER_STATUS,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            })
+    )
+
+    WB_SAF_39_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_SAF_39_2'
+               # ,
+               #    'data-parsley-required': "False"
+               }))
+
+    WB_SAF_40_1 = forms.ChoiceField(
+        choices=FAMILY_MEMBER_STATUS2,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            })
+    )
+    WB_SAF_40_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+           'class': 'form-control',
+           'id': 'WB_SAF_40_2'
+           # ,
+           #    'data-parsley-required': "False"
+   }))
+
+
+    ##DOMAIN:SCHOOLED
+
+    WB_SCH_39_1 = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            })
+    )
+
+    WB_SCH_40_1 = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            })
+    )
+
+    WB_SCH_41_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=CHILD_NOT_ENROLLED,
+    )
+    WB_SCH_41_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_SCH_41_2'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+
+    WB_SCH_42_2 = forms.ChoiceField(
+        choices=SCHOOL_GRADE,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            })
+    )
+
+    WB_SCH_42_1 = forms.CharField(widget=forms.NumberInput(
+        attrs={'placeholder': _('Grade/form/year'),
+               'class': 'form-control',
+               'min': '1',
+               'max': '8',
+               'id': 'WB_SCH_42_1'
+            # ,
+            #    'data-parsley-required': "False"
+    }))
+
+    WB_SCH_43_2 = forms.ChoiceField(
+        choices=SCHOOL_GRADE,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            })
+    )
+    WB_SCH_43_1 = forms.CharField(widget=forms.NumberInput(
+        attrs={'placeholder': _('Grade/form/year'),
+               'class': 'form-control',
+               'min': '1',
+               'max': '8',
+               'id': 'WB_SCH_43_1'
+            # ,
+            #    'data-parsley-required': "False"
+    }))
+
+    WB_SCH_44_1 = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            })
+    )
+
+    WB_SCH_45_1 = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            })
+    )
+
+    ##DOMAIN: STABLE
+
+    ##DOMAIN:HEALTH
+
+    ##DOMAIN: SAFE
+
+    ##DEMOGRAPHICS
+    WB_GEN_04 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _(''),
+               'class': 'form-control',
+               'id': 'WB_GEN_04'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+
+    WB_GEN_05 = forms.ChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            })
+    )
+
+    WB_GEN_06 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _(''),
+               'class': 'form-control',
+               'id': 'WB_GEN_04'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+
+    WB_GEN_07 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _(''),
+               'class': 'form-control',
+               'id': 'WB_GEN_04'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+
+    WB_GEN_08 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _(''),
+               'class': 'form-control',
+               'id': 'WB_GEN_04'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+
+    WB_GEN_09 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _(''),
+               'class': 'form-control',
+               'id': 'WB_GEN_04'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+
+
+
+    #### Stable
+
+    WB_STA_1_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_STA_1_1_CHOICES,
+    )
+    WB_STA_1_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_STA_1_2'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+
+    WB_STA_1_3 = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': '3', 'class': 'form-control',
+               'placeholder': _('Comment')}))
+
+    WB_STA_2_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_STA_2_1_CHOICES,
+    )
+    WB_STA_2_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_STA_2_2'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+
+    WB_STA_2_3 = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': '3', 'class': 'form-control'}))
+
+    WB_STA_3_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_STA_3_1_CHOICES,
+    )
+
+    WB_STA_3_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_STA_3_2'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+
+    WB_STA_3_3 = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': '3', 'class': 'form-control'}))
+
+    WB_STA_4_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_STA_4_1_CHOICES,
+    )
+    WB_STA_4_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_STA_4_2'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+
+    WB_STA_4_3 = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': '3', 'class': 'form-control'})
+
+    )
+
+
+    #5
+    WB_STA_5_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_STA_5_1_CHOICES,
+    )
+    WB_STA_5_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_STA_5_2'
+               # ,
+               #    'data-parsley-required': "False"
+               }))
+
+    WB_STA_5_3 = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': '3', 'class': 'form-control','placeholder': _('Other specify')})
+
+    )
+
+    #6
+    WB_STA_6_1 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Avg monthly income'),
+               'class': 'form-control',
+               'id': 'WB_STA_6_1'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+    #7
+    WB_STA_7_1 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Household savings'),
+               'class': 'form-control',
+               'id': 'WB_STA_7_1'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+
+    #8
+    WB_STA_8_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_STA_8_1_CHOICES,
+    )
+    WB_STA_8_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_STA_8_2'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+
+    #9
+    WB_STA_9_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_STA_9_1_CHOICES,
+    )
+
+    WB_STA_9_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_STA_9_2'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+
+    #10
+    WB_STA_10_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_STA_10_1_CHOICES,
+    )
+
+    WB_STA_10_2 = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': '3', 'class': 'form-control'}))
+
+    #11
+    WB_STA_11_1 = forms.MultipleChoiceField(
+        choices=YESNO_CHOICES,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_school_error"
+            })
+    )
+
+    WB_STA_11_2 = forms.CharField(widget=forms.Textarea(
+        attrs={'placeholder': _('Comment'),'rows': '3', 'class': 'form-control'})
+
+    )
+
+    ## 12
+    WB_STA_12_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_STA_12_1_CHOICES
+    )
+
+    WB_STA_12_2 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_STA_12_1_CHOICES,
+    )
+
+    WB_STA_12_3 = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': '3', 'class': 'form-control'})
+
+    )
+
+
+    #Q 13
+
+    WB_STA_13_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_STA_13_1_CHOICES
+    )
+
+    WB_STA_13_2 = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': '3', 'class': 'form-control'})
+
+    )
+
+
+
+    WB_HEL_23_1 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Name'),
+               'class': 'form-control',
+               'id': 'WB_STA_1_2'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+    WB_HEL_24_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_HEL_26_1_CHOICES,
+    )
+    WB_HEL_25_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_STA_25_1_CHOICES,
+    )
+
+
+    WB_HEL_25_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_HEL_25_2'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+
+    WB_HEL_26_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_HEL_26_1_CHOICES,)
+
+    WB_HEL_27_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_HEL_27_1_CHOICES,)
+
+    WB_HEL_27_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_HEL_27_2'
+               # ,
+               #    'data-parsley-required': "False"
+               }))
+
+    WB_HEL_28_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_HEL_28_1_CHOICES,)
+
+    WB_HEL_28_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_HEL_28_2'
+                 # ,
+               #    'data-parsley-required': "False"
+               }))
+
+    # Domain Safe
+
+    # Healthy
+    WB_HEL_14_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_HEL_14_1_CHOICES,
+    )
+    WB_HEL_14_2=forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_HEL_14_2'
+            # ,
+            #    'data-parsley-required': "False"
+               }))
+    WB_HEL_15_1 = forms.MultipleChoiceField(
+        choices=WB_HEL_14_YNR,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true'
+                # ,
+                #    'data-parsley-errors-container': "#receiving_services_error"
+                   })
+    )
+
+    #16
+    WB_HEL_16_1 = forms.ChoiceField(
+        choices=WB_HEL_14_YNR,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true'
+                # ,
+                #    'data-parsley-errors-container': "#receiving_services_error"
+            })
+    )
+
+    WB_HEL_16_2 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_HEL_16_2_CHOICES,
+    )
+    WB_HEL_16_3=forms.CharField(widget=forms.Textarea(
+        attrs={'rows': '3', 'class': 'form-control','placeholder': 'Specify Other','id':'WB_HEL_16_3'}))
+    WB_HEL_16_4 = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': '3', 'class': 'form-control', 'placeholder': 'Who'}))
+    WB_HEL_16_5 = forms.CharField(widget=forms.Textarea(
+        attrs={'rows': '3', 'class': 'form-control', 'placeholder': 'What is the long-term illness that ypu have?'}))
+
+    #17
+    WB_HEL_17_1 = forms.ChoiceField(
+        choices=WB_HEL_17YNR,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_testofhiv_error"
+            })
+    )
+    WB_HEL_17_2 = forms.DateField(
+      widget=forms.DateInput(format='%m/%d/%Y', attrs={'class': 'datepicker','placeholder': 'MMDDYYYY'}),
+      input_formats=('%m/%d/%Y', )
+      )
+
+    # 18
+    WB_HEL_18_1 = forms.ChoiceField(
+        choices=WB_HEL_17YNR,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_testofhiv_error"
+            })
+    )
+
+    WB_HEL_18_2 = forms.ChoiceField(
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_testofhiv_error"
+            }),
+        choices=WB_HEL_18CHOICES
+    )
+
+    # 19
+    WB_HEL_19_1 = forms.ChoiceField(
+        choices=WB_HEL_14_YNR,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true'
+                # ,
+                #    'data-parsley-errors-container': "#receiving_services_error"
+            })
+    )
+
+    #20
+    WB_HEL_20_1 = forms.ChoiceField(
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_heardof_error"
+            }),
+        choices=WB_HEL_20CHOICES,
+    )
+
+    WB_HEL_20_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other specify'),
+               'class': 'form-control',
+               'id': 'WB_HEL_20_2'               # ,
+               #    'data-parsley-required': "False"
+               }))
+
+    #21
+    WB_HEL_21_1 = forms.ChoiceField(
+        choices=YESNO_CHOICES_REFUSE,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#in_heardof_error"
+            })
+    )
+
+    #22
+    WB_HEL_22_1 = forms.MultipleChoiceField(
+        required=False,
+        widget=forms.CheckboxSelectMultiple,
+        choices=WB_HEL_22CHOICES,
+    )
+
+
+WB_AD_GEN_5_1 = (
+        ('Mother and/or father ', 'Mother and/or father '),
+        ('Aunt and/or uncle', 'Aunt and/or uncle'),
+        ('Grandmother and/or grandfather ', 'Grandmother and/or grandfather '),
+        ('Other relative ', 'Other relative '),
+        ('Neighbor', 'Neighbor'),
+        ('Friend', 'Friend'),
+    )
+
+WB_AD_SCH_7 = (
+        ('School', 'School'),
+        ('Vocational Training', 'Vocational Training'),
+        ('Not enrolled in either', 'Not enrolled in either'),
+    )
+
+WB_AD_SCH_9_1= (
+        ('grade', 'grade'),
+        ('form', 'form'),
+        ('year now', 'year now'),
+    )
+
+WB_AD_SCH_12_2 = (
+        ('Fear of the teacher', 'Fear of the teacher'),
+        ('Fear of the other children', 'Fear of the other children'),
+        ('Feeling lonely ', 'Feeling lonely'),
+        ('Bored', 'Bored'),
+    )
+
+WB_AD_STA_13_2 = (
+        ('Every night', 'Every night'),
+        ('A few nights per week', 'A few nights per week'),
+        ('A few nights per month ', 'A few nights per month'),
+    )
+WB_AD_HEL_20_4_CHOICE = (
+        ('Positive', 'Positive'),
+        ('Negative', 'Negative'),
+        ('Don\'t Know', 'Don\'t Know'),
+        ('Refuse', 'Refuse'),
+    )
+
+
+WB_AD_HEL_21_1 = (
+        ('Father', 'Father'),
+        ('Other adult in the family', 'Other adult in the family'),
+        ('Sibling', 'Sibling'),
+        ('Friend', 'Friend'),
+        ('Teacher', 'Teacher'),
+    )
+
+
+WB_AD_HEL_24_1 = (
+        ('mother', 'mother'),
+        ('Father', 'Father'),
+        ('Other caregiver', 'Other caregiver'),  
+        ('Sibling', 'Sibling'),
+        ('Teacher', 'Teacher'),
+        ('Friend', 'Friend'),
+        ('Neighbour', 'Neighbour')
+        
+    )
+
+WB_AD_SAF_26 = (
+        ('All the time', 'All the time'),
+        ('Often', 'Often'),
+        ('Sometimes', 'Sometimes'),  
+        ('Rarely', 'Rarely'),
+        ('Never', 'Never'),        
+    )
+
+
+WB_AD_SAF_27_1 = (
+        ('OVC cash transfer', 'OVC cash transfer'),
+        ('NHIF', 'NHIF'),       
+    )
+
+WB_AD_SAF_28 = (
+        ('All the time', 'All the time'),
+        ('Often', 'Often'),
+        ('Sometimes', 'Sometimes'),  
+        ('Rarely', 'Rarely'),
+        ('Never', 'Never'),        
+    )
+
+WB_AD_SAF_32_2 = (
+        ('Almost every day', 'Almost every day'),
+        ('Once in a while', 'Once in a while'),
+        ('Long time ago', 'Long time ago'),  
+        ('Declined to answer', 'Declined to answer'),      
+    )
+
+WB_AD_SAF_32_6_1 = (
+        ('Friend', 'Friend'),
+        ('Health facility', 'Health facility'),
+        ('CHV', 'CHV')
+        
+    )
+class WellbeingAdolescentForm(forms.Form):
+    household_id = forms.CharField(widget=forms.TextInput(
+        attrs={'class': 'form-control',
+               'id': 'household_id',
+               'type': 'hidden'
+               }))
+
+
+
+    #Domain General
+
+    WB_AD_GEN_4_1 = forms.DateField(
+        widget = forms.widgets.DateInput(
+        format="%m/%d/%Y",
+        attrs = {'placeholder': _('Date Of Assessement'),
+               'class': 'form-control',
+               'name': 'WB_AD_GEN_4_1',
+               'id': 'WB_AD_GEN_4_1'
+            # ,
+            #    'data-parsley-required': "true",
+            #    'data-parsley-group': 'group0'
+        }))
+    
+    WB_AD_GEN_4_2 = forms.CharField(
+        widget = forms.Textarea(
+        attrs = {'placeholder': _('Comment'),
+               'class': 'form-control',
+               'id': 'WB_AD_GEN_4_2',
+            #    'data-parsley-group': 'group0',
+               'rows': '2'})
+        )
+
+    WB_AD_GEN_5_1 = forms.ChoiceField(
+        choices = WB_AD_GEN_5_1,
+        widget=forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#errorfield"
+                   }))
+
+    WB_AD_GEN_5_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other'),
+               'class': 'form-control',
+               'id': 'WB_AD_GEN_5_2'
+            # ,
+            #    'data-parsley-required': "true",
+            #    'data-parsley-group': 'group0'
+               }))
+    
+    WB_AD_GEN_6 = forms.CharField(
+        widget = forms.Textarea(
+        attrs = {'placeholder': _('Response-Role in the Family'),
+               'class': 'form-control',
+               'id': 'WB_AD_GEN_6',
+            #    'data-parsley-group': 'group0',
+               'rows': '2'})
+        )
+
+     ##Domain School
+
+    WB_AD_SCH_7 = forms.ChoiceField(
+        choices =WB_AD_SCH_7,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                #    'data-parsley-errors-container': "#errorfield"
+                   }))
+
+    WB_AD_SCH_8_1 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                'id': 'WB_AD_SCH_8_1',
+                #'data-parsley-required': 'true',
+ #               'data-parsley-errors-container': "#errorfield"
+                }))
+
+    WB_AD_SCH_8_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Response-Not enrolled in School'),
+               'class': 'form-control',
+               'id': 'WB_AD_SCH_8_2',
+        
+               #,
+ #              'data-parsley-required': "true",
+            #    'data-parsley-group': 'group0'
+               }))
+
+    WB_AD_SCH_9_1 = forms.ChoiceField(
+        choices = WB_AD_SCH_9_1,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                #'data-parsley-required': 'true',
+ #               'data-parsley-errors-container': "#errorfield"
+                }))
+    
+    WB_AD_SCH_9_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Grade/Form/YearLastYear'),
+               'class': 'form-control',
+               'id': 'WB_AD_SCH_9_2'
+            #,
+              # 'data-parsley-required': "true",
+            #    'data-parsley-group': 'group0'
+               }))
+    
+    WB_AD_SCH_10 = forms.CharField(
+        widget = forms.Textarea(
+        attrs = {'placeholder': _('Response-Vocational Training'),
+               'class': 'form-control',
+               'id': 'WB_AD_SCH_10',
+            #    'data-parsley-group': 'group0',
+               'rows': '2'})
+        )
+    
+    WB_AD_SCH_11 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                # 'data-parsley-errors-container': "#errorfield"
+                }))
+
+    WB_AD_SCH_11_1 = forms.CharField(widget=forms.TextInput(
+    attrs={'placeholder': _('Vocational training'),
+            'class': 'form-control',
+            'id': 'WB_AD_SCH_9_1'
+        #,
+            #  'data-parsley-required': "true",
+        #    'data-parsley-group': 'group0'
+            }))
+
+    WB_AD_SCH_12_1 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                # 'data-parsley-errors-container': "#errorfield"
+                }))
+
+    WB_AD_SCH_12_2 = forms.ChoiceField(
+        choices = WB_AD_SCH_12_2,
+        widget=forms.SelectMultiple(
+                    attrs={'class': 'form-control',
+                            'id': 'WB_AD_SCH_12_2',
+                            # 'data-parsley-required': "true",
+                            # 'data-parsley-group': 'group2'
+                           })
+    )
+
+    WB_AD_SCH_12_2_1 = forms.CharField(
+        widget=forms.TextInput(
+        attrs={'placeholder': _('Others'),
+               'class': 'form-control',
+               'id': 'WB_AD_SCH_12_2_1',
+            #    'data-parsley-group': 'group0'
+               }))
+
+    ##Domain Stable
+
+    WB_AD_STA_13_1 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                # 'data-parsley-errors-container': "#errorfield"
+                }))
+
+    WB_AD_STA_13_2 = forms.ChoiceField(
+        choices = WB_AD_STA_13_2,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+                # 'data-parsley-required': 'true',
+                # 'data-parsley-errors-container': "#errorfield"
+                }))
+
+    ##Domain Healthy
+
+    WB_AD_HEL_14 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+   
+    WB_AD_HEL_15 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+
+    WB_AD_HEL_16_1 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+    
+    WB_AD_HEL_16_2 = forms.CharField(
+        widget = forms.Textarea(
+        attrs = {'placeholder': _('Response-What was It?'),
+               'class': 'form-control',
+               'id': 'WB_AD_HEL_16_2',
+            #    'data-parsley-group': 'group0',
+               'rows': '2'})
+        )
+    
+    WB_AD_HEL_16_3 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+    
+    WB_AD_HEL_16_4 = forms.CharField(
+        widget = forms.Textarea(
+        attrs = {'placeholder': _('Response-What Kind?'),
+               'class': 'form-control',
+               'id': 'WB_AD_HEL_16_4',
+            #    'data-parsley-group': 'group0',
+               'rows': '2'})
+        )
+
+    WB_AD_HEL_17_1 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+    
+    WB_AD_HEL_17_2 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+    
+    WB_AD_HEL_17_3 = forms.CharField(
+        widget = forms.Textarea(
+        attrs = {'placeholder': _('Response-List'),
+               'class': 'form-control',
+               'id': 'WB_AD_HEL_17_3',
+            #    'data-parsley-group': 'group0',
+               'rows': '2'})
+        )
+    
+    WB_AD_HEL_17_4 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+    
+    WB_AD_HEL_17_5 = forms.CharField(
+        widget = forms.Textarea(
+        attrs = {'placeholder': _('Response-from whom?'),
+               'class': 'form-control',
+               'id': 'WB_AD_HEL_17_5',
+            #    'data-parsley-group': 'group0',
+               'rows': '2'})
+        )
+    
+    
+    WB_AD_HEL_18_1 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+    
+    WB_AD_HEL_18_2 = forms.CharField(
+        widget = forms.Textarea(
+        attrs = {'placeholder': _('Responses'),
+               'class': 'form-control',
+               'id': 'WB_AD_HEL_18_2',
+            #    'data-parsley-group': 'group0',
+               'rows': '2'})
+        )
+
+    WB_AD_HEL_19_1 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+    
+    WB_AD_HEL_19_2 = forms.CharField(
+        widget = forms.Textarea(
+        attrs = {'placeholder': _('Responses'),
+               'class': 'form-control',
+               'id': 'WB_AD_HEL_19_2',
+            #    'data-parsley-group': 'group0',
+               'rows': '2'})
+        )
+    
+    WB_AD_HEL_20_1 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+    
+    WB_AD_HEL_20_2 = forms.DateField(
+        widget = forms.TextInput(
+        attrs = {'placeholder': _('Date Of Test'),
+               'class': 'form-control',
+               'name': 'WB_AD_HEL_20_2',
+               'id': 'WB_AD_HEL_20_2',
+            #    'data-parsley-required': "true",
+            #    'data-parsley-group': 'group0'
+        }))
+
+    WB_AD_HEL_20_3 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+
+    WB_AD_HEL_20_4 = forms.ChoiceField(
+        choices = WB_AD_HEL_20_4_CHOICE,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+
+    WB_AD_HEL_21_1 = forms.ChoiceField(
+        choices = WB_AD_HEL_21_1,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+    
+    WB_AD_HEL_21_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other'),
+               'class': 'form-control',
+               'id': 'WB_AD_HEL_21_2',
+               # 'data-parsley-group': 'group0'
+               }))
+
+    WB_AD_HEL_21_3 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('in Years'),
+               'class': 'form-control',
+               'id': 'WB_AD_HEL_21_3',
+               # 'data-parsley-group': 'group0'
+               }))
+
+    WB_AD_HEL_22_1 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+    
+    WB_AD_HEL_22_2 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+
+    WB_AD_HEL_22_3 = forms.CharField(
+        widget = forms.Textarea(
+        attrs = {'placeholder': _('Responses'),
+               'class': 'form-control',
+               'id': 'WB_AD_HEL_22_3',
+            #    'data-parsley-group': 'group0',
+               'rows': '2'})
+        )
+
+    WB_AD_HEL_23 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Facility'),
+               'class': 'form-control',
+               'id': 'WB_AD_HEL_23',
+            #    'data-parsley-group': 'group0'
+               }))
+    
+    WB_AD_HEL_24_1 = forms.ChoiceField(
+        choices = WB_AD_HEL_24_1,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+    
+    WB_AD_HEL_24_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other'),
+               'class': 'form-control',
+               'id': 'WB_AD_HEL_24_2',
+            #    'data-parsley-group': 'group0'
+               }))
+    
+    WB_AD_HEL_25_1 = forms.CharField(
+        widget = forms.Textarea(
+        attrs = {'placeholder': _('Responses'),
+               'class': 'form-control',
+               'id': 'WB_AD_HEL_25_1',
+            #    'data-parsley-group': 'group0',
+               'rows': '2'})
+        )
+
+    WB_AD_HEL_25_2 = forms.CharField(
+        widget = forms.Textarea(
+        attrs = {'placeholder': _('Responses'),
+               'class': 'form-control',
+               'id': 'WB_AD_HEL_25_2',
+               # 'data-parsley-group': 'group0',
+               'rows': '2'})
+        )
+    # Domain Safe
+
+    WB_AD_SAF_26 = forms.ChoiceField(
+        choices = WB_AD_SAF_26,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+    
+    WB_AD_SAF_27_1 = forms.ChoiceField(
+        choices = WB_AD_SAF_27_1,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+
+    WB_AD_SAF_27_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other'),
+               'class': 'form-control',
+               'id': 'WB_AD_SAF_27_2',
+            #    'data-parsley-group': 'group0'
+               }))
+
+    WB_AD_SAF_28 = forms.ChoiceField(
+        choices = WB_AD_SAF_28,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+    
+    WB_AD_SAF_29 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+            renderer=RadioCustomRenderer,
+            attrs={
+            # 'data-parsley-required': 'true',
+            # 'data-parsley-errors-container': "#errorfield"
+            }))
+
+    WB_AD_SAF_30_1 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+        renderer=RadioCustomRenderer,
+        attrs={
+        # 'data-parsley-required': 'true',
+        # 'data-parsley-errors-container': "#errorfield"
+        }))
+
+    WB_AD_SAF_30_2 = forms.CharField(
+        widget = forms.Textarea(
+        attrs = {'placeholder': _('Responses'),
+               'class': 'form-control',
+               'id': 'WB_AD_SAF_30_2',
+            #    'data-parsley-group': 'group0',
+               'rows': '2'})
+        )
+    
+    WB_AD_SAF_31_1 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+        renderer=RadioCustomRenderer,
+        attrs={
+        # 'data-parsley-required': 'true',
+        # 'data-parsley-errors-container': "#errorfield"
+        }))
+
+    WB_AD_SAF_31_2 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+        renderer=RadioCustomRenderer,
+        attrs={
+        # 'data-parsley-required': 'true',
+        # 'data-parsley-errors-container': "#errorfield"
+        }))
+
+    WB_AD_SAF_31_3 = forms.ChoiceField(
+        choices = YESNO_CHOICES,
+        widget = forms.RadioSelect(
+        renderer=RadioCustomRenderer,
+        attrs={
+        # 'data-parsley-required': 'true',
+        # 'data-parsley-errors-container': "#errorfield"
+        }))
+
+    WB_AD_SAF_32_1 = forms.ChoiceField(
+        choices = YESNO_CHOICES_REFUSE,
+        widget = forms.RadioSelect(
+        renderer=RadioCustomRenderer,
+        attrs={
+        # 'data-parsley-required': 'true',
+        # 'data-parsley-errors-container': "#errorfield"
+        }))
+    
+    WB_AD_SAF_32_2 = forms.ChoiceField(
+        choices = WB_AD_SAF_32_2,
+        widget = forms.RadioSelect(
+        renderer=RadioCustomRenderer,
+        attrs={
+        # 'data-parsley-required': 'true',
+        # 'data-parsley-errors-container': "#errorfield"
+        }))
+    
+    WB_AD_SAF_32_3 = forms.ChoiceField(
+        choices = YESNO_CHOICES_REFUSE,
+        widget = forms.RadioSelect(
+        renderer=RadioCustomRenderer,
+        attrs={
+        # 'data-parsley-required': 'true',
+        # 'data-parsley-errors-container': "#errorfield"
+        }))
+    
+    WB_AD_SAF_32_4 = forms.ChoiceField(
+        choices = YESNO_CHOICES_REFUSE,
+        widget = forms.RadioSelect(
+        renderer=RadioCustomRenderer,
+        attrs={
+        # 'data-parsley-required': 'true',
+        # 'data-parsley-errors-container': "#errorfield"
+        }))
+
+    WB_AD_SAF_32_5 = forms.ChoiceField(
+        choices = YESNO_CHOICES_REFUSE,
+        widget = forms.RadioSelect(
+        renderer=RadioCustomRenderer,
+        attrs={
+        # 'data-parsley-required': 'true',
+        # 'data-parsley-errors-container': "#errorfield"
+        }))
+
+    WB_AD_SAF_32_6_1 = forms.ChoiceField(
+        choices = WB_AD_SAF_32_6_1,
+        widget = forms.RadioSelect(
+        renderer=RadioCustomRenderer,
+        attrs={
+        # 'data-parsley-required': 'true',
+        # 'data-parsley-errors-container': "#errorfield"
+        }))
+
+    WB_AD_SAF_32_6_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Other'),
+               'class': 'form-control',
+               'id': 'WB_AD_SAF_32_6_2',
+            #    'data-parsley-group': 'group0'
+               }))
+    
+    WB_AD_SAF_33_1 = forms.ChoiceField(
+        choices = YESNO_CHOICES_REFUSE,
+        widget = forms.RadioSelect(
+        renderer=RadioCustomRenderer,
+        attrs={
+        # 'data-parsley-required': 'true',
+        # 'data-parsley-errors-container': "#errorfield"
+        }))
+    
+    WB_AD_SAF_33_2 = forms.CharField(widget=forms.TextInput(
+        attrs={'placeholder': _('Response'),
+               'class': 'form-control',
+               'id': 'WB_AD_SAF_33_2',
+            #    'data-parsley-group': 'group0'
+               }))
+
+    WB_AD_SAF_34 = forms.ChoiceField(
+        choices = YESNO_CHOICES_REFUSE,
+        widget = forms.RadioSelect(
+        renderer=RadioCustomRenderer,
+        attrs={
+        # 'data-parsley-required': 'true',
+        # 'data-parsley-errors-container': "#errorfield"
+        }))
+    
+    ##Goals
+
+    WB_AD_GOAL_1 = forms.CharField(
+        widget = forms.Textarea(
+        attrs = {'placeholder': _('Goal 1'),
+               'class': 'form-control',
+               'id': 'WB_AD_GOAL_1',
+            #    'data-parsley-group': 'group0',
+               'rows': '2'})
+        )
+
+    WB_AD_GOAL_2 = forms.CharField(
+        widget = forms.Textarea(
+        attrs = {'placeholder': _('Goal 2'),
+               'class': 'form-control',
+               'id': 'WB_AD_GOAL_2',
+            #    'data-parsley-group': 'group0',
+               'rows': '2'})
+        )
+    
+    WB_AD_ACTION_1 = forms.CharField(
+        widget = forms.Textarea(
+        attrs = {'placeholder': _('Actions for Goal 1'),
+               'class': 'form-control',
+               'id': 'WB_AD_ACTION_1',
+            #    'data-parsley-group': 'group0',
+               'rows': '2'})
+        )
+    WB_AD_ACTION_2 = forms.CharField(
+        widget = forms.Textarea(
+        attrs = {'placeholder': _('Actions for Goal 2'),
+               'class': 'form-control',
+               'id': 'WB_AD_ACTION_2',
+            #    'data-parsley-group': 'group0',
+               'rows': '2'})
+        )
+    
