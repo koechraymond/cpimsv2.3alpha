@@ -6400,6 +6400,31 @@ select,input,textarea{
 .form-control {
     padding: 0px 12px !important;
 }
+/* .form-group > label[for]{
+    display: block;
+}
+#parsley-id-multiple-cp1d .parsley-required{
+    text-align: left;
+}
+#parsley-id-multiple-cp1d.parsley-errors-list,
+.col-md-2 .parsley-errors-list {
+    position: absolute;
+    float: right;
+    right: 0;
+    bottom: 5px;
+} */
+
+.parsley-errors-list{
+    z-index: 1;
+    background: white;
+    border-radius: 2px;
+}
+.parsley-errors-list.filled{
+    display: inline-block;
+    position: absolute;
+    display: block;
+    left: 0;
+}
 /* CUSTOM */
 
 
@@ -6422,6 +6447,9 @@ td:focus{
 }
 .hidden{
     display: none;
+}
+.well td ul{
+    list-style: none;
 }
 /*DanChanges*/
 
