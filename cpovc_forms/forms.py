@@ -4191,7 +4191,7 @@ class CasePlanTemplate(forms.Form):
         choices=CPT_DOMAIN_CHOICES,
         widget=forms.Select(
             attrs={'class': 'form-control'}))
-    CPT_GOAL = forms.ChoiceField(
+    CPT_GOAL = forms.MultipleChoiceField(
         choices=CPT_GOALS_CHOICES,
         widget=forms.SelectMultiple(
             attrs={'class': 'form-control'}))

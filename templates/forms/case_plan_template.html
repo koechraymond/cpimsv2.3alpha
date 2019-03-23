@@ -164,109 +164,88 @@
                                 <table id="assessment_manager_table" class="table">
                                     <thead>
                                         <tr id="id_inputHeaders1">
-                                            <th><h6><b>Domain</b></h6></th>
-                                            <th><h6><b>Goal</b></h6></th>
-                                            <th><h6><b>Needs/Gaps</b></h6></th>
-                                            <th><h6><b>Priority Actions</b></h6></th>
-
+                                            <th colspan="1"><h6><b>Domain</b></h6></th>
+                                            <th colspan="3"><h6><b>Goal</b></h6></th>
+                                            <th colspan="2"><h6><b>Needs/Gaps</b></h6></th>
+                                            <th colspan="2"><h6><b>Priority Actions</b></h6></th>
                                         </tr>
-
-
-
-
-
                                     </thead>
                                     <br>
                                         <tr id="id_inputElements1">
 
-                                             <td>
+                                             <td colspan="1">
                                             	{{ form.CPT_DOMAIN }}
                                             	<div id="olmis_assessment_coreservice_errormsg" style="display:none;" class="col-md-10 control-label">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
 
-                                            <td>
+                                            <td colspan="3">
                                                 {{ form.CPT_GOAL }}
                                             	<div id="olmis_assessment_coreservice_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
 
-                                            <td>
-
+                                            <td colspan="2">
                                             	{{ form.CPT_GAPS }}
                                             	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
 
-                                             <td>
-
+                                             <td colspan="2">
                                             	{{ form.CPT_ACTIONS }}
                                             	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
-
-
-                                            <tr>
-                                            <th><h6><b>Services</b></h6></th>
-                                            <th><h6><b>Person Responsible</b></h6></th>
-                                            <th><h6><b>Date Completed</b></h6></th>
-                                            <th><h6><b>Results</b></h6></th>
-                                            <th><h6><b>Reasons</b></h6></th>
-                                            <th></th>
+                                        <tr>
+                                            <th colspan="2"><h6><b>Services</b></h6></th>
+                                            <th colspan="2"><h6><b>Person Responsible</b></h6></th>
+                                            <th colspan="1"><h6><b>Date Completed</b></h6></th>
+                                            <th colspan="1"><h6><b>Results</b></h6></th>
+                                            <th colspan="2"><h6><b>Reasons</b></h6></th>
+                                            <th colspan="1"></th>
                                         </tr>
 
-
-                                          <td>
-
+                                        <tr>
+                                            <td colspan="2">
                                             	{{ form.CPT_SERVICES }}
                                             	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
 
-
-                                               <td>
-
+                                            <td colspan="2">
                                             	{{ form.CPT_RESPONSIBLE }}
                                             	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
 
-                                            <td>
-
+                                            <td colspan="1">
                                             	{{ form.CPT_DATE }}
                                             	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
-                                                <td>
-
+                                                
+                                            <td colspan="1">
                                             	{{ form.CPT_RESULTS }}
                                             	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
 
-                                                 <td>
-
+                                            <td colspan="2">
                                             	{{ form.CPT_REASONS }}
                                             	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
-                                              <br>
 
-
-                                        </tr>
-                                    </br>
-                                        <tr>
-                                            <td colspan="4"></td>
-                                            <td>
+                                            <td colspan="1">
                                                 <button type="button" class="btn btn-sm btn-inverse btn-block" onClick="AddRow()">
 	                                                <i class="fa fa-plus"></i>  Add
 	                                            </button>
@@ -275,10 +254,11 @@
                                     </tbody>
 
                                 </table>
-							    <!-- end col-6 -->
+                                <!-- end col-6 -->
+                                
 							</fieldset>
 {#                            Submissions #}
-                            <table>
+                            <table class="table">
                                 <thead>
                                 <tr>
                                     <th>Domain</th>
@@ -304,6 +284,7 @@
                                     <td id="tbl_datecompleted"></td>
                                     <td id="tbl_results"></td>
                                     <td id="tbl_reasons"></td>
+                                    <td id="tbl_acts"></td>
                                 </tr>
                                 </tbody>
                             </table>
@@ -413,79 +394,5 @@
 <script src="{% static 'js/tag-it.js' %}"></script>
 <script src="{% static 'js/bootstrap-table.min.js' %}"></script>
 <script src="{% static 'js/bootstrap-table-locale-all.min.js' %}"></script>
-<script>
-jQuery(document).ready(function()
-{
-	 //multi selects
-    $('#CPT_GOAL').multiselect({
-        selectAllValue: 'multiselect-all',
-        includeSelectAllOption: true,
-        enableCaseInsensitiveFiltering: true,
-        numberDisplayed: 1,
-        maxHeight: 300,
-        buttonWidth: '100%',
-        buttonClass: 'btn btn-white'
-    });
-    $('#CPT_DATE').datepicker({ format: 'dd-M-yyyy' });
-
-	FormWizardValidation.init();
-});
-
-
-let cpt_domain_choices = {{ vals.CPT_DOMAIN_CHOICES | safe }};
-let cpt_goal_choices = {{ vals.CPT_GOALS_CHOICES | safe }};
-let cpt_gaps_healthy_choices = {{ vals.CPT_GAPS_HEALTHY_CHOICES | safe }};
-let cpt_actions_healthy_choices = {{ vals.CPT_ACTIONS_HEALTHY_CHOICES | safe }};
-let cpt_services_healthy_choices = {{ vals.CPT_SERVICES_HEALTHY_CHOICES | safe }};
-let cpt_person_responsible = {{ vals.CPT_pgPERSON_RESPONSIBLE | safe }};
-let cpt_results = {{ vals.CPT_RESULTS | safe }};
-
-function AddRow() {
-    let domain = $('#id_CPT_DOMAIN').val();
-    let goal = $('#id_CPT_GOAL').val();
-    let gaps = $('#id_CPT_GAPS').val();
-    let actions = $('#id_CPT_ACTIONS').val();
-    let services = $('#id_CPT_SERVICES').val();
-    let responsible = $('#id_CPT_RESPONSIBLE').val();
-    let date = $('#CPT_DATE').val();
-    let results = $('#id_CPT_RESULTS').val();
-    let reasons = $('#id_CPT_REASONS').val();
-    $('#tbl_domain').html(cpt_domain_choices[domain]);
-    console.log(goal);
-    $('#tbl_goal').empty();
-    for (let i = 0; i < goal.length; i++) {
-        $('#tbl_goal').append('<li>'+ cpt_goal_choices[goal[i]] + '</li>')
-    }
-    {#$('#tbl_goal').html(cpt_goal_choices[goal]);#}
-    $('#tbl_needs').html(cpt_goal_choices[goal]);
-    $('#tbl_actions').html(cpt_actions_healthy_choices[actions]);
-    $('#tbl_services').html(cpt_services_healthy_choices[services]);
-    $('#tbl_responsible').html(cpt_person_responsible[responsible]);
-    $('#tbl_datecompleted').html(date);
-    $('#tbl_results').html(cpt_results[date]);
-    $('#tbl_reasons').html(reasons);
-    {#<td id="tbl_domain"></td>#}
-    {#                                <td id="tbl_goal"></td>#}
-    {#                                <td id="tbl_needs"></td>#}
-    {#                                <td id="tbl_actions"></td>#}
-    {#                                <td id="tbl_services"></td>#}
-    {#                                <td id="tbl_repsonsible"></td>#}
-    {#                                <td id="tbl_datecompleted"></td>#}
-    {#                                <td id="tbl_results"></td>#}
-    {#                                <td id="tbl_reasons"></td>#}
-    console.log({
-        1: domain,
-        2: goal,
-        3: gaps,
-        4: actions,
-        5: services,
-        6: responsible,
-        7: date,
-        8: results,
-        9: reasons
-    })
-
-}
-
-</script>	
+<script src="{% static 'js/cpt-script.js' %}"></script>	
 {% endblock %}
