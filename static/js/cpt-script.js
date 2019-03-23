@@ -119,7 +119,7 @@ function AddRow() {
     $('.removerow').click(function (e) { 
         e.preventDefault();
         $(this).closest('tr').empty();
-        $(this).closest('tr').remove();
+        // $(this).closest('tr').remove();
         console.log('removerow');
     });
 
