@@ -6425,6 +6425,15 @@ select,input,textarea{
     display: block;
     left: 0;
 }
+
+.ul-flow{
+    margin-left: -45px;
+}
+.ul-flow, #tbl_reasons > div{
+    min-width: 230px;
+    max-height: 195px;
+    overflow-y: auto;
+}
 /* CUSTOM */
 
 
