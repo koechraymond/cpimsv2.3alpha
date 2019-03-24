@@ -151,6 +151,163 @@ FAVORITE_COLORS_CHOICES = (
         ('Bring food', 'Bring food'),
         ('Other', 'Other')
     )
+CPT_DOMAIN_CHOICES = (('SCH', 'Schooled'), ('STB', 'Stable'), ('SF', 'Safe'), ('HE', 'Healthy'))
+CPT_GOALS_CHOICES = (
+    (1, 'All members of enrolled household know their HIV status'),
+    (2, 'All HIV positive members of the household disclose their HIV status'),
+    (3, 'All HIV positive members of the household are virally suppressed'),
+    (4, 'Household able to meet the basic and emergency needs of the members'),
+    (5, 'All household members have identified a social support network for psychosocial and emotional support.'),
+    (6, 'All household members articulate ways to seek support in case of abuse'),
+    (7, 'Caregivers demonstrate positive discipline'),
+    (8, 'All school going children transition to the next level')
+)
+
+CPT_GAPS_HEALTHY_CHOICES = (
+    (1, 'Child immunization is not complete [under 5 yrs only] - Check clinic card'),
+    (2, 'Growth is not monitored  [under 5 years only]  - Check clinic card'),
+    (3, 'Child living with disability, not linked to appropriate services e.g deaf, autistic'),
+    (4, 'Child living with chronic condition not linked to healthy services (diabetes, cancer)'),
+    (5, 'Child HIV status not known & risk screening done'),
+    (6, 'Child has a HIGH Risk to HIV infection'),
+    (7, 'Adolescent is pregnant NOT receiving PMTCT/ANC services'),
+    (8, 'HIV test not done for a child under 18 months born to HIV +ve mother'),
+    (9, 'HIV+ve child not linked to treatment'),
+    (10, 'HIV+ child without current VL results'),
+    (11, 'Child on HIV treatment with HIGH viral loads'),
+    (12, 'HIV+ status disclosure not initiated (6 years and above)'),
+    (13, 'MUAC assessment not performed [6 mths to 15 years only] after every 6 mnths'),
+    (14, 'Child is sick'),
+    (15, 'Caregiver is unwell'),
+    (16, 'Caregiver does not know her HIV status'),
+    (17, 'HIV Risk screening not done'),
+    (18, 'Pregnant caregiver not receiving PMTCT services'),
+    (19, 'HIV+ caregiver not linked to treatment services'),
+    (20, 'HIV+ caregiver did not attend last CCC appointment'),
+    (21, 'HIV+ caregiver not disclosed her status'),
+    (22, 'Caregiver does not know Viral Load status'),
+    (23, 'Is not a member of a health insurance plan e.g. NHIF'),
+    (24, 'Household has no kitchen garden that is productive')
+)
+CPT_GAPS_STABLE_CHOICES = (
+    (1, 'Does not have a transition plan [above 17yrs and out of school]'),
+    (2, 'Vocational skills graduate and requires a start-up kit '),
+    (3, 'Received a business start-up kit'),
+    (4, 'Youth eligible for linkage to savings groups [above 17yrs and out of school]'),
+    (5, 'Youth engaged in IGA e.g small business, farming, artisan, casual employment, hawking  [above 17yrs and out of school]'),
+    (6, 'Youth accessing formal financial services (bank, MFI, GOK grants) [above 17yrs]'),
+    (7, 'Household not able to meet basis needs'),
+    (8, 'Household not able to meet daily emergency needs'),
+    (9, 'Household NOT enrolled in any cash transfer scheme?'),
+    (10, 'Household enrolled in cash transfer for elderly'),
+    (11, 'Household enrolled in cash transfer for severely disabled'),
+    (12, 'Household enrolled in cash transfer for OVC'),
+    (13, 'Household member(s) not engaged in savings and credit group activities'),
+    (14, 'Household not saving money periodically to cushion against unexpected expenses'),
+    (15, 'Household does not own productive asset e.g small stock, small machines, tools'),
+    (16, 'Household does not have source of income/livelihood')
+)
+CPT_GAPS_SAFE_CHOICES = (
+    (1, 'Child headed household'),
+    (2, 'Child/Adolescent has signs of violence, abuse, neglect or exploitation'),
+    (3, 'Child/Adolescent aware of where to get help when abused'),
+    (4, 'Has legal documents (e.g birth certificate and/or ID)'),
+    (5, 'Child does not participate in daily activities'),
+    (6, 'Child is sad, withdrawn or has unusal behavior'),
+    (7, 'Child (above 10 years) NOT participating in life skills sessions'),
+    (8, 'Household reported an incident of child abuse, violence or exploitation in the last 3 months'),
+    (9, 'Caregiver provided with information on legal documents (e.g. ID, birth certificate, title deed, death certificate)'),
+    (10, 'Caregiver sensitized on importance of legal documents e.g. ID, title deed, death certificate'),
+    (11, 'Caregiver mentored on child care and positive parenting skills'),
+    (12, 'Caregiver trained to engage & communicate with adolescent on sensitive topics sexual reproductive health services and rights'),
+    (13, 'Caregiver trained on child care and positive parenting skills'),
+    (14, 'Caregiver trained on succession planning'),
+    (15, 'Caregiver sensitized on succesion planning')
+)
+CPT_GAPS_SCHOOLED_CHOICES = (
+    (1, 'Not enrolled in school/pre-school'),
+    (2, 'Missed school for five or more days in past month'),
+    (3, 'Progressed from one class to another (e.g class 1 to 2)'),
+    (4, 'Child dropped out of school'),
+    (5, 'Transitioned from one level to another (e.g. primary to secondary)'),
+    (6, 'Youth eligible for vocational training (above 17 years and out of school)'),
+    (7, 'Sickness'),
+    (8, 'Lacks scholastic materials'),
+    (9, 'Lacks school fees'),
+    (10, 'Lacks school levies '),
+    (11, 'Child does not want to go to school'),
+    (12, 'Lack of parental follow up'),
+    (13, 'Taking care of sick household member'),
+    (14, 'Lacks sanitary towels'),
+    (15, 'Engaged in child labour'),
+    (16, 'Pregnancy'),
+    (17, 'Caregiver supports children through assistance with homework'),
+    (18, 'Caregiver tracking child\'s school attendance and progress'),
+    (19, 'Attends adult Literacy classes'),
+    (20, 'Other')
+)
+CPT_ACTIONS_HEALTHY_CHOICES = (
+    (1, 'HIV testing'),
+    (2, 'ART'),
+    (3, 'Viral load testing'),
+    (4, 'Other HIV and Care Treatment'),
+    (5, 'PMTCT/ ANC'),
+    (6, 'HIV disclosure & counseling'),
+    (7, 'HIV Peer support group'),
+    (8, 'Adolescent health counseling'),
+    (9, 'Defaulter tracing'),
+    (10, 'Disability services'),
+    (11, 'Immunization')
+     )
+CPT_ACTIONS_STABLE = (
+                         (1, 'Cash transfer'),
+                         (2, 'NHIF'),
+                         (3, 'Income generating activity (IGA)'),
+                         (4, 'VSLA group (savings and loan facilities)'),
+                         (5, 'Food support'),
+                         (6, 'Nutritional assessment & supplements'),
+                         (7, 'Financial literacy/skills'),
+                         (8, 'Others, specify')
+)
+CPT_ACTIONS_SAFE = (
+                       (1, 'Positive Parenting training'),
+                       (2, 'Counseling'),
+                       (3, 'Psychosocial support to children living with HIV, caregiver support, children clubs, support groups for SGBV survivors'),
+                       (4, 'Health services'),
+                       (5, 'Legal services'),
+                       (6, 'Birth registration'),
+                       (7, 'Succession planning support'),
+                       (8, 'Child protection pathway (DCS, police, health facility)'),
+                       (9, 'Mentorship (e.g. DREAMS program)'),
+                   (10, 'Life skills trainings'),
+                   (11, 'Others, specify'),
+                   (12, 'Other health services')
+)
+CPT_ACTIONS_SCHOOLED = (
+                       (1, 'School bursary (public & private programs)'),
+                       (2, 'Scholastic materials'),
+                       (3, 'Enrolment to school,'),
+                       (4, 'Enrolment to vocational training'),
+                       (5, 'ECD'),
+                       (6, 'Feeding program (where applicable)'),
+                       (7, 'Mentorship, '),
+                       (8, 'Life skills trainings, '),
+                       (9, 'School Monitoring (Enrolment, retention, performance, progression, completion)'),
+                       (10, 'Others specify')
+)
+CPT_PERSON_RESPONSIBLE = (
+    (1, 'Caregiver'),
+    (2, 'House Hold Member'),
+    (3, 'CHV'),
+    (4, 'NGO'),
+    (5, 'GOK Agent')
+)
+CPT_RESULTS = (
+    (1, 'Achieved'),
+    (2, 'In Progress'),
+    (3, 'Not Achieved')
+)
+
 
 class OVCSchoolForm(forms.Form):
     school_name = forms.CharField(widget=forms.TextInput(
@@ -4030,78 +4187,57 @@ class CparaMonitoring(forms.Form):
 
     
 class CasePlanTemplate(forms.Form):
-
     CPT_DOMAIN = forms.ChoiceField(
-    choices=(('DM','Domain'),('SCH','schooled'),('STB','Stable'),('SF','Safe'),('HE','healthy')),
-    initial='0',
-    widget=forms.Select(
-            attrs={'class': 'form-control',
-                   'data-parsley-required': "true",
-                   'data-parsley-group': "group1"}))
-
-    CPT_GOAL = forms.CharField(widget=forms.TextInput(
+        choices=CPT_DOMAIN_CHOICES,
+        widget=forms.Select(
+            attrs={'class': 'form-control'}))
+    CPT_GOAL = forms.MultipleChoiceField(
+        choices=CPT_GOALS_CHOICES,
+        widget=forms.SelectMultiple(
+            attrs={'class': 'form-control'}))
+    CPT_GAPS = forms.ChoiceField(
+        choices=CPT_GAPS_SCHOOLED_CHOICES,
+        widget=forms.Select(
         attrs={
-            'placeholder': _('Goal'),
-            'class': 'form-control',
-            'data-parsley-required': "true",
-            'data-parsley-group': 'group1'}))
+            'class': 'form-control'}))
 
-    CPT_GAPS = forms.CharField(widget=forms.TextInput(
+    CPT_ACTIONS = forms.ChoiceField(
+        choices=CPT_ACTIONS_SCHOOLED,
+        widget=forms.Select(
         attrs={
-            'placeholder': _('IDentified Gaps'),
-            'class': 'form-control',
-            'data-parsley-required': "true",
-            'data-parsley-group': 'group1'}))
-
-    CPT_MEMBER= forms.CharField(widget=forms.TextInput(
-        attrs={
-            'placeholder': _('HH Member'),
-            'class': 'form-control',
-            'data-parsley-required': "true",
-            'data-parsley-group': 'group1'}))
-
-    CPT_ACTIONS = forms.CharField(widget=forms.TextInput(
-        attrs={
-            'placeholder': _('Priority Actions'),
-            'class': 'form-control',
-            'data-parsley-required': "true",
-            'data-parsley-group': 'group1'})
+            'class': 'form-control'
+        })
     )
-
-    CPT_SERVICES = forms.CharField(widget=forms.TextInput(
+    CPT_SERVICES = forms.ChoiceField(
+        choices=CPT_ACTIONS_SCHOOLED,
+        widget=forms.Select(
         attrs={
-            'placeholder': _('Services'),
-            'class': 'form-control',
-            'data-parsley-required': "true",
-            'data-parsley-group': 'group1'}))
-
-    CPT_RESPOSIBLE = forms.CharField(widget=forms.TextInput(
+            'class': 'form-control'
+        })
+    )
+    CPT_RESPONSIBLE = forms.ChoiceField(
+        choices=CPT_PERSON_RESPONSIBLE,
+        widget=forms.Select(
         attrs={
-            'placeholder': _('Person Responsible'),
-            'class': 'form-control',
-            'data-parsley-required': "true",
-            'data-parsley-group': 'group1'}))
-
-
+            'class': 'form-control'
+        })
+    )
     CPT_DATE = forms.DateField(widget=forms.TextInput(
         attrs={'placeholder': _('Completion Date'),
                'class': 'form-control',
-               'id': 'date_of_certificate_expiry',
-               'data-parsley-required': "true",
-               'data-parsley-group': "group0"
+               'id': 'CPT_DATE'
                }))
-    CPT_RESULTS = forms.CharField(widget=forms.TextInput(
+    CPT_RESULTS = forms.ChoiceField(
+        choices=CPT_RESULTS,
+        widget=forms.Select(
         attrs={
-            'placeholder': _('Results'),
-            'class': 'form-control',
-            'data-parsley-required': "true",
-            'data-parsley-group': 'group1'}))
+            'class': 'form-control'
+        })
+    )
     CPT_REASONS = forms.CharField(widget=forms.TextInput(
         attrs={
             'placeholder': _('State Reasons'),
-            'class': 'form-control',
-            'data-parsley-required': "true",
-            'data-parsley-group': 'group1'}))
+            'class': 'form-control'}))
 
 # CPT_RESPONSIBLE
 # CPT_DATE

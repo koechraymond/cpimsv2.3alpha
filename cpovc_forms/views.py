@@ -8567,14 +8567,32 @@ def new_cpara(request, id):
                   })
 
 
+def convert_tuple_choices_to_dict(tuple_list):
+    choices_dict = {}
+    for li in tuple_list:
+        choices_dict[li[0]] = li[1]
+    return choices_dict
+
+
 @login_required
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def case_plan_template(request, id):
+    from .forms import CPT_DOMAIN_CHOICES, CPT_GOALS_CHOICES, CPT_GAPS_HEALTHY_CHOICES, CPT_GAPS_SCHOOLED_CHOICES, \
+        CPT_GAPS_SAFE_CHOICES, CPT_GAPS_STABLE_CHOICES, CPT_ACTIONS_HEALTHY_CHOICES, CPT_ACTIONS_STABLE, \
+        CPT_ACTIONS_SCHOOLED, \
+        CPT_ACTIONS_SAFE, CPT_PERSON_RESPONSIBLE, CPT_RESULTS
     init_data = RegPerson.objects.filter(pk=id)
     check_fields = ['sex_id']
     vals = get_dict(field_name=check_fields)
+    # print convert_tuple_choices_to_dict(CPT_DOMAIN_CHOICES)
+    vals['CPT_DOMAIN_CHOICES'] = json.dumps(convert_tuple_choices_to_dict(CPT_DOMAIN_CHOICES))
+    vals['CPT_GOALS_CHOICES'] = json.dumps(convert_tuple_choices_to_dict(CPT_GOALS_CHOICES))
+    vals['CPT_GAPS_HEALTHY_CHOICES'] = json.dumps(convert_tuple_choices_to_dict(CPT_GAPS_SCHOOLED_CHOICES))
+    vals['CPT_ACTIONS_HEALTHY_CHOICES'] = json.dumps(convert_tuple_choices_to_dict(CPT_ACTIONS_HEALTHY_CHOICES))
+    vals['CPT_SERVICES_HEALTHY_CHOICES'] = json.dumps(convert_tuple_choices_to_dict(CPT_ACTIONS_HEALTHY_CHOICES))
+    vals['CPT_PERSON_RESPONSIBLE'] = json.dumps(convert_tuple_choices_to_dict(CPT_PERSON_RESPONSIBLE))
+    vals['CPT_RESULTS'] = json.dumps(convert_tuple_choices_to_dict(CPT_RESULTS))
     form = CasePlanTemplate()
-
     return render(request,
                   'forms/case_plan_template.html',
                   {'form': form, 'init_data': init_data,

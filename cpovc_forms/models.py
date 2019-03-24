@@ -1022,8 +1022,8 @@ class OVCCareWellbeing(models.Model):
 
 
 class OVCCareCasePlan(models.Model):
-    id=models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    case_plan_id = models.AutoField(editable=False)
+    # id=models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    case_plan_id = models.AutoField(primary_key=True, default=uuid.uuid4, editable=False)
     domain = models.CharField(max_length=50)
     goal = models.CharField(max_length=255)
     person = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
@@ -1038,7 +1038,7 @@ class OVCCareCasePlan(models.Model):
     form = models.ForeignKey(OVCCareForms)
     date_of_event = models.DateField()
     date_of_previous_event =models.DateField()
-    case_plan_status=CharField(max_length, 5)
+    case_plan_status=models.CharField(max_length=5)
     is_void = models.BooleanField(default=False)
     event = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
     timestamp_created = models.DateTimeField(default=timezone.now)
