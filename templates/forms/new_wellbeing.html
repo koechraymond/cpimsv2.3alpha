@@ -202,7 +202,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
 
                         {{ form.person }}
                         {{ form.household_id }}
-
+                        {{ form.caretaker_id }}
 
                         <!-- begin wizard step-1 -->
                         <div class="wizard-step-1">
@@ -403,6 +403,116 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                             <tbody>
                                                             <tr>
 
+
+                                                                <td>
+                                                                    Date of assessement.
+                                                                </td>
+                                                                <td>
+
+                                                                    {{form.WB_GEN_01}}
+
+                                                                </td>
+                                                            </tr>
+
+                                                                <tr>
+                                                                <td>
+                                                                    What is your birth date
+                                                                </td>
+                                                                <td>
+
+                                                                    {{form.WB_GEN_02}}
+
+                                                                </td>
+                                                            </tr>
+<tr>
+                                                                <td>
+                                                                    What is your physical address
+                                                                </td>
+                                                                <td>
+
+                                                                    {{form.WB_GEN_03}}
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    What is your phone number
+                                                                </td>
+                                                                <td>
+
+                                                                    {{form.WB_GEN_11}}
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    What is your Marital status
+                                                                </td>
+                                                                <td>
+
+                                                                    {{form.WB_GEN_12}}
+
+                                                                </td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td>
+                                                                    Number of individuals in the household below 18 years
+                                                                </td>
+                                                                <td>
+
+                                                                      <table class="table table-bordered">
+                                                                        <thead>
+
+                                                                        <th scope="col">Male</th>
+                                                                        <th>Female</th>
+
+                                                                        </thead>
+                                                                        <tbody>
+                                                                        <tr>
+                                                                            <!--<td><label><input type="text" value=""></label></td>-->
+                                                                            <!--<td><label><input type="text" value=""></label></td>-->
+
+                                                                            <td>{{form.WB_GEN_13}}</td>
+                                                                            <td>{{form.WB_GEN_14}}</td>
+                                                                        </tr>
+                                                                        </tbody>
+
+                                                                    </table>
+
+
+                                                                </td>
+                                                            </tr>
+                                            <tr>
+                                                                <td>
+                                                                    Number of disabled individuals in the household below 18 years
+                                                                </td>
+                                                                <td>
+
+
+                                                                    <table class="table table-bordered">
+                                                                        <thead>
+
+                                                                        <th scope="col">Male</th>
+                                                                        <th>Female</th>
+
+                                                                        </thead>
+                                                                        <tbody>
+                                                                        <tr>
+                                                                            <!--<td><label><input type="text" value=""></label></td>-->
+                                                                            <!--<td><label><input type="text" value=""></label></td>-->
+
+                                                                            <td>{{form.WB_GEN_15}}</td>
+                                                                            <td>{{form.WB_GEN_16}}</td>
+                                                                        </tr>
+                                                                        </tbody>
+
+                                                                    </table>
+
+
+                                                                </td>
+                                                            </tr>
+                                                <!------------------------------------------------>
+                                                            <tr>
                                                                 <td>
 
                                                                     How many people currently live in your household?
@@ -427,6 +537,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                                     than you?
                                                                 </td>
                                                                 <td>
+
                                                                     {{form.WB_GEN_05}}
 
                                                                     <!--<div class="col-sm-6">-->
@@ -464,6 +575,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                                         <tr>
                                                                             <!--<td><label><input type="text" value=""></label></td>-->
                                                                             <!--<td><label><input type="text" value=""></label></td>-->
+
                                                                             <td>{{form.WB_GEN_06}}</td>
                                                                             <td>{{form.WB_GEN_07}}</td>
                                                                         </tr>
@@ -495,6 +607,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                                         <tr>
                                                                             <!--<td><label><input type="text" value=""></label></td>-->
                                                                             <!--<td><label><input type="text" value=""></label></td>-->
+
                                                                             <td>{{form.WB_GEN_08}}</td>
                                                                             <td>{{form.WB_GEN_09}}</td>
                                                                         </tr>
@@ -535,6 +648,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>1.</td>
                                     <td id="WB_STA_1">How do you help your family?</td>
                                     <td>
+
                                         {{form.WB_STA_1_1}}
                                         {{form.WB_STA_1_2}}
                                         {{form.WB_STA_1_3}}
@@ -585,6 +699,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>2.</td>
                                     <td>How do the other adults in your household help you?</td>
                                     <td>
+
                                         {{form.WB_STA_2_1}}
                                         {{form.WB_STA_2_2}}
                                         {{form.WB_STA_2_3}}
@@ -635,8 +750,9 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
 
                                 <tr>
                                     <td>3.</td>
-                                    <td>How do the other adults in your household help you?</td>
+                                    <td>How do your children help you?</td>
                                     <td>
+
                                         {{form.WB_STA_3_1}}
                                         {{form.WB_STA_3_2}}
                                         {{form.WB_STA_3_3}}
@@ -687,6 +803,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>4.</td>
                                     <td>What kinds of assets do you have?</td>
                                     <td>
+
                                         {{form.WB_STA_4_1}}
                                         {{form.WB_STA_4_2}}
                                         {{form.WB_STA_4_3}}
@@ -743,6 +860,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>5.</td>
                                     <td>What is the household main source of income?</td>
                                     <td>
+
                                         {{form.WB_STA_5_1}}
                                         {{form.WB_STA_5_2}}
                                         {{form.WB_STA_5_3}}
@@ -801,6 +919,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>6.</td>
                                     <td>What is the average household monthly income before purchase?</td>
                                     <td>
+
                                         {{form.WB_STA_6_1}}
                                     </td>
                                 </tr>
@@ -809,6 +928,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>7.</td>
                                     <td>What is the household savings after expenses</td>
                                     <td>
+
                                         {{form.WB_STA_7_1}}
                                     </td>
                                 </tr>
@@ -817,6 +937,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>8.</td>
                                     <td>Which of the following take up most of the household income?</td>
                                     <td>
+
                                         {{form.WB_STA_8_1}}
                                         {{form.WB_STA_8_2}}
                                         <!-- <div class="row">
@@ -862,7 +983,9 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>Are you able to regularly meet the needs of your children (School
                                         fees,medication,clothes,housing)?
                                     </td>
-                                    <td>{{form.WB_STA_9_1}}
+                                    <td>
+
+                                        {{form.WB_STA_9_1}}
                                         {{form.WB_STA_9_2}}
                                     </td>
 
@@ -876,6 +999,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                         need?
                                     </td>
                                     <td>
+
                                         {{form.WB_STA_10_1}}
                                         {{form.WB_STA_10_2}}
                                         <!-- <div class="row">
@@ -927,6 +1051,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>11.</td>
                                     <td>Are you or any member of your household participating in a savings group?</td>
                                     <td>
+
                                         {{form.WB_STA_11_1}}
                                         {{form.WB_STA_11_2}}
                                         <!-- <div class="row">
@@ -954,6 +1079,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>12.</td>
                                     <td>Which of the following programs do you know?</td>
                                     <td>
+
                                         {{form.WB_STA_12_1}}
                                         {{form.WB_STA_12_2}}
                                         {{form.WB_STA_12_3}}
@@ -1046,6 +1172,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>If there is someone with disability in this house, what type of disability
                                     </td>
                                     <td>
+
                                         {{form.WB_HEL_14_1}}
                                         {{form.WB_HEL_14_2}}
 
@@ -1095,6 +1222,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>Is the person with disability receiving services for the disability?
                                     </td>
                                     <td>
+
                                         {{form.WB_HEL_15_1}}
                                     </td>
                                 </tr>
@@ -1109,6 +1237,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>
                                         <div class="row">
                                             <div class="col-md-6">
+
                                                 {{form.WB_HEL_16_1}}
 
                                             </div>
@@ -1171,6 +1300,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>
                                         <div class="row">
                                             <div class="col-md-12">
+
                                                 {{form.WB_HEL_17_1}}
 
                                             </div>
@@ -1187,6 +1317,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>
                                         <div class="row">
                                             <div class="col-md-6">
+
                                                 {{form.WB_HEL_18_1}}
                                             </div>
                                             <div class="col-md-6">
@@ -1204,6 +1335,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>Are you currently taking ART?
                                     </td>
                                     <td>
+
                                         {{form.WB_HEL_19_1}}
 
                                     </td>
@@ -1226,6 +1358,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>Have you ever heard a blood test called viral load?
                                     </td>
                                     <td>
+
                                         {{form.WB_HEL_21_1}}
                                     </td>
                                 </tr>
@@ -1235,6 +1368,8 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>What was the result of your viral load test?
                                     </td>
                                     <td>
+
+
                                         {{form.WB_HEL_22_1}}
                                         <!-- <div class="row">
                                             <div class="col-md-6">
@@ -1266,6 +1401,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>What is the name of the health facility you
                                     </td>
                                     <td>
+
                                         {{form.WB_HEL_23_1}}
                                         <!-- <div class="row">
                                             <div class="col-md-6">
@@ -1285,6 +1421,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>Have you disclosed your status to anyone?
                                     </td>
                                     <td>
+
                                         {{form.WB_HEL_24_1}}
                                         <p>If
                                             answer in() Go to Q26</p>
@@ -1320,6 +1457,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>To whom have you disclosed your status?
                                     </td>
                                     <td>
+
                                         {{form.WB_HEL_25_1}}
                                         {{form.WB_HEL_25_2}}
                                         <!-- <div class="row">
@@ -1367,6 +1505,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>Do you feel like people treat you differently because you are HIV positive?
                                     </td>
                                     <td>
+
                                         {{form.WB_HEL_26_1}}
                                         <!-- <div class="row">
                                             <div class="col-md-6">
@@ -1395,6 +1534,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                     <td>How have you coped with HIV-related stigma?
                                     </td>
                                     <td>
+
                                         {{form.WB_HEL_27_1}}
                                         {{form.WB_HEL_27_2}}
 
@@ -1447,6 +1587,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                         themselves from HIV?
                                     </td>
                                     <td>
+
                                         {{form.WB_HEL_28_1}}
                                         {{form.WB_HEL_28_2}}
 
@@ -1847,6 +1988,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                                         <b>40:</b> What is your relationship to the child?
                                                                     </td>
                                                                     <td>
+
                                                                         {{form.WB_SAF_37_1}}
                                                                         {{form.WB_SAF_37_2}}
                                                                     </td>
@@ -1866,6 +2008,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                                         the childs mother?
                                                                     </td>
                                                                     <td>
+
                                                                         {{form.WB_SAF_39_1}}
                                                                         {{form.WB_SAF_39_2}}
                                                                     </td>
@@ -1876,6 +2019,8 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                                     </td>
                                                                     <td>
                                                                         <div class="row">
+
+
                                                                             {{form.WB_SAF_40_1}}
                                                                             {{form.WB_SAF_40_2}}
                                                                         </div>
@@ -1958,9 +2103,10 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                       <tbody>
                                                         <tr>
                                                             <td>
-                                                                Is [name of child] currently enrolled in school?
+                                                                Is this child currently enrolled in school?
                                                             </td>
                                                             <td>
+
                                                                 {{form.WB_SCH_39_1}}
                                                             </td>
                                                         </tr>
@@ -1969,6 +2115,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                                 If the caregiver responded no, has the child ever been enrolled in school?
                                                             </td>
                                                             <td>
+
                                                                 {{form.WB_SCH_40_1}}
                                                             </td>
                                                         </tr>
@@ -1977,6 +2124,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                                 Record why the child is not enrolled in school.
                                                             </td>
                                                             <td>
+
                                                                 {{form.WB_SCH_41_1}}
                                                                 {{form.WB_SCH_41_2}}
                                                                 
@@ -1988,6 +2136,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                             </td>
                                                             <td>
                                                                 <div class="col-md-6">
+
                                                                     {{form.WB_SCH_42_2}}
                                                                 </div>
                                                                 <div class="col-md-6">
@@ -2013,6 +2162,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                                 If the child is enrolled in school, during the last month, did [name of child] miss more than five days for any reason?
                                                             </td>
                                                             <td>
+
                                                                 {{form.WB_SCH_44_1}} 
                                                             </td>
                                                         </tr>
@@ -2021,6 +2171,7 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
                                                                 Does [name of child] like to go to school?
                                                             </td>
                                                             <td>
+
                                                                 {{form.WB_SCH_45_1}}  
                                                             </td>
                                                         </tr>
@@ -2218,7 +2369,9 @@ div.bhoechie-tab div.bhoechie-tab-content:not(.active) {
     });
 
 
-
+    $( function() {
+      $( ".wellbeing_dates" ).datepicker({ format: 'yyyy-mm-dd' }).val();
+    } );
 
 
 </script>
