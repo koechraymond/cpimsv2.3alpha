@@ -144,9 +144,7 @@
             </div>
             <div class="panel-body">
                 <div id="form1_info"></div>
-            	<form class="form-horizontal form-bordered" action="." method="POST" data-parsley-validate="true"
-                name="form-wizard-f1a" id="new_f1a">
-                	{% csrf_token %}
+            	
 
 					<div id="wizard-f1a">
 
@@ -180,26 +178,60 @@
                                                 </div>
                                             </td>
 
-                                            <td colspan="3">
-                                                {{ form.CPT_GOAL }}
+                                            <td colspan="3" class="goals_cell" style="min-width: 300px;">
+                                                <div class="healthy_form hidden">
+                                                 {{ form.CPT_GOAL_HEALTHY }}
+                                                </div>
+                                                <div class="stable_form hidden">
+                                                 {{ form.CPT_GOAL_STABLE }}
+                                                </div>
+                                                <div class="safe_form hidden">
+                                                 {{ form.CPT_GOAL_SAFE }}
+                                                </div>
+                                                <div class="school_form">
+                                                 {{ form.CPT_GOAL_SCHOOL }}
+                                                </div>
                                             	<div id="olmis_assessment_coreservice_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
 
-                                            <td colspan="2">
-                                            	{{ form.CPT_GAPS }}
+                                            <td colspan="2" class="gaps_cell">
+                                            	<div class="healthy_form hidden">
+                                                 {{ form.CPT_GAPS_HEALTHY }}
+                                                </div>
+                                                <div class="stable_form hidden">
+                                                 {{ form.CPT_GAPS_STABLE }}
+                                                </div>
+                                                <div class="safe_form hidden">
+                                                 {{ form.CPT_GAPS_SAFE }}
+                                                </div>
+                                                <div class="school_form">
+                                                 {{ form.CPT_GAPS_SCHOOL }}
+                                                </div>
                                             	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
 
-                                             <td colspan="2">
-                                            	{{ form.CPT_ACTIONS }}
+                                             <td colspan="2" class="actions_cell">
+                                            	<div class="healthy_form hidden">
+                                                 {{ form.CPT_ACTIONS_HEALTHY }}
+                                                </div>
+                                                <div class="stable_form hidden">
+                                                 {{ form.CPT_ACTIONS_STABLE }}
+                                                </div>
+                                                <div class="safe_form hidden">
+                                                 {{ form.CPT_ACTIONS_SAFE }}
+                                                </div>
+                                                <div class="school_form">
+                                                 {{ form.CPT_ACTIONS_SCHOOL }}
+                                                </div>
                                             	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
+                                        </tr>
                                         <tr>
                                             <th colspan="2"><h6><b>Services</b></h6></th>
                                             <th colspan="2"><h6><b>Person Responsible</b></h6></th>
@@ -210,8 +242,19 @@
                                         </tr>
 
                                         <tr>
-                                            <td colspan="2">
-                                            	{{ form.CPT_SERVICES }}
+                                            <td colspan="2" class="services_cell">
+                                            	<div class="healthy_form hidden">
+                                                 {{ form.CPT_SERVICES_HEALTHY }}
+                                                </div>
+                                                <div class="stable_form hidden">
+                                                 {{ form.CPT_SERVICES_STABLE }}
+                                                </div>
+                                                <div class="safe_form hidden">
+                                                 {{ form.CPT_SERVICES_SAFE }}
+                                                </div>
+                                                <div class="school_form">
+                                                 {{ form.CPT_SERVICES_SCHOOL }}
+                                                </div>
                                             	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
@@ -239,8 +282,10 @@
                                             </td>
 
                                             <td colspan="2">
-                                            	{{ form.CPT_REASONS }}
-                                            	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
+                                                <div style="max-width=290px; font-size: 0.95em;">
+                                                    {{ form.CPT_REASONS }}
+                                                </div>
+                                                <div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
@@ -258,34 +303,25 @@
                                 
 							</fieldset>
 {#                            Submissions #}
-                            <table class="table">
+<form class="form-horizontal form-bordered" action="." method="POST" data-parsley-validate="true" name="form-wizard-f1a" id="new_f1a">
+                	{% csrf_token %}
+                            <table class="table" id="submissions_table">
                                 <thead>
-                                <tr>
-                                    <th>Domain</th>
-                                    <th>Goal</th>
-                                    <th>Needs/Gaps</th>
-                                    <th>Priority Actions</th>
-                                    <th>Services</th>
-                                    <th>Repsonsible</th>
-                                    <th>Completed</th>
-                                    <th>Results</th>
-                                    <th>Reasons</th>
-                                    <th>Action</th>
-                                </tr>
+                                    <tr>
+                                        <th>Domain</th>
+                                        <th>Goal</th>
+                                        <th>Needs/Gaps</th>
+                                        <th>Priority Actions</th>
+                                        <th>Services</th>
+                                        <th>Repsonsible</th>
+                                        <th>Completed</th>
+                                        <th>Results</th>
+                                        <th>Reasons</th>
+                                        <th>Action</th>
+                                    </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <td id="tbl_domain"></td>
-                                    <td id="tbl_goal"></td>
-                                    <td id="tbl_needs"></td>
-                                    <td id="tbl_actions"></td>
-                                    <td id="tbl_services"></td>
-                                    <td id="tbl_repsonsible"></td>
-                                    <td id="tbl_datecompleted"></td>
-                                    <td id="tbl_results"></td>
-                                    <td id="tbl_reasons"></td>
-                                    <td id="tbl_acts"></td>
-                                </tr>
+                                    
                                 </tbody>
                             </table>
                             <div class="panel-body panel-form">
