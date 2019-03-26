@@ -6434,8 +6434,17 @@ select,input,textarea{
     max-height: 195px;
     overflow-y: auto;
 }
+.multiselect.dropdown-toggle.btn,
+.multiselect-selected-text,
 .dropdown-menu.multiselect-container > li > a{
     white-space: normal !important;
+}
+.multiselect.dropdown-toggle.btn{
+    min-width: 280px !important;
+    max-width: 350px !important;
+}
+.slimtable td{
+    font-size: 0.9em;
 }
 /* CUSTOM */
 

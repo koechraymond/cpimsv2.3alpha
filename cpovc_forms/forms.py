@@ -4241,24 +4241,24 @@ class CasePlanTemplate(forms.Form):
         #     widget=forms.Select(
         #     attrs={
         #         'class': 'form-control'}))
-    CPT_GAPS_HEALTHY = forms.ChoiceField(
+    CPT_GAPS_HEALTHY = forms.MultipleChoiceField(
         choices=CPT_GAPS_HEALTHY_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'}))
-    CPT_GAPS_STABLE = forms.ChoiceField(
+    CPT_GAPS_STABLE = forms.MultipleChoiceField(
         choices=CPT_GAPS_STABLE_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'}))
-    CPT_GAPS_SAFE = forms.ChoiceField(
+    CPT_GAPS_SAFE = forms.MultipleChoiceField(
         choices=CPT_GAPS_SAFE_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'}))
-    CPT_GAPS_SCHOOL = forms.ChoiceField(
+    CPT_GAPS_SCHOOL = forms.MultipleChoiceField(
         choices=CPT_GAPS_SCHOOLED_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'}))
     # ------endGAP------- #
@@ -4271,30 +4271,30 @@ class CasePlanTemplate(forms.Form):
         #         'class': 'form-control'
         #     })
         # )
-    CPT_ACTIONS_HEALTHY = forms.ChoiceField(
+    CPT_ACTIONS_HEALTHY = forms.MultipleChoiceField(
         choices=CPT_ACTIONS_HEALTHY_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'
         })
     )
-    CPT_ACTIONS_STABLE = forms.ChoiceField(
+    CPT_ACTIONS_STABLE = forms.MultipleChoiceField(
         choices=CPT_ACTIONS_STABLE_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'
         })
     )
-    CPT_ACTIONS_SAFE = forms.ChoiceField(
+    CPT_ACTIONS_SAFE = forms.MultipleChoiceField(
         choices=CPT_ACTIONS_SAFE_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'
         })
     )
-    CPT_ACTIONS_SCHOOL = forms.ChoiceField(
+    CPT_ACTIONS_SCHOOL = forms.MultipleChoiceField(
         choices=CPT_ACTIONS_SCHOOLED_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'
         })
@@ -4302,37 +4302,37 @@ class CasePlanTemplate(forms.Form):
     # ------endACTIONS------- #
 
     # ------SERVICES------- #
-    CPT_SERVICES = forms.ChoiceField(
-        choices=CPT_ACTIONS_SCHOOLED_CHOICES,
-        widget=forms.Select(
-        attrs={
-            'class': 'form-control'
-        })
-    )
-    CPT_SERVICES_HEALTHY = forms.ChoiceField(
+    # CPT_SERVICES = forms.MultipleChoiceField(
+    #     choices=CPT_ACTIONS_SCHOOLED_CHOICES,
+    #     widget=forms.SelectMultiple(
+    #     attrs={
+    #         'class': 'form-control'
+    #     })
+    # )
+    CPT_SERVICES_HEALTHY = forms.MultipleChoiceField(
         choices=CPT_ACTIONS_HEALTHY_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'
         })
     )
-    CPT_SERVICES_STABLE = forms.ChoiceField(
+    CPT_SERVICES_STABLE = forms.MultipleChoiceField(
         choices=CPT_ACTIONS_STABLE_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'
         })
     )
-    CPT_SERVICES_SAFE = forms.ChoiceField(
+    CPT_SERVICES_SAFE = forms.MultipleChoiceField(
         choices=CPT_ACTIONS_SAFE_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'
         })
     )
-    CPT_SERVICES_SCHOOL = forms.ChoiceField(
+    CPT_SERVICES_SCHOOL = forms.MultipleChoiceField(
         choices=CPT_ACTIONS_SCHOOLED_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'
         })
