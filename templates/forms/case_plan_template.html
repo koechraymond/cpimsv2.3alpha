@@ -180,22 +180,55 @@
                                                 </div>
                                             </td>
 
-                                            <td colspan="3" style="min-width: 300px;">
-                                                {{ form.CPT_GOAL }}
+                                            <td colspan="3" class="goals_cell" style="min-width: 300px;">
+                                                <div class="healthy_form hidden">
+                                                 {{ form.CPT_GOAL_HEALTHY }}
+                                                </div>
+                                                <div class="stable_form hidden">
+                                                 {{ form.CPT_GOAL_STABLE }}
+                                                </div>
+                                                <div class="safe_form hidden">
+                                                 {{ form.CPT_GOAL_SAFE }}
+                                                </div>
+                                                <div class="school_form">
+                                                 {{ form.CPT_GOAL_SCHOOL }}
+                                                </div>
                                             	<div id="olmis_assessment_coreservice_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
 
                                             <td colspan="2">
-                                            	{{ form.CPT_GAPS }}
+                                            	<div class="healthy_form hidden">
+                                                 {{ form.CPT_GAPS_HEALTHY }}
+                                                </div>
+                                                <div class="stable_form hidden">
+                                                 {{ form.CPT_GAPS_STABLE }}
+                                                </div>
+                                                <div class="safe_form hidden">
+                                                 {{ form.CPT_GAPS_SAFE }}
+                                                </div>
+                                                <div class="school_form">
+                                                 {{ form.CPT_GAPS_SCHOOL }}
+                                                </div>
                                             	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
 
                                              <td colspan="2">
-                                            	{{ form.CPT_ACTIONS }}
+                                            	<div class="healthy_form hidden">
+                                                 {{ form.CPT_ACTIONS_HEALTHY }}
+                                                </div>
+                                                <div class="stable_form hidden">
+                                                 {{ form.CPT_ACTIONS_STABLE }}
+                                                </div>
+                                                <div class="safe_form hidden">
+                                                 {{ form.CPT_ACTIONS_SAFE }}
+                                                </div>
+                                                <div class="school_form">
+                                                 {{ form.CPT_ACTIONS_SCHOOL }}
+                                                </div>
                                             	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
@@ -212,7 +245,18 @@
 
                                         <tr>
                                             <td colspan="2">
-                                            	{{ form.CPT_SERVICES }}
+                                            	<div class="healthy_form hidden">
+                                                 {{ form.CPT_SERVICES_HEALTHY }}
+                                                </div>
+                                                <div class="stable_form hidden">
+                                                 {{ form.CPT_SERVICES_STABLE }}
+                                                </div>
+                                                <div class="safe_form hidden">
+                                                 {{ form.CPT_SERVICES_SAFE }}
+                                                </div>
+                                                <div class="school_form">
+                                                 {{ form.CPT_SERVICES_SCHOOL }}
+                                                </div>
                                             	<div id="olmis_assessment_coreservice_status_errormsg" style="display:none;">
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>

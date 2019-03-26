@@ -6434,6 +6434,9 @@ select,input,textarea{
     max-height: 195px;
     overflow-y: auto;
 }
+.dropdown-menu.multiselect-container > li > a{
+    white-space: normal !important;
+}
 /* CUSTOM */
 
 

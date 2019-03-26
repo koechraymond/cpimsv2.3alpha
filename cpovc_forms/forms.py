@@ -163,6 +163,27 @@ CPT_GOALS_CHOICES = (
     (8, 'All school going children transition to the next level')
 )
 
+CPT_GOALS_HEALTHY_CHOICES = (
+    (1, 'All members of enrolled household know their HIV status'),
+    (2, 'All HIV positive members of the household disclose their HIV status'),
+    (3, 'All HIV positive members of the household are virally suppressed')
+)
+
+CPT_GOALS_STABLE_CHOICES = (
+    (4, 'Household able to meet the basic and emergency needs of the members'),
+    (5, 'All household members have identified a social support network for psychosocial and emotional support.')
+)
+
+CPT_GOALS_SAFE_CHOICES = (
+    (6, 'All household members articulate ways to seek support in case of abuse'),
+    (7, 'Caregivers demonstrate positive discipline')
+)
+
+CPT_GOALS_SCHOOL_CHOICES = (
+    (8, 'All school going children transition to the next level'),
+    (8, 'All school going children transition to the next level')
+)
+
 CPT_GAPS_HEALTHY_CHOICES = (
     (1, 'Child immunization is not complete [under 5 yrs only] - Check clinic card'),
     (2, 'Growth is not monitored  [under 5 years only]  - Check clinic card'),
@@ -259,7 +280,7 @@ CPT_ACTIONS_HEALTHY_CHOICES = (
     (10, 'Disability services'),
     (11, 'Immunization')
      )
-CPT_ACTIONS_STABLE = (
+CPT_ACTIONS_STABLE_CHOICES = (
                          (1, 'Cash transfer'),
                          (2, 'NHIF'),
                          (3, 'Income generating activity (IGA)'),
@@ -269,7 +290,7 @@ CPT_ACTIONS_STABLE = (
                          (7, 'Financial literacy/skills'),
                          (8, 'Others, specify')
 )
-CPT_ACTIONS_SAFE = (
+CPT_ACTIONS_SAFE_CHOICES = (
                        (1, 'Positive Parenting training'),
                        (2, 'Counseling'),
                        (3, 'Psychosocial support to children living with HIV, caregiver support, children clubs, support groups for SGBV survivors'),
@@ -283,7 +304,7 @@ CPT_ACTIONS_SAFE = (
                    (11, 'Others, specify'),
                    (12, 'Other health services')
 )
-CPT_ACTIONS_SCHOOLED = (
+CPT_ACTIONS_SCHOOLED_CHOICES = (
                        (1, 'School bursary (public & private programs)'),
                        (2, 'Scholastic materials'),
                        (3, 'Enrolment to school,'),
@@ -4191,30 +4212,133 @@ class CasePlanTemplate(forms.Form):
         choices=CPT_DOMAIN_CHOICES,
         widget=forms.Select(
             attrs={'class': 'form-control'}))
-    CPT_GOAL = forms.MultipleChoiceField(
-        choices=CPT_GOALS_CHOICES,
+    # ------GOAL------- #
+        # CPT_GOAL = forms.MultipleChoiceField(
+        #     choices=CPT_GOALS_CHOICES,
+        #     widget=forms.SelectMultiple(
+        #         attrs={'class': 'form-control'}))
+    CPT_GOAL_HEALTHY = forms.MultipleChoiceField(
+        choices=CPT_GOALS_HEALTHY_CHOICES,
         widget=forms.SelectMultiple(
             attrs={'class': 'form-control'}))
-    CPT_GAPS = forms.ChoiceField(
+    CPT_GOAL_STABLE = forms.MultipleChoiceField(
+        choices=CPT_GOALS_STABLE_CHOICES,
+        widget=forms.SelectMultiple(
+            attrs={'class': 'form-control'}))
+    CPT_GOAL_SAFE = forms.MultipleChoiceField(
+        choices=CPT_GOALS_SAFE_CHOICES,
+        widget=forms.SelectMultiple(
+            attrs={'class': 'form-control'}))
+    CPT_GOAL_SCHOOL = forms.MultipleChoiceField(
+        choices=CPT_GOALS_SCHOOL_CHOICES,
+        widget=forms.SelectMultiple(
+            attrs={'class': 'form-control'}))
+    # ------endGOAL------- #
+
+    # ------GAP------- #
+        # CPT_GAPS = forms.ChoiceField(
+        #     choices=CPT_GAPS_SCHOOLED_CHOICES,
+        #     widget=forms.Select(
+        #     attrs={
+        #         'class': 'form-control'}))
+    CPT_GAPS_HEALTHY = forms.ChoiceField(
+        choices=CPT_GAPS_HEALTHY_CHOICES,
+        widget=forms.Select(
+        attrs={
+            'class': 'form-control'}))
+    CPT_GAPS_STABLE = forms.ChoiceField(
+        choices=CPT_GAPS_STABLE_CHOICES,
+        widget=forms.Select(
+        attrs={
+            'class': 'form-control'}))
+    CPT_GAPS_SAFE = forms.ChoiceField(
+        choices=CPT_GAPS_SAFE_CHOICES,
+        widget=forms.Select(
+        attrs={
+            'class': 'form-control'}))
+    CPT_GAPS_SCHOOL = forms.ChoiceField(
         choices=CPT_GAPS_SCHOOLED_CHOICES,
         widget=forms.Select(
         attrs={
             'class': 'form-control'}))
+    # ------endGAP------- #
 
-    CPT_ACTIONS = forms.ChoiceField(
-        choices=CPT_ACTIONS_SCHOOLED,
+    # ------ACTIONS------- #
+        # CPT_ACTIONS = forms.ChoiceField(
+        #     choices=CPT_ACTIONS_SCHOOLED,
+        #     widget=forms.Select(
+        #     attrs={
+        #         'class': 'form-control'
+        #     })
+        # )
+    CPT_ACTIONS_HEALTHY = forms.ChoiceField(
+        choices=CPT_ACTIONS_HEALTHY_CHOICES,
         widget=forms.Select(
         attrs={
             'class': 'form-control'
         })
     )
+    CPT_ACTIONS_STABLE = forms.ChoiceField(
+        choices=CPT_ACTIONS_STABLE_CHOICES,
+        widget=forms.Select(
+        attrs={
+            'class': 'form-control'
+        })
+    )
+    CPT_ACTIONS_SAFE = forms.ChoiceField(
+        choices=CPT_ACTIONS_SAFE_CHOICES,
+        widget=forms.Select(
+        attrs={
+            'class': 'form-control'
+        })
+    )
+    CPT_ACTIONS_SCHOOL = forms.ChoiceField(
+        choices=CPT_ACTIONS_SCHOOLED_CHOICES,
+        widget=forms.Select(
+        attrs={
+            'class': 'form-control'
+        })
+    )
+    # ------endACTIONS------- #
+
+    # ------SERVICES------- #
     CPT_SERVICES = forms.ChoiceField(
-        choices=CPT_ACTIONS_SCHOOLED,
+        choices=CPT_ACTIONS_SCHOOLED_CHOICES,
         widget=forms.Select(
         attrs={
             'class': 'form-control'
         })
     )
+    CPT_SERVICES_HEALTHY = forms.ChoiceField(
+        choices=CPT_ACTIONS_HEALTHY_CHOICES,
+        widget=forms.Select(
+        attrs={
+            'class': 'form-control'
+        })
+    )
+    CPT_SERVICES_STABLE = forms.ChoiceField(
+        choices=CPT_ACTIONS_STABLE_CHOICES,
+        widget=forms.Select(
+        attrs={
+            'class': 'form-control'
+        })
+    )
+    CPT_SERVICES_SAFE = forms.ChoiceField(
+        choices=CPT_ACTIONS_SAFE_CHOICES,
+        widget=forms.Select(
+        attrs={
+            'class': 'form-control'
+        })
+    )
+    CPT_SERVICES_SCHOOL = forms.ChoiceField(
+        choices=CPT_ACTIONS_SCHOOLED_CHOICES,
+        widget=forms.Select(
+        attrs={
+            'class': 'form-control'
+        })
+    )
+    # ------endSERVICES------- #
+
     CPT_RESPONSIBLE = forms.ChoiceField(
         choices=CPT_PERSON_RESPONSIBLE,
         widget=forms.Select(

@@ -1,7 +1,7 @@
 jQuery(document).ready(function()
 {
 	 //multi selects
-    $('select[name=CPT_GOAL]').multiselect({
+    $('.goals_cell > div > select').multiselect({
         selectAllValue: 'multiselect-all',
         includeSelectAllOption: true,
         enableCaseInsensitiveFiltering: true,
@@ -12,7 +12,43 @@ jQuery(document).ready(function()
     });
     $('#CPT_DATE').datepicker({ format: 'dd-M-yyyy' });
 
-	FormWizardValidation.init();
+    FormWizardValidation.init();
+    
+    // onDomainChange
+    $('select[name=CPT_DOMAIN]').change(function (e) { 
+        // e.preventDefault();
+        var domain_val = $('select[name=CPT_DOMAIN] option:selected').val();
+        if(domain_val === 'SCH'){
+            $('.school_form').each(function () {
+                $(this).removeClass('hidden');
+            })
+            $('.healthy_form, .stable_form, .safe_form').each(function () {
+                $(this).addClass('hidden');
+            })
+        }else if(domain_val === 'STB'){
+            $('.healthy_form, .safe_form, .school_form').each(function () {
+                $(this).addClass('hidden');
+            })
+            $('.stable_form').each(function () {
+                $(this).removeClass('hidden');
+            })
+        }else if(domain_val === 'SF'){
+            $('.healthy_form, .school_form, .stable_form').each(function () {
+                $(this).addClass('hidden');
+            })
+            $('.safe_form').each(function () {
+                $(this).removeClass('hidden');
+            })
+        }else if(domain_val === 'HE'){
+            $('.stable_form, .safe_form, .school_form').each(function () {
+                $(this).addClass('hidden');
+            })
+            $('.healthy_form').each(function () {
+                $(this).removeClass('hidden');
+            })
+        }
+    });
+    // onDomainChange
 });
 
 function randomNo() {
