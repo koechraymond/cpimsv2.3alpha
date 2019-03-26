@@ -64,10 +64,10 @@ function AddRow() {
     $('#submissions_table tbody').append('<tr id="row_'+randomID+'"> <td id="tbl_domain"></td> <td id="tbl_goal"></td> <td id="tbl_needs"></td> <td id="tbl_actions"></td> <td id="tbl_services"></td> <td id="tbl_repsonsible"></td> <td id="tbl_datecompleted"></td> <td id="tbl_results"></td> <td id="tbl_reasons"></td> <td id="tbl_acts"></td></tr>');
     
     let domain = $('#id_CPT_DOMAIN option:selected').val();
-    let goal = $('#id_CPT_GOAL').val();
-    let gaps = $('#id_CPT_GAPS option:selected').val();
-    let actions = $('#id_CPT_ACTIONS option:selected').val();
-    let services = $('#id_CPT_SERVICES option:selected').val();
+    let goal = $('td.goals_cell > div:not(.hidden) > select > option:selected').val();
+    let gaps = $('td.gaps_cell > div:not(.hidden) > select > option:selected').val();
+    let actions = $('td.actions_cell > div:not(.hidden) > select > option:selected').val();
+    let services = $('td.services_cell > div:not(.hidden) > select > option:selected').val();
     let responsibl = $('#id_CPT_RESPONSIBLE option:selected').val();
     let date = $('#CPT_DATE').val();
     let results = $('#id_CPT_RESULTS option:selected').val();
