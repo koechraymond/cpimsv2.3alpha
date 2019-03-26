@@ -144,9 +144,7 @@
             </div>
             <div class="panel-body">
                 <div id="form1_info"></div>
-            	<form class="form-horizontal form-bordered" action="." method="POST" data-parsley-validate="true"
-                name="form-wizard-f1a" id="new_f1a">
-                	{% csrf_token %}
+            	
 
 					<div id="wizard-f1a">
 
@@ -303,6 +301,8 @@
                                 
 							</fieldset>
 {#                            Submissions #}
+<form class="form-horizontal form-bordered" action="." method="POST" data-parsley-validate="true" name="form-wizard-f1a" id="new_f1a">
+                	{% csrf_token %}
                             <table class="table" id="submissions_table">
                                 <thead>
                                     <tr>
