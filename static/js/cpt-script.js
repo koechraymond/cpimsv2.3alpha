@@ -64,10 +64,15 @@ function AddRow() {
     $('#submissions_table tbody').append('<tr id="row_'+randomID+'"> <td id="tbl_domain"></td> <td id="tbl_goal"></td> <td id="tbl_needs"></td> <td id="tbl_actions"></td> <td id="tbl_services"></td> <td id="tbl_repsonsible"></td> <td id="tbl_datecompleted"></td> <td id="tbl_results"></td> <td id="tbl_reasons"></td> <td id="tbl_acts"></td></tr>');
     
     let domain = $('#id_CPT_DOMAIN option:selected').val();
-    let goal = $('td.goals_cell > div:not(.hidden) > select > option:selected').val();
-    let gaps = $('td.gaps_cell > div:not(.hidden) > select > option:selected').val();
-    let actions = $('td.actions_cell > div:not(.hidden) > select > option:selected').val();
-    let services = $('td.services_cell > div:not(.hidden) > select > option:selected').val();
+    // let goal = $('.goals_cell > div:not(.hidden) > select > option').val();
+    let goal = []
+    $('.goals_cell > div:not(.hidden) > select > option').each(function () {
+        var vlu = $(this).val()
+        goal.push(vlu);
+    })
+    let gaps = $('.gaps_cell > div:not(.hidden) > select > option:selected').val();
+    let actions = $('.actions_cell > div:not(.hidden) > select > option:selected').val();
+    let services = $('.services_cell > div:not(.hidden) > select > option:selected').val();
     let responsibl = $('#id_CPT_RESPONSIBLE option:selected').val();
     let date = $('#CPT_DATE').val();
     let results = $('#id_CPT_RESULTS option:selected').val();
@@ -76,16 +81,16 @@ function AddRow() {
     $('#row_'+randomID+' > td#tbl_domain').html( $('select[name=CPT_DOMAIN] option[value='+domain+']').text() + '<input type="hidden" name="h_CPT_DOMAIN" value="'+domain+'" />');
     // console.log("goal == "+goal);
     $('#row_'+randomID+' > td#tbl_goal').empty();
-    if(goal.length > 2){ $('#row_'+randomID+' > td#tbl_goal').append('<ul class="ul-flow">'); }
-    for (let i = 0; i < goal.length; i++) {
-        // $('#row_'+randomID+' > td#tbl_goal ul.ul-flow').append('<li>'+ $("select[name=CPT_GOAL] option[value="+goal[i]+"]").text() + '<input type="hidden" name="h_CPT_GAPS_'+i+'" value="' +$("select[name=CPT_GOAL] option[value="+goal[i]+"]").val()+ '"/> </li>');
-        $('#row_'+randomID+' > td#tbl_goal > ul.ul-flow').append('<li>'+ $("select[name=CPT_GOAL] option[value="+goal[i]+"]").text() + '</li>')
-    }
-    if(goal.length > 2){ $('#row_'+randomID+' > td#tbl_goal').append('</ul>'); }
+    
+    $('.goals_cell > div:not(.hidden) > select > option').each(function () {
+        var txt = $(this).text();
+        $('#row_'+randomID+' > td#tbl_goal').append( '<li>'+txt+'</li>' );
+    })
+
     $('#row_'+randomID+' > td#tbl_goal').append('<input type="hidden" name="h_CPT_GOAL" value="'+goal+'" />');
-    $('#row_'+randomID+' > td#tbl_needs').html( $('select[name=CPT_GAPS] option[value='+gaps+']').text() + '<input type="hidden" name="h_CPT_GAPS" value="'+gaps+'" />');
-    $('#row_'+randomID+' > td#tbl_actions').html( $('select[name=CPT_ACTIONS] option[value='+actions+']').text() + '<input type="hidden" name="h_CPT_ACTIONS" value="'+actions+'" />');
-    $('#row_'+randomID+' > td#tbl_services').html( $('select[name=CPT_SERVICES] option[value='+services+']').text() + '<input type="hidden" name="h_CPT_SERVICES" value="'+services+'" />' );
+    $('#row_'+randomID+' > td#tbl_needs').html( $('.gaps_cell > div:not(.hidden) > select > option[value='+gaps+']').text() + '<input type="hidden" name="h_CPT_GAPS" value="'+gaps+'" />');
+    $('#row_'+randomID+' > td#tbl_actions').html( $('.actions_cell > div:not(.hidden) > select > option[value='+actions+']').text() + '<input type="hidden" name="h_CPT_ACTIONS" value="'+actions+'" />');
+    $('#row_'+randomID+' > td#tbl_services').html( $('.services_cell > div:not(.hidden) > select > option[value='+services+']').text() + '<input type="hidden" name="h_CPT_SERVICES" value="'+services+'" />' );
     $('#row_'+randomID+' > td#tbl_repsonsible').html( $('select[name=CPT_RESPONSIBLE] option[value='+responsibl+']').text() + '<input type="hidden" name="h_CPT_RESPONSIBLE" value="'+responsibl+'" />');
     $('#row_'+randomID+' > td#tbl_datecompleted').html(date + '<input type="hidden" name="h_CPT_DATE" value="'+date+'" />');
     $('#row_'+randomID+' > td#tbl_results').html( $('select[name=CPT_RESULTS] option[value='+results+']').text() + '<input type="hidden" name="h_CPT_RESULTS" value="'+results+'" />');
