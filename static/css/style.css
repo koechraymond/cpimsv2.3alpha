@@ -6427,7 +6427,8 @@ select,input,textarea{
 }
 
 .ul-flow{
-    margin-left: -45px;
+    margin-left: -55px;
+    list-style: circle;
 }
 .ul-flow, #tbl_reasons > div{
     min-width: 230px;
