@@ -8607,6 +8607,7 @@ from .models import OVCCareCasePlan
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def case_plan_template(request, id):
     if request.method == 'POST':
+        
         ignore_request_values= ['household_id','csrfmiddlewaretoken']
         child = RegPerson.objects.get(id=id)
         house_hold = OVCHouseHold.objects.get(id=OVCHHMembers.objects.get(person=child).house_hold_id)
@@ -8628,36 +8629,41 @@ def case_plan_template(request, id):
             person=RegPerson.objects.get(pk=int(id)),
             house_hold=house_hold
         )
-        # ovccareevent.save()
+        ovccareevent.save()
         new_events_pk = ovccareevent.pk
-        xyz=OVCCareEvents.objects.get(event=new_events_pk)
 
+        values=request.POST
+        for key in request.POST:
+            print('keysss',key)
+            value = request.POST[key]
+            print('valuesssssss', value)
+
+        # values=request.POST
+        # print ('etyang', values)
 
         OVCCareCasePlan.objects.create(
-            domain = 'h_CPT_DOMAIN',
-            goal = 'h_CPT_GOAL',
-            person_id = 1,
+            domain = request.POST.get('h_CPT_DOMAIN'),
+            goal = request.POST.get('h_CPT_GOAL'),
+            person_id = id,
             household = house_hold,
-            need = 'h_CPT_GAPS',
-            priority = 'h_CPT_ACTIONS',
-            # cp_service=SetupList.objects.get(id = '1'),
+            need = request.POST.get('h_CPT_GAPS'),
+            priority = request.POST.get('h_CPT_ACTIONS'),
             cp_service = SetupList.objects.get(item_id = 'HC6S'),
-            responsible = 'h_CPT_RESPONSIBLE',
-            # completion_date = 
-            results = 'h_CPT_RESULTS',
-            reasons = 'etyang',
-            # form =
-            date_of_event ='2019-03-20',
+            responsible = request.POST.get('h_CPT_RESPONSIBLE'),
+            completion_date = '2019-03-20',
+            results = request.POST.get('h_CPT_RESULTS'),
+            reasons = request.POST.get('h_CPT_REASONS'),
+            # form = 2019-03-20
+            date_of_event = '2019-03-20',
+            # date_of_event = request.POST.get('h_CPT_DATE'),
             # date_of_previous_event ='2019-03-20',
-            # case_plan_status='e',
-            event = '0ff22ade-5096-11e9-9bf8-cc3d82035160',
+            case_plan_status='D',
+            event = new_events_pk,
             )
         
         url = reverse('ovc_view', kwargs={'id': id})
-        # return HttpResponseRedirect(reverse(forms_registry))
         return HttpResponseRedirect(url)
 
-    # get household members/ caretaker/ household_id
     household_id = None
    
     # get child data
