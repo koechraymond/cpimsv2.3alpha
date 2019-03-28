@@ -233,5 +233,13 @@ urlpatterns = patterns(
     # OVC Care - Case Plan Template
     url(r'^caseplan/new/(?P<id>\d+)/$',
         'case_plan_template', name='new_caseplan'),
-    url(r'^rcpa/new/(?P<id>\d+)/$', 'new_rcpa', name='new_rcpa'),
+    url(r'^caseplan-monitoring/new/(?P<id>\d+)/$', 'new_case_plan_monitoring', name='new_caseplan_monitoring'),
+
+    #wellbeing Adult and Child
+    url(r'^wellbeing/new/(?P<id>\d+)/$',
+        'new_wellbeing', name='new_wellbeing'),
+    #wellbeing Adolescent
+    url(r'^wellbeingadolescent/new/(?P<id>\d+)/$',
+        'new_wellbeingadolescent', name='new_wellbeingadolescent')
+
 )
