@@ -213,6 +213,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                         </div>
                                         <hr/>
+										
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
@@ -2185,6 +2186,18 @@ jQuery(document).ready(function()
     $('.bwizard-steps li, li.next').on("click", function(){
         $(window).scrollTop(0)
     });
+	
+	
+	$('input[name=cp1d]').change(function(){
+		var valu = $(this).val();
+		if(valu === 'ANNO'){
+			$('input[name=cp2d]').val('');
+			$('input[name=cp2d]').attr('disabled', true);
+		}else if(valu === 'AYES'){
+			$('input[name=cp2d]').val('');
+			$('input[name=cp2d]').removeAttr('disabled');
+		}
+	});
 });
 
 
