@@ -1022,8 +1022,8 @@ class OVCCareWellbeing(models.Model):
 
 
 class OVCCareCasePlan(models.Model):
-    # id=models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    case_plan_id = models.AutoField(primary_key=True, default=uuid.uuid4, editable=False)
+    # id=models.IntegerField(primary_key=True,  editable=False)
+    case_plan_id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     domain = models.CharField(max_length=50)
     goal = models.CharField(max_length=255)
     person = models.ForeignKey(RegPerson, on_delete=models.CASCADE)
@@ -1032,15 +1032,15 @@ class OVCCareCasePlan(models.Model):
     priority = models.CharField(max_length=255)
     cp_service = models.ForeignKey('cpovc_main.SetupList', on_delete=models.CASCADE)
     responsible = models.CharField(max_length=50)
-    completion_date = models.DateField(default=timezone.now)
+    completion_date = models.DateField()
     results = models.CharField(max_length=300)
     reasons = models.CharField(max_length=300)
-    form = models.ForeignKey(OVCCareForms)
+    # form = models.ForeignKey(OVCCareForms)
     date_of_event = models.DateField()
-    date_of_previous_event =models.DateField()
+    # date_of_previous_event =models.DateField()
     case_plan_status=models.CharField(max_length=5)
     is_void = models.BooleanField(default=False)
-    event = models.ForeignKey(OVCCareEvents, on_delete=models.CASCADE)
+    event = models.UUIDField(default=uuid.uuid4, editable=False)
     timestamp_created = models.DateTimeField(default=timezone.now)
     timestamp_updated = models.DateTimeField(auto_now=True)
 
