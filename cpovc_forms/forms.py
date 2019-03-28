@@ -151,16 +151,16 @@ FAVORITE_COLORS_CHOICES = (
         ('Bring food', 'Bring food'),
         ('Other', 'Other')
     )
-CPT_DOMAIN_CHOICES = (('SCH', 'Schooled'), ('STB', 'Stable'), ('SF', 'Safe'), ('HE', 'Healthy'))
+CPT_DOMAIN_CHOICES = (('DEDU', 'Schooled'), ('DHES', 'Stable'), ('DPRO', 'Safe'), ('DHNU', 'Healthy'))
 CPT_GOALS_CHOICES = (
-    (1, 'All members of enrolled household know their HIV status'),
-    (2, 'All HIV positive members of the household disclose their HIV status'),
-    (3, 'All HIV positive members of the household are virally suppressed'),
-    (4, 'Household able to meet the basic and emergency needs of the members'),
-    (5, 'All household members have identified a social support network for psychosocial and emotional support.'),
-    (6, 'All household members articulate ways to seek support in case of abuse'),
-    (7, 'Caregivers demonstrate positive discipline'),
-    (8, 'All school going children transition to the next level')
+    (GHSK, 'All members of enrolled household know their HIV status'),
+    (GHSD, 'All HIV positive members of the household disclose their HIV status'),
+    (GHVS, 'All HIV positive members of the household are virally suppressed'),
+    (GBEN, 'Household able to meet the basic and emergency needs of the members'),
+    (GSSN, 'All household members have identified a social support network for psychosocial and emotional support.'),
+    (GSSA, 'All household members articulate ways to seek support in case of abuse'),
+    (GCPD, 'Caregivers demonstrate positive discipline'),
+    (GOST, 'All school going children transition to the next level')
 )
 
 CPT_GOALS_HEALTHY_CHOICES = (
@@ -317,16 +317,16 @@ CPT_ACTIONS_SCHOOLED_CHOICES = (
                        (10, 'Others specify')
 )
 CPT_PERSON_RESPONSIBLE = (
-    (1, 'Caregiver'),
-    (2, 'House Hold Member'),
-    (3, 'CHV'),
-    (4, 'NGO'),
-    (5, 'GOK Agent')
+    (CGH, 'Caregiver'),
+    (HHM, 'House Hold Member'),
+    (CHV, 'CHV'),
+    (NGO, 'NGO'),
+    (GOK, 'GOK Agent')
 )
 CPT_RESULTS = (
-    (1, 'Achieved'),
-    (2, 'In Progress'),
-    (3, 'Not Achieved')
+    (AC, 'Achieved'),
+    (IP, 'In Progress'),
+    (NA, 'Not Achieved')
 )
 
 
