@@ -289,12 +289,16 @@
                                                     <small><p class="dialog_paragraph">This value is required</p></small>
                                                 </div>
                                             </td>
-
+                                        </tr>
+                                            <td></td>
+                                            <td></td>
                                             <td colspan="1">
                                                 <button type="button" class="btn btn-sm btn-inverse btn-block" onClick="AddRow()">
 	                                                <i class="fa fa-plus"></i>  Add
 	                                            </button>
                                             </td>
+                                            <td></td>
+                                        <tr>
                                         </tr>
                                     </tbody>
 
@@ -303,27 +307,29 @@
                                 
 							</fieldset>
 {#                            Submissions #}
-<form class="form-horizontal form-bordered" action="." method="POST" data-parsley-validate="true" name="form-wizard-f1a" id="new_f1a">
+                    <form class="form-horizontal form-bordered" action="." method="POST" data-parsley-validate="true" name="form-wizard-f1a" id="new_f1a">
                 	{% csrf_token %}
-                            <table class="table" id="submissions_table">
-                                <thead>
-                                    <tr>
-                                        <th>Domain</th>
-                                        <th>Goal</th>
-                                        <th>Needs/Gaps</th>
-                                        <th>Priority Actions</th>
-                                        <th>Services</th>
-                                        <th>Repsonsible</th>
-                                        <th>Completed</th>
-                                        <th>Results</th>
-                                        <th>Reasons</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    
-                                </tbody>
-                            </table>
+                            <div class="table-responsive">
+                                <table class="table table-condensed slimtable" id="submissions_table">
+                                    <thead>
+                                        <tr>
+                                            <th>Domain</th>
+                                            <th>Goal</th>
+                                            <th>Needs/Gaps</th>
+                                            <th>Priority Actions</th>
+                                            <th>Services</th>
+                                            <th>Repsonsible</th>
+                                            <th>Completed</th>
+                                            <th>Results</th>
+                                            <th>Reasons</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
                             <div class="panel-body panel-form">
                                 <div class="form-group">
 
@@ -342,7 +348,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-4 col-sm-4"></label>
                                     <div class="col-md-6 col-sm-6">
-                                        <button id="mysubmit-f1a-0" class="btn btn-primary" type="button">Submit Assessment</button>
+                                        <button id="mysubmit-caseplan" class="btn btn-primary" type="submit">Submit Assessment</button>
                                         <a href="#" class="btn btn-white">Cancel</a>
                                     </div>
                                 </div>

@@ -151,16 +151,16 @@ FAVORITE_COLORS_CHOICES = (
         ('Bring food', 'Bring food'),
         ('Other', 'Other')
     )
-CPT_DOMAIN_CHOICES = (('SCH', 'Schooled'), ('STB', 'Stable'), ('SF', 'Safe'), ('HE', 'Healthy'))
+CPT_DOMAIN_CHOICES = (('DEDU', 'Schooled'), ('DHES', 'Stable'), ('DPRO', 'Safe'), ('DHNU', 'Healthy'))
 CPT_GOALS_CHOICES = (
-    (1, 'All members of enrolled household know their HIV status'),
-    (2, 'All HIV positive members of the household disclose their HIV status'),
-    (3, 'All HIV positive members of the household are virally suppressed'),
-    (4, 'Household able to meet the basic and emergency needs of the members'),
-    (5, 'All household members have identified a social support network for psychosocial and emotional support.'),
-    (6, 'All household members articulate ways to seek support in case of abuse'),
-    (7, 'Caregivers demonstrate positive discipline'),
-    (8, 'All school going children transition to the next level')
+    (GHSK, 'All members of enrolled household know their HIV status'),
+    (GHSD, 'All HIV positive members of the household disclose their HIV status'),
+    (GHVS, 'All HIV positive members of the household are virally suppressed'),
+    (GBEN, 'Household able to meet the basic and emergency needs of the members'),
+    (GSSN, 'All household members have identified a social support network for psychosocial and emotional support.'),
+    (GSSA, 'All household members articulate ways to seek support in case of abuse'),
+    (GCPD, 'Caregivers demonstrate positive discipline'),
+    (GOST, 'All school going children transition to the next level')
 )
 
 CPT_GOALS_HEALTHY_CHOICES = (
@@ -185,87 +185,88 @@ CPT_GOALS_SCHOOL_CHOICES = (
 )
 
 CPT_GAPS_HEALTHY_CHOICES = (
-    (1, 'Child immunization is not complete [under 5 yrs only] - Check clinic card'),
-    (2, 'Growth is not monitored  [under 5 years only]  - Check clinic card'),
-    (3, 'Child living with disability, not linked to appropriate services e.g deaf, autistic'),
-    (4, 'Child living with chronic condition not linked to healthy services (diabetes, cancer)'),
-    (5, 'Child HIV status not known & risk screening done'),
-    (6, 'Child has a HIGH Risk to HIV infection'),
-    (7, 'Adolescent is pregnant NOT receiving PMTCT/ANC services'),
-    (8, 'HIV test not done for a child under 18 months born to HIV +ve mother'),
-    (9, 'HIV+ve child not linked to treatment'),
-    (10, 'HIV+ child without current VL results'),
-    (11, 'Child on HIV treatment with HIGH viral loads'),
-    (12, 'HIV+ status disclosure not initiated (6 years and above)'),
-    (13, 'MUAC assessment not performed [6 mths to 15 years only] after every 6 mnths'),
-    (14, 'Child is sick'),
-    (15, 'Caregiver is unwell'),
-    (16, 'Caregiver does not know her HIV status'),
-    (17, 'HIV Risk screening not done'),
-    (18, 'Pregnant caregiver not receiving PMTCT services'),
-    (19, 'HIV+ caregiver not linked to treatment services'),
-    (20, 'HIV+ caregiver did not attend last CCC appointment'),
-    (21, 'HIV+ caregiver not disclosed her status'),
-    (22, 'Caregiver does not know Viral Load status'),
-    (23, 'Is not a member of a health insurance plan e.g. NHIF'),
-    (24, 'Household has no kitchen garden that is productive')
+    (HN 1t, 'Child immunization is not complete [under 5 yrs only] - Check clinic card'),
+    (HN 2t, 'Growth is not monitored  [under 5 years only]  - Check clinic card'),
+    (HN 3t, 'Child living with disability, not linked to appropriate services e.g deaf, autistic'),
+    (HN 4t, 'Child living with chronic condition not linked to healthy services (diabetes, cancer)'),
+    (HN 5t, 'Child HIV status not known & risk screening done'),
+    (HN 6t, 'Child has a HIGH Risk to HIV infection'),
+    (HN 7t, 'Adolescent is pregnant NOT receiving PMTCT/ANC services'),
+    (HN 8t, 'HIV test not done for a child under 18 months born to HIV +ve mother'),
+    (HN 9t, 'HIV+ve child not linked to treatment'),
+    (HN 10t, 'HIV+ child without current VL results'),
+    (HN 11t, 'Child on HIV treatment with detectable viral loads'),
+    (HN 12t, 'HIV+ status disclosure not initiated (6 years and above)'),
+    (HN 13t, 'MUAC assessment not performed [6 mths to 15 years only] after every 6 mnths'),
+    (HN 14t, 'Child is sick'),
+    (HG 1t, 'Caregiver is unwell'),
+    (HG 2t, 'Caregiver does not know her HIV status'),
+    (HG 3t, 'HIV Risk screening not done'),
+    (HG 4t, 'Pregnant caregiver not receiving PMTCT services'),
+    (HG 5t, 'HIV+ caregiver not linked to treatment services'),
+    (HG 6t, 'HIV+ caregiver did not attend last CCC appointment'),
+    (HG 7t, 'HIV+ caregiver not disclosed her status'),
+    (HG 8t, 'Caregiver does not know Viral Load status'),
+    (HG 9t, 'Is not a member of a health insurance plan e.g. NHIF'),
+    (HG 10t, 'Household has no kitchen garden that is productive')
 )
 CPT_GAPS_STABLE_CHOICES = (
-    (1, 'Does not have a transition plan [above 17yrs and out of school]'),
-    (2, 'Vocational skills graduate and requires a start-up kit '),
-    (3, 'Received a business start-up kit'),
-    (4, 'Youth eligible for linkage to savings groups [above 17yrs and out of school]'),
-    (5, 'Youth engaged in IGA e.g small business, farming, artisan, casual employment, hawking  [above 17yrs and out of school]'),
-    (6, 'Youth accessing formal financial services (bank, MFI, GOK grants) [above 17yrs]'),
-    (7, 'Household not able to meet basis needs'),
-    (8, 'Household not able to meet daily emergency needs'),
-    (9, 'Household NOT enrolled in any cash transfer scheme?'),
-    (10, 'Household enrolled in cash transfer for elderly'),
-    (11, 'Household enrolled in cash transfer for severely disabled'),
-    (12, 'Household enrolled in cash transfer for OVC'),
-    (13, 'Household member(s) not engaged in savings and credit group activities'),
-    (14, 'Household not saving money periodically to cushion against unexpected expenses'),
-    (15, 'Household does not own productive asset e.g small stock, small machines, tools'),
-    (16, 'Household does not have source of income/livelihood')
+    (ES 1t, 'Does not have a transition plan [above 17yrs and out of school]'),
+    (ES 2t, 'Vocational skills graduate and requires a start-up kit '),
+    (ES 3t, 'Received a business start-up kit'),
+    (ES 4t, 'Youth eligible for linkage to savings groups [above 17yrs and out of school]'),
+    (ES 5t, 'Youth engaged in IGA e.g small business, farming, artisan, casual employment, hawking  [above 17yrs and out of school]'),
+    (ES 6t, 'Youth accessing formal financial services (bank, MFI, GOK grants) [above 17yrs]'),
+    (HE 1t, 'Household not able to meet basis needs'),
+    (HE 2t, 'Household not able to meet daily emergency needs'),
+    (HE 3t, 'Household NOT enrolled in any cash transfer scheme?'),
+    (HE 4t, 'Household enrolled in cash transfer for elderly'),
+    (HE 5t, 'Household enrolled in cash transfer for severely disabled'),
+    (HE 6t, 'Household enrolled in cash transfer for OVC'),
+    (HE 7t, 'Household member(s) not engaged in savings and credit group activities'),
+    (HE 8t, 'Household not saving money periodically to cushion against unexpected expenses'),
+    (HE 9t, 'Household does not own productive asset e.g small stock, small machines, tools'),
+    (HE 10t, 'Household does not have source of income/livelihood')
 )
 CPT_GAPS_SAFE_CHOICES = (
-    (1, 'Child headed household'),
-    (2, 'Child/Adolescent has signs of violence, abuse, neglect or exploitation'),
-    (3, 'Child/Adolescent aware of where to get help when abused'),
-    (4, 'Has legal documents (e.g birth certificate and/or ID)'),
-    (5, 'Child does not participate in daily activities'),
-    (6, 'Child is sad, withdrawn or has unusal behavior'),
-    (7, 'Child (above 10 years) NOT participating in life skills sessions'),
-    (8, 'Household reported an incident of child abuse, violence or exploitation in the last 3 months'),
-    (9, 'Caregiver provided with information on legal documents (e.g. ID, birth certificate, title deed, death certificate)'),
-    (10, 'Caregiver sensitized on importance of legal documents e.g. ID, title deed, death certificate'),
-    (11, 'Caregiver mentored on child care and positive parenting skills'),
-    (12, 'Caregiver trained to engage & communicate with adolescent on sensitive topics sexual reproductive health services and rights'),
-    (13, 'Caregiver trained on child care and positive parenting skills'),
-    (14, 'Caregiver trained on succession planning'),
-    (15, 'Caregiver sensitized on succesion planning')
+    (CP 1t, 'Child headed household NOT receiving protection services'),
+    (CP 2t, 'Child/Adolescent has signs of violence, abuse, neglect or exploitation'),
+    (CP 3t, 'Child/Adolescent NOT aware of where to get help when abused'),
+    (CP 4t, 'Has no legal documents (e.g birth certificate and/or ID)'),
+    # (5, 'Child does not participate in daily activities'),
+    (CP 5t, 'Child is sad, withdrawn or has unusal behavior'),
+    (CP 6t, 'Child (above 10 years) NOT participating in life skills sessions'),
+    (PG 1t, 'Household reported an incident of child abuse, violence or exploitation in the last 3 months'),
+    (PG 1s, 'Caregiver NOT provided with information on legal documents (e.g. ID, birth certificate, title deed, death certificate)'),
+    (PG 2s, 'Caregiver NOT sensitized on importance of legal documents e.g. ID, title deed, death certificate'),
+    (SG 1s, 'Caregiver NOT mentored on child care and positive parenting skills'),
+    (SG 2s, 'Caregiver NOT trained to engage & communicate with adolescent on sensitive topics sexual reproductive health services and rights'),
+    (SG 3s, 'Caregiver NOT trained on child care and positive parenting skills'),
+    (SG 4s, 'Caregiver NOT trained on succession planning'),
+    (SG 5s, 'Caregiver NOT sensitized on succesion planning')
 )
 CPT_GAPS_SCHOOLED_CHOICES = (
-    (1, 'Not enrolled in school/pre-school'),
-    (2, 'Missed school for five or more days in past month'),
-    (3, 'Progressed from one class to another (e.g class 1 to 2)'),
-    (4, 'Child dropped out of school'),
-    (5, 'Transitioned from one level to another (e.g. primary to secondary)'),
-    (6, 'Youth eligible for vocational training (above 17 years and out of school)'),
-    (7, 'Sickness'),
-    (8, 'Lacks scholastic materials'),
-    (9, 'Lacks school fees'),
-    (10, 'Lacks school levies '),
-    (11, 'Child does not want to go to school'),
-    (12, 'Lack of parental follow up'),
-    (13, 'Taking care of sick household member'),
-    (14, 'Lacks sanitary towels'),
-    (15, 'Engaged in child labour'),
-    (16, 'Pregnancy'),
-    (17, 'Caregiver supports children through assistance with homework'),
-    (18, 'Caregiver tracking child\'s school attendance and progress'),
-    (19, 'Attends adult Literacy classes'),
-    (20, 'Other')
+    (CE 1t, 'Not enrolled in school/pre-school'),
+    (CE 2t, 'Missed school for five or more days in past month'),
+    (CE 3t, 'Progressed from one class to another (e.g class 1 to 2)'),
+    (CE 4t, 'Child dropped out of school'),
+    (CE 5t, 'Transitioned from one level to another (e.g. primary to secondary)'),
+    (CE 6t, 'Youth eligible for vocational training (above 17 years and out of school)'),
+    (CE 1r, 'Sickness'),
+    (CE 2r, 'Lacks scholastic materials'),
+    (CE 3r, 'Lacks school fees'),
+    (CE 4r, 'Lacks school levies '),
+    (CE 5r, 'Child does not want to go to school'),
+    (CE 6r, 'Lack of parental follow up'),
+    (CE 7r, 'Taking care of sick household member'),
+    (CE 8r, 'Lacks sanitary towels'),
+    (CE 9r, 'Engaged in child labour'),
+    (CE 10r, 'Pregnancy'),
+    (CE 11r, 'Other (specify)')
+    (EG 1t, 'Caregiver DOES NOT support children through assistance with homework'),
+    (EG 2t, 'Caregiver NOT tracking child\'s school attendance and progress'),
+    # (19, 'Attends adult Literacy classes'),
+    # (20, 'Other')
 )
 CPT_ACTIONS_HEALTHY_CHOICES = (
     (1, 'HIV testing'),
@@ -317,16 +318,16 @@ CPT_ACTIONS_SCHOOLED_CHOICES = (
                        (10, 'Others specify')
 )
 CPT_PERSON_RESPONSIBLE = (
-    (1, 'Caregiver'),
-    (2, 'House Hold Member'),
-    (3, 'CHV'),
-    (4, 'NGO'),
-    (5, 'GOK Agent')
+    (CGH, 'Caregiver'),
+    (HHM, 'House Hold Member'),
+    (CHV, 'CHV'),
+    (NGO, 'NGO'),
+    (GOK, 'GOK Agent')
 )
 CPT_RESULTS = (
-    (1, 'Achieved'),
-    (2, 'In Progress'),
-    (3, 'Not Achieved')
+    (AC, 'Achieved'),
+    (IP, 'In Progress'),
+    (NA, 'Not Achieved')
 )
 
 
@@ -4241,24 +4242,24 @@ class CasePlanTemplate(forms.Form):
         #     widget=forms.Select(
         #     attrs={
         #         'class': 'form-control'}))
-    CPT_GAPS_HEALTHY = forms.ChoiceField(
+    CPT_GAPS_HEALTHY = forms.MultipleChoiceField(
         choices=CPT_GAPS_HEALTHY_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'}))
-    CPT_GAPS_STABLE = forms.ChoiceField(
+    CPT_GAPS_STABLE = forms.MultipleChoiceField(
         choices=CPT_GAPS_STABLE_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'}))
-    CPT_GAPS_SAFE = forms.ChoiceField(
+    CPT_GAPS_SAFE = forms.MultipleChoiceField(
         choices=CPT_GAPS_SAFE_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'}))
-    CPT_GAPS_SCHOOL = forms.ChoiceField(
+    CPT_GAPS_SCHOOL = forms.MultipleChoiceField(
         choices=CPT_GAPS_SCHOOLED_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'}))
     # ------endGAP------- #
@@ -4271,30 +4272,30 @@ class CasePlanTemplate(forms.Form):
         #         'class': 'form-control'
         #     })
         # )
-    CPT_ACTIONS_HEALTHY = forms.ChoiceField(
+    CPT_ACTIONS_HEALTHY = forms.MultipleChoiceField(
         choices=CPT_ACTIONS_HEALTHY_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'
         })
     )
-    CPT_ACTIONS_STABLE = forms.ChoiceField(
+    CPT_ACTIONS_STABLE = forms.MultipleChoiceField(
         choices=CPT_ACTIONS_STABLE_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'
         })
     )
-    CPT_ACTIONS_SAFE = forms.ChoiceField(
+    CPT_ACTIONS_SAFE = forms.MultipleChoiceField(
         choices=CPT_ACTIONS_SAFE_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'
         })
     )
-    CPT_ACTIONS_SCHOOL = forms.ChoiceField(
+    CPT_ACTIONS_SCHOOL = forms.MultipleChoiceField(
         choices=CPT_ACTIONS_SCHOOLED_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'
         })
@@ -4302,37 +4303,37 @@ class CasePlanTemplate(forms.Form):
     # ------endACTIONS------- #
 
     # ------SERVICES------- #
-    CPT_SERVICES = forms.ChoiceField(
-        choices=CPT_ACTIONS_SCHOOLED_CHOICES,
-        widget=forms.Select(
-        attrs={
-            'class': 'form-control'
-        })
-    )
-    CPT_SERVICES_HEALTHY = forms.ChoiceField(
+    # CPT_SERVICES = forms.MultipleChoiceField(
+    #     choices=CPT_ACTIONS_SCHOOLED_CHOICES,
+    #     widget=forms.SelectMultiple(
+    #     attrs={
+    #         'class': 'form-control'
+    #     })
+    # )
+    CPT_SERVICES_HEALTHY = forms.MultipleChoiceField(
         choices=CPT_ACTIONS_HEALTHY_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'
         })
     )
-    CPT_SERVICES_STABLE = forms.ChoiceField(
+    CPT_SERVICES_STABLE = forms.MultipleChoiceField(
         choices=CPT_ACTIONS_STABLE_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'
         })
     )
-    CPT_SERVICES_SAFE = forms.ChoiceField(
+    CPT_SERVICES_SAFE = forms.MultipleChoiceField(
         choices=CPT_ACTIONS_SAFE_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'
         })
     )
-    CPT_SERVICES_SCHOOL = forms.ChoiceField(
+    CPT_SERVICES_SCHOOL = forms.MultipleChoiceField(
         choices=CPT_ACTIONS_SCHOOLED_CHOICES,
-        widget=forms.Select(
+        widget=forms.SelectMultiple(
         attrs={
             'class': 'form-control'
         })
