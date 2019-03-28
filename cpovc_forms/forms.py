@@ -164,24 +164,24 @@ CPT_GOALS_CHOICES = (
 )
 
 CPT_GOALS_HEALTHY_CHOICES = (
-    (1, 'All members of enrolled household know their HIV status'),
-    (2, 'All HIV positive members of the household disclose their HIV status'),
-    (3, 'All HIV positive members of the household are virally suppressed')
+    ('CPTG1he', 'All members of enrolled household know their HIV status'),
+    ('CPTG2he', 'All HIV positive members of the household disclose their HIV status'),
+    ('CPTG3he', 'All HIV positive members of the household are virally suppressed')
 )
 
 CPT_GOALS_STABLE_CHOICES = (
-    (4, 'Household able to meet the basic and emergency needs of the members'),
-    (5, 'All household members have identified a social support network for psychosocial and emotional support.')
+    ('CPTG1st', 'Household able to meet the basic and emergency needs of the members'),
+    ('CPTG1sa', 'All household members have identified a social support network for psychosocial and emotional support.')
 )
 
 CPT_GOALS_SAFE_CHOICES = (
-    (6, 'All household members articulate ways to seek support in case of abuse'),
-    (7, 'Caregivers demonstrate positive discipline')
+    ('CPTG2sa', 'All household members articulate ways to seek support in case of abuse'),
+    ('CPTG3sa', 'Caregivers demonstrate positive discipline')
 )
 
 CPT_GOALS_SCHOOL_CHOICES = (
-    (8, 'All school going children transition to the next level'),
-    (8, 'All school going children transition to the next level')
+    ('CPTG1sc', 'All school going children transition to the next level'),
+    # ('CPTG1sc', 'All school going children transition to the next level')
 )
 
 CPT_GAPS_HEALTHY_CHOICES = (
@@ -269,53 +269,54 @@ CPT_GAPS_SCHOOLED_CHOICES = (
     # (20, 'Other')
 )
 CPT_ACTIONS_HEALTHY_CHOICES = (
-    (1, 'HIV testing'),
-    (2, 'ART'),
-    (3, 'Viral load testing'),
-    (4, 'Other HIV and Care Treatment'),
-    (5, 'PMTCT/ ANC'),
-    (6, 'HIV disclosure & counseling'),
-    (7, 'HIV Peer support group'),
-    (8, 'Adolescent health counseling'),
-    (9, 'Defaulter tracing'),
-    (10, 'Disability services'),
-    (11, 'Immunization')
+    ('CPTS1h', 'HIV testing'),
+    ('CPTS2h', 'ART'),
+    ('CPTS3h', 'Viral load testing'),
+    ('CPTS4h', 'Other HIV and Care Treatment'),
+    ('CPTS5h', 'PMTCT/ ANC'),
+    ('CPTS6h', 'HIV disclosure & counseling'),
+    ('CPTS7h', 'HIV Peer support group'),
+    ('CPTS8h', 'Adolescent health counseling'),
+    ('CPTS9h', 'Defaulter tracing'),
+    ('CPTS10h', 'Disability services'),
+    ('CPTS11h', 'Immunization'),
+    ('CPTS12h', 'Other')
      )
 CPT_ACTIONS_STABLE_CHOICES = (
-                         (1, 'Cash transfer'),
-                         (2, 'NHIF'),
-                         (3, 'Income generating activity (IGA)'),
-                         (4, 'VSLA group (savings and loan facilities)'),
-                         (5, 'Food support'),
-                         (6, 'Nutritional assessment & supplements'),
-                         (7, 'Financial literacy/skills'),
-                         (8, 'Others, specify')
+                         ('CPTS1s', 'Cash transfer'),
+                         ('CPTS2s', 'NHIF'),
+                         ('CPTS3s', 'Income generating activity (IGA)'),
+                         ('CPTS4s', 'VSLA group (savings and loan facilities)'),
+                         ('CPTS5s', 'Food support'),
+                         ('CPTS6s', 'Nutritional assessment & supplements'),
+                         ('CPTS7s', 'Financial literacy/skills'),
+                         ('CPTS8s', 'Others, specify')
 )
 CPT_ACTIONS_SAFE_CHOICES = (
-                       (1, 'Positive Parenting training'),
-                       (2, 'Counseling'),
-                       (3, 'Psychosocial support to children living with HIV, caregiver support, children clubs, support groups for SGBV survivors'),
-                       (4, 'Health services'),
-                       (5, 'Legal services'),
-                       (6, 'Birth registration'),
-                       (7, 'Succession planning support'),
-                       (8, 'Child protection pathway (DCS, police, health facility)'),
-                       (9, 'Mentorship (e.g. DREAMS program)'),
-                   (10, 'Life skills trainings'),
-                   (11, 'Others, specify'),
-                   (12, 'Other health services')
+                       ('CPTS1p', 'Positive Parenting training'),
+                       ('CPTS2p', 'Counseling'),
+                       ('CPTS3p', 'Psychosocial support to children living with HIV, caregiver support, children clubs, support groups for SGBV survivors'),
+                       ('CPTS4p', 'Health services'),
+                       ('CPTS5p', 'Legal services'),
+                       ('CPTS6p', 'Birth registration'),
+                       ('CPTS7p', 'Succession planning support'),
+                       ('CPTS8p', 'Child protection pathway (DCS, police, health facility)'),
+                       ('CPTS9p', 'Mentorship (e.g. DREAMS program)'),
+                   ('CPTS10p', 'Life skills trainings'),
+                   ('CPTS11p', 'Others, specify'),
+                   ('CPTS12p', 'Other health services')
 )
 CPT_ACTIONS_SCHOOLED_CHOICES = (
-                       (1, 'School bursary (public & private programs)'),
-                       (2, 'Scholastic materials'),
-                       (3, 'Enrolment to school,'),
-                       (4, 'Enrolment to vocational training'),
-                       (5, 'ECD'),
-                       (6, 'Feeding program (where applicable)'),
-                       (7, 'Mentorship, '),
-                       (8, 'Life skills trainings, '),
-                       (9, 'School Monitoring (Enrolment, retention, performance, progression, completion)'),
-                       (10, 'Others specify')
+                       ('CPTS1e', 'School bursary (public & private programs)'),
+                       ('CPTS2e', 'Scholastic materials'),
+                       ('CPTS3e', 'Enrolment to school,'),
+                       ('CPTS4e', 'Enrolment to vocational training'),
+                       ('CPTS5e', 'ECD'),
+                       ('CPTS6e', 'Feeding program (where applicable)'),
+                       ('CPTS7e', 'Mentorship, '),
+                       ('CPTS8e', 'Life skills trainings, '),
+                       ('CPTS9e', 'School Monitoring (Enrolment, retention, performance, progression, completion)'),
+                       ('CPTS10e', 'Others specify')
 )
 CPT_PERSON_RESPONSIBLE = (
     ('CGH', 'Caregiver'),
