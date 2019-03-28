@@ -352,16 +352,16 @@ print(blu.sing("'Happy'"))
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <div class="col-md-9">
-                                                        <label class="control-label formlabel">Is there child (including under 5 year) in the household that is at risk or vulnerable to HIV? </label>
+                                                        <label class="control-label formlabel">Is there a child (including under 5 years) in the household that is at risk or vulnerable to HIV? </label>
                                                         <small>(Chronic illness: Asthma, Cancer, Diabetes, Epileplsy)</small>
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="if_ovc" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="if_ovc" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -506,11 +506,11 @@ print(blu.sing("'Happy'"))
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="u10_know_status" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="u10_know_status" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -578,11 +578,11 @@ print(blu.sing("'Happy'"))
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="o10_know_status" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="o10_know_status" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -2165,6 +2165,9 @@ print(blu.sing("'Happy'"))
 <script src="{% static 'js/tag-it.js' %}"></script>
 <script src="{% static 'js/bootstrap-table.min.js' %}"></script>
 <script src="{% static 'js/bootstrap-table-locale-all.min.js' %}"></script>
+
+<script src="{% static 'js/cpara-skipto.js' %}"></script>
+<script src="{% static 'js/cpara-validate-benchmark.js' %}"></script>
 <script>
 jQuery(document).ready(function()
 {
@@ -2191,10 +2194,10 @@ jQuery(document).ready(function()
 	
 	$('input[name=cp1d]').change(function(){
 		var valu = $(this).val();
-		if(valu === 'ANNO'){
+		if(valu === 'AYES'){
 			$('input[name=cp2d]').val('');
 			$('input[name=cp2d]').attr('disabled', true);
-		}else if(valu === 'AYES'){
+		}else if(valu === 'ANNO'){
 			$('input[name=cp2d]').val('');
 			$('input[name=cp2d]').removeAttr('disabled');
 		}
