@@ -65,7 +65,16 @@ function stripHTML(strWithHTML) {
     container.appendChild(text);
     return container.innerHTML;
   }
-
+var final_input = {};
+final_input['domain'] = [];
+final_input['goal'] = [];
+final_input['gaps'] = [];
+final_input['actions'] = [];
+final_input['services'] = [];
+final_input['responsible'] = [];
+final_input['date'] = [];
+final_input['results'] = [];
+final_input['reasons'] = [];
 function AddRow() {    
     var randomID = randomNo();
     $('#submissions_table tbody').append('<tr id="row_'+randomID+'"> <td id="tbl_domain"></td> <td id="tbl_goal"><ul class="ul-flow"></ul></td> <td id="tbl_needs"><ul class="ul-flow"></ul></td> <td id="tbl_actions"><ul class="ul-flow"></ul></td> <td id="tbl_services"><ul class="ul-flow"></ul></td> <td id="tbl_repsonsible"></td> <td id="tbl_datecompleted"></td> <td id="tbl_results"></td> <td id="tbl_reasons"></td> <td id="tbl_acts"></td></tr>');
@@ -75,29 +84,37 @@ function AddRow() {
     // let goal = $('.goals_cell > div:not(.hidden) > select > option').val();
     let goal = []
     $('.goals_cell > div:not(.hidden) > div.btn-group > ul.multiselect-container > li.active input[type=checkbox]').each(function () {
-        var vlu = $(this).val()
-        goal.push(vlu);
+        var vlu = $(this).val();
+        if(vlu !== 'multiselect-all'){
+            goal.push(vlu);
+        }
     })
 
     // let gaps = $('.gaps_cell > div:not(.hidden) > select > option:selected').val();
     let gaps = []
     $('.gaps_cell > div:not(.hidden) > div.btn-group > ul.multiselect-container > li.active input[type=checkbox]').each(function () {
-        var vlu2 = $(this).val()
-        gaps.push(vlu2);
+        var vlu2 = $(this).val();
+        if(vlu2 !== 'multiselect-all'){
+            gaps.push(vlu2);
+        }
     })
 
     // let actions = $('.actions_cell > div:not(.hidden) > select > option:selected').val();
     let actions = []
     $('.actions_cell > div:not(.hidden) > div.btn-group > ul.multiselect-container > li.active input[type=checkbox]').each(function () {
-        var vlu3 = $(this).val()
-        actions.push(vlu3);
+        var vlu3 = $(this).val();
+        if(vlu3 !== 'multiselect-all'){
+            actions.push(vlu3);
+        }
     })
 
     // let services = $('.services_cell > div:not(.hidden) > select > option:selected').val();
     let services = []
     $('.services_cell > div:not(.hidden) > div.btn-group > ul.multiselect-container > li.active input[type=checkbox]').each(function () {
-        var vlu = $(this).val()
-        services.push(vlu);
+        var vlu = $(this).val();
+        if(vlu !== 'multiselect-all'){
+            services.push(vlu);
+        }
     })
 
     let responsibl = $('#id_CPT_RESPONSIBLE option:selected').val();
@@ -112,7 +129,9 @@ function AddRow() {
     $('#row_'+randomID+' > td#tbl_goal > ul.ul-flow').empty();
     $('.goals_cell > div:not(.hidden) > div.btn-group > ul.multiselect-container > li.active label[class=checkbox]').each(function () {
         var txt = stripHTML($(this).text());
-        $('#row_'+randomID+' > td#tbl_goal > ul.ul-flow').append( '<li>'+txt+'</li>' );
+        if(txt !== 'Select all'){}else{
+            $('#row_'+randomID+' > td#tbl_goal > ul.ul-flow').append( '<li>'+txt+'</li>' );
+        }
     })
     $('#row_'+randomID+' > td#tbl_goal').append('<input type="hidden" name="h_CPT_GOAL" value="'+goal+'" />');
     // -goal
@@ -120,7 +139,9 @@ function AddRow() {
     $('#row_'+randomID+' > td#tbl_needs > ul.ul-flow').empty();
     $('.gaps_cell > div:not(.hidden) > div.btn-group > ul.multiselect-container > li.active label[class=checkbox]').each(function () {
         var txt2 = stripHTML($(this).text());
-        $('#row_'+randomID+' > td#tbl_needs > ul.ul-flow').append( '<li>'+txt2+'</li>' );
+        if(txt2 === 'Select all'){}else{
+            $('#row_'+randomID+' > td#tbl_needs > ul.ul-flow').append( '<li>'+txt2+'</li>' );
+        }
     });
     $('#row_'+randomID+' > td#tbl_needs').append('<input type="hidden" name="h_CPT_GAPS" value="'+gaps+'" />');
     // -gaps
@@ -128,7 +149,9 @@ function AddRow() {
     $('#row_'+randomID+' > td#tbl_actions > ul.ul-flow').empty();
     $('.actions_cell > div:not(.hidden) > div.btn-group > ul.multiselect-container > li.active label[class=checkbox]').each(function () {
         var txt3 = stripHTML($(this).text());
-        $('#row_'+randomID+' > td#tbl_actions > ul.ul-flow').append( '<li>'+txt3+'</li>' );
+        if(txt3 === 'Select all'){}else{
+            $('#row_'+randomID+' > td#tbl_actions > ul.ul-flow').append( '<li>'+txt3+'</li>' );
+        }
     });
     $('#row_'+randomID+' > td#tbl_actions').append('<input type="hidden" name="h_CPT_ACTIONS" value="'+actions+'" />');
     // -actions
@@ -136,7 +159,9 @@ function AddRow() {
     $('#row_'+randomID+' > td#tbl_services > ul.ul-flow').empty();
     $('.services_cell > div:not(.hidden) > div.btn-group > ul.multiselect-container > li.active label[class=checkbox]').each(function () {
         var txt4 = stripHTML($(this).text());
-        $('#row_'+randomID+' > td#tbl_services > ul.ul-flow').append( '<li>'+txt4+'</li>' );
+        if(txt4 === 'Select all'){}else{
+            $('#row_'+randomID+' > td#tbl_services > ul.ul-flow').append( '<li>'+txt4+'</li>' );
+        }
     });
     $('#row_'+randomID+' > td#tbl_services').append('<input type="hidden" name="h_CPT_SERVICES" value="'+services+'" />');
     // -services
@@ -147,19 +172,30 @@ function AddRow() {
     $('#row_'+randomID+' td#tbl_reasons').html('<div>'+reasons+'</div>' + '<input type="hidden" name="h_CPT_RESULTS" value="'+reasons+'" />');
     $('#row_'+randomID+' td#tbl_acts').html('<a href="#" class="removerow btn btn-xs btn-danger"><i class="fa fa-trash"></i> Remove</a>');
     
-    console.log(
-        'LOG: '+JSON.stringify({
-            1: domain,
-            2: goal,    
-            3: gaps,
-            4: actions,
-            5: services,
-            6: responsibl,
-            7: date,
-            8: results,
-            9: reasons
-        })
-    )
+    // console.log(
+    //     'LOG: '+JSON.stringify({
+    //         1: domain,
+    //         2: goal,    
+    //         3: gaps,
+    //         4: actions,
+    //         5: services,
+    //         6: responsibl,
+    //         7: date,
+    //         8: results,
+    //         9: reasons
+    //     })
+    // )
+
+    final_input['domain'].push(domain);
+    final_input['goal'].push(goal);
+    final_input['gaps'].push(gaps);
+    final_input['actions'].push(actions);
+    final_input['services'].push(services);
+    final_input['responsible'].push(responsibl);
+    final_input['date'].push(date);
+    final_input['results'].push(results);
+    final_input['reasons'].push(reasons);
+
     $('#row_'+randomID+' > td#tbl_acts > .removerow').click(function (e) { 
         e.preventDefault();
         $('#row_'+randomID).empty();
@@ -170,3 +206,37 @@ function AddRow() {
     });
 
 }
+var fd = {};
+$('#mysubmit-f1a-0').click(function (e) { 
+    e.preventDefault();
+    // console.log("final_input: "+JSON.stringify(final_input));
+    $.each(final_input['domain'], function (indexDomain, oneDomain) { 
+        fd[indexDomain] = {};
+        fd[indexDomain] = {};
+        fd[indexDomain] = {};
+        fd[indexDomain] = {};
+        fd[indexDomain] = {};
+        fd[indexDomain] = {};
+        fd[indexDomain] = {};
+        fd[indexDomain] = {};
+         
+        fd[indexDomain]['domain'] = [];
+        fd[indexDomain]['goal'] = [];
+        fd[indexDomain]['gaps'] = [];
+        fd[indexDomain]['actions'] = [];
+        fd[indexDomain]['services'] = [];
+        fd[indexDomain]['responsible'] = [];
+        fd[indexDomain]['date'] = [];
+        fd[indexDomain]['results'] = [];
+
+         fd[indexDomain]['domain'] = final_input['domain'][indexDomain];
+         fd[indexDomain]['goal'] = final_input['goal'][indexDomain];
+         fd[indexDomain]['gaps'] = final_input['gaps'][indexDomain];
+         fd[indexDomain]['actions'] = final_input['actions'][indexDomain];
+         fd[indexDomain]['services'] = final_input['services'][indexDomain];
+         fd[indexDomain]['responsible'] = final_input['responsible'][indexDomain];
+         fd[indexDomain]['date'] = final_input['date'][indexDomain];
+         fd[indexDomain]['results'] = final_input['results'][indexDomain];
+    });
+    console.log("fd: "+JSON.stringify(fd));
+});
