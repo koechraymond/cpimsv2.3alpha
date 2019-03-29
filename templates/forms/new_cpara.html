@@ -213,6 +213,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                         </div>
                                         <hr/>
+										
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
@@ -222,7 +223,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="form-group">
-                                                    <label class="control-label formlabel">If No, date of Previous Case Plan Readiness Assessment:</label><br/>
+                                                    <label class="control-label formlabel">If No, give date of Previous Case Plan Readiness Assessment:</label><br/>
                                                     {{ form.cp2d }}
                                                 </div>
                                             </div>
@@ -351,16 +352,16 @@ print(blu.sing("'Happy'"))
                                             <div class="col-md-12">
                                                 <div class="form-group">
                                                     <div class="col-md-9">
-                                                        <label class="control-label formlabel">Is there child (including under 5 year) in the household that is at risk or vulnerable to HIV? </label>
+                                                        <label class="control-label formlabel">Is there a child (including under 5 years) in the household that is at risk or vulnerable to HIV? </label>
                                                         <small>(Chronic illness: Asthma, Cancer, Diabetes, Epileplsy)</small>
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="if_ovc" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="if_ovc" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -505,11 +506,11 @@ print(blu.sing("'Happy'"))
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="u10_know_status" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="u10_know_status" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -577,11 +578,11 @@ print(blu.sing("'Happy'"))
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="o10_know_status" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="o10_know_status" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -609,57 +610,59 @@ print(blu.sing("'Happy'"))
                                                             <tbody>
                                                                 {% for sibling in siblings %}
                                                                 <tr>
-                                                                    <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
                                                                     <td>
-                                                                          <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
+                                                                        <a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a>
                                                                     </td>
                                                                     <td>
-                                                                          <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name="{{ sibling.sibling_person.id }}_q3p6" value="AYES">
+                                                                                Yes
+                                                                        </label>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q3p6 value="ANNO">
+                                                                                No
+                                                                        </label>
                                                                     </td>
-                                                                <td>
-                                                                      <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
-                                                                </td>
-                                                                <td>
-                                                                      <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
-                                                                </td>
-                                                                <td>
-                                                                      <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
-                                                                </td>
+                                                                    <td>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q3p7 value="AYES">
+                                                                                Yes
+                                                                        </label>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q3p7 value="ANNO">
+                                                                                No
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q3p8 value="AYES">
+                                                                                Yes
+                                                                        </label>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q3p8 value="ANNO">
+                                                                                No
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q3p9 value="AYES">
+                                                                                Yes
+                                                                        </label>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q3p9 value="ANNO">
+                                                                                No
+                                                                        </label>
+                                                                    </td>
+                                                                    <td>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}'q3p10 value="AYES">
+                                                                                Yes
+                                                                        </label>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}'q3p10 value="ANNO">
+                                                                                No
+                                                                        </label>
+                                                                    </td>
                                                                 </tr>
                                                                 {% endfor %}
                                                                 {% for osibling in osiblings %}
@@ -726,11 +729,11 @@ print(blu.sing("'Happy'"))
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="adole_preg_hiv" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="adole_preg_hiv" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -755,11 +758,11 @@ print(blu.sing("'Happy'"))
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input name="adole_preg_testpos" type="radio" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input name="adole_preg_testpos" type="radio" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -795,11 +798,11 @@ print(blu.sing("'Happy'"))
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="adole_wo_deliv" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="adole_wo_deliv" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -876,11 +879,11 @@ print(blu.sing("'Happy'"))
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input name="adole_gb_hse" type="radio" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input name="adole_gb_hse" type="radio" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -989,11 +992,11 @@ print(blu.sing("'Happy'"))
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="child_w_disab_hse" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="child_w_disab_hse" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -1072,7 +1075,7 @@ print(blu.sing("'Happy'"))
                                         <hr>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <div class="col-md-10 text-left">
+                                                <div class="col-md-9 text-left">
                                                     <label class="control-label formlabel">7.2 Are you able to provide your child with a balance diet (a range of nutritious foods) on a  regular basis? If yes, please describe [Carbohydrates such as: Ugali, Rice, Bread, potatoes, cassava, etc. []; Proteins such as: Beef, Fish, Chicken, Lentils, Beans, Nuts, etc. []; Vegetables such as: Sukuma wiki, cabbage, spinach, etc. []; Fruits such as: Orange, pineapple, mangoes, etc [] </label>
                                                 </div>
                                                 <div class="col-md-3 text-left">
@@ -1314,11 +1317,11 @@ print(blu.sing("'Happy'"))
                                                         </div>
                                                         <div class="col-md-3 text-left">
                                                             <label class="radio-inline">
-                                                                <input type="radio" value="">
+                                                                <input type="radio" name="child_hd_hse" value="AYES">
                                                                 Yes
                                                             </label>
                                                             <label class="radio-inline">
-                                                                <input type="radio" value="">
+                                                                <input type="radio" value="ANNO" name="child_hd_hse">
                                                                 No
                                                             </label>
                                                         </div>
@@ -1413,8 +1416,9 @@ print(blu.sing("'Happy'"))
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                    <label class="control-label formlabel">12.1 Are all children in the household able to participate in daily activities such as eating,
-                                                        playing or talking with other family members or friends? </label>
+                                                        <div class="col-md-9">
+                                                            <label class="control-label formlabel">12.1 Are all children in the household able to participate in daily activities such as eating, playing or talking with other family members or friends? </label>
+                                                        </div>
                                                         <div class="col-md-3 text-left">
                                                             {{form.cp49q}}
                                                         </div>
@@ -1461,11 +1465,11 @@ print(blu.sing("'Happy'"))
                                                         </div>
                                                         <div class="col-md-3 text-left">
                                                             <label class="radio-inline">
-                                                                <input type="radio" value="">
+                                                                <input type="radio" value="AYES" name="o5y_cd_hse">
                                                                 Yes
                                                             </label>
                                                             <label class="radio-inline">
-                                                                <input type="radio" value="">
+                                                                <input type="radio" value="ANNO" name="o5y_cd_hse">
                                                                 No
                                                             </label>
                                                         </div>
@@ -1489,37 +1493,39 @@ print(blu.sing("'Happy'"))
                                                                 <tbody>
                                                                     {% for sibling in siblings %}
                                                                     <tr>
-                                                                        <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
                                                                         <td>
-                                                                              <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
+                                                                            <a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a>
                                                                         </td>
                                                                         <td>
-                                                                              <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio" name={{ sibling.sibling_person.id }}_q12a value="AYES">
+                                                                                Yes
+                                                                            </label>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio"  name={{ sibling.sibling_person.id }}_q12a value="ANNO">
+                                                                                    No
+                                                                            </label>
                                                                         </td>
-                                                                    <td>
-                                                                          <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
-                                                                    </td>
+                                                                        <td>
+                                                                            <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q12b value="AYES">
+                                                                                Yes
+                                                                            </label>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio"  name={{ sibling.sibling_person.id }}_q12b value="ANNO">
+                                                                                No
+                                                                            </label>
+                                                                        </td>
+                                                                        <td>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio" name={{ sibling.sibling_person.id }}_q12c value="AYES">
+                                                                                    Yes
+                                                                            </label>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio"  name={{ sibling.sibling_person.id }}_q12c value="ANNO">
+                                                                                    No
+                                                                            </label>
+                                                                        </td>
                                     
                                     
                                                                     </tr>
@@ -1589,11 +1595,11 @@ print(blu.sing("'Happy'"))
                                                         </div>
                                                         <div class="col-md-3 text-left">
                                                             <label class="radio-inline">
-                                                                <input type="radio" value="">
+                                                                <input type="radio" value="AYES" name="cld_rsk_abus">
                                                                 Yes
                                                             </label>
                                                             <label class="radio-inline">
-                                                                <input type="radio" value="">
+                                                                <input type="radio" value="ANNO" name="cld_rsk_abus">
                                                                 No
                                                             </label>
                                                         </div>
@@ -1655,31 +1661,31 @@ print(blu.sing("'Happy'"))
                                                                         <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
                                                                         <td>
                                                                              <label class="radio-inline">
-                                                                        <input type="radio" value="">
+                                                                        <input type="radio" name={{ sibling.sibling_person.id }}_q13p3 value="AYES">
                                                                             Yes
                                                                     </label>
                                                                     <label class="radio-inline">
-                                                                        <input type="radio" value="">
+                                                                        <input type="radio" name={{ sibling.sibling_person.id }}_q13p3 value="ANNO">
                                                                             No
                                                                     </label>
                                                                         </td>
                                                                         <td>
                                                                               <label class="radio-inline">
-                                                                        <input type="radio" value="">
+                                                                        <input type="radio" name={{ sibling.sibling_person.id }}_q13p4 value="AYES">
                                                                             Yes
                                                                     </label>
                                                                     <label class="radio-inline">
-                                                                        <input type="radio" value="">
+                                                                        <input type="radio" name={{ sibling.sibling_person.id }}_q13p4 value="ANNO">
                                                                             No
                                                                     </label>
                                                                         </td>
                                                                     <td>
-                                                                          <label class="radio-inline">
-                                                                        <input type="radio" value="">
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name={{ sibling.sibling_person.id }}_q13p5 value="AYES">
                                                                             Yes
                                                                     </label>
                                                                     <label class="radio-inline">
-                                                                        <input type="radio" value="">
+                                                                        <input type="radio" name={{ sibling.sibling_person.id }}_q13p5 value="ANNO">
                                                                             No
                                                                     </label>
                                                                     </td>
@@ -1969,11 +1975,11 @@ print(blu.sing("'Happy'"))
                                                         </div>
                                                         <div class="col-md-3 text-left">
                                                             <label class="radio-inline">
-                                                                <input type="radio" value="">
+                                                                <input type="radio" name="adole_no_vc_train" value="AYES">
                                                                 Yes
                                                             </label>
                                                             <label class="radio-inline">
-                                                                <input type="radio" value="">
+                                                                <input type="radio" name="adole_no_vc_train" value="ANNO">
                                                                 No
                                                             </label>
                                                         </div>
@@ -2041,11 +2047,14 @@ print(blu.sing("'Happy'"))
                                                                     <tr>
                                                                         <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
                                                                         <td>
-                                        
-                                                                        <div class="col-md-12">
-                                                                            <input type="text" class="form-control" placeholder=" ">
-                                                                        </div>
-                                        
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio" name={{ sibling.sibling_person.id }}_q17p3 value="AYES">
+                                                                                    Yes
+                                                                            </label>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio" name={{ sibling.sibling_person.id }}_q17p3 value="ANNO">
+                                                                                    No
+                                                                            </label>
                                                                         </td>
                                         
                                                                     </tr>
@@ -2164,9 +2173,13 @@ print(blu.sing("'Happy'"))
 <script src="{% static 'js/tag-it.js' %}"></script>
 <script src="{% static 'js/bootstrap-table.min.js' %}"></script>
 <script src="{% static 'js/bootstrap-table-locale-all.min.js' %}"></script>
+
+<script src="{% static 'js/cpara-skipto.js' %}"></script>
+<script src="{% static 'js/cpara-validate-benchmark.js' %}"></script>
 <script>
 jQuery(document).ready(function()
 {
+	
 	//multi selects
     $('#hhva_ha6, #hhva_ha21, #hhva_ha22, #hhva_ha28, #hhva_ha29, #hhva_ha30, #hhva_ha31').multiselect({
         selectAllValue: 'multiselect-all',
@@ -2185,6 +2198,8 @@ jQuery(document).ready(function()
     $('.bwizard-steps li, li.next').on("click", function(){
         $(window).scrollTop(0)
     });
+	
+	
 });
 
 
