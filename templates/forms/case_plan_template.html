@@ -307,8 +307,7 @@
                                 
 							</fieldset>
 {#                            Submissions #}
-                    <form class="form-horizontal form-bordered" action="." method="POST" data-parsley-validate="true" name="form-wizard-f1a" id="new_f1a">
-                	{% csrf_token %}
+                    
                             <div class="table-responsive">
                                 <table class="table table-condensed slimtable" id="submissions_table">
                                     <thead>
@@ -348,7 +347,7 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-4 col-sm-4"></label>
                                     <div class="col-md-6 col-sm-6">
-                                        <button id="mysubmit-f1a-0" class="btn btn-primary" type="button">Submit Assessment</button>
+                                        <button id="mysubmit-f1a-0" class="btn btn-primary" type="submit">Submit Case Plan</button>
                                         <a href="#" class="btn btn-white">Cancel</a>
                                     </div>
                                 </div>
@@ -363,7 +362,10 @@
 
 
 
-					</div>
+                    </div>
+                <form class="hidden" action="." method="POST" data-parsley-validate="true" name="form-wizard-f1a" id="new_f1a">
+                    {% csrf_token %}
+                    <input type="hidden" name="final_submission"/>
 				</form>
             </div>
             <a href="#" class="badge badge-primary m-4"> Back to OVC</a>

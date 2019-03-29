@@ -239,4 +239,6 @@ $('#mysubmit-f1a-0').click(function (e) {
          fd[indexDomain]['results'] = final_input['results'][indexDomain];
     });
     console.log("fd: "+JSON.stringify(fd));
+    $('input[name=final_submission').val(JSON.stringify(fd));
+    $('#new_f1a').submit();
 });
