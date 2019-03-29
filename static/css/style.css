@@ -6427,18 +6427,29 @@ select,input,textarea{
 }
 
 .ul-flow{
-    margin-left: -45px;
+    margin-left: -55px;
+    list-style: circle;
 }
 .ul-flow, #tbl_reasons > div{
     min-width: 230px;
     max-height: 195px;
     overflow-y: auto;
 }
+.multiselect.dropdown-toggle.btn,
+.multiselect-selected-text,
 .dropdown-menu.multiselect-container > li > a{
     white-space: normal !important;
 }
+
 .formlabel{
     text-align: left !important;
+}
+.multiselect.dropdown-toggle.btn{
+    min-width: 280px !important;
+    max-width: 350px !important;
+}
+.slimtable td{
+    font-size: 0.9em;
 }
 /* CUSTOM */
 

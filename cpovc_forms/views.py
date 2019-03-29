@@ -8574,29 +8574,125 @@ def convert_tuple_choices_to_dict(tuple_list):
     return choices_dict
 
 
+# @login_required
+# @cache_control(no_cache=True, must_revalidate=True, no_store=True)
+# def case_plan_template(request, id):
+#     from .forms import CPT_DOMAIN_CHOICES, CPT_GOALS_CHOICES, CPT_GOALS_HEALTHY_CHOICES, CPT_GOALS_STABLE_CHOICES, CPT_GOALS_SAFE_CHOICES, CPT_GOALS_SCHOOL_CHOICES, CPT_GAPS_HEALTHY_CHOICES, CPT_GAPS_SCHOOLED_CHOICES, \
+#         CPT_GAPS_SAFE_CHOICES, CPT_GAPS_STABLE_CHOICES, CPT_ACTIONS_HEALTHY_CHOICES, CPT_ACTIONS_STABLE_CHOICES, \
+#         CPT_ACTIONS_SCHOOLED_CHOICES, \
+#         CPT_ACTIONS_SAFE_CHOICES, CPT_PERSON_RESPONSIBLE, CPT_RESULTS
+#     init_data = RegPerson.objects.filter(pk=id)
+#     check_fields = ['sex_id']
+#     vals = get_dict(field_name=check_fields)
+#     # print convert_tuple_choices_to_dict(CPT_DOMAIN_CHOICES)
+#     vals['CPT_DOMAIN_CHOICES'] = json.dumps(convert_tuple_choices_to_dict(CPT_DOMAIN_CHOICES))
+#     vals['CPT_GOALS_CHOICES'] = json.dumps(convert_tuple_choices_to_dict(CPT_GOALS_CHOICES))
+#     vals['CPT_GAPS_HEALTHY_CHOICES'] = json.dumps(convert_tuple_choices_to_dict(CPT_GAPS_SCHOOLED_CHOICES))
+#     vals['CPT_ACTIONS_HEALTHY_CHOICES'] = json.dumps(convert_tuple_choices_to_dict(CPT_ACTIONS_HEALTHY_CHOICES))
+#     vals['CPT_SERVICES_HEALTHY_CHOICES'] = json.dumps(convert_tuple_choices_to_dict(CPT_ACTIONS_HEALTHY_CHOICES))
+#     vals['CPT_PERSON_RESPONSIBLE'] = json.dumps(convert_tuple_choices_to_dict(CPT_PERSON_RESPONSIBLE))
+#     vals['CPT_RESULTS'] = json.dumps(convert_tuple_choices_to_dict(CPT_RESULTS))
+#     form = CasePlanTemplate()
+#     return render(request,
+#                   'forms/case_plan_template.html',
+#                   {'form': form, 'init_data': init_data,
+#                    'vals': vals})
+
+
+
+
+
+from .models import OVCCareCasePlan
 @login_required
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def case_plan_template(request, id):
-    from .forms import CPT_DOMAIN_CHOICES, CPT_GOALS_CHOICES, CPT_GOALS_HEALTHY_CHOICES, CPT_GOALS_STABLE_CHOICES, CPT_GOALS_SAFE_CHOICES, CPT_GOALS_SCHOOL_CHOICES, CPT_GAPS_HEALTHY_CHOICES, CPT_GAPS_SCHOOLED_CHOICES, \
-        CPT_GAPS_SAFE_CHOICES, CPT_GAPS_STABLE_CHOICES, CPT_ACTIONS_HEALTHY_CHOICES, CPT_ACTIONS_STABLE_CHOICES, \
-        CPT_ACTIONS_SCHOOLED_CHOICES, \
-        CPT_ACTIONS_SAFE_CHOICES, CPT_PERSON_RESPONSIBLE, CPT_RESULTS
+    if request.method == 'POST':
+        
+        ignore_request_values= ['household_id','csrfmiddlewaretoken']
+        child = RegPerson.objects.get(id=id)
+        house_hold = OVCHouseHold.objects.get(id=OVCHHMembers.objects.get(person=child).house_hold_id)
+        person = RegPerson.objects.get(pk=int(id))
+        event_type_id = 'FHSA'
+        date_of_wellbeing_event = convert_date(datetime.today().strftime('%d-%b-%Y'))
+
+        """ Save Wellbeing-event """
+        # get event counter
+        event_counter = OVCCareEvents.objects.filter(
+            event_type_id=event_type_id, person=id, is_void=False).count()
+            # save event
+        ovccareevent=OVCCareEvents.objects.create(
+            event_type_id=event_type_id,
+            event_counter=event_counter,
+            event_score=0,
+            date_of_event=date_of_wellbeing_event,
+            created_by=request.user.id,
+            person=RegPerson.objects.get(pk=int(id)),
+            house_hold=house_hold
+        )
+        ovccareevent.save()
+        new_events_pk = ovccareevent.pk
+
+        values=request.POST
+        for key in request.POST:
+            print('keysss',key)
+            value = request.POST[key]
+            print('valuesssssss', value)
+
+        # values=request.POST
+        # print ('etyang', values)
+
+        OVCCareCasePlan.objects.create(
+            domain = request.POST.get('h_CPT_DOMAIN'),
+            goal = request.POST.get('h_CPT_GOAL'),
+            person_id = id,
+            household = house_hold,
+            need = request.POST.get('h_CPT_GAPS'),
+            priority = request.POST.get('h_CPT_ACTIONS'),
+            cp_service = SetupList.objects.get(item_id = 'HC6S'),
+            responsible = request.POST.get('h_CPT_RESPONSIBLE'),
+            completion_date = '2019-03-20',
+            results = request.POST.get('h_CPT_RESULTS'),
+            reasons = request.POST.get('h_CPT_REASONS'),
+            # form = 2019-03-20
+            date_of_event = '2019-03-20',
+            # date_of_event = request.POST.get('h_CPT_DATE'),
+            # date_of_previous_event ='2019-03-20',
+            case_plan_status='D',
+            event = new_events_pk,
+            )
+        
+        url = reverse('ovc_view', kwargs={'id': id})
+        return HttpResponseRedirect(url)
+
+    household_id = None
+   
+    # get child data
     init_data = RegPerson.objects.filter(pk=id)
-    check_fields = ['sex_id']
+    check_fields = ['sex_id', 'relationship_type_id']
     vals = get_dict(field_name=check_fields)
-    # print convert_tuple_choices_to_dict(CPT_DOMAIN_CHOICES)
-    vals['CPT_DOMAIN_CHOICES'] = json.dumps(convert_tuple_choices_to_dict(CPT_DOMAIN_CHOICES))
-    vals['CPT_GOALS_CHOICES'] = json.dumps(convert_tuple_choices_to_dict(CPT_GOALS_CHOICES))
-    vals['CPT_GAPS_HEALTHY_CHOICES'] = json.dumps(convert_tuple_choices_to_dict(CPT_GAPS_SCHOOLED_CHOICES))
-    vals['CPT_ACTIONS_HEALTHY_CHOICES'] = json.dumps(convert_tuple_choices_to_dict(CPT_ACTIONS_HEALTHY_CHOICES))
-    vals['CPT_SERVICES_HEALTHY_CHOICES'] = json.dumps(convert_tuple_choices_to_dict(CPT_ACTIONS_HEALTHY_CHOICES))
-    vals['CPT_PERSON_RESPONSIBLE'] = json.dumps(convert_tuple_choices_to_dict(CPT_PERSON_RESPONSIBLE))
-    vals['CPT_RESULTS'] = json.dumps(convert_tuple_choices_to_dict(CPT_RESULTS))
+
     form = CasePlanTemplate()
     return render(request,
                   'forms/case_plan_template.html',
                   {'form': form, 'init_data': init_data,
                    'vals': vals})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @login_required
