@@ -1,3 +1,4 @@
+// validBench(['cp3d','cp4d','cp5d','cp6d','if_ovc', 'cp1q', 'cp3q', 'cp4q'], ['AYES','AYES','AYES','AYES','AYES','AYES','AYES','AYES'], 'cp1b');
 validBench(['if_ovc', 'cp1q', 'cp3q', 'cp4q'], ['AYES','AYES','AYES','AYES'], 'cp1b');
 validBench(['cp5q', 'cp6q', 'cp7q'], ['AYES','AYES','AYES'], 'cp2b');
 validBench(['u10_know_status', 'cp8q', 'cp9q', 'cp10q', 'cp11q', 'cp12q', 'o10_know_status', 'cp13q', 'cp14q', 'cp15q', 'cp16q', 'cp17q'], ['AYES','AYES','AYES', 'AYES','AYES','AYES', 'AYES','AYES','AYES', 'AYES','AYES','AYES'], 'cp3b');
@@ -20,8 +21,8 @@ validBench(['adole_no_vc_train', 'cp71q','cp72q','cp73q'], ['AYES','AYES','AYES'
 validDate('cp2d','cp1d','AYES','ANNO');
 validDate('cp2q','cp1q','ANNO','AYES');
 
-
-
+var benchmarkScore = 0;
+$('input[name=cp74q]').attr('readonly', true);
 
 
 // ----------------CORE----------------
@@ -44,7 +45,7 @@ function validBench(arrayOfInputsToCheck, arrayOfExpectedValues, idOfBenchmarkQn
             if(thisval !== arrayOfExpectedValues[inde]){
                 $('input[name='+idOfBenchmarkQn+']').removeAttr('disabled');
                 $('input[name='+idOfBenchmarkQn+'][value=ANNO]').prop("checked", true);
-                $('input[name='+idOfBenchmarkQn+']').attr('readonly', true);
+                // console.log('first NOone works');
                 if(thisval === arrayOfExpectedValues[inde]){
                     actualValNo = actualValNo + 1;
                 }else{
@@ -58,11 +59,16 @@ function validBench(arrayOfInputsToCheck, arrayOfExpectedValues, idOfBenchmarkQn
                 if(actualValNo == valToMatch){
                     $('input[name='+idOfBenchmarkQn+']').removeAttr('disabled');
                     $('input[name='+idOfBenchmarkQn+'][value=AYES]').prop("checked", true);
-                    $('input[name='+idOfBenchmarkQn+']').attr('readonly', true);
+                    console.log('2nd YESone works');
+                    //update benchmark score
+                    benchmarkScore = benchmarkScore + 1
+                    $('input[name=cp74q]').val(benchmarkScore);
+                    console.log("added benchmark + 1 = "+benchmarkScore);
+                    //update benchmark score
                 }else{
                     $('input[name='+idOfBenchmarkQn+']').removeAttr('disabled');
                     $('input[name='+idOfBenchmarkQn+'][value=ANNO]').prop("checked", true);
-                    $('input[name='+idOfBenchmarkQn+']').attr('readonly', true);
+                    // console.log('2nd NOone works');
                     if(thisval === arrayOfExpectedValues[inde]){
                         actualValNo = actualValNo + 1;
                     }else{
