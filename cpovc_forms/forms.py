@@ -3530,7 +3530,7 @@ class CparaAssessment(forms.Form):
         attrs={'class': 'form-control',
                'id': 'disbursement_date',
                'data-parsley-required': "true",
-               'data-parsley-group': 'group0'
+               'data-parsley-group': 'group1'
                # type': 'hidden'
                }))
     cp3d = forms.ChoiceField(
