@@ -1,7 +1,7 @@
 // QuestionSkipLogic
 //format is:   triggerSkip(inputToCheck,rightValue,questionToGoTo,tabContainingDestinationQn);
-    // Q5 -> Q10
-    triggerSkip('WB_STA_5_1','Unemployed','WB_STA_10_1','2');
+    // Q1 -> Q2
+    triggerSkip('if_ovc','ANNO','cp5q','2');
 
 // endQuestionSkipLogic
 
@@ -66,17 +66,29 @@ function skipToQn(inputToCheck,toQnID,toTabID,unDo) {
     var destinationT = $('input[name="'+toQnID+'"]').closest("tr");
     if(!unDo){
             $("td").attr("tabindex", "-1");
+            $(".form-group").attr("tabindex", "-1");
             $('input[name="'+toQnID+'"]').closest("td").attr("tabindex", "1");
+            $('input[name="'+toQnID+'"]').closest(".form-group").attr("tabindex", "1");
             $('input[name="'+toQnID+'"]').closest("td").focus();
-            $('input[name="'+inputToCheck+'"]').closest("tr").nextUntil(destinationT, "tr").addClass('hidden');
+            $('input[name='+toQnID+']').removeAttr('required');
+			$('input[name='+toQnID+']').attr('data-parsley-required', false);
+            $('input[name="'+toQnID+'"]').closest(".form-group").focus();
+            $('input[name="'+inputToCheck+'"]').closest(".form-group").nextUntil(destinationT, "tr").addClass('hidden');
+            $('input[name="'+inputToCheck+'"]').closest(".form-group").nextUntil(destinationT, ".form-group").addClass('hidden');
             $('input[name="'+toQnID+'"]').closest("td").css('outline', 'thick double #32a1ce');
+            $('input[name="'+toQnID+'"]').closest(".form-group").css('outline', 'thick double #32a1ce');
             console.log("skipping to Qn: "+toQnID+" on Tab: "+toTabID);
         }else{
             $("td").attr("tabindex", "-1");
+            $(".form-group").attr("tabindex", "-1");
             $('input[name="'+inputToCheck+'"]').closest("td").attr("tabindex", "1");
+            $('input[name="'+inputToCheck+'"]').closest(".form-group").attr("tabindex", "1");
             $('input[name="'+inputToCheck+'"]').closest("td").focus();
+            $('input[name="'+inputToCheck+'"]').closest(".form-group").focus();
             $('input[name="'+inputToCheck+'"]').closest("tr").nextUntil(destinationT, "tr").removeClass('hidden');
+            $('input[name="'+inputToCheck+'"]').closest(".form-group").nextUntil(destinationT, ".form-group").removeClass('hidden');
             $('input[name="'+inputToCheck+'"]').closest("td").css('outline', 'thick double #32a1ce');
+            $('input[name="'+inputToCheck+'"]').closest(".form-group").css('outline', 'thick double #32a1ce');
             console.log("UNDO skipping to Qn: "+toQnID+" on Tab: "+toTabID);
         }
     //hideQnsBtwn

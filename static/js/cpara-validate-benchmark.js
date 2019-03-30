@@ -95,7 +95,7 @@ function validDate(dateFieldName, radioToCheck, rightValue, wrongValue) {
 		if(valu === rightValue){
 			$('input[name='+dateFieldName+']').val('');
 			$('input[name='+dateFieldName+']').attr('disabled', true);
-			$('input[name='+dateFieldName+']').attr('required');
+			$('input[name='+dateFieldName+']').removeAttr('required');
 			$('input[name='+dateFieldName+']').attr('data-parsley-required', false);
 		}else if(valu === wrongValue){
 			$('input[name='+dateFieldName+']').attr('data-parsley-required', true);
