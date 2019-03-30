@@ -8628,6 +8628,7 @@ def case_plan_template(request, id):
         )
         ovccareevent.save()
         new_events_pk = ovccareevent.pk
+        print ('yyyyyyyyyyyy', OVCCareEvents.objects.get(event=new_events_pk))
 
         my_request=request.POST.get('final_submission')
 
@@ -8635,16 +8636,17 @@ def case_plan_template(request, id):
 
         if my_request:
             caseplandata= json.loads(my_request)
+            print ('caseplan', caseplandata)
 
-            for all_data in my_request:
-                my_domain=caseplandata['domain']
-                my_goal=caseplandata['goal']
-                my_gap=caseplandata['gaps']
-                my_action=caseplandata['action']
-                my_service=caseplandata['service']
-                my_responsible=caseplandata['responsible']
-                my_results=caseplandata['results']
-                my_reason=caseplandata['reason']
+            for all_data in caseplandata:
+                my_domain=all_data['domain']
+                my_goal=all_data['goal']
+                my_gap=all_data['gaps']
+                my_action=all_data['actions']
+                my_service=all_data['services']
+                my_responsible=all_data['responsible']
+                my_results=all_data['results']
+                my_reason=all_data['reasons']
 
 
                 print ('my domain', my_domain)
@@ -8662,7 +8664,8 @@ def case_plan_template(request, id):
                         results=my_results,
                         reasons=my_reason,
                         case_plan_status='D',
-                        event = new_events_pk,
+                        event= OVCCareEvents.objects.get(event=new_events_pk)
+                        # event = new_events_pk,
                         ).save()
 
     household_id = None

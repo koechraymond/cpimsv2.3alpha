@@ -206,39 +206,36 @@ function AddRow() {
     });
 
 }
-var fd = {};
+var fd2 = [];
 $('#mysubmit-f1a-0').click(function (e) { 
     e.preventDefault();
     // console.log("final_input: "+JSON.stringify(final_input));
     $.each(final_input['domain'], function (indexDomain, oneDomain) { 
-        fd[indexDomain] = {};
-        fd[indexDomain] = {};
-        fd[indexDomain] = {};
-        fd[indexDomain] = {};
-        fd[indexDomain] = {};
-        fd[indexDomain] = {};
-        fd[indexDomain] = {};
-        fd[indexDomain] = {};
+        var answrs = {};
          
-        fd[indexDomain]['domain'] = [];
-        fd[indexDomain]['goal'] = [];
-        fd[indexDomain]['gaps'] = [];
-        fd[indexDomain]['actions'] = [];
-        fd[indexDomain]['services'] = [];
-        fd[indexDomain]['responsible'] = [];
-        fd[indexDomain]['date'] = [];
-        fd[indexDomain]['results'] = [];
+        answrs['domain'] = [];
+        answrs['goal'] = [];
+        answrs['gaps'] = [];
+        answrs['actions'] = [];
+        answrs['services'] = [];
+        answrs['responsible'] = [];
+        answrs['date'] = [];
+        answrs['results'] = [];
+        answrs['reasons'] = [];
 
-         fd[indexDomain]['domain'] = final_input['domain'][indexDomain];
-         fd[indexDomain]['goal'] = final_input['goal'][indexDomain];
-         fd[indexDomain]['gaps'] = final_input['gaps'][indexDomain];
-         fd[indexDomain]['actions'] = final_input['actions'][indexDomain];
-         fd[indexDomain]['services'] = final_input['services'][indexDomain];
-         fd[indexDomain]['responsible'] = final_input['responsible'][indexDomain];
-         fd[indexDomain]['date'] = final_input['date'][indexDomain];
-         fd[indexDomain]['results'] = final_input['results'][indexDomain];
+        answrs['domain'] = final_input['domain'][indexDomain];
+        answrs['goal'] = final_input['goal'][indexDomain];
+        answrs['gaps'] = final_input['gaps'][indexDomain];
+        answrs['actions'] = final_input['actions'][indexDomain];
+        answrs['services'] = final_input['services'][indexDomain];
+        answrs['responsible'] = final_input['responsible'][indexDomain];
+        answrs['date'] = final_input['date'][indexDomain];
+        answrs['results'] = final_input['results'][indexDomain];
+        answrs['reasons'] = final_input['reasons'][indexDomain];
+
+        fd2.push(answrs);
     });
-    console.log("fd: "+JSON.stringify(fd));
-    $('input[name=final_submission').val(JSON.stringify(fd));
+    console.log("answrs: "+JSON.stringify(fd2));
+    $('input[name=final_submission').val(JSON.stringify(fd2));
     $('#new_f1a').submit();
 });
