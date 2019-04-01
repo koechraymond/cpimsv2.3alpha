@@ -8639,10 +8639,10 @@ def case_plan_template(request, id):
         child = RegPerson.objects.get(id=id)
         house_hold = OVCHouseHold.objects.get(id=OVCHHMembers.objects.get(person=child).house_hold_id)
         person = RegPerson.objects.get(pk=int(id))
-        event_type_id = 'FHSA'
-        date_of_wellbeing_event = convert_date(datetime.today().strftime('%d-%b-%Y'))
+        event_type_id = 'CPARA'
+        date_of_case_plan_event = convert_date(datetime.today().strftime('%d-%b-%Y'))
 
-        """ Save Wellbeing-event """
+        """ Save Case_Plan-event """
         # get event counter
         event_counter = OVCCareEvents.objects.filter(
             event_type_id=event_type_id, person=id, is_void=False).count()
@@ -8651,7 +8651,8 @@ def case_plan_template(request, id):
             event_type_id=event_type_id,
             event_counter=event_counter,
             event_score=0,
-            date_of_event=date_of_wellbeing_event,
+            date_of_event=date_of_case_plan_event,
+
             created_by=request.user.id,
             person=RegPerson.objects.get(pk=int(id)),
             house_hold=house_hold
@@ -8683,10 +8684,10 @@ def case_plan_template(request, id):
                         household = house_hold,
                         need=my_gap,
                         priority=my_action,
-                        cp_service = SetupList.objects.get(item_id = 'HC6S'),
+                        cp_service = SetupList.objects.get(item_id = my_service),
                         responsible= my_responsible,
                         # form=OVCCareForms.objects.get(name='OVCCareCasePlan'),
-                        completion_date = '2019-03-20',
+                        completion_date = my_date,
                         results=my_results,
                         reasons=my_reason,
                         case_plan_status='D',
