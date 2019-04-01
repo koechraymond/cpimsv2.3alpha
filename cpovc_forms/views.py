@@ -8561,10 +8561,14 @@ def new_cpara(request, id):
     care_giver=RegPerson.objects.get(id=OVCRegistration.objects.get(person=child).caretaker_id)
     house_hold = OVCHouseHold.objects.get(id=OVCHHMembers.objects.get(person=child).house_hold_id)
     
-    ward_id = RegPersonsGeo.objects.get(person=child).area_id
+    ward_id = RegPersonsGeo.objects.filter(person=child).order_by('-date_linked').first().area_id
+
     ward = SetupGeography.objects.get(area_id=ward_id)
-    print ward
+    subcounty = SetupGeography.objects.get(area_id=ward.parent_area_id)
+    county = SetupGeography.objects.get(area_id=subcounty.parent_area_id)
+    print ('xxxxxxx', ward_id)
     if ward.area_type_id == 'GLTL':
+        # ward = SetupGeography.objects.get(area_id =ward.parent_area_id)
         subcounty = SetupGeography.objects.get(area_id=ward.parent_area_id)
         county = SetupGeography.objects.get(area_id=subcounty.parent_area_id)
     elif ward.area_type_id == 'GDIS':
