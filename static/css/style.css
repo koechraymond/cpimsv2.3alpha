@@ -6400,4 +6400,84 @@ select,input,textarea{
 .form-control {
     padding: 0px 12px !important;
 }
+/* .form-group > label[for]{
+    display: block;
+}
+#parsley-id-multiple-cp1d .parsley-required{
+    text-align: left;
+}
+#parsley-id-multiple-cp1d.parsley-errors-list,
+.col-md-2 .parsley-errors-list {
+    position: absolute;
+    float: right;
+    right: 0;
+    bottom: 5px;
+} */
+
+.parsley-errors-list{
+    z-index: 1;
+    background: white;
+    border-radius: 2px;
+}
+.parsley-errors-list.filled{
+    display: inline-block;
+    position: absolute;
+    display: block;
+    left: 0;
+}
+
+.ul-flow{
+    margin-left: -55px;
+    list-style: circle;
+}
+.ul-flow, #tbl_reasons > div{
+    min-width: 230px;
+    max-height: 195px;
+    overflow-y: auto;
+}
+.multiselect.dropdown-toggle.btn,
+.multiselect-selected-text,
+.dropdown-menu.multiselect-container > li > a{
+    white-space: normal !important;
+}
+
+.formlabel{
+    text-align: left !important;
+}
+.multiselect.dropdown-toggle.btn{
+    min-width: 280px !important;
+    max-width: 350px !important;
+}
+.slimtable td{
+    font-size: 0.9em;
+}
 /* CUSTOM */
+
+
+
+/*DanChanges*/
+.nav-pills.nav-stacked li{
+    padding: 3px;
+    border-radius: 3px;
+    margin: 2px auto;
+}
+.nav-pills.nav-stacked li.active,
+.nav-pills.nav-stacked li:hover,
+.nav-pills.nav-stacked li:focus,
+.nav-pills.nav-stacked li:active{
+    background-color: #00acac;
+    color: #ffffff;
+}
+td:focus{
+    outline: thick double #32a1ce;
+}
+.hidden{
+    display: none;
+}
+.well td ul{
+    list-style: none;
+}
+/*DanChanges*/
+
+
+
