@@ -8555,6 +8555,29 @@ def new_cpara(request, id):
         sibling_person=id, is_void=False, date_delinked=None)
     oguardians = RegPersonsGuardians.objects.select_related().filter(
         guardian_person=id, is_void=False, date_delinked=None)
+    child = RegPerson.objects.get(id=id)
+    ovc_id = int(id)
+    creg = OVCRegistration.objects.get(is_void=False, person_id=ovc_id)
+    care_giver=RegPerson.objects.get(id=OVCRegistration.objects.get(person=child).caretaker_id)
+    house_hold = OVCHouseHold.objects.get(id=OVCHHMembers.objects.get(person=child).house_hold_id)
+    
+    ward_id = RegPersonsGeo.objects.filter(person=child).order_by('-date_linked').first().area_id
+
+    ward = SetupGeography.objects.get(area_id=ward_id)
+    subcounty = SetupGeography.objects.get(area_id=ward.parent_area_id)
+    county = SetupGeography.objects.get(area_id=subcounty.parent_area_id)
+    print ('xxxxxxx', ward_id)
+    if ward.area_type_id == 'GLTL':
+        # ward = SetupGeography.objects.get(area_id =ward.parent_area_id)
+        subcounty = SetupGeography.objects.get(area_id=ward.parent_area_id)
+        county = SetupGeography.objects.get(area_id=subcounty.parent_area_id)
+    elif ward.area_type_id == 'GDIS':
+        subcounty = ward
+        ward = ''
+        county = SetupGeography.objects.get(area_id=subcounty.parent_area_id)
+
+
+    # orgunit = RegPersonsOrgUnits.objects.get(person=child)
     form = CparaAssessment()
     return render(request,
                   'forms/new_cpara.html',
@@ -8563,7 +8586,16 @@ def new_cpara(request, id):
                       'person': id,
                       'siblings': siblings,
                       'osiblings': osiblings,
-                      'oguardians': oguardians
+                      'oguardians': oguardians,
+                      'child' : child,
+                      'creg' : creg,
+                      'caregiver': care_giver,
+                      'household' : house_hold,
+                      'ward': ward,
+                      'subcounty': subcounty,
+                      'county': county
+                    #   'orgunit' : orgunit,
+
                   })
 
 
