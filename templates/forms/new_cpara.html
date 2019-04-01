@@ -394,7 +394,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        {{form.cp2q}}
+                                                        {% comment %} {{form.cp2q}} {% endcomment %}
                                                     </div>
                                                 </div>
                                             </div>
@@ -501,7 +501,7 @@ print(blu.sing("'Happy'"))
                                             <div class="col-md-12">
                                                 <div class="form-group" id="u10_know_status_Qn">
                                                     <div class="col-md-9">
-                                                        <label class="control-label formlabel">Is child under ten and/or doesnt know their status? </label>
+                                                        <label class="control-label formlabel">Is child under ten and/or doesn't know their status? </label>
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
@@ -593,6 +593,7 @@ print(blu.sing("'Happy'"))
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
+                                                    <input type="text" class="hidden" name="q3p6" value=""/>
                                                     {% if siblings or osiblings %}
                                                         <table class="table table-condensed table-responsive">
                                                             <thead>
@@ -614,6 +615,7 @@ print(blu.sing("'Happy'"))
                                                                     </td>
                                                                     <td  id={{ sibling.sibling_person.id }}_q3p6_Qn>
                                                                         <label class="radio-inline">
+                                                                            
                                                                             <input type="radio" name="{{ sibling.sibling_person.id }}_q3p6" value="AYES">
                                                                                 Yes
                                                                         </label>
@@ -1113,6 +1115,23 @@ print(blu.sing("'Happy'"))
 
                                     <div class="row">
                                         <div class="col-md-12">
+                                            <div class="form-group" id="child_w_disab_hse_Qn">
+                                                <div class="col-md-9">
+                                                    <label class="control-label formlabel">Is there a child(ren) ten years and above in the household? </label>
+                                                </div>
+                                                <div class="col-md-3 text-left">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="child_abv_10y" value="AYES">
+                                                        Yes
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="child_abv_10y" value="ANNO">
+                                                        No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
                                             <div class="form-group" id="cp35q_Qn">
                                                 <div class="col-md-9">
                                                     <label class="control-label formlabel">7.3 Have you had at least two cooked meals per day in the past two months? </label>
@@ -1320,7 +1339,7 @@ print(blu.sing("'Happy'"))
                                                 <div class="col-md-12">
                                                     <div class="form-group" id="child_hd_hse_Qn">
                                                         <div class="col-md-9">
-                                                            <label class="control-label formlabel">Is the houdehold child-headed? </label>
+                                                            <label class="control-label formlabel">Is the household child-headed? </label>
                                                         </div>
                                                         <div class="col-md-3 text-left">
                                                             <label class="radio-inline">
@@ -1485,6 +1504,7 @@ print(blu.sing("'Happy'"))
                                                 <hr>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
+                                                        <input type="text" class="hidden" name="q12p4" value=""/>
                                                         {% if siblings or osiblings %}
                                                             <table class="table table-condensed table-responsive">
                                                                 <thead>
@@ -1975,17 +1995,17 @@ print(blu.sing("'Happy'"))
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="form-group" id="adole_no_vc_train_Qn">
+                                                    <div class="form-group" id="adole_in_vc_train_Qn">
                                                         <div class="col-md-9">
-                                                            <label class="control-label formlabel">Are there no adolescents in the household enrolled in vocational training? </label>
+                                                            <label class="control-label formlabel">Are there any adolescents in the household enrolled in vocational training? </label>
                                                         </div>
                                                         <div class="col-md-3 text-left">
                                                             <label class="radio-inline">
-                                                                <input type="radio" name="adole_no_vc_train" value="AYES">
+                                                                <input type="radio" name="adole_in_vc_train" value="AYES">
                                                                 Yes
                                                             </label>
                                                             <label class="radio-inline">
-                                                                <input type="radio" name="adole_no_vc_train" value="ANNO">
+                                                                <input type="radio" name="adole_in_vc_train" value="ANNO">
                                                                 No
                                                             </label>
                                                         </div>
