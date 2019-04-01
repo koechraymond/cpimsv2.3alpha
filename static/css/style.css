@@ -1071,6 +1071,11 @@ legend {
     background: #bee2ef;
     color: #31708f;
 }
+.note.note-default {
+    border-color: #979797;
+    background: #bbbbbb;
+    color: #3b3b3b;
+}
 .note.note-info h1, 
 .note.note-info h2, 
 .note.note-info h3, 
