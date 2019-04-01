@@ -8628,7 +8628,6 @@ def case_plan_template(request, id):
         )
         ovccareevent.save()
         new_events_pk = ovccareevent.pk
-        print ('yyyyyyyyyyyy', OVCCareEvents.objects.get(event=new_events_pk))
 
         my_request=request.POST.get('final_submission')
 
@@ -8636,8 +8635,6 @@ def case_plan_template(request, id):
 
         if my_request:
             caseplandata= json.loads(my_request)
-            print ('caseplan', caseplandata)
-
             for all_data in caseplandata:
                 my_domain=all_data['domain']
                 my_goal=all_data['goal']
@@ -8647,9 +8644,13 @@ def case_plan_template(request, id):
                 my_responsible=all_data['responsible']
                 my_results=all_data['results']
                 my_reason=all_data['reasons']
+                my_date=all_data['date']
 
 
                 print ('my domain', my_domain)
+                x=OVCCareForms.objects.get(name='OVCCareCasePlan')
+                print ('ocvvvvv', x)
+                print ('vvv', my_date)
 
                 OVCCareCasePlan(
                         domain=my_domain,
@@ -8660,12 +8661,12 @@ def case_plan_template(request, id):
                         priority=my_action,
                         cp_service = SetupList.objects.get(item_id = 'HC6S'),
                         responsible= my_responsible,
+                        form=OVCCareForms.objects.get(name='OVCCareCasePlan'),
                         completion_date = '2019-03-20',
                         results=my_results,
                         reasons=my_reason,
                         case_plan_status='D',
                         event= OVCCareEvents.objects.get(event=new_events_pk)
-                        # event = new_events_pk,
                         ).save()
 
     household_id = None
