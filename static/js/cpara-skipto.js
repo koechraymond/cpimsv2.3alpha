@@ -3,6 +3,7 @@
     // Q1 -> Q2
     triggerSkip('if_ovc','ANNO','cp5q','2');
     triggerSkip('u10_know_status','ANNO','q3p6','2');
+    triggerSkip('o10_know_status','ANNO','cp19q','2');
     triggerSkip('adole_preg_hiv','ANNO','cp24q','2');
     triggerSkip('adole_preg_testpos','ANNO','cp24q','2');
     triggerSkip('adole_wo_deliv','ANNO','cp24q','2');
