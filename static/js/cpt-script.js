@@ -207,8 +207,8 @@ function AddRow() {
 
 }
 var fd2 = [];
-$('#mysubmit-f1a-0').click(function (e) { 
-    e.preventDefault();
+$('#submit-caseplan').click(function (e) { 
+    // e.preventDefault();
     // console.log("final_input: "+JSON.stringify(final_input));
     $.each(final_input['domain'], function (indexDomain, oneDomain) { 
         var answrs = {};
