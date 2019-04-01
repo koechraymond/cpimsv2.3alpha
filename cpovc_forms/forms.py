@@ -153,14 +153,14 @@ FAVORITE_COLORS_CHOICES = (
     )
 CPT_DOMAIN_CHOICES = (('DEDU', 'Schooled'), ('DHES', 'Stable'), ('DPRO', 'Safe'), ('DHNU', 'Healthy'))
 CPT_GOALS_CHOICES = (
-    ('GHSK', 'All members of enrolled household know their HIV status'),
-    ('GHSD', 'All HIV positive members of the household disclose their HIV status'),
-    ('GHVS', 'All HIV positive members of the household are virally suppressed'),
-    ('GBEN', 'Household able to meet the basic and emergency needs of the members'),
-    ('GSSN', 'All household members have identified a social support network for psychosocial and emotional support.'),
-    ('GSSA', 'All household members articulate ways to seek support in case of abuse'),
-    ('GCPD', 'Caregivers demonstrate positive discipline'),
-    ('GOST', 'All school going children transition to the next level')
+    ('CPTG1he', 'All members of enrolled household know their HIV status'),
+    ('CPTG2he', 'All HIV positive members of the household disclose their HIV status'),
+    ('CPTG3he', 'All HIV positive members of the household are virally suppressed'),
+    ('CPTG1st', 'Household able to meet the basic and emergency needs of the members'),
+    ('CPTG1sa', 'All household members have identified a social support network for psychosocial and emotional support.'),
+    ('CPTG2sa', 'All household members articulate ways to seek support in case of abuse'),
+    ('CPTG3sa', 'Caregivers demonstrate positive discipline'),
+    ('CPTG1sc', 'All school going children transition to the next level')
 )
 
 CPT_GOALS_HEALTHY_CHOICES = (
@@ -3530,7 +3530,7 @@ class CparaAssessment(forms.Form):
         attrs={'class': 'form-control',
                'id': 'disbursement_date',
                'data-parsley-required': "true",
-               'data-parsley-group': 'group0'
+               'data-parsley-group': 'group1'
                # type': 'hidden'
                }))
     cp3d = forms.ChoiceField(

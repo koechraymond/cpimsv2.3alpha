@@ -159,30 +159,6 @@
 
                                 <div id="error_assessment"></div>
                                 <!-- begin col-6 -->
-								<div class="row">
-									<div class="col-md-3">
-										<div class="form-group">
-											<label class="control-label formlabel">Is this the first Case Plan Readiness Assessment?:</label><br/>
-											
-										</div>
-									</div>
-									<div class="col-md-2">
-										<label class="radio-inline">
-											<input type="radio" name="if_first_cpara" value="AYES">
-											Yes
-										</label>
-										<label class="radio-inline">
-											<input type="radio" name="if_first_cpara" value="ANNO">
-											No
-										</label>
-									</div>
-									<div class="col-md-4">
-										<div class="form-group">
-											<label class="control-label formlabel">If No, give date of Previous Case Plan Readiness Assessment:</label><br/>
-											<input type="date" class="form-control" style="max-width: 200px;" name="date_first_cpara"/>
-										</div>
-									</div>
-								</div>
                                 <table id="assessment_manager_table" class="table">
                                     <thead>
                                         <tr id="id_inputHeaders1">
@@ -371,7 +347,11 @@
                                 <div class="form-group">
                                     <label class="control-label col-md-4 col-sm-4"></label>
                                     <div class="col-md-6 col-sm-6">
-                                        <button id="submit-caseplan" class="btn btn-primary" type="button">Submit Assessment</button>
+<<<<<<< Updated upstream
+                                        <button id="mysubmit-f1a-0" class="btn btn-primary" type="submit">Submit Case Plan</button>
+=======
+                                        <button id="mysubmit-f1a-0" class="btn btn-primary" type="button">Submit Assessment</button>
+>>>>>>> Stashed changes
                                         <a href="#" class="btn btn-white">Cancel</a>
                                     </div>
                                 </div>
@@ -463,19 +443,4 @@
 <script src="{% static 'js/bootstrap-table.min.js' %}"></script>
 <script src="{% static 'js/bootstrap-table-locale-all.min.js' %}"></script>
 <script src="{% static 'js/cpt-script.js' %}"></script>	
-
-<script>
-	
-    $('input[name=date_first_cpara]').attr('disabled', true);
-	$('input[name=if_first_cpara]').change(function(){
-		var valu = $(this).val();
-		if(valu === 'AYES'){
-			$('input[name=date_first_cpara]').val('');
-			$('input[name=date_first_cpara]').attr('disabled', true);
-		}else if(valu === 'ANNO'){
-			$('input[name=date_first_cpara]').val('');
-			$('input[name=date_first_cpara]').removeAttr('disabled');
-		}
-	});
-</script>
 {% endblock %}
