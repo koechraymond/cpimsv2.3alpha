@@ -96,10 +96,13 @@ function skipToQn(inputToCheck,toQnID,toTabID,unDo) {
             
             $('input[name="'+inputToCheck+'"]').closest(".col-md-12").nextUntil(destinationT, ".col-md-12").find('input').attr('data-parsley-required', false).removeAttr('required');
 
-            $('input[name="'+inputToCheck+'"]').closest(".col-md-12").nextUntil(destinationT, ".col-md-12").find('.form-group').addClass('hidden').after('<span id="skyp"><br><i style="color: grey;">Skipped question</i><br/></span>');
+            $('input[name="'+inputToCheck+'"]').closest(".col-md-12").nextUntil(destinationT, ".col-md-12").find('.form-group').not('.note-info').addClass('hidden').after('<span id="skyp"><br><i style="color: grey;">Skipped question</i><br/></span>');
+            //tick Benchmark
+            $('input[name="'+inputToCheck+'"]').closest(".col-md-12").nextUntil(destinationT, ".col-md-12").find('.form-group.note-info input[value="AYES"]').prop('checked',true);
+            //tick Benchmark
 
-            $('input[name="'+toQnID+'"]').closest("td").css('outline', '1px solid #32a1ce');
-            $('input[name="'+toQnID+'"]').closest(".form-group").css('outline', '1px solid #32a1ce');
+            $('input[name="'+toQnID+'"]').closest("td").css('outline', '3px solid #32a1ce');
+            $('input[name="'+toQnID+'"]').closest(".form-group").css('outline', '3px solid #32a1ce');
             console.log("skipping to Qn: "+toQnID+" on Tab: "+toTabID);
         }
         if(unDo){
