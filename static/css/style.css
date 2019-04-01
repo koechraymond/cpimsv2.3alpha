@@ -6440,6 +6440,10 @@ select,input,textarea{
 .dropdown-menu.multiselect-container > li > a{
     white-space: normal !important;
 }
+
+.formlabel{
+    text-align: left !important;
+}
 .multiselect.dropdown-toggle.btn{
     min-width: 280px !important;
     max-width: 350px !important;
