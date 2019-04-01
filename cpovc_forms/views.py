@@ -8685,7 +8685,7 @@ def case_plan_template(request, id):
                         priority=my_action,
                         cp_service = SetupList.objects.get(item_id = 'HC6S'),
                         responsible= my_responsible,
-                        form=OVCCareForms.objects.get(name='OVCCareCasePlan'),
+                        # form=OVCCareForms.objects.get(name='OVCCareCasePlan'),
                         completion_date = '2019-03-20',
                         results=my_results,
                         reasons=my_reason,
