@@ -132,36 +132,25 @@ print(blu.sing("'Happy'"))
                                                                 <tr>
                                                                     <td style="width: 10%"><b>Name of Organization (LIP):</b></td>
                                                                     <td style="width: 90%">{{ creg.child_cbo.org_unit_name }}</td>
-                                                                </tr>                                                                
-                                                                <tr>
-                                                                    <td><b>ADDRESS</b></td>
                                                                 </tr>
                                                                 <tr>
                                                                     <td style="width: 25%"><b>County:</b></td>
                                                                     <td style="width: 25%">{{ county.area_name }}</td>
                                                                     <td style="width: 25%"><b>Sub County:</b></td>
                                                                     <td style="width: 25%">{{subcounty.area_name}}</td>
-                                                                </tr>
-                                                                <tr>
                                                                     <td style="width: 25%"><b>Ward</b></td>
                                                                     <td style="width: 25%">{{ward.area_name}}</td>
-                                                                    <td style="width: 25%"><b>Village/Estate:</b></td>
-                                                                    <td style="width: 25%">{{ward.area_name}}</td>                            
-                                                                </tr>
+                                                                </tr>                                                                
                                                                 <tr>
                                                                     <td style="width: 50%"><b>Name of case worker/CHV conducting assesment:</b></td>
                                                                     <td>{{ creg.child_chv.full_name }}</td>
                                                                 <tr>
                                                                     <td style="width: 20%"><b>Name of SDP staff/Case Manager:</b></td>
-                                                                    <td></td>
+                                                                    <td style="width: 90%">{{ creg.child_cbo.org_unit_name }}</td>
                                                                 </tr>
                                                                     <td style="width: 20%"><b>Name of Caregiver:</b></td>
                                                                     <td style="width: 20%">{{caregiver}}</td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td style="width: 20%"><b>Household unique number:</b></td>
-                                                                    <td style="width: 20%">{{household}}</td>
-                                                                </tr>
+                                                                </tr>                                                                
                                                                 <tr>
                                                                     <td style="width: 20%"><b>Caregiver ID Number:</b></td>                                                                    
                                                                     <td style="width: 20%">{{household.head_identifier }}</td>                                                                    
