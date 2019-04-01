@@ -1071,6 +1071,11 @@ legend {
     background: #bee2ef;
     color: #31708f;
 }
+.note.note-default {
+    border-color: #979797;
+    background: #bbbbbb;
+    color: #3b3b3b;
+}
 .note.note-info h1, 
 .note.note-info h2, 
 .note.note-info h3, 
@@ -6439,6 +6444,10 @@ select,input,textarea{
 .multiselect-selected-text,
 .dropdown-menu.multiselect-container > li > a{
     white-space: normal !important;
+}
+
+.formlabel{
+    text-align: left !important;
 }
 .multiselect.dropdown-toggle.btn{
     min-width: 280px !important;

@@ -109,110 +109,70 @@ print(blu.sing("'Happy'"))
                                 <div class="wizard-step-1">
                                     <div class="panel-body">
                                         <div class="row">
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label formlabel">Date of Assessment:</label><br/>
                                                     <input type="date" class="form-control" placeholder=" ">
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label formlabel">Date enrolled in the project:</label><br/>
                                                     <input type="date" class="form-control" placeholder=" ">
                                                 </div>
-                                            </div>
-                                            <div class="col-md-4">
-                                                <div class="form-group">
-                                                    <label class="control-label formlabel">Name of Organization (LIP):</label><br/>
-                                                    <input type="text" class="form-control" placeholder=" ">
-                                                </div>
-                                            </div>
+                                            </div> 
                                         </div>
                                         <hr/>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <h5 class="text-bold"><u>Address</u></h5>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label class="control-label formlabel">County:</label><br/>
-                                                    <input type="text" class="form-control" placeholder=" ">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label class="control-label formlabel">Sub-county:</label><br/>
-                                                    <input type="text" class="form-control" placeholder=" ">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label class="control-label formlabel">Ward:</label><br/>
-                                                    <input type="text" class="form-control" placeholder=" ">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label class="control-label formlabel">Village/Estate:</label><br/>
-                                                    <input type="text" class="form-control" placeholder=" ">
-                                                </div>
-                                            </div>
+                                        <div class="panel-body">
+                                            <form action="." method="post" name="ovcreg_form" id="ovcreg_form" data-parsley-validate="true">
+                                                {% csrf_token %}
+                                                    <input type="hidden" name="ovc_id" id="ovc_id" value="{{ creg.person_id }}">
+                                                        <table width="100%" class="table table-profile">
+                                                            <tbody>
+                                                                <tr>
+                                                                    <td style="width: 10%"><b>Name of Organization (LIP):</b></td>
+                                                                    <td style="width: 90%">{{ creg.child_cbo.org_unit_name }}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width: 25%"><b>County:</b></td>
+                                                                    <td style="width: 25%">{{ county.area_name }}</td>
+                                                                    <td style="width: 25%"><b>Sub County:</b></td>
+                                                                    <td style="width: 25%">{{subcounty.area_name}}</td>
+                                                                    <td style="width: 25%"><b>Ward:</b></td>
+                                                                    <td style="width: 25%">{{ward.area_name}}</td>
+                                                                </tr>                                                                
+                                                                <tr>
+                                                                    <td style="width: 50%"><b>Name of case worker/CHV conducting assesment:</b></td>
+                                                                    <td>{{ creg.child_chv.full_name }}</td>
+                                                                <tr>
+                                                                    <td style="width: 20%"><b>Name of SDP staff/Case Manager:</b></td>
+                                                                    <td style="width: 90%">{{ creg.child_cbo.org_unit_name }}</td>
+                                                                </tr>
+                                                                    <td style="width: 20%"><b>Name of Caregiver:</b></td>
+                                                                    <td style="width: 20%">{{caregiver}}</td>
+                                                                </tr>                                                                
+                                                                <tr>
+                                                                    <td style="width: 20%"><b>Caregiver ID Number:</b></td>                                                                    
+                                                                    <td style="width: 20%">{{household.head_identifier }}</td>                                                                    
+                                                                    <td style="width: 20%"><b>Caregiver Gender:</b></td>
+                                                                    <td style="width: 20%">{% if caregiver.sex_id == 'SMAL' %}
+                                                                            Male
+                                                                        {% endif %}
+                                                                        {% if caregiver.sex_id == 'SFEM' %}
+                                                                            Female
+                                                                        {% endif %}</td>
+                                                                </tr>
+                                                                <tr>
+                                                                    <td style="width: 20%"><b>Age of Caregiver:</b></td>
+                                                                    <td style="width: 20%">{{caregiver.date_of_birth|gen_age}}</td>
+                                                                    <td style="width: 20%"><b>Caregiver Phone Number:</b></td>
+                                                                    <td style="width: 20%">{{caregiver.des_phone_number}}</td>
+                                                                </tr>                                              
+                                                            </tbody>
+                                                        </table> 
+                                                </form>
                                         </div>
-                                        <hr/>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label class="control-label formlabel">Name of Caregiver:</label><br/>
-                                                    <input type="text" class="form-control" placeholder=" ">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label class="control-label formlabel">Household unique number:</label><br/>
-                                                    <input type="text" class="form-control" placeholder=" ">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label class="control-label formlabel">Name of case worker/CHV conducting assesment:</label><br/>
-                                                    <input type="text" class="form-control" placeholder=" ">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label class="control-label formlabel">Name of SDP staff/Case Manager:</label><br/>
-                                                    <input type="text" class="form-control" placeholder=" ">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <br/>
-                                        <div class="row">
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label class="control-label formlabel">Caregiver ID Number:</label><br/>
-                                                    <input type="text" class="form-control" placeholder=" ">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label class="control-label formlabel">Caregiver Gender:</label><br/>
-                                                    <input type="text" class="form-control" placeholder=" ">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label class="control-label formlabel">Age of Caregiver:</label><br/>
-                                                    <input type="text" class="form-control" placeholder=" ">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3">
-                                                <div class="form-group">
-                                                    <label class="control-label formlabel">Caregiver Phone Number:</label><br/>
-                                                    <input type="text" class="form-control" placeholder=" ">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <hr/>
+                                        <hr/> 
                                         <div class="row">
                                             <div class="col-md-4">
                                                 <div class="form-group">
@@ -222,7 +182,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <div class="col-md-8">
                                                 <div class="form-group">
-                                                    <label class="control-label formlabel">If No, date of Previous Case Plan Readiness Assessment:</label><br/>
+                                                    <label class="control-label formlabel">If No, give date of Previous Case Plan Readiness Assessment:</label><br/>
                                                     {{ form.cp2d }}
                                                 </div>
                                             </div>
@@ -347,20 +307,19 @@ print(blu.sing("'Happy'"))
                                     <div class="panel-body">
                                         <div class="row">
 
-
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group note note-default" id="if_ovc_Qn">
                                                     <div class="col-md-9">
-                                                        <label class="control-label formlabel">Is there child (including under 5 year) in the household that is at risk or vulnerable to HIV? </label>
+                                                        <label class="control-label formlabel">Is there a child (including under 5 years) in the household that is at risk or vulnerable to HIV? </label>
                                                         <small>(Chronic illness: Asthma, Cancer, Diabetes, Epileplsy)</small>
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="if_ovc" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="if_ovc" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -368,7 +327,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr/>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp1q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">1.1 Have the children at high risk of HIV been identified through the HIV risk assessment? </label>
                                                     </div>
@@ -378,15 +337,15 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp1qb_Qn">
                                                     <div class="col-md-12">
                                                         <label class="control-label formlabel">If other means please specify </label>
-                                                        <textarea class="form-control" rows="3"></textarea>
+                                                        <textarea class="form-control" name="cp1qb" rows="3"></textarea>
                                                     </div>
                                                 </div>
                                             </div>
                                             <hr/>
-                                            <div class="col-md-12">
+                                            <div class="col-md-12"  id="cp2q_Qn">
                                                 <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label class="control-label formlabel">1.2 If yes in 1.1 above,indicate the date when this was done </label>
@@ -394,13 +353,13 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <div class="col-md-6">
                                                     <div class="form-group">
-                                                        {{form.cp2q}}
+                                                        {% comment %} {{form.cp2q}} {% endcomment %}
                                                     </div>
                                                 </div>
                                             </div>
                                             <hr/>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group"  id="cp3q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">1.3 Have the child(ren)  identified as high risk of HIV been referred for HIV testing services? </label>
                                                     </div>
@@ -411,7 +370,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr/>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group"  id="cp4q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">1.4 For the child(ren) identified at high risk of HIV, has documentation of all children's completed referrals for HIV testing services been documented  in their case file? </label>
                                                     </div>
@@ -421,7 +380,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
-                                                <div class="form-group note note-info">
+                                                <div class="form-group note note-info" id="cp1b_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">Has the household achieved this benchmark? </label>
                                                     </div>
@@ -442,7 +401,7 @@ print(blu.sing("'Happy'"))
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp5q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">2.1 Has the HIV status of all children in the household (positive, negative, or unknown) been documented in their case file? </label>
                                                     </div>
@@ -453,7 +412,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr/>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group"  id="cp6q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">2.2 Is the HIV status of the caregiver (positive, negative or unknown) documented in the case file? </label>
                                                     </div>
@@ -473,7 +432,7 @@ print(blu.sing("'Happy'"))
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp7q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">2.3 If there is a child or children in the household older than the age of five and   living with HIV (as  documented in the case file), do they know their HIV status?  (Partial/ complete)?</label>
                                                     </div>
@@ -484,7 +443,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr/>
                                             <div class="col-md-12">
-                                                <div class="form-group note note-info">
+                                                <div class="form-group note note-info" id="cp2b_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">Has the household achieved this benchmarks?</label>
                                                     </div>
@@ -499,24 +458,24 @@ print(blu.sing("'Happy'"))
 
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group note note-default" id="u10_know_status_Qn">
                                                     <div class="col-md-9">
-                                                        <label class="control-label formlabel">Is child under ten and/or doesnt know their status? </label>
+                                                        <label class="control-label formlabel">Is child under ten and/or doesn't know their status? </label>
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="u10_know_status" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="u10_know_status" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp8q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">3.1 Do you know how many pills (amount of syrup) your child(ren) should take each day? </label>
                                                     </div>
@@ -527,7 +486,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp9q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">3.2 Can you name/identify the medication that your child(ren) take each day? </label>
                                                     </div>
@@ -538,7 +497,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp10q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">3.3 Do you remember when your child(ren) last visited the health clinic? </label>
                                                     </div>
@@ -549,7 +508,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp11q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">3.4 Do you know when your child(ren) next have an appointment at the health clinic? </label>
                                                     </div>
@@ -560,7 +519,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp12q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">3.5 Do you know if your child or adolescent viral load is high or low (from the last viral load test)? Ask and document date of last test and probe to ensure the caregiver understands what low or high VL means</label>
                                                     </div>
@@ -571,17 +530,17 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group note note-default" id="o10_know_status_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">Is child(ren) above ten and know their status? </label>
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="o10_know_status" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="o10_know_status" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -593,6 +552,7 @@ print(blu.sing("'Happy'"))
                                         <div class="row">
                                             <div class="col-md-12">
                                                 <div class="form-group">
+                                                    <input type="text" class="hidden" name="q3p6" value=""/>
                                                     {% if siblings or osiblings %}
                                                         <table class="table table-condensed table-responsive">
                                                             <thead>
@@ -609,57 +569,60 @@ print(blu.sing("'Happy'"))
                                                             <tbody>
                                                                 {% for sibling in siblings %}
                                                                 <tr>
-                                                                    <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
                                                                     <td>
-                                                                          <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
+                                                                        <a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a>
                                                                     </td>
-                                                                    <td>
-                                                                          <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
+                                                                    <td  id={{ sibling.sibling_person.id }}_q3p6_Qn>
+                                                                        <label class="radio-inline">
+                                                                            
+                                                                            <input type="radio" name="{{ sibling.sibling_person.id }}_q3p6" value="AYES">
+                                                                                Yes
+                                                                        </label>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q3p6 value="ANNO">
+                                                                                No
+                                                                        </label>
                                                                     </td>
-                                                                <td>
-                                                                      <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
-                                                                </td>
-                                                                <td>
-                                                                      <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
-                                                                </td>
-                                                                <td>
-                                                                      <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
-                                                                </td>
+                                                                    <td  id={{ sibling.sibling_person.id }}_q3p7_Qn>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q3p7 value="AYES">
+                                                                                Yes
+                                                                        </label>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q3p7 value="ANNO">
+                                                                                No
+                                                                        </label>
+                                                                    </td>
+                                                                    <td  id={{ sibling.sibling_person.id }}_q3p8_Qn>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q3p8 value="AYES">
+                                                                                Yes
+                                                                        </label>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q3p8 value="ANNO">
+                                                                                No
+                                                                        </label>
+                                                                    </td>
+                                                                    <td  id={{ sibling.sibling_person.id }}_q3p9_Qn>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q3p9 value="AYES">
+                                                                                Yes
+                                                                        </label>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q3p9 value="ANNO">
+                                                                                No
+                                                                        </label>
+                                                                    </td>
+                                                                    <td  id={{ sibling.sibling_person.id }}_q3p10_Qn>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q3p10 value="AYES">
+                                                                                Yes
+                                                                        </label>
+                                                                        <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q3p10 value="ANNO">
+                                                                                No
+                                                                        </label>
+                                                                    </td>
                                                                 </tr>
                                                                 {% endfor %}
                                                                 {% for osibling in osiblings %}
@@ -679,19 +642,19 @@ print(blu.sing("'Happy'"))
                                                                 <td class="semi-bold">
                                                                     Tick <u>Yes</u> if <u>YES</u> for all children
                                                                 </td>
-                                                                <td>
+                                                                <td id="cp13q_Qn">
                                                                     {{ form.cp13q }}
                                                                 </td>
-                                                                <td>
+                                                                <td id="cp14q _Qn">
                                                                    {{ form.cp14q }}
                                                                 </td>
-                                                                <td>
+                                                                <td id="cp15q_Qn">
                                                                     {{ form.cp15q }}
                                                                 </td>
-                                                                <td>
+                                                                <td id="cp16q _Qn">
                                                                    {{ form.cp16q }}
                                                                 </td>
-                                                                <td>
+                                                                <td id="cp17q_Qn">
                                                                     {{ form.cp17q }}
                                                                 </td>
                                                             </tr>
@@ -705,7 +668,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr>
                                             <div class="col-md-12">
-                                                <div class="form-group note note-info">
+                                                <div class="form-group note note-info" id="cp3b_Qn">
                                                     <div class="col-md-9">
                                                         <label class="col-md-4 control-label formlabel">Has the household achieved this benchmarks? </label>
                                                     </div>
@@ -720,17 +683,17 @@ print(blu.sing("'Happy'"))
 
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group note note-default" id="adole_preg_hiv_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">Is there an adolescent or woman in the household who is pregnant or has been tested for HIV?</label>
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="adole_preg_hiv" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="adole_preg_hiv" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -738,7 +701,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp19q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">4.1 Is there evidence* that an adolescent or woman in the household is pregnant and has been tested for HIV? </label>
                                                     </div>
@@ -749,17 +712,17 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group note note-default" id="adole_preg_testpos_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">Did the adolescent or woman test HIV positive? </label>
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input name="adole_preg_testpos" type="radio" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input name="adole_preg_testpos" type="radio" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -767,7 +730,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp20q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">4.2 Have you (the pregnant HIV+ adolescent / woman) been enrolled in PMTCT? </label>
                                                     </div>
@@ -778,7 +741,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp21q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">4.3 Have you or are you currently attending ANC services? </label>
                                                     </div>
@@ -789,17 +752,17 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr/>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group note note-default" id="adole_wo_deliv_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">Has the woman/adolescent already delivered? </label>
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="adole_wo_deliv" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="adole_wo_deliv" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -807,7 +770,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr/>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp22q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">4.4 Have you adhered to ART after delivery? </label>
                                                     </div>
@@ -818,7 +781,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr/>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp23q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">If the infant was exposed to HIV during delivery, has the infant been tested for HIV?</label>
                                                     </div>
@@ -836,17 +799,25 @@ print(blu.sing("'Happy'"))
                                                     <div class="col-md-7">
                                                         <div class="row">
                                                             <div class="col-md-6 col-sm-6 col-xs-6">
-                                                                <label class="control-label formlabel">Six Weeks |</label>
-                                                                {{ form.cp23qa }}
-                                                                <label class="control-label formlabel">Six Months |</label>
-                                                                {{ form.cp23qb }}
+                                                                <div id="cp23qa_Qn">
+                                                                    <label class="control-label formlabel">Six Weeks |</label>
+                                                                    {{ form.cp23qa }}
+                                                                </div>
+                                                                <div id="cp23qb_Qn">
+                                                                    <label class="control-label formlabel">Six Months |</label>
+                                                                    {{ form.cp23qb }}
+                                                                </div>
                                                                 <br/>
                                                             </div>
                                                             <div class="col-md-6 col-sm-6 col-xs-6">
-                                                                <label class="control-label formlabel">Twelve Months |</label>
-                                                                {{ form.cp23qc }}
-                                                                <label class="control-label formlabel">Eighteen Months |</label>
-                                                                {{ form.cp23qd }}
+                                                                <div id="cp23qc_Qn">
+                                                                    <label class="control-label formlabel">Twelve Months |</label>
+                                                                    {{ form.cp23qc }}
+                                                                </div>
+                                                                <div id="cp23qd_Qn">
+                                                                    <label class="control-label formlabel">Eighteen Months |</label>
+                                                                    {{ form.cp23qd }}
+                                                                </div>
                                                                 <br/>
                                                             </div>
                                                         </div>
@@ -856,7 +827,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr/>
                                             <div class="col-md-12">
-                                                <div class="form-group note note-info">
+                                                <div class="form-group note note-info" id="cp4b_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">Has the household achieved this benchmarks?</label>
                                                     </div>
@@ -870,17 +841,17 @@ print(blu.sing("'Happy'"))
                                         
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group note note-default" id="adole_gb_hse_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">Are there adolescent girls and boys in the household? </label>
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input name="adole_gb_hse" type="radio" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input name="adole_gb_hse" type="radio" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -888,7 +859,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr/>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp24q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">5.1 Has the caregiver completed Positive parental skills training (with HIV/sexual and reproductive health modules)? </label>
                                                     </div>
@@ -899,7 +870,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr/>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp25q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">5.2 Has the adolescent completed a life skills course or received (by other means) information on positive communication, protection and self-care and sexual and reproductive health? </label>
                                                     </div>
@@ -918,7 +889,7 @@ print(blu.sing("'Happy'"))
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp26q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">5.3 Please tell me at least two behaviors that increase the risk of HIV? </label>
                                                     </div>
@@ -929,7 +900,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr/>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp27q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">5.4 Please tell me at least two behaviors that can help  keep you safe from HIV or from infecting another person with HIV? </label>
                                                     </div>
@@ -950,7 +921,7 @@ print(blu.sing("'Happy'"))
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp28q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">5.5 Please tell me at least two behaviors that increase the risk of HIV? </label>
                                                     </div>
@@ -961,7 +932,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr/>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp29q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">5.6 Please tell me at least two behaviors that can help keep you safe from HIV or from infecting another person with HIV? </label>
                                                     </div>
@@ -972,7 +943,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr/>
                                             <div class="col-md-12">
-                                                <div class="form-group note note-info">
+                                                <div class="form-group note note-info" id="cp5b_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">Has the household achieved this benchmarks?</label>
                                                     </div>
@@ -983,17 +954,17 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr/>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group note note-default" id="child_w_disab_hse_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">Is there a child(ren) with disability in the household? </label>
                                                     </div>
                                                     <div class="col-md-3 text-left">
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="child_w_disab_hse" value="AYES">
                                                             Yes
                                                         </label>
                                                         <label class="radio-inline">
-                                                            <input type="radio" value="">
+                                                            <input type="radio" name="child_w_disab_hse" value="ANNO">
                                                             No
                                                         </label>
                                                     </div>
@@ -1001,7 +972,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr/>
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp30q_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">6.1 Has the child in the household with long term illness or disability been referred for health services and  has accessed the service (e.g. returned referral slips?) </label>
                                                     </div>
@@ -1020,7 +991,7 @@ print(blu.sing("'Happy'"))
                                         </div>
                                         <div class="row">
                                             <div class="col-md-12">
-                                                <div class="form-group">
+                                                <div class="form-group" id="cp31q_Qn">
                                                     <div class="col-md-12">
                                                     <label class="control-label formlabel">6.2 Can you describe the services you are receiving for the illness or disability? </label>
                                                     </div>
@@ -1031,7 +1002,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <hr/>
                                             <div class="col-md-12">
-                                                <div class="form-group note note-info">
+                                                <div class="form-group note note-info" id="cp6b_Qn">
                                                     <div class="col-md-9">
                                                         <label class="control-label formlabel">Has the household achieved this benchmarks?</label>
                                                     </div>
@@ -1060,7 +1031,7 @@ print(blu.sing("'Happy'"))
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group" id="cp32q_Qn">
                                                 <div class="col-md-9">
                                                     <label class="control-label formlabel">7.1	Have all the children in the household eaten at least two cooked meals per day for at least the past six months? </label>
                                                 </div>
@@ -1071,8 +1042,8 @@ print(blu.sing("'Happy'"))
                                         </div>
                                         <hr>
                                         <div class="col-md-12">
-                                            <div class="form-group">
-                                                <div class="col-md-10 text-left">
+                                            <div class="form-group" id="cp33q_Qn">
+                                                <div class="col-md-9 text-left">
                                                     <label class="control-label formlabel">7.2 Are you able to provide your child with a balance diet (a range of nutritious foods) on a  regular basis? If yes, please describe [Carbohydrates such as: Ugali, Rice, Bread, potatoes, cassava, etc. []; Proteins such as: Beef, Fish, Chicken, Lentils, Beans, Nuts, etc. []; Vegetables such as: Sukuma wiki, cabbage, spinach, etc. []; Fruits such as: Orange, pineapple, mangoes, etc [] </label>
                                                 </div>
                                                 <div class="col-md-3 text-left">
@@ -1081,7 +1052,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group" id="cp34q_Qn">
                                                 <div class="col-md-10 text-left">
                                                     <label class="control-label formlabel text-right">If <b><u>Yes</u></b>, Please Describe</label>
                                                 </div>
@@ -1103,7 +1074,24 @@ print(blu.sing("'Happy'"))
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group note note-default" id="child_abv_10y_Qn">
+                                                <div class="col-md-9">
+                                                    <label class="control-label formlabel">Is there a child(ren) ten years and above in the household? </label>
+                                                </div>
+                                                <div class="col-md-3 text-left">
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="child_abv_10y" value="AYES">
+                                                        Yes
+                                                    </label>
+                                                    <label class="radio-inline">
+                                                        <input type="radio" name="child_abv_10y" value="ANNO">
+                                                        No
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="form-group" id="cp35q_Qn">
                                                 <div class="col-md-9">
                                                     <label class="control-label formlabel">7.3 Have you had at least two cooked meals per day in the past two months? </label>
                                                 </div>
@@ -1114,7 +1102,7 @@ print(blu.sing("'Happy'"))
                                         </div>
                                         <hr>
                                         <div class="col-md-12">
-                                            <div class="form-group note note-info">
+                                            <div class="form-group note note-info" id="cp7b_Qn">
                                                 <div class="col-md-9">
                                                     <label class="control-label formlabel">Has the household achieved this benchmark? </label>
                                                 </div>
@@ -1135,7 +1123,7 @@ print(blu.sing("'Happy'"))
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group" id="cp36q_Qn">
                                                 <div class="col-md-9">
                                                     <label class="control-label formlabel">8.1 Does the household have a  regular source of income that meets their basic needs (this can include informal and formal income)? Probe if the family feels confident of the  improved ability to meet basic over the past year. </label>
                                                 </div>
@@ -1146,7 +1134,7 @@ print(blu.sing("'Happy'"))
                                         </div>
                                         <hr>
                                         <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group" id="cp37q_Qn">
                                                 <div class="col-md-9">
                                                     <label class="control-label formlabel">8.2 Does the caregiver demonstrate  confidence and capacity to retain children in school (by paying school fees, school uniforms, books, medical bills, etc.), where applicable:</label>
                                                 </div>
@@ -1157,7 +1145,7 @@ print(blu.sing("'Happy'"))
                                         </div>
                                         <hr>
                                         <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group" id="cp38q_Qn">
                                                 <div class="col-md-9">
                                                     <label class="control-label formlabel">8.3 Is the house safe and has a place for the child(ren) to sleep? (dry, ventilated, lockable); (based on local standards)</label>
                                                 </div>
@@ -1168,7 +1156,7 @@ print(blu.sing("'Happy'"))
                                         </div>
                                         <hr>
                                         <div class="col-md-12">
-                                            <div class="form-group note note-info">
+                                            <div class="form-group note note-info" id="cp8b_Qn">
                                                 <div class="col-md-9">
                                                     <label class="control-label formlabel">Has the household achieved this benchmark? </label>
                                                 </div>
@@ -1190,7 +1178,7 @@ print(blu.sing("'Happy'"))
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group" id="cp39q_Qn">
                                                 <div class="col-md-9">
                                                     <label class="control-label formlabel">9.1 Was the household able to meet basic expenses such as medical treatment, house repair, etc.
                                                     in the last six months?</label>
@@ -1202,7 +1190,7 @@ print(blu.sing("'Happy'"))
                                         </div>
                                         <hr>
                                         <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group" id="cp40q_Qn">
                                                 <div class="col-md-9">
                                                     <label class="control-label formlabel">9.2 In reviewing the case file and or other documentation, is there evidence that the caregiver is actively participating in an economic activity such as SILC, VSLA, and have productive assets and can demonstrate savings.</label>
                                                 </div>
@@ -1213,7 +1201,7 @@ print(blu.sing("'Happy'"))
                                         </div>
                                         <hr>
                                         <div class="col-md-12">
-                                            <div class="form-group note note-info">
+                                            <div class="form-group note note-info" id="cp9b_Qn">
                                                 <div class="col-md-9">
                                                     <label class="control-label formlabel">Has the household achieved this benchmark? </label>
                                                 </div>
@@ -1236,7 +1224,7 @@ print(blu.sing("'Happy'"))
                                     
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group" id="cp41q_Qn">
                                                 <div class="col-md-9">
                                                     <label class="control-label formlabel">10.1 Do you know the types of critical services that exist in your community? e.g., treatments, psychosocial support, legal assistance, financial services or other protection services?</label>
                                                 </div>
@@ -1247,7 +1235,7 @@ print(blu.sing("'Happy'"))
                                         </div>
                                         <hr>
                                         <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group" id="cp42q_Qn">
                                                 <div class="col-md-9">
                                                     <label class="control-label formlabel">10.2 Have you or someone in your family ever accessed any critical service that exists in
                                                     your community when you or someone in your family needed help in the last six months? </label>
@@ -1269,7 +1257,7 @@ print(blu.sing("'Happy'"))
 
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div class="form-group">
+                                            <div class="form-group" id="cp43q_Qn">
                                                 <div class="col-md-9">
                                                     <label class="control-label formlabel">10.3 Have you or someone in your family been supported to access services if you or someone
                                                     in your family was sick, hurt or needed help?</label>
@@ -1280,7 +1268,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                         </div>
                                         <div class="col-md-12">
-                                            <div class="form-group note note-info">
+                                            <div class="form-group note note-info" id="cp10b_Qn">
                                                 <div class="col-md-9">
                                                     <label class="control-label formlabel">Has the household achieved this benchmark? </label>
                                                 </div>
@@ -1308,17 +1296,17 @@ print(blu.sing("'Happy'"))
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group note note-default" id="child_hd_hse_Qn">
                                                         <div class="col-md-9">
-                                                            <label class="control-label formlabel">Is the houdehold child-headed? </label>
+                                                            <label class="control-label formlabel">Is the household child-headed? </label>
                                                         </div>
                                                         <div class="col-md-3 text-left">
                                                             <label class="radio-inline">
-                                                                <input type="radio" value="">
+                                                                <input type="radio" name="child_hd_hse" value="AYES">
                                                                 Yes
                                                             </label>
                                                             <label class="radio-inline">
-                                                                <input type="radio" value="">
+                                                                <input type="radio" value="ANNO" name="child_hd_hse">
                                                                 No
                                                             </label>
                                                         </div>
@@ -1326,7 +1314,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp44q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">11.1 If the household is child-headed, is there documentation in the case file that the household was referred for child protection services?</label>
                                                         </div>
@@ -1337,7 +1325,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp45q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">11.2 If the household  is child-headed, is there documentation in the case file that the household received child protection services? </label>
                                                         </div>
@@ -1349,7 +1337,7 @@ print(blu.sing("'Happy'"))
                                                 <hr>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
-                                                        <div class="col-md-9">
+                                                        <div class="col-md-9" id="cp46q_Qn">
                                                             <label class="control-label formlabel">11.3 If the household is child-headed, is there documentation in the case file that the household is linked to government sponsored social protection services e.g. CT-OVC, or from another non-governmental program?</label>
                                                         </div>
                                                         <div class="col-md-3 text-left">
@@ -1358,7 +1346,7 @@ print(blu.sing("'Happy'"))
                                                     </div>
                                                 </div>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp47q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">11.4 Is the household linked to an adult caregiver nearby who can give support when required? </label>
                                                         </div>
@@ -1379,7 +1367,7 @@ print(blu.sing("'Happy'"))
                                             </div>
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp48q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">11.5 Can you name at least one adult to whom you could go to for help or support? </label>
                                                         </div>
@@ -1389,7 +1377,7 @@ print(blu.sing("'Happy'"))
                                                     </div>
                                                     <hr>
                                                     <div class="col-md-12">
-                                                        <div class="form-group note note-info">
+                                                        <div class="form-group note note-info" id="cp11b_Qn">
                                                             <div class="col-md-9">
                                                                 <label class="control-label formlabel">Has the household achieved this benchmark? </label>
                                                             </div>
@@ -1412,9 +1400,10 @@ print(blu.sing("'Happy'"))
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
-                                                    <label class="control-label formlabel">12.1 Are all children in the household able to participate in daily activities such as eating,
-                                                        playing or talking with other family members or friends? </label>
+                                                    <div class="form-group" id="cp49q_Qn">
+                                                        <div class="col-md-9">
+                                                            <label class="control-label formlabel">12.1 Are all children in the household able to participate in daily activities such as eating, playing or talking with other family members or friends? </label>
+                                                        </div>
                                                         <div class="col-md-3 text-left">
                                                             {{form.cp49q}}
                                                         </div>
@@ -1422,7 +1411,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp50q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">12.2 If there is a child with signs of depression or mental health issues such as being withdrawn, not eating, or not playing, have they been referred for services?</label>
                                                         </div>
@@ -1433,7 +1422,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp51q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">12.3 If the child has been referred for services, did they receive the service? </label>
                                                         </div>
@@ -1455,17 +1444,17 @@ print(blu.sing("'Happy'"))
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="o5y_cd_hse_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">Is there a child(ren) five years and over in the household? </label>
                                                         </div>
                                                         <div class="col-md-3 text-left">
                                                             <label class="radio-inline">
-                                                                <input type="radio" value="">
+                                                                <input type="radio" value="AYES" name="o5y_cd_hse">
                                                                 Yes
                                                             </label>
                                                             <label class="radio-inline">
-                                                                <input type="radio" value="">
+                                                                <input type="radio" value="ANNO" name="o5y_cd_hse">
                                                                 No
                                                             </label>
                                                         </div>
@@ -1474,6 +1463,7 @@ print(blu.sing("'Happy'"))
                                                 <hr>
                                                 <div class="col-md-12">
                                                     <div class="form-group">
+                                                        <input type="text" class="hidden" name="q12p4" value=""/>
                                                         {% if siblings or osiblings %}
                                                             <table class="table table-condensed table-responsive">
                                                                 <thead>
@@ -1489,37 +1479,39 @@ print(blu.sing("'Happy'"))
                                                                 <tbody>
                                                                     {% for sibling in siblings %}
                                                                     <tr>
-                                                                        <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
                                                                         <td>
-                                                                              <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
+                                                                            <a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a>
                                                                         </td>
-                                                                        <td>
-                                                                              <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
+                                                                        <td id={{ sibling.sibling_person.id }}_q12a_Qn>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio" name={{ sibling.sibling_person.id }}_q12a value="AYES">
+                                                                                Yes
+                                                                            </label>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio"  name={{ sibling.sibling_person.id }}_q12a value="ANNO">
+                                                                                    No
+                                                                            </label>
                                                                         </td>
-                                                                    <td>
-                                                                          <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            Yes
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" value="">
-                                                                            No
-                                                                    </label>
-                                                                    </td>
+                                                                        <td id={{ sibling.sibling_person.id }}_q12b_Qn>
+                                                                            <label class="radio-inline">
+                                                                            <input type="radio" name={{ sibling.sibling_person.id }}_q12b value="AYES">
+                                                                                Yes
+                                                                            </label>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio"  name={{ sibling.sibling_person.id }}_q12b value="ANNO">
+                                                                                No
+                                                                            </label>
+                                                                        </td>
+                                                                        <td id={{ sibling.sibling_person.id }}_q12c_Qn>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio" name={{ sibling.sibling_person.id }}_q12c value="AYES">
+                                                                                    Yes
+                                                                            </label>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio"  name={{ sibling.sibling_person.id }}_q12c value="ANNO">
+                                                                                    No
+                                                                            </label>
+                                                                        </td>
                                     
                                     
                                                                     </tr>
@@ -1541,13 +1533,13 @@ print(blu.sing("'Happy'"))
                                                                     <td class="semi-bold">
                                                                         Tick <u>Yes</u> if <u>YES</u> for all children
                                                                     </td>
-                                                                    <td>
+                                                                    <td id="cp52q_Qn">
                                                                         {{ form.cp52q }}
                                                                     </td>
-                                                                    <td>
+                                                                    <td id="cp53q_Qn">
                                                                         {{ form.cp53q }}
                                                                     </td>
-                                                                    <td>
+                                                                    <td id="cp54q_Qn">
                                                                       {{ form.cp54q }}
                                                                     </td>
                                                                 </tr>
@@ -1561,7 +1553,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group note note-info">
+                                                    <div class="form-group note note-info" id="cp12b_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">Has the household achieved this benchmark? </label>
                                                         </div>
@@ -1583,17 +1575,17 @@ print(blu.sing("'Happy'"))
                                             <div class="row">
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group note note-default" id="cld_rsk_abus_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">Are there children in the household are at risk of or experienced abuse, violence, exploitation, or neglect? </label>
                                                         </div>
                                                         <div class="col-md-3 text-left">
                                                             <label class="radio-inline">
-                                                                <input type="radio" value="">
+                                                                <input type="radio" value="AYES" name="cld_rsk_abus">
                                                                 Yes
                                                             </label>
                                                             <label class="radio-inline">
-                                                                <input type="radio" value="">
+                                                                <input type="radio" value="ANNO" name="cld_rsk_abus">
                                                                 No
                                                             </label>
                                                         </div>
@@ -1601,7 +1593,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp55q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">13.1 If a child has been exposed to violence, abuse (sexual, physical or emotional), neglect, or exploitation, is there any evidence that the case has been referred for child protection services (DCS)?</label>
                                                         </div>
@@ -1612,7 +1604,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp56q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">13.2 If YES to the question above, is there documentation that they received child protection services (for example, counseling, psychosocial, legal or health services)?</label>
                                                         </div>
@@ -1653,33 +1645,33 @@ print(blu.sing("'Happy'"))
                                                                     {% for sibling in siblings %}
                                                                     <tr>
                                                                         <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
-                                                                        <td>
+                                                                        <td id={{ sibling.sibling_person.id }}_q13p3_Qn>
                                                                              <label class="radio-inline">
-                                                                        <input type="radio" value="">
+                                                                        <input type="radio" name={{ sibling.sibling_person.id }}_q13p3 value="AYES">
                                                                             Yes
                                                                     </label>
                                                                     <label class="radio-inline">
-                                                                        <input type="radio" value="">
+                                                                        <input type="radio" name={{ sibling.sibling_person.id }}_q13p3 value="ANNO">
                                                                             No
                                                                     </label>
                                                                         </td>
-                                                                        <td>
+                                                                        <td id={{ sibling.sibling_person.id }}_q13p4_Qn>
                                                                               <label class="radio-inline">
-                                                                        <input type="radio" value="">
+                                                                        <input type="radio" name={{ sibling.sibling_person.id }}_q13p4 value="AYES">
                                                                             Yes
                                                                     </label>
                                                                     <label class="radio-inline">
-                                                                        <input type="radio" value="">
+                                                                        <input type="radio" name={{ sibling.sibling_person.id }}_q13p4 value="ANNO">
                                                                             No
                                                                     </label>
                                                                         </td>
-                                                                    <td>
-                                                                          <label class="radio-inline">
-                                                                        <input type="radio" value="">
+                                                                    <td id={{ sibling.sibling_person.id }}_q13p5_Qn>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name={{ sibling.sibling_person.id }}_q13p5 value="AYES">
                                                                             Yes
                                                                     </label>
                                                                     <label class="radio-inline">
-                                                                        <input type="radio" value="">
+                                                                        <input type="radio" name={{ sibling.sibling_person.id }}_q13p5 value="ANNO">
                                                                             No
                                                                     </label>
                                                                     </td>
@@ -1704,13 +1696,13 @@ print(blu.sing("'Happy'"))
                                                                     <td class="semi-bold">
                                                                         Tick <u>Yes</u> if <u>YES</u> for all children
                                                                     </td>
-                                                                    <td>
+                                                                    <td id="cp57q_Qn">
                                                                         {{ form.cp57q }}
                                                                     </td>
-                                                                    <td>
+                                                                    <td id="cp58q_Qn">
                                                                         {{ form.cp58q }}
                                                                     </td>
-                                                                    <td>
+                                                                    <td id="cp59q_Qn">
                                                                         {{ form.cp59q }}
                                                                     </td>
                                                                 </tr>
@@ -1725,7 +1717,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group note note-info">
+                                                    <div class="form-group note note-info" id="cp13b_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">Has the household achieved this benchmark? </label>
                                                         </div>
@@ -1745,7 +1737,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp60q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">14. 1 Is there someone or a group of people that you speak with when you are stressed or sad or want to share good news? </label>
                                                         </div>
@@ -1766,10 +1758,9 @@ print(blu.sing("'Happy'"))
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp61q_Qn">
                                                         <div class="col-md-9">
-                                                            <label class="control-label formlabel">14.2 Is there at least one person or place besides your family you can go to
-                                                                when you need help?</label>
+                                                            <label class="control-label formlabel">14.2 Is there at least one person or place besides your family you can go to when you need help?</label>
                                                         </div>
                                                         <div class="col-md-3 text-left">
                                                             {{form.cp61q}}
@@ -1778,7 +1769,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group note note-info">
+                                                    <div class="form-group note note-info" id="cp14b_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">Has the household achieved this benchmark? </label>
                                                         </div>
@@ -1800,7 +1791,7 @@ print(blu.sing("'Happy'"))
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp62q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">15.1 Has the caregiver attended or been engaged in any positive parenting sessions? :</label>
                                                         </div>
@@ -1811,7 +1802,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp63q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">15.2 Could you please describe various ways of disciplining children? Probe; which ones do you use frequently? </label>
                                                         </div>
@@ -1822,7 +1813,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp64q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">15.3 Do you feel that you can positively communicate with your child or adolescent and could you please give me an example?</label>
                                                         </div>
@@ -1833,7 +1824,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp65q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">15.4 Does the caregiver demonstrate positive parenting techniques? (e.g. positive communication, positive discipline affectionate  behavior and engaging in age and stage appropriate activities with their children).</label>
                                                         </div>
@@ -1844,7 +1835,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group note note-info">
+                                                    <div class="form-group note note-info" id="cp15b_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">Has the household achieved this benchmark? </label>
                                                         </div>
@@ -1872,7 +1863,7 @@ print(blu.sing("'Happy'"))
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp66q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">16.1 Are all children between ages 6 and 17 enrolled in school? </label>
                                                         </div>
@@ -1883,7 +1874,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp67q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">16.2 Are the enrolled children attending school regularly? (i.e. have not missed school for more than 3 weeks in total in a term). Probe the trend of  absence). Verify with the school attendance tracking tool. </label>
                                                         </div>
@@ -1895,7 +1886,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp68q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">16.3 Are all children between ages 6-17 years progressing from one level to the other in
                                                                 school? Note: if possible, please ask to see report card. </label>
@@ -1907,7 +1898,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp69q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">16.4	Is your child attending ECDE?</label>
                                                         </div>
@@ -1929,7 +1920,7 @@ print(blu.sing("'Happy'"))
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp70q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">16.5 Could you tell me what you like about school? What is one example of something that
                                                                 you learned this week? </label>
@@ -1941,7 +1932,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group note note-info">
+                                                    <div class="form-group note note-info" id="cp16b_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">Has the household achieved this benchmark? </label>
                                                         </div>
@@ -1963,17 +1954,17 @@ print(blu.sing("'Happy'"))
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group note note-default" id="adole_in_vc_train_Qn">
                                                         <div class="col-md-9">
-                                                            <label class="control-label formlabel">Are there no adolescents in the household enrolled in vocational training? </label>
+                                                            <label class="control-label formlabel">Are there any adolescents in the household enrolled in vocational training? </label>
                                                         </div>
                                                         <div class="col-md-3 text-left">
                                                             <label class="radio-inline">
-                                                                <input type="radio" value="">
+                                                                <input type="radio" name="adole_in_vc_train" value="AYES">
                                                                 Yes
                                                             </label>
                                                             <label class="radio-inline">
-                                                                <input type="radio" value="">
+                                                                <input type="radio" name="adole_in_vc_train" value="ANNO">
                                                                 No
                                                             </label>
                                                         </div>
@@ -1992,7 +1983,7 @@ print(blu.sing("'Happy'"))
 
                                             <div class="row">
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp71q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">17.1 Is your adolescent regularly attending or completed vocational training? </label>
                                                         </div>
@@ -2003,7 +1994,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp72q_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">17.2 Does the household have capacity to support the adolescent to complete their vocational training? </label>
                                                         </div>
@@ -2040,12 +2031,15 @@ print(blu.sing("'Happy'"))
                                                                     {% for sibling in siblings %}
                                                                     <tr>
                                                                         <td><a href="{% url 'view_person' id=sibling.sibling_person.id %}">{{ sibling.sibling_person.full_name }}</a></td>
-                                                                        <td>
-                                        
-                                                                        <div class="col-md-12">
-                                                                            <input type="text" class="form-control" placeholder=" ">
-                                                                        </div>
-                                        
+                                                                        <td id={{ sibling.sibling_person.id }}_q17p3_Qn>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio" name={{ sibling.sibling_person.id }}_q17p3 value="AYES">
+                                                                                    Yes
+                                                                            </label>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio" name={{ sibling.sibling_person.id }}_q17p3 value="ANNO">
+                                                                                    No
+                                                                            </label>
                                                                         </td>
                                         
                                                                     </tr>
@@ -2067,7 +2061,7 @@ print(blu.sing("'Happy'"))
                                                                     <td class="semi-bold">
                                                                         Tick <u>Yes</u> if <u>YES</u> for all children
                                                                     </td>
-                                                                    <td>
+                                                                    <td id="cp73q_Qn">
                                                                         <div class="col-md-3 text-left">
                                                                             {{ form.cp73q }}
                                                                         </div>
@@ -2086,7 +2080,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group note note-info">
+                                                    <div class="form-group note note-info" id="cp17b_Qn">
                                                         <div class="col-md-9">
                                                             <label class="control-label formlabel">Has the household achieved this benchmark? </label>
                                                         </div>
@@ -2097,7 +2091,7 @@ print(blu.sing("'Happy'"))
                                                 </div>
                                                 <hr>
                                                 <div class="col-md-12">
-                                                    <div class="form-group">
+                                                    <div class="form-group" id="cp74q_Qn">
                                                         <div class="col-md-6">
                                                             <label class="control-label formlabel">Overall number of points from all DOMAINS:</label>
                                                         </div>
@@ -2164,9 +2158,13 @@ print(blu.sing("'Happy'"))
 <script src="{% static 'js/tag-it.js' %}"></script>
 <script src="{% static 'js/bootstrap-table.min.js' %}"></script>
 <script src="{% static 'js/bootstrap-table-locale-all.min.js' %}"></script>
+
+<script src="{% static 'js/cpara-skipto.js' %}"></script>
+<script src="{% static 'js/cpara-validate-benchmark.js' %}"></script>
 <script>
 jQuery(document).ready(function()
 {
+	
 	//multi selects
     $('#hhva_ha6, #hhva_ha21, #hhva_ha22, #hhva_ha28, #hhva_ha29, #hhva_ha30, #hhva_ha31').multiselect({
         selectAllValue: 'multiselect-all',
@@ -2185,8 +2183,10 @@ jQuery(document).ready(function()
     $('.bwizard-steps li, li.next').on("click", function(){
         $(window).scrollTop(0)
     });
+	
+	
 });
 
 
 </script>
-{% endblock %} 
+{% endblock %}

@@ -8555,6 +8555,29 @@ def new_cpara(request, id):
         sibling_person=id, is_void=False, date_delinked=None)
     oguardians = RegPersonsGuardians.objects.select_related().filter(
         guardian_person=id, is_void=False, date_delinked=None)
+    child = RegPerson.objects.get(id=id)
+    ovc_id = int(id)
+    creg = OVCRegistration.objects.get(is_void=False, person_id=ovc_id)
+    care_giver=RegPerson.objects.get(id=OVCRegistration.objects.get(person=child).caretaker_id)
+    house_hold = OVCHouseHold.objects.get(id=OVCHHMembers.objects.get(person=child).house_hold_id)
+    
+    ward_id = RegPersonsGeo.objects.filter(person=child).order_by('-date_linked').first().area_id
+
+    ward = SetupGeography.objects.get(area_id=ward_id)
+    subcounty = SetupGeography.objects.get(area_id=ward.parent_area_id)
+    county = SetupGeography.objects.get(area_id=subcounty.parent_area_id)
+    print ('xxxxxxx', ward_id)
+    if ward.area_type_id == 'GLTL':
+        # ward = SetupGeography.objects.get(area_id =ward.parent_area_id)
+        subcounty = SetupGeography.objects.get(area_id=ward.parent_area_id)
+        county = SetupGeography.objects.get(area_id=subcounty.parent_area_id)
+    elif ward.area_type_id == 'GDIS':
+        subcounty = ward
+        ward = ''
+        county = SetupGeography.objects.get(area_id=subcounty.parent_area_id)
+
+
+    # orgunit = RegPersonsOrgUnits.objects.get(person=child)
     form = CparaAssessment()
     return render(request,
                   'forms/new_cpara.html',
@@ -8563,7 +8586,16 @@ def new_cpara(request, id):
                       'person': id,
                       'siblings': siblings,
                       'osiblings': osiblings,
-                      'oguardians': oguardians
+                      'oguardians': oguardians,
+                      'child' : child,
+                      'creg' : creg,
+                      'caregiver': care_giver,
+                      'household' : house_hold,
+                      'ward': ward,
+                      'subcounty': subcounty,
+                      'county': county
+                    #   'orgunit' : orgunit,
+
                   })
 
 
@@ -8597,9 +8629,7 @@ def convert_tuple_choices_to_dict(tuple_list):
 #                   'forms/case_plan_template.html',
 #                   {'form': form, 'init_data': init_data,
 #                    'vals': vals})
-
 from .models import OVCCareCasePlan
-import random
 @login_required
 @cache_control(no_cache=True, must_revalidate=True, no_store=True)
 def case_plan_template(request, id):
@@ -8631,8 +8661,6 @@ def case_plan_template(request, id):
 
         my_request=request.POST.get('final_submission')
 
-        print ('my request', my_request)
-
         if my_request:
             caseplandata= json.loads(my_request)
             for all_data in caseplandata:
@@ -8645,12 +8673,8 @@ def case_plan_template(request, id):
                 my_results=all_data['results']
                 my_reason=all_data['reasons']
                 my_date=all_data['date']
-
-
-                print ('my domain', my_domain)
+                
                 x=OVCCareForms.objects.get(name='OVCCareCasePlan')
-                print ('ocvvvvv', x)
-                print ('vvv', my_date)
 
                 OVCCareCasePlan(
                         domain=my_domain,
@@ -8668,9 +8692,6 @@ def case_plan_template(request, id):
                         case_plan_status='D',
                         event= OVCCareEvents.objects.get(event=new_events_pk)
                         ).save()
-
-    household_id = None
-   
     # get child data
     init_data = RegPerson.objects.filter(pk=id)
     check_fields = ['sex_id', 'relationship_type_id']
@@ -8681,14 +8702,6 @@ def case_plan_template(request, id):
                   'forms/case_plan_template.html',
                   {'form': form, 'init_data': init_data,
                    'vals': vals})
-
-
-
-
-
-
-
-
 
 
 @login_required
